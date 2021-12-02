@@ -62,16 +62,18 @@ export function StaticPoolDataProvider({
     [address: string]: { amount: string; amountUSD: string };
   }>({});
 
-  const { loading, data, error, refresh } = usePoolData();
-
-  const marketRefPriceInUsd =
-    data?.reserves?.baseCurrencyData?.marketReferenceCurrencyPriceInUsd ?? '0';
-
-  const marketRefCurrencyDecimals =
-    data?.reserves?.baseCurrencyData?.marketReferenceCurrencyDecimals ?? 18;
+  const {
+    loading,
+    reserves: rawReserves,
+    userReserves: rawUserReserves,
+    baseCurrencyData,
+    userEmodeCategoryId = 0,
+    error,
+    refresh,
+  } = usePoolData();
 
   async function fetchWalletData() {
-    if (!currentAccount || !data?.reserves) return;
+    if (!currentAccount || !rawReserves) return;
     const contract = new WalletBalanceProvider({
       walletBalanceProviderAddress: networkConfig.addresses.walletBalanceProvider,
       provider: getProvider(chainId),
@@ -82,7 +84,7 @@ export function StaticPoolDataProvider({
     );
 
     const aggregatedBalance = reserves.reduce((acc, reserve, i) => {
-      const poolReserve = data.reserves?.reservesData.find((poolReserve) => {
+      const poolReserve = rawReserves.find((poolReserve) => {
         // TODO: not 100% sure this is correct
         if (reserve.toLowerCase() === API_ETH_MOCK_ADDRESS.toLowerCase()) {
           return (
@@ -99,8 +101,8 @@ export function StaticPoolDataProvider({
             amount: new BigNumber(balances[i].toString()),
             currencyDecimals: poolReserve.decimals,
             priceInMarketReferenceCurrency: poolReserve.priceInMarketReferenceCurrency,
-            marketRefCurrencyDecimals,
-            marketRefPriceInUsd,
+            marketRefCurrencyDecimals: baseCurrencyData.marketReferenceCurrencyDecimals,
+            marketRefPriceInUsd: baseCurrencyData.marketReferenceCurrencyPriceInUsd,
           }),
         };
       }
@@ -115,15 +117,15 @@ export function StaticPoolDataProvider({
     loading,
   ]);
 
-  if (loading && !data) {
+  if (loading && !rawReserves.length) {
     return loader;
   }
 
-  if (!data || error) {
+  if (!rawReserves.length || error) {
     return errorPage;
   }
 
-  const reserves: ReserveDataHumanized[] | undefined = data.reserves?.reservesData
+  const reserves: ReserveDataHumanized[] | undefined = rawReserves
     .map((reserve) => ({
       ...reserve,
     }))
@@ -147,7 +149,7 @@ export function StaticPoolDataProvider({
 
   const userReserves: UserReserveDataExtended[] = [];
   const userReservesWithFixedUnderlying: UserReserveDataExtended[] = [];
-  data.userReserves?.forEach((userReserve) => {
+  rawUserReserves.forEach((userReserve) => {
     const reserve = reserves?.find(
       (reserve) =>
         reserve.underlyingAsset.toLowerCase() === userReserve.underlyingAsset.toLowerCase()
@@ -179,8 +181,6 @@ export function StaticPoolDataProvider({
     (userReserve) => userReserve.scaledATokenBalance !== '0'
   );
 
-  let userEmodeCategoryId = userReserves?.[0]?.userEmodeCategoryId ?? 0;
-  //  userEmodeCategoryId = 1;
   return (
     <StaticPoolDataContext.Provider
       value={{
@@ -195,8 +195,8 @@ export function StaticPoolDataProvider({
         rawUserReserves: userReservesWithFixedUnderlying,
         rawReservesWithBase: reserves ? reserves : [],
         rawUserReservesWithBase: userReserves,
-        marketRefPriceInUsd: marketRefPriceInUsd,
-        marketRefCurrencyDecimals,
+        marketRefPriceInUsd: baseCurrencyData.marketReferenceCurrencyPriceInUsd,
+        marketRefCurrencyDecimals: baseCurrencyData.marketReferenceCurrencyDecimals,
         isUserHasDeposits,
         walletData,
         refetchWalletData: fetchWalletData,
