@@ -64,6 +64,24 @@ const ADD_CONFIG: {
       decimals: 18,
     },
   },
+  [ChainId.aurora_mainnet]: {
+    name: 'Aurora',
+    explorerUrls: ['https://explorer.mainnet.aurora.dev'],
+    nativeCurrency: {
+      name: 'Ethereum',
+      symbol: 'ETH',
+      decimals: 18,
+    },
+  },
+  [ChainId.aurora_testnet]: {
+    name: 'Aurora Testnet',
+    explorerUrls: ['https://explorer.testnet.aurora.dev'],
+    nativeCurrency: {
+      name: 'Ethereum',
+      symbol: 'ETH',
+      decimals: 18,
+    },
+  },
 };
 
 export default function NetworkMismatch({
