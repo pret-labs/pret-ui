@@ -2,7 +2,8 @@ import { API_ETH_MOCK_ADDRESS } from '@aave/protocol-js';
 import { BaseNetworkConfig } from '../helpers/config/types';
 import polygonBridgeLogo from './branding/images/polygonLogo.svg';
 import avalancheBridgeLogo from './branding/images/avalancheLogo.svg';
-import { ChainId } from '@aave/contract-helpers';
+import rainbowBridgeLogo from './branding/images/rainbowBridgeLogo.svg';
+import { ChainId } from '@pret/contract-helpers';
 
 export const networkConfigs: Record<string, BaseNetworkConfig> = {
   [ChainId.kovan]: {
@@ -157,6 +158,65 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       name: 'Avalanche Bridge',
       url: 'https://bridge.avax.network/',
       logo: avalancheBridgeLogo,
+    },
+  },
+  [ChainId.aurora_testnet]: {
+    name: 'Aurora Testnet',
+    publicJsonRPCUrl: ['https://testnet.aurora.dev'],
+    publicJsonRPCWSUrl: 'wss://testnet.aurora.dev',
+    addresses: {
+      walletBalanceProvider: '0x3f5A507B33260a3869878B31FB90F04F451d28e3',
+      uiPoolDataProvider: '0xDb49B99073C2AE890708227Dc83B1781bF01512D',
+      uiIncentiveDataProvider: '0x2c911e6FaD423C00205eda22BBAc3e7F82c38007',
+    },
+    protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/aave/protocol-v2-aurora-testnet',
+    baseUniswapAdapter: '0x0',
+    baseAsset: 'ETH',
+    baseAssetWrappedAddress: '0xc06fafa6d5fEAbD686b4aB0f3De759ac3b277cEb',
+    // incentives hardcoded information
+    rewardTokenSymbol: 'AURORA',
+    rewardTokenAddress: API_ETH_MOCK_ADDRESS,
+    rewardTokenDecimals: 18,
+    incentivePrecision: 18,
+    explorerLink: 'https://explorer.testnet.aurora.dev/',
+    rpcOnly: true,
+    usdMarket: true,
+    isTestnet: true,
+    bridge: {
+      brandColor: '0, 0, 0',
+      name: 'Rainbow Bridge',
+      url: 'https://rainbowbridge.app/',
+      logo: rainbowBridgeLogo,
+    },
+  },
+  [ChainId.aurora_mainnet]: {
+    name: 'Aurora Mainnet',
+    publicJsonRPCUrl: ['https://mainnet.aurora.dev'],
+    publicJsonRPCWSUrl: 'wss://mainnet.aurora.dev',
+    addresses: {
+      walletBalanceProvider: '0x73e4898a1Bfa9f710B6A6AB516403A6299e01fc6',
+      uiPoolDataProvider: '0xf51F46EfE8eFA7BB6AA8cDfb1d2eFb8eb27d12c5',
+      uiIncentiveDataProvider: '0x16Dea0fCBca21E848714B2e96f26ddF6BCe505C9',
+    },
+    protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/aave/protocol-v2-aurora',
+    cachingServerUrl: 'https://cache-api-avalanche.aave.com/graphql',
+    cachingWSServerUrl: 'wss://cache-api-avalanche.aave.com/graphql',
+    baseUniswapAdapter: '0x0',
+    baseAsset: 'ETH',
+    baseAssetWrappedAddress: '0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB',
+    // incentives hardcoded information
+    rewardTokenSymbol: 'AURORA',
+    rewardTokenAddress: API_ETH_MOCK_ADDRESS,
+    rewardTokenDecimals: 18,
+    incentivePrecision: 18,
+    explorerLink: 'https://explorer.mainnet.aurora.dev/',
+    rpcOnly: false,
+    usdMarket: true,
+    bridge: {
+      brandColor: '0, 0, 0',
+      name: 'Rainbow Bridge',
+      url: 'https://rainbowbridge.app/',
+      logo: rainbowBridgeLogo,
     },
   },
 } as const;

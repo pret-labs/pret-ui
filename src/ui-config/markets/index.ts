@@ -1,4 +1,4 @@
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '@pret/contract-helpers';
 import { MarketDataType } from '../../helpers/config/types';
 
 import * as logos from './images';
@@ -6,6 +6,8 @@ import * as logos from './images';
 export enum CustomMarket {
   proto_kovan = 'proto_kovan',
   proto_mainnet = 'proto_mainnet',
+  proto_aurora_testnet = 'proto_aurora_testnet',
+  proto_aurora_mainnet = 'proto_aurora_mainnet',
   proto_avalanche = 'proto_avalanche',
   proto_matic = 'proto_matic',
   proto_mumbai = 'proto_mumbai',
@@ -142,6 +144,40 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       LENDING_POOL: '0x4F01AeD16D97E3aB5ab2B501154DC9bb0F1A5A2C',
       WETH_GATEWAY: '0x8a47F74d1eE0e2edEB4F3A7e64EF3bD8e11D27C8',
       SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
+    },
+  },
+  [CustomMarket.proto_aurora_testnet]: {
+    chainId: ChainId.aurora_testnet,
+    logo: logos.aaveLogo,
+    activeLogo: logos.aaveActiveLogo,
+    subLogo: logos.aurora,
+    aTokenPrefix: 'AV',
+    enabledFeatures: {
+      liquiditySwap: false,
+      incentives: true,
+    },
+    addresses: {
+      LENDING_POOL_ADDRESS_PROVIDER: '0x75F987Edc7F9B9745e5C6397813476F9B40b45CB'.toLowerCase(),
+      LENDING_POOL: '0x10e08bF4b3a3408127b7C04349D80319972d34E2',
+      WETH_GATEWAY: '0x3e9dd45050475fB75494De2217056dB5a54d5299',
+      // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
+    },
+  },
+  [CustomMarket.proto_aurora_mainnet]: {
+    chainId: ChainId.aurora_mainnet,
+    logo: logos.aaveLogo,
+    activeLogo: logos.aaveActiveLogo,
+    subLogo: logos.aurora,
+    aTokenPrefix: 'AV',
+    enabledFeatures: {
+      liquiditySwap: false,
+      incentives: true,
+    },
+    addresses: {
+      LENDING_POOL_ADDRESS_PROVIDER: '0x75F987Edc7F9B9745e5C6397813476F9B40b45CB'.toLowerCase(),
+      LENDING_POOL: '0x10e08bF4b3a3408127b7C04349D80319972d34E2',
+      WETH_GATEWAY: '0x3e9dd45050475fB75494De2217056dB5a54d5299',
+      // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
     },
   },
 } as const;

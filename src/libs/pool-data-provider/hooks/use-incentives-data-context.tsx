@@ -2,7 +2,7 @@ import {
   Denominations,
   IncentivesController,
   IncentivesControllerInterface,
-} from '@aave/contract-helpers';
+} from '@pret/contract-helpers';
 import {
   calculateAllUserIncentives,
   calculateAllReserveIncentives,

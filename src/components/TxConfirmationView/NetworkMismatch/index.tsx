@@ -13,7 +13,7 @@ import { getNetworkConfig } from '../../../helpers/config/markets-and-network-co
 
 import messages from './messages';
 import staticStyles from './style';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '@pret/contract-helpers';
 
 interface NetworkMismatchProps {
   neededChainId: ChainId;

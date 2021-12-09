@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { valueToBigNumber } from '@aave/protocol-js';
 import { useThemeContext } from '@aave/aave-ui-kit';
-import { PERMISSION } from '@aave/contract-helpers';
+import { PERMISSION } from '@pret/contract-helpers';
 
 import {
   ComputedReserveData,
