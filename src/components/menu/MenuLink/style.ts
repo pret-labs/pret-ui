@@ -95,6 +95,16 @@ const staticStyles = css.global`
     &__hidden {
       display: none;
     }
+
+    &__paused {
+      &.Link__disabled {
+        opacity: 0.5 !important;
+      }
+    }
+
+    &__tooltip {
+      opacity: 1 !important;
+    }
   }
 `;
 

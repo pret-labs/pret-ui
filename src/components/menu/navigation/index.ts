@@ -18,6 +18,7 @@ export interface Navigation {
   absolute?: boolean;
   onClick?: () => void;
   isVisible?: (data: MarketDataType) => boolean | undefined;
+  isEnabled?: (data: MarketDataType) => boolean | undefined;
 }
 
 const navigation: Navigation[] = [
@@ -46,11 +47,13 @@ const navigation: Navigation[] = [
     link: '/staking',
     title: messages.stake,
     isVisible: () => !!stakeConfig,
+    isEnabled: isFeatureEnabled.staking,
   },
   {
     link: '/governance',
     title: messages.governance,
     isVisible: () => !!governanceConfig,
+    isEnabled: isFeatureEnabled.governance,
   },
 ];
 

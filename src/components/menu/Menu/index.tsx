@@ -73,6 +73,7 @@ export default function Menu({ title }: MenuProps) {
                   to={link.link}
                   title={intl.formatMessage(link.title)}
                   isActive={isActive(link.link)}
+                  paused={link.isEnabled && !link.isEnabled(currentMarketData)}
                 />
               </li>
             ))}
