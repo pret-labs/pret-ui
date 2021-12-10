@@ -45,8 +45,9 @@ export default function MenuLink({ to, title, isActive, hidden, paused }: MenuLi
         <i />
       </div>
 
-      { !!paused && (<ReactTooltip className="MenuLink__tooltip" effect="solid" id={title}>
-        <span>{'Coming soon'}</span>
+      {!!paused && (
+        <ReactTooltip className="MenuLink__tooltip" effect="solid" id={title}>
+          <span>{'Coming soon'}</span>
         </ReactTooltip>
       )}
 
