@@ -195,7 +195,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     publicJsonRPCWSUrl: 'wss://mainnet.aurora.dev',
     addresses: {
       walletBalanceProvider: '0xbD5C4C9cdFB3d88Ba865f31ea8bDEdD09B295623',
-      uiPoolDataProvider: '0x4deB412476F56184022F84e7F6017c15F97fE4eb',
+      uiPoolDataProvider: '0xEc9Bc8e1c9DcB10C8C7F64f341735969e0572356',
       uiIncentiveDataProvider: '0x43C84CdEcCd503c508dF149f29C3fd44196C0756',
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
