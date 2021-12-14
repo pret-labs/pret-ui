@@ -194,9 +194,9 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     publicJsonRPCUrl: ['https://mainnet.aurora.dev'],
     publicJsonRPCWSUrl: 'wss://mainnet.aurora.dev',
     addresses: {
-      walletBalanceProvider: '0x73e4898a1Bfa9f710B6A6AB516403A6299e01fc6',
-      uiPoolDataProvider: '0xf51F46EfE8eFA7BB6AA8cDfb1d2eFb8eb27d12c5',
-      uiIncentiveDataProvider: '0x16Dea0fCBca21E848714B2e96f26ddF6BCe505C9',
+      walletBalanceProvider: '0xbD5C4C9cdFB3d88Ba865f31ea8bDEdD09B295623',
+      uiPoolDataProvider: '0x4deB412476F56184022F84e7F6017c15F97fE4eb',
+      uiIncentiveDataProvider: '0x43C84CdEcCd503c508dF149f29C3fd44196C0756',
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
     cachingServerUrl: 'https://cache-api-aurora.pret.app/graphql',
@@ -210,7 +210,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     rewardTokenDecimals: 18,
     incentivePrecision: 18,
     explorerLink: 'https://explorer.mainnet.aurora.dev/',
-    rpcOnly: false,
+    rpcOnly: true,
     usdMarket: true,
     bridge: {
       brandColor: '0, 0, 0',
