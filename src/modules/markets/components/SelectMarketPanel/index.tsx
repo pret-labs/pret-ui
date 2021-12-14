@@ -39,9 +39,9 @@ export default function SelectMarketPanel({ isCollapse }: SelectMarketPanelProps
         })}
       </div>
 
-      <div className="SelectMarketPanel__switcher">
+      {/* <div className="SelectMarketPanel__switcher">
         <MarketSwitcher />
-      </div>
+      </div> */}
 
       <style jsx={true} global={true}>
         {staticStyles}
