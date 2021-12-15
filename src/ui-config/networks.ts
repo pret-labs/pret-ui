@@ -194,8 +194,8 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     publicJsonRPCUrl: ['https://mainnet.aurora.dev'],
     publicJsonRPCWSUrl: 'wss://mainnet.aurora.dev',
     addresses: {
-      walletBalanceProvider: '0xbD5C4C9cdFB3d88Ba865f31ea8bDEdD09B295623',
-      uiPoolDataProvider: '0xEc9Bc8e1c9DcB10C8C7F64f341735969e0572356',
+      walletBalanceProvider: '0xa6316dC57CfE4D876cF09E0E2189Af7825C4CE24',
+      uiPoolDataProvider: '0x845D5702975f4469f92b38720A7588E601E769F9',
       uiIncentiveDataProvider: '0x43C84CdEcCd503c508dF149f29C3fd44196C0756',
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
@@ -203,7 +203,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     cachingWSServerUrl: 'wss://cache-api-aurora.pret.app/graphql',
     baseUniswapAdapter: '0x0',
     baseAsset: 'ETH',
-    baseAssetWrappedAddress: '0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB',
+    baseAssetWrappedAddress: '0xC41AcA9718C2Fbb342FdacC1E3d15066E36871c4',
     // incentives hardcoded information
     rewardTokenSymbol: 'AURORA',
     rewardTokenAddress: API_ETH_MOCK_ADDRESS,
