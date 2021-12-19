@@ -191,6 +191,36 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
   },
   [ChainId.aurora_mainnet]: {
     name: 'Aurora Mainnet',
+    publicJsonRPCUrl: ['https://mainnet.aurora.dev'],
+    publicJsonRPCWSUrl: 'wss://mainnet.aurora.dev',
+    addresses: {
+      walletBalanceProvider: '0xd291e8ba09144Cede5aC87252F665A4fd79779B9',
+      uiPoolDataProvider: '0x16b836f4A08d9a326250BE490D52e03A55f3ce81',
+      uiIncentiveDataProvider: '0x16a7fee16685fd4dd861e50446cbeE75Ee0c4ECb',
+    },
+    protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
+    cachingServerUrl: 'https://cache-api-aurora.pret.app/graphql',
+    cachingWSServerUrl: 'wss://cache-api-aurora.pret.app/graphql',
+    baseUniswapAdapter: '0x0',
+    baseAsset: 'ETH',
+    baseAssetWrappedAddress: '0xB5AE3e2883934457cb593793f034b401867e1372',
+    // incentives hardcoded information
+    rewardTokenSymbol: 'AURORA',
+    rewardTokenAddress: API_ETH_MOCK_ADDRESS,
+    rewardTokenDecimals: 18,
+    incentivePrecision: 18,
+    explorerLink: 'https://explorer.mainnet.aurora.dev/',
+    rpcOnly: true,
+    usdMarket: true,
+    bridge: {
+      brandColor: '0, 0, 0',
+      name: 'Rainbow Bridge',
+      url: 'https://rainbowbridge.app/',
+      logo: rainbowBridgeLogo,
+    },
+  },
+  [ChainId.hardhat]: {
+    name: 'Hardhat Localnet',
     publicJsonRPCUrl: ['https://rpc-local.pret.app'],
     publicJsonRPCWSUrl: 'wss://rpc-local.pret.app',
     addresses: {
