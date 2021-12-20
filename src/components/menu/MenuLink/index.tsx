@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import ReactTooltip from 'react-tooltip';
-import { gradient, useThemeContext } from '@aave/aave-ui-kit';
+import { gradient, useThemeContext } from '@pret/pret-ui-kit';
 
 import goToTop from '../../../helpers/goToTop';
 import Link from '../../basic/Link';

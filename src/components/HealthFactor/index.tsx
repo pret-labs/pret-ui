@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { valueToBigNumber, BigNumber } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import ValuePercent from '../basic/ValuePercent';
 import HealthFactorHelpModal from '../HelpModal/HealthFactorHelpModal';

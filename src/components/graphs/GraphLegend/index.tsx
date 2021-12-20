@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 // import { useReservesRateHistoryHelper } from '../../../helpers/use-reserve-rates-history';
 import Row from '../../basic/Row';
 // import GraphFilterButtons from '../../graphs/GraphFilterButtons';

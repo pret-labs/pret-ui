@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import { Wallet } from '../../index';
 import { AvailableWeb3Connectors } from '../../../../libs/web3-data-provider';

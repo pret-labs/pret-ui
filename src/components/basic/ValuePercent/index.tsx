@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { BigNumberValue } from '@aave/protocol-js';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import staticStyles from './style';
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useWeb3React } from '@web3-react/core';
 import classNames from 'classnames';
-import { DropdownWrapper, rgba, textCenterEllipsis, useThemeContext } from '@aave/aave-ui-kit';
+import { DropdownWrapper, rgba, textCenterEllipsis, useThemeContext } from '@pret/pret-ui-kit';
 
 import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import { useMenuContext } from '../../../libs/menu';

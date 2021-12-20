@@ -2,7 +2,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { ProposalState } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import messages from './messages';
 import staticStyles from './style';

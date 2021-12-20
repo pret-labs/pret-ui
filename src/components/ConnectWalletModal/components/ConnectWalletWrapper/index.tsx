@@ -2,7 +2,7 @@ import React, { ReactNode, ReactNodeArray } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 
-import { BasicModal, useThemeContext } from '@aave/aave-ui-kit';
+import { BasicModal, useThemeContext } from '@pret/pret-ui-kit';
 
 import messages from './messages';
 import staticStyles from './style';

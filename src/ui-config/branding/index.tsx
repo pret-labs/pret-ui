@@ -1,6 +1,6 @@
 import React from 'react';
 import { IntlShape } from 'react-intl/src/types';
-import { SocialIcon, SocialType } from '@aave/aave-ui-kit';
+import { SocialIcon, SocialType } from '@pret/pret-ui-kit';
 
 import FormattedTxErrorTextUI from './FormattedTxErrorText';
 import TopDisclaimerUI from './TopDisclaimer';

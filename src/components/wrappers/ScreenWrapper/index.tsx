@@ -1,4 +1,4 @@
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import classNames from 'classnames';
 import React, { ReactNode, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';

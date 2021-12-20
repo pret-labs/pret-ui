@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { useSwipeable } from 'react-swipeable';
-import { useThemeContext, DropdownWrapper, SocialIcons } from '@aave/aave-ui-kit';
+import { useThemeContext, DropdownWrapper, SocialIcons } from '@pret/pret-ui-kit';
 
 import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 import { useMenuContext } from '../../../libs/menu';

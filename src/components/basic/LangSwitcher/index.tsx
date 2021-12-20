@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { rgba, useThemeContext, DropdownWrapper } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext, DropdownWrapper } from '@pret/pret-ui-kit';
 
 import { useLanguageContext } from '../../../libs/language-provider';
 import CustomScroll from '../CustomScroll';

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
-import { AnimationArrow, DropdownWrapper, useThemeContext } from '@aave/aave-ui-kit';
+import { AnimationArrow, DropdownWrapper, useThemeContext } from '@pret/pret-ui-kit';
 
 import messages from './messages';
 import staticStyles from './style';

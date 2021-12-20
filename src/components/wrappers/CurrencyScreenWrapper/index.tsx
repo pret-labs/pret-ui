@@ -1,7 +1,7 @@
 import React, { ReactNode, useState } from 'react';
 import { useIntl } from 'react-intl';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import toggleLocalStorageClick from '../../../helpers/toggle-local-storage-click';
 import ScreenWrapper from '../ScreenWrapper';
 import TopPanelWrapper from '../TopPanelWrapper';

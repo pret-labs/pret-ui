@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { EthereumTransactionTypeExtended } from '@aave/protocol-js';
 import { useWeb3React } from '@web3-react/core';
 import { providers } from 'ethers';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import {
   getDefaultChainId,

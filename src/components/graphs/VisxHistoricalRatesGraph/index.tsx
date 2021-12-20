@@ -13,7 +13,7 @@ import { AxisBottom, AxisLeft } from '@visx/axis';
 
 import { max, min, extent, bisector } from 'd3-array';
 import dayjs from 'dayjs';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import ValuePercent from '../../basic/ValuePercent';
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { ProposalState } from '@aave/protocol-js';
-import { rgba, useThemeContext, AnimationArrow, DropdownWrapper } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext, AnimationArrow, DropdownWrapper } from '@pret/pret-ui-kit';
 
 import { ProposalItem } from '../../../../../libs/governance-provider/types';
 

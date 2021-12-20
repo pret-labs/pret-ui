@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { normalize } from '@aave/math-utils';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import { ComputedReserveData, useDynamicPoolDataContext } from '../../../libs/pool-data-provider';
 import { useIncentivesDataContext } from '../../../libs/pool-data-provider/hooks/use-incentives-data-context';

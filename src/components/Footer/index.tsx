@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { DarkModeSwitcher } from '@aave/aave-ui-kit';
+import { DarkModeSwitcher } from '@pret/pret-ui-kit';
 
 import LangSwitcher from '../basic/LangSwitcher';
 

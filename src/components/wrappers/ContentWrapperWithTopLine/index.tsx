@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { useThemeContext, AnimationArrow } from '@aave/aave-ui-kit';
+import { useThemeContext, AnimationArrow } from '@pret/pret-ui-kit';
 
 import messages from './messages';
 import staticStyles from './style';

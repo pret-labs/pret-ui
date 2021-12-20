@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import CustomScroll from '../basic/CustomScroll';
 
 import staticStyles from './style';

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import { gradient } from '@aave/aave-ui-kit';
+import { gradient } from '@pret/pret-ui-kit';
 
 import staticStyles from './style';
 

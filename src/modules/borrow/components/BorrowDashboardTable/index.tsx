@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import { useLanguageContext } from '../../../../libs/language-provider';
 import DashboardTable from '../../../dashboard/components/DashboardTable';
 import TableHeader from '../../../dashboard/components/DashboardTable/TableHeader';

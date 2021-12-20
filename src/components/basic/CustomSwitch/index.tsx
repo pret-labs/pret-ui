@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { rgba, useThemeContext, Switcher } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext, Switcher } from '@pret/pret-ui-kit';
 
 type CustomSwitchProps = {
   onSwitch: (value: boolean) => void;

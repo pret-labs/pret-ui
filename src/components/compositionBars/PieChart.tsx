@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import { Group } from '@visx/group';
 import { Arc, Pie } from '@visx/shape';
 import { useTooltip, useTooltipInPortal, defaultStyles } from '@visx/tooltip';

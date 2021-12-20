@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import classNames from 'classnames';
-import { gradient, rgba, useThemeContext, Button } from '@aave/aave-ui-kit';
+import { gradient, rgba, useThemeContext, Button } from '@pret/pret-ui-kit';
 
 export interface DefaultButtonProps {
   onClick?: (event: any) => void;

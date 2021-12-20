@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 import { ethers } from 'ethers';
-import { canBeEnsAddress } from '@aave/aave-ui-kit';
+import { canBeEnsAddress } from '@pret/pret-ui-kit';
 
 import { useGovernanceDataContext } from '../../../../libs/governance-provider';
 import { useStaticPoolDataContext } from '../../../../libs/pool-data-provider';

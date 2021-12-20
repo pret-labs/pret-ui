@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import TableCol from '../TableCol';
 import AMPLWarning from '../../../../../components/AMPLWarning';

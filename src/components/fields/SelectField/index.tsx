@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
-import { useThemeContext, AnimationArrow, DropdownWrapper } from '@aave/aave-ui-kit';
+import { useThemeContext, AnimationArrow, DropdownWrapper } from '@pret/pret-ui-kit';
 
 import staticStyles from './style';
 

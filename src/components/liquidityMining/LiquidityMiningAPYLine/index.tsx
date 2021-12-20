@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import ReactTooltip from 'react-tooltip';
-import { rgba, TokenIcon, useThemeContext } from '@aave/aave-ui-kit';
+import { rgba, TokenIcon, useThemeContext } from '@pret/pret-ui-kit';
 import classNames from 'classnames';
 
 import { useProtocolDataContext } from '../../../libs/protocol-data-provider';

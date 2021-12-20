@@ -3,7 +3,7 @@ import TransakSDK from '@transak/transak-sdk';
 import { RampInstantSDK } from '@ramp-network/ramp-instant-sdk';
 import NashRamp from '@nash-io/ramp-widget-sdk';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import { useProtocolDataContext } from '../../libs/protocol-data-provider';
 
 import * as logos from './images';

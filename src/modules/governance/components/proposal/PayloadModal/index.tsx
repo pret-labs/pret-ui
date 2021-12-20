@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { useIntl } from 'react-intl';
-import { useThemeContext, BasicModal } from '@aave/aave-ui-kit';
+import { useThemeContext, BasicModal } from '@pret/pret-ui-kit';
 
 import Caption from '../../../../../components/basic/Caption';
 import DefaultButton from '../../../../../components/basic/DefaultButton';

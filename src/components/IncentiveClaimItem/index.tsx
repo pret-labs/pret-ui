@@ -1,6 +1,6 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { CustomTooltip, TokenIcon, useThemeContext } from '@aave/aave-ui-kit';
+import { CustomTooltip, TokenIcon, useThemeContext } from '@pret/pret-ui-kit';
 
 import Value from '../basic/Value';
 import Link from '../basic/Link';

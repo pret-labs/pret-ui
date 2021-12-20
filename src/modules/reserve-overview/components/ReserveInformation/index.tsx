@@ -2,7 +2,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import { valueToBigNumber } from '@aave/protocol-js';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import ContentWrapper from '../../../../components/wrappers/ContentWrapper';
 import MaxLTVHelpModal from '../../../../components/HelpModal/MaxLTVHelpModal';
 import Value from '../../../../components/basic/Value';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 
-import { rgba, useThemeContext } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext } from '@pret/pret-ui-kit';
 import Link from '../../../../components/basic/Link';
 import TailArrow from '../../../../components/basic/TailArrow';
 

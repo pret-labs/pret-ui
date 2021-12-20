@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { valueToBigNumber } from '@aave/protocol-js';
-import { rgba, useThemeContext } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext } from '@pret/pret-ui-kit';
 
 import { useStaticPoolDataContext } from '../../../../libs/pool-data-provider';
 import { useLanguageContext } from '../../../../libs/language-provider';

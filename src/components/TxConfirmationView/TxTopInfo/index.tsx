@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { useThemeContext, BasicModal, SpinLoader } from '@aave/aave-ui-kit';
+import { useThemeContext, BasicModal, SpinLoader } from '@pret/pret-ui-kit';
 
 import { TxStatusType } from '../../../helpers/send-ethereum-tx';
 import DefaultButton from '../../basic/DefaultButton';

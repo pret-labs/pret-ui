@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { rgba, useThemeContext } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext } from '@pret/pret-ui-kit';
 
 import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
