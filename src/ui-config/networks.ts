@@ -2,7 +2,7 @@ import { API_ETH_MOCK_ADDRESS } from '@aave/protocol-js';
 import { BaseNetworkConfig } from '../helpers/config/types';
 import polygonBridgeLogo from './branding/images/polygonLogo.svg';
 import avalancheBridgeLogo from './branding/images/avalancheLogo.svg';
-import rainbowBridgeLogo from './branding/images/rainbowBridgeLogo.svg';
+import rainbowBridgeLogo from './branding/images/pretLogo.svg';
 import { ChainId } from '@pret/contract-helpers';
 
 export const networkConfigs: Record<string, BaseNetworkConfig> = {
@@ -224,9 +224,9 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     publicJsonRPCUrl: ['https://rpc-local.pret.app'],
     publicJsonRPCWSUrl: 'wss://rpc-local.pret.app',
     addresses: {
-      walletBalanceProvider: '0xd291e8ba09144Cede5aC87252F665A4fd79779B9',
-      uiPoolDataProvider: '0x16b836f4A08d9a326250BE490D52e03A55f3ce81',
-      uiIncentiveDataProvider: '0x16a7fee16685fd4dd861e50446cbeE75Ee0c4ECb',
+      walletBalanceProvider: '0x336079f5458b2daa017688a3796B670A914806Eb',
+      uiPoolDataProvider: '0xc69a9aFd9026148c377a25797f3275b763a129EB',
+      uiIncentiveDataProvider: '0xbaa6ee801E541d5b81e3690C48E4Fb019AaA4d89',
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
     cachingServerUrl: 'https://cache-api-aurora.pret.app/graphql',
