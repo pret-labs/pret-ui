@@ -178,7 +178,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     rewardTokenAddress: API_ETH_MOCK_ADDRESS,
     rewardTokenDecimals: 18,
     incentivePrecision: 18,
-    explorerLink: 'https://explorer.testnet.aurora.dev/',
+    explorerLink: 'https://explorer.testnet.aurora.dev',
     rpcOnly: true,
     usdMarket: true,
     isTestnet: true,
@@ -209,7 +209,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     rewardTokenAddress: API_ETH_MOCK_ADDRESS,
     rewardTokenDecimals: 18,
     incentivePrecision: 18,
-    explorerLink: 'https://explorer.mainnet.aurora.dev/',
+    explorerLink: 'https://explorer.mainnet.aurora.dev',
     rpcOnly: true,
     usdMarket: true,
     bridge: {
@@ -239,7 +239,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     rewardTokenAddress: API_ETH_MOCK_ADDRESS,
     rewardTokenDecimals: 18,
     incentivePrecision: 18,
-    explorerLink: 'https://explorer.mainnet.aurora.dev/',
+    explorerLink: 'https://explorer.mainnet.aurora.dev',
     rpcOnly: true,
     usdMarket: true,
     bridge: {
