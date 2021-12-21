@@ -224,9 +224,9 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     publicJsonRPCUrl: ['https://rpc-local.pret.app'],
     publicJsonRPCWSUrl: 'wss://rpc-local.pret.app',
     addresses: {
-      walletBalanceProvider: '0x146EF65DA9C5Eb7C3781a75FC558a5Ffb38DB47D',
-      uiPoolDataProvider: '0x8EDfaC345FB6739d88fbf6CA0970330408441cee',
-      uiIncentiveDataProvider: '0xBb68F86B480F50dDb6359d353336CD4C7ADB758E',
+      walletBalanceProvider: '0xC41AcA9718C2Fbb342FdacC1E3d15066E36871c4',
+      uiPoolDataProvider: '0x267Bbe6b340788367fc183E12F469991C25E03aD',
+      uiIncentiveDataProvider: '0xb85eF37F8C6F2B785237533522924079a187CA47',
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
     cachingServerUrl: 'https://cache-api-aurora.pret.app/graphql',
