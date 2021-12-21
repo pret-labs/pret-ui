@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#36b3c3"/>
+      <stop offset="1" stop-color="#a95aa2"/>
+    </linearGradient>
+    <clipPath id="clip-Pret">
+      <rect width="400" height="400"/>
+    </clipPath>
+  </defs>
+  <g id="Pret" clip-path="url(#clip-Pret)">
+    <path id="路径_2" data-name="路径 2" d="M200,0C310.457,0,400,89.543,400,200S310.457,400,200,400,0,310.457,0,200,89.543,0,200,0Z" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+    <path id="路径_1" data-name="路径 1" d="M366.521,281.854,291.5,239.275a30.566,30.566,0,0,0-30.138,0l-75.017,42.579a30.553,30.553,0,0,0-15.439,26.525v84.3A30.554,30.554,0,0,0,186.349,419.2l33.094,18.806V351.944h.041c0-.492-.041-.944-.041-1.437a56.968,56.968,0,1,1,56.956,56.95H240.1a1.43,1.43,0,0,0-.452,2.792,58.247,58.247,0,0,1,38.6,54.856v.493a30.551,30.551,0,0,0,13.221-3.86l75.011-42.578a30.553,30.553,0,0,0,15.439-26.525V308.379A30.431,30.431,0,0,0,366.521,281.854Z" transform="translate(-76.414 -150.451)" fill="#fff"/>
+  </g>
+</svg>
