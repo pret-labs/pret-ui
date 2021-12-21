@@ -2,7 +2,7 @@ import { API_ETH_MOCK_ADDRESS } from '@aave/protocol-js';
 import { BaseNetworkConfig } from '../helpers/config/types';
 import polygonBridgeLogo from './branding/images/polygonLogo.svg';
 import avalancheBridgeLogo from './branding/images/avalancheLogo.svg';
-import rainbowBridgeLogo from './branding/images/pretLogo.svg';
+import rainbowBridgeLogo from './branding/images/rainbowBridgeLogo.svg';
 import { ChainId } from '@pret/contract-helpers';
 
 export const networkConfigs: Record<string, BaseNetworkConfig> = {
@@ -224,16 +224,16 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     publicJsonRPCUrl: ['https://rpc-local.pret.app'],
     publicJsonRPCWSUrl: 'wss://rpc-local.pret.app',
     addresses: {
-      walletBalanceProvider: '0x336079f5458b2daa017688a3796B670A914806Eb',
-      uiPoolDataProvider: '0xc69a9aFd9026148c377a25797f3275b763a129EB',
-      uiIncentiveDataProvider: '0xbaa6ee801E541d5b81e3690C48E4Fb019AaA4d89',
+      walletBalanceProvider: '0x4803ebca4B051d5154Aa2BfD4c3D63777b29B38b',
+      uiPoolDataProvider: '0xEb88e087ea6f326987bcf7515924c6068184911f',
+      uiIncentiveDataProvider: '0xf2Ad64677E915B70656B5B7d058b468Ba4DEde91',
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
     cachingServerUrl: 'https://cache-api-aurora.pret.app/graphql',
     cachingWSServerUrl: 'wss://cache-api-aurora.pret.app/graphql',
     baseUniswapAdapter: '0x0',
     baseAsset: 'ETH',
-    baseAssetWrappedAddress: '0xB5AE3e2883934457cb593793f034b401867e1372',
+    baseAssetWrappedAddress: '0x8F74537e8164E81ff83B965e914Fd9721978FC1b',
     // incentives hardcoded information
     rewardTokenSymbol: 'AURORA',
     rewardTokenAddress: API_ETH_MOCK_ADDRESS,
@@ -243,7 +243,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     rpcOnly: true,
     usdMarket: true,
     bridge: {
-      brandColor: '0, 0, 0',
+      brandColor: '137, 208, 95',
       name: 'Rainbow Bridge',
       url: 'https://rainbowbridge.app/',
       logo: rainbowBridgeLogo,
