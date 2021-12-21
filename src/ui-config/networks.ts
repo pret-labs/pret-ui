@@ -183,7 +183,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     usdMarket: true,
     isTestnet: true,
     bridge: {
-      brandColor: '0, 0, 0',
+      brandColor: '137, 208, 95',
       name: 'Rainbow Bridge',
       url: 'https://rainbowbridge.app/',
       logo: auroraBridgeLogo,
@@ -213,7 +213,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     rpcOnly: true,
     usdMarket: true,
     bridge: {
-      brandColor: '0, 0, 0',
+      brandColor: '137, 208, 95',
       name: 'Rainbow Bridge',
       url: 'https://rainbowbridge.app/',
       logo: auroraBridgeLogo,
