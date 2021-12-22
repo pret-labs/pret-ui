@@ -1,7 +1,7 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  yourBalanceInAave: 'Your balance in Aave',
+  yourBalanceInAave: 'Your balance in Pret',
   yourWalletBalance: 'Your wallet balance',
   totalDeposits: 'Total deposits',
 
