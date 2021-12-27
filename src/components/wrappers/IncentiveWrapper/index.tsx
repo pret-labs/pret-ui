@@ -25,7 +25,7 @@ export function getRewardTokenSymbol(
     return 'WMATIC';
   } else if (
     rewardTokenAddress.toLowerCase() === '0x6faf3062a457ffe8d9e2f1017974905802e21c01' ||
-    rewardTokenAddress.toLowerCase() === '0x3454D106E3aDb1368A2a23DAC79d38443d70e0c5'
+    rewardTokenAddress.toLowerCase() === '0x3454d106e3adb1368a2a23dac79d38443d70e0c5'
   ) {
     return 'PRETDAO';
   } else {
