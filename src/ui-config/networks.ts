@@ -236,7 +236,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAsset: 'ETH',
     baseAssetWrappedAddress: '0xb5450e8D453a2fF5dE5255cf332B22A51c4D0cFA',
     // incentives hardcoded information
-    rewardTokenSymbol: 'AURORA',
+    rewardTokenSymbol: 'PRETDAO',
     rewardTokenAddress: API_ETH_MOCK_ADDRESS,
     rewardTokenDecimals: 18,
     incentivePrecision: 18,

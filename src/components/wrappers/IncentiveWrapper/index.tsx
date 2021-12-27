@@ -23,6 +23,8 @@ export function getRewardTokenSymbol(
     return 'WAVAX';
   } else if (rewardTokenAddress.toLowerCase() === '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270') {
     return 'WMATIC';
+  } else if (rewardTokenAddress.toLowerCase() === '0x6faf3062a457ffe8d9e2f1017974905802e21c01') {
+    return 'PRETDAO';
   } else {
     let rewardReserve = reserves.find(
       (reserve) => reserve.underlyingAsset.toLowerCase() === rewardTokenAddress.toLowerCase()
