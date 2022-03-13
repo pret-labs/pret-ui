@@ -204,10 +204,10 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     cachingWSServerUrl: 'wss://cache-api-aurora.pret.app/graphql',
     baseUniswapAdapter: '0x0',
     baseAsset: 'ETH',
-    baseAssetWrappedAddress: '0xA2A66Ffb7fc3b39C9ca1D42fA75EFFAf52144380',
+    baseAssetWrappedAddress: '0xAcbc062a7dd2403a5D54f25ea132F6E7a2E5d449',
     // incentives hardcoded information
     rewardTokenSymbol: 'PRETDAO',
-    rewardTokenAddress: API_ETH_MOCK_ADDRESS,
+    rewardTokenAddress: '0x8A2da90302DB2cf3963c2899Dfe6E29DccBc1190',
     rewardTokenDecimals: 18,
     incentivePrecision: 18,
     explorerLink: 'https://explorer.mainnet.aurora.dev',
