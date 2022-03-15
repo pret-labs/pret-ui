@@ -24,8 +24,8 @@ export function getRewardTokenSymbol(
   } else if (rewardTokenAddress.toLowerCase() === '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270') {
     return 'WMATIC';
   } else if (
-    rewardTokenAddress.toLowerCase() === '0x6faf3062a457ffe8d9e2f1017974905802e21c01' ||
-    rewardTokenAddress.toLowerCase() === '0x3454d106e3adb1368a2a23dac79d38443d70e0c5'
+    rewardTokenAddress.toLowerCase() === '0x8A2da90302DB2cf3963c2899Dfe6E29DccBc1190' ||
+    rewardTokenAddress.toLowerCase() === '0x7DCabc4d0f82299637F38Ed2703bA6144e9355cC'
   ) {
     return 'PRETDAO';
   } else {
