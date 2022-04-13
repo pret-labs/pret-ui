@@ -3,7 +3,7 @@ import { IntlShape, useIntl } from 'react-intl';
 import { useWeb3React } from '@web3-react/core';
 import { ethers } from 'ethers';
 import { SafeAppConnector } from '@gnosis.pm/safe-apps-web3-react';
-
+import invert from 'lodash.invert';
 import AddressModal from '../../components/AddressModal';
 import {
   AvailableWeb3Connectors,
@@ -42,8 +42,11 @@ const formattingError = (
   }
   // Unsupported chain
   if (error.message.includes('Unsupported chain id:')) {
+    const invertedChainId = invert(ChainId);
     return intl.formatMessage(messages.unsupportedNetwork, {
-      supportedChainIds: supportedChainIds.join(', '),
+      supportedNetworks: ` ${supportedChainIds
+        .map((chainId) => invertedChainId[chainId])
+        .join(', ')} `,
     });
   }
   // Disconnected or locked ledger
@@ -129,8 +132,9 @@ export function Web3Provider({
   const [activating, setActivation] = useState(true);
   const [isSelectWalletModalVisible, setSelectWalletModalVisible] = useState(false);
   const [isErrorDetected, setErrorDetected] = useState(false);
-
-  const formattedError = formattingError(error, supportedChainIds, intl);
+  const [formattedActivationError, setFormattedActivationError] = useState('');
+  const formattedError =
+    formattingError(error, supportedChainIds, intl) || formattedActivationError;
 
   const [availableAccounts, setAvailableAccounts] = useState<string[]>([]);
   const [displaySwitchAccountModal, setDisplaySwitchAccountModal] = useState(false);
@@ -157,14 +161,21 @@ export function Web3Provider({
     //TODO: maybe next line is useless
     localStorage.setItem('preferredChainId', network as unknown as string);
     try {
-      await activate(
-        getWeb3Connector(connectorName, network, availableNetworks, connectorConfig),
-        () => {},
-        true
+      const web3Connector = getWeb3Connector(
+        connectorName,
+        network,
+        availableNetworks,
+        connectorConfig
       );
+      (await web3Connector.getProvider()).on('chainChanged', () => {
+        disconnectWallet();
+        setFormattedActivationError('');
+      });
+      await activate(web3Connector, () => {}, true);
       setCurrentProviderName(connectorName);
       isSuccessful = true;
     } catch (e) {
+      setFormattedActivationError(formattingError(e, supportedChainIds, intl) ?? '');
       console.log('error on activation', e);
       disconnectWallet(e);
     }
