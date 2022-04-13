@@ -21,7 +21,7 @@ interface NetworkMismatchProps {
   currentProviderName: AvailableWeb3Connectors;
 }
 
-const ADD_CONFIG: {
+export const ADD_CONFIG: {
   [key: number]: {
     name: string;
     explorerUrls: string[];

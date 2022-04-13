@@ -21,6 +21,8 @@ import {
 
 import messages from './messages';
 import { ChainId } from '@pret/contract-helpers';
+import { getNetworkConfig } from '../../helpers/config/markets-and-network-config';
+import { ADD_CONFIG } from '../../components/TxConfirmationView/NetworkMismatch';
 
 interface UserWalletData {
   availableAccounts: string[];
@@ -175,7 +177,29 @@ export function Web3Provider({
       setCurrentProviderName(connectorName);
       isSuccessful = true;
     } catch (e) {
-      setFormattedActivationError(formattingError(e, supportedChainIds, intl) ?? '');
+      const formattedError = formattingError(e, supportedChainIds, intl) ?? '';
+      setFormattedActivationError(formattedError);
+
+      if (connectorName === 'browser' && e.message.includes('Unsupported chain id:')) {
+        // switch browser to aurora mainnet
+        const neededChainId = ChainId.aurora_mainnet;
+        console.log(neededChainId);
+        const config = ADD_CONFIG[neededChainId];
+        console.log({ neededChainId, config });
+        const { publicJsonRPCWSUrl, publicJsonRPCUrl } = getNetworkConfig(neededChainId);
+        (window as any).ethereum?.request({
+          method: 'wallet_addEthereumChain',
+          params: [
+            {
+              chainId: `0x${neededChainId.toString(16)}`,
+              chainName: config.name,
+              nativeCurrency: config.nativeCurrency,
+              rpcUrls: [...publicJsonRPCUrl, publicJsonRPCWSUrl],
+              blockExplorerUrls: config.explorerUrls,
+            },
+          ],
+        });
+      }
       console.log('error on activation', e);
       disconnectWallet(e);
     }
