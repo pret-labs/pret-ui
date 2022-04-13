@@ -41,25 +41,26 @@ export function usePayments(): Payments {
   const polygonTransakAvailableAssets = ['MATIC', 'USDT', 'DAI', 'USDC', 'AAVE', 'WBTC', 'WETH'];
 
   const payments: Payment[] = [
-    {
-      name: PaymentName.nash,
-      logo: logos.nashLogo,
-      availableAssets: ['USDC', 'AAVE', 'ETH'],
-      initialized: ENABLE_NASH,
-    },
-    {
-      name: PaymentName.transak,
-      logo: logos.transakLogo,
-      availableAssets: isPolygonNetwork ? polygonTransakAvailableAssets : transakAvailableAssets,
-      initialized: !!TRANSAK_API_KEY,
-    },
-    {
-      name: PaymentName.onRamp,
-      logo: logos.onRampLogo,
-      availableAssets: isPolygonNetwork ? ['MATIC', 'DAI', 'USDC'] : ['ETH', 'DAI', 'USDC', 'USDT'],
-      initialized: !!ONRAMP_API_KEY,
-    },
-  ].filter((option) => option.initialized);
+    // {
+    //   name: PaymentName.nash,
+    //   logo: logos.nashLogo,
+    //   availableAssets: ['USDC', 'AAVE', 'ETH'],
+    //   initialized: ENABLE_NASH,
+    // },
+    // {
+    //   name: PaymentName.transak,
+    //   logo: logos.transakLogo,
+    //   availableAssets: isPolygonNetwork ? polygonTransakAvailableAssets : transakAvailableAssets,
+    //   initialized: !!TRANSAK_API_KEY,
+    // },
+    // {
+    //   name: PaymentName.onRamp,
+    //   logo: logos.onRampLogo,
+    //   availableAssets: isPolygonNetwork ? ['MATIC', 'DAI', 'USDC'] : ['ETH', 'DAI', 'USDC', 'USDT'],
+    //   initialized: !!ONRAMP_API_KEY,
+    // },
+  ];
+  // .filter((option) => option.initialized);
 
   const paymentClick = (name: PaymentName, currencySymbol: string) => {
     switch (name) {
