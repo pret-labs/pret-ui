@@ -61,7 +61,7 @@ export default function BorrowItem({
         </TableColumn>
       )}
 
-      {!isFreezed && (
+      {/* {!isFreezed && (
         <TableColumn>
           {stableBorrowRateEnabled ? (
             <LiquidityMiningCard
@@ -74,7 +74,7 @@ export default function BorrowItem({
             <NoData color="dark" />
           )}
         </TableColumn>
-      )}
+      )} */}
     </TableItem>
   );
 }
