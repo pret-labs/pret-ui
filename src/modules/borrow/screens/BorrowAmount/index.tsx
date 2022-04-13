@@ -17,6 +17,7 @@ import routeParamValidationHOC, {
   ValidationWrapperComponentProps,
 } from '../../../../components/RouteParamsValidationWrapper';
 import { getAssetInfo } from '../../../../helpers/config/assets-config';
+import { BorrowRateMode } from '../../../../libs/caching-server-data-provider/graphql';
 
 enum BorrowStep {
   AmountForm,
@@ -36,7 +37,6 @@ function BorrowAmount({
   currencySymbol,
   history,
 }: BorrowAmountProps) {
-  const [amountToBorrow, setAmountToBorrow] = useState('0');
   const [borrowStep, setBorrowStep] = useState<BorrowStep>(BorrowStep.AmountForm);
   const intl = useIntl();
   const { lendingPool } = useTxBuilderContext();
@@ -60,12 +60,11 @@ function BorrowAmount({
   const formattedMaxAmountToBorrow = maxAmountToBorrow.toString(10);
 
   const handleSetAmountSubmit = (amount: string) => {
-    setAmountToBorrow(amount);
-    setBorrowStep(BorrowStep.RateModeSelection);
+    handleInterestModeSubmit(BorrowRateMode.Variable, amount);
   };
 
-  const handleInterestModeSubmit = (rateMode: string) => {
-    const query = queryString.stringify({ rateMode, amount: amountToBorrow });
+  const handleInterestModeSubmit = (rateMode: string, amount: string) => {
+    const query = queryString.stringify({ rateMode, amount });
     history.push(`${history.location.pathname}/confirmation?${query}`);
   };
 
@@ -104,15 +103,6 @@ function BorrowAmount({
               withRiskBar={true}
               maxDecimals={poolReserve.decimals}
               getTransactionData={handleTransactionData}
-            />
-          )}
-
-          {borrowStep === BorrowStep.RateModeSelection && (
-            <BorrowInterestRateForm
-              poolReserve={poolReserve}
-              userReserve={userReserve}
-              amountToBorrow={amountToBorrow}
-              onSubmit={handleInterestModeSubmit}
             />
           )}
         </>
