@@ -6,7 +6,7 @@ import {
   InterestRate,
   valueToBigNumber,
 } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import { useTxBuilderContext } from '../../../../libs/tx-provider';
 import { getAtokenInfo } from '../../../../helpers/get-atoken-info';

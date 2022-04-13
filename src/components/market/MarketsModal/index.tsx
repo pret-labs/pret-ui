@@ -1,6 +1,6 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { BasicModal, useThemeContext } from '@aave/aave-ui-kit';
+import { BasicModal, useThemeContext } from '@pret/pret-ui-kit';
 
 import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 import MarketSelectButton from '../MarketSelectButton';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import WarningArea from '../../../../components/WarningArea';
 import Link from '../../../../components/basic/Link';

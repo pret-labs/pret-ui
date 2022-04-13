@@ -2,7 +2,7 @@ import React, { FormEvent, ReactNode, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { valueToBigNumber } from '@aave/protocol-js';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import Caption from '../../../../components/basic/Caption';
 import DefaultButton from '../../../../components/basic/DefaultButton';
 import InfoWrapper from '../../../../components/wrappers/InfoWrapper';

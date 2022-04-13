@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import Row from '../../../../components/basic/Row';
 import ContentWrapper from '../../../../components/wrappers/ContentWrapper';

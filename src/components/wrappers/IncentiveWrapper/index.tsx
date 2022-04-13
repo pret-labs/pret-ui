@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { normalize } from '@aave/math-utils';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import { ComputedReserveData, useDynamicPoolDataContext } from '../../../libs/pool-data-provider';
 import { useIncentivesDataContext } from '../../../libs/pool-data-provider/hooks/use-incentives-data-context';
@@ -23,6 +23,11 @@ export function getRewardTokenSymbol(
     return 'WAVAX';
   } else if (rewardTokenAddress.toLowerCase() === '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270') {
     return 'WMATIC';
+  } else if (
+    rewardTokenAddress.toLowerCase() === '0x6ADA8C2eDA6564b093fF1B4dbB6c5BeE96A0C077' || // aurora mainnet
+    rewardTokenAddress.toLowerCase() === '0x7DCabc4d0f82299637F38Ed2703bA6144e9355cC' // hardhat
+  ) {
+    return 'PRETDAO';
   } else {
     let rewardReserve = reserves.find(
       (reserve) => reserve.underlyingAsset.toLowerCase() === rewardTokenAddress.toLowerCase()

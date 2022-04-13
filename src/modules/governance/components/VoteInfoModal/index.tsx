@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { rgba, useThemeContext, BasicModal } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext, BasicModal } from '@pret/pret-ui-kit';
 
 import LabeledSwitcher from '../../../../components/basic/LabeledSwitcher';
 import VoteInfoTableItem from './VoteInfoTableItem';

@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
 import MarketSelectButton from '../../../../components/market/MarketSelectButton';
@@ -39,9 +39,9 @@ export default function SelectMarketPanel({ isCollapse }: SelectMarketPanelProps
         })}
       </div>
 
-      <div className="SelectMarketPanel__switcher">
+      {/* <div className="SelectMarketPanel__switcher">
         <MarketSwitcher />
-      </div>
+      </div> */}
 
       <style jsx={true} global={true}>
         {staticStyles}

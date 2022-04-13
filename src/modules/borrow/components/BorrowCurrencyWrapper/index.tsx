@@ -2,7 +2,7 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import { useReserveRatesHistory } from '../../../../libs/pool-data-provider/hooks/use-reserve-rates-history';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import { useLanguageContext } from '../../../../libs/language-provider';
 import CurrencyScreenWrapper from '../../../../components/wrappers/CurrencyScreenWrapper';
 

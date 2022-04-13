@@ -3,7 +3,7 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   asset: 'Asset',
   yourWalletBalance: 'Your wallet balance',
-  yourBalanceinAave: 'Your balance in Aave',
+  yourBalanceinAave: 'Your balance in Pret',
   APY: 'APY',
 
   dividerTitle: 'To make a deposit, transfer any of these assets to your wallet.',

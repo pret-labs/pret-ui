@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useIntl } from 'react-intl';
-import { rgba, useThemeContext } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext } from '@pret/pret-ui-kit';
 
 import Caption from '../../../../components/basic/Caption';
 import Link from '../../../../components/basic/Link';

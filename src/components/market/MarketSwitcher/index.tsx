@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { rgba, useThemeContext, DropdownWrapper } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext, DropdownWrapper } from '@pret/pret-ui-kit';
 
 import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 import GradientText from '../../basic/GradientText';

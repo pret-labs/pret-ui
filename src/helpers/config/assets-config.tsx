@@ -3,7 +3,7 @@ import {
   getAssetInfoFactory,
   TokenIcon as DefaultTokenIcon,
   TokenIconProps,
-} from '@aave/aave-ui-kit';
+} from '@pret/pret-ui-kit';
 
 import { assetsList, stableAssets } from '../../ui-config/assets';
 

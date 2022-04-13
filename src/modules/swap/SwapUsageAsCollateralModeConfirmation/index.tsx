@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import queryString from 'query-string';
 import { useIntl } from 'react-intl';
 import { calculateHealthFactorFromBalancesBigUnits, valueToBigNumber } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import { useStaticPoolDataContext } from '../../../libs/pool-data-provider';
 import { useTxBuilderContext } from '../../../libs/tx-provider';

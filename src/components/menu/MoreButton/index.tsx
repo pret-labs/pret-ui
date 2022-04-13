@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { rgba, useThemeContext, DropdownWrapper, SocialIcons } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext, DropdownWrapper, SocialIcons } from '@pret/pret-ui-kit';
 
 import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import Link from '../../basic/Link';

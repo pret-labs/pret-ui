@@ -2,7 +2,7 @@ import React, { useState, ChangeEvent, useEffect } from 'react';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import BigNumber from 'bignumber.js';
 import classNames from 'classnames';
-import { useThemeContext, BasicModal, rgba } from '@aave/aave-ui-kit';
+import { useThemeContext, BasicModal, rgba } from '@pret/pret-ui-kit';
 import { valueToBigNumber, normalize } from '@aave/protocol-js';
 
 import Row from '../../basic/Row';

@@ -2,7 +2,7 @@ import React from 'react';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import classNames from 'classnames';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import { TxStatusType } from '../../../helpers/send-ethereum-tx';
 import DefaultButton from '../../basic/DefaultButton';
 import Link from '../../basic/Link';

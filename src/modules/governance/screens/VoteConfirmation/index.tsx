@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { useParams } from 'react-router-dom';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import { useStaticPoolDataContext } from '../../../../libs/pool-data-provider';
 import { useVotingPowerLoader } from '../../../../libs/governance-provider/hooks/use-voting-power-rpc';

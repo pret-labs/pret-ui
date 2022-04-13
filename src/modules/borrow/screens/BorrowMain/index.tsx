@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { valueToBigNumber, BigNumber } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
-import { PERMISSION } from '@aave/contract-helpers';
+import { useThemeContext } from '@pret/pret-ui-kit';
+import { PERMISSION } from '@pret/contract-helpers';
 
 import {
   ComputedReserveData,

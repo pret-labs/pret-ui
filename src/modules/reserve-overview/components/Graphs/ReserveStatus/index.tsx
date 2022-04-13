@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { ParentSize } from '@visx/responsive';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import { getAssetInfo, TokenIcon } from '../../../../../helpers/config/assets-config';
 import staticStyles from './style';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
 import ContentWrapper from '../../../../components/wrappers/ContentWrapper';
@@ -28,7 +28,7 @@ export default function DashboardNoData() {
         description={intl.formatMessage(messages.description)}
       />
 
-      <div className="DashboardNoData__markets">
+      {/* <div className="DashboardNoData__markets">
         {availableMarkets.map((market) => {
           const marketData = marketsData[market];
           return (
@@ -44,7 +44,7 @@ export default function DashboardNoData() {
             />
           );
         })}
-      </div>
+      </div> */}
 
       <div className="DashboardNoData__bottom--inner">
         <p className="DashboardNoData__bottom--text">{intl.formatMessage(messages.orDepositNow)}</p>

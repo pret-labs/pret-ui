@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '@pret/contract-helpers';
 import { getProvider } from '../../helpers/config/markets-and-network-config';
 
 const mainnetProvider = getProvider(ChainId.mainnet);

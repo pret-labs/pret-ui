@@ -22,7 +22,7 @@ import {
   getSupportedChainIds,
   getNetworkConfig,
 } from '../../../helpers/config/markets-and-network-config';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '@pret/contract-helpers';
 
 export type AvailableWeb3Connectors =
   | 'browser'

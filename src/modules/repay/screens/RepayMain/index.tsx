@@ -3,7 +3,7 @@ import { Redirect, useHistory, useLocation } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import queryString from 'query-string';
 import { InterestRate } from '@aave/protocol-js';
-import { gradient, useThemeContext } from '@aave/aave-ui-kit';
+import { gradient, useThemeContext } from '@pret/pret-ui-kit';
 
 import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
 import Caption from '../../../../components/basic/Caption';
@@ -14,7 +14,7 @@ import messages from './messages';
 import staticStyles from './style';
 import { isFeatureEnabled } from '../../../../helpers/config/markets-and-network-config';
 import PermissionWarning from '../../../../ui-config/branding/PermissionWarning';
-import { PERMISSION } from '@aave/contract-helpers';
+import { PERMISSION } from '@pret/contract-helpers';
 
 export default function RepayMain() {
   const intl = useIntl();

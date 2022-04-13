@@ -3,7 +3,7 @@ import {
   Asset,
   assetsOrder as assetsOrderFromKit,
   STABLE_ASSETS as stableAssetsFromKit,
-} from '@aave/aave-ui-kit';
+} from '@pret/pret-ui-kit';
 
 export const assetsList: Asset[] = assetsListFromKit;
 

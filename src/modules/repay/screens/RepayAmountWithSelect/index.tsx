@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import { valueToBigNumber, InterestRate } from '@aave/protocol-js';
 import queryString from 'query-string';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import { useDynamicPoolDataContext } from '../../../../libs/pool-data-provider';
 import routeParamValidationHOC, {
   ValidationWrapperComponentProps,

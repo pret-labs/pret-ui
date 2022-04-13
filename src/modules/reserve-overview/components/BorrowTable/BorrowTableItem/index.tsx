@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import { valueToBigNumber, InterestRate } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import { BorrowRateMode } from '../../../../../libs/pool-data-provider/graphql';
 import { loanActionLinkComposer } from '../../../../../helpers/loan-action-link-composer';

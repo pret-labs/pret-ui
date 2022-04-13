@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { Stake, valueToBigNumber } from '@aave/protocol-js';
-import { BasicModal, rgba, useThemeContext } from '@aave/aave-ui-kit';
+import { BasicModal, rgba, useThemeContext } from '@pret/pret-ui-kit';
 
 import { StakeData } from '../../../../libs/pool-data-provider/types/stake';
 import { formattedTime, timeText } from '../../../../helpers/timeHelper';

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { valueToBigNumber } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import {
   useDynamicPoolDataContext,
@@ -11,7 +11,7 @@ import { useProtocolDataContext } from '../../../../libs/protocol-data-provider'
 import toggleLocalStorageClick from '../../../../helpers/toggle-local-storage-click';
 import TopPanelWrapper from '../../../../components/wrappers/TopPanelWrapper';
 import ScreenWrapper from '../../../../components/wrappers/ScreenWrapper';
-import SelectMarketPanel from '../../components/SelectMarketPanel';
+// import SelectMarketPanel from '../../components/SelectMarketPanel';
 import MarketTable from '../../components/MarketTable';
 import MarketTableItem from '../../components/MarketTableItem';
 import TotalMarketsSize from '../../components/TotalMarketsSize';
@@ -111,7 +111,7 @@ export default function Markets() {
       <TopPanelWrapper isCollapse={true} withoutCollapseButton={true}>
         <div className="Markets__top-content">
           <TotalMarketsSize value={totalLockedInUsd.toNumber()} />
-          <SelectMarketPanel />
+          {/* <SelectMarketPanel /> */}
         </div>
       </TopPanelWrapper>
 
@@ -130,12 +130,12 @@ export default function Markets() {
         />
       </div>
 
-      <div className="Markets__market-switcher">
+      {/* <div className="Markets__market-switcher">
         <p className="Markets__marketSwitcher--title">
           {intl.formatMessage(messages.selectMarket)}
         </p>
         <SelectMarketPanel />
-      </div>
+      </div> */}
 
       <MarketTable
         sortName={sortName}

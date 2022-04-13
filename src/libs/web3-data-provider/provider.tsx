@@ -20,7 +20,7 @@ import {
 } from '../referral-handler';
 
 import messages from './messages';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '@pret/contract-helpers';
 
 interface UserWalletData {
   availableAccounts: string[];

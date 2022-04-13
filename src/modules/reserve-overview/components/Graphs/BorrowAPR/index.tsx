@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import { FormattedReserveHistoryItem } from '../../../../../libs/pool-data-provider/hooks/use-reserve-rates-history';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import { useLanguageContext } from '../../../../../libs/language-provider';
 import GraphInner from '../index';
 import { GraphPoint, InterestRateSeries } from '../../../../../components/graphs/types';

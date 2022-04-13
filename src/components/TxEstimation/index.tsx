@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useIntl } from 'react-intl';
 import { EthereumTransactionTypeExtended, valueToBigNumber, normalize } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import { useStaticPoolDataContext } from '../../libs/pool-data-provider';
 import Value from '../basic/Value';

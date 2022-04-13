@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 import { useIntl } from 'react-intl';
-import { gradient, useThemeContext } from '@aave/aave-ui-kit';
+import { gradient, useThemeContext } from '@pret/pret-ui-kit';
 
 import { EthTransactionData, TxStatusType } from '../../../helpers/send-ethereum-tx';
 import TxBottomStatusLine from '../TxBottomStatusLine';

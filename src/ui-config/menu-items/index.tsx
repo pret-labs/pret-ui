@@ -9,7 +9,7 @@ export const moreMenuItems: Navigation[] = [
     isVisible: isFeatureEnabled.faucet,
   },
   {
-    link: 'https://docs.aave.com/faq/',
+    link: 'https://pret.gitbook.io/',
     title: messages.faq,
     absolute: true,
   },

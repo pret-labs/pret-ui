@@ -2,7 +2,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { valueToBigNumber } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import ContentWrapperWithTopLine from '../../../../../components/wrappers/ContentWrapperWithTopLine';
 import Value from '../../../../../components/basic/Value';

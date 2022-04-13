@@ -1,6 +1,6 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { textCenterEllipsis, useThemeContext } from '@aave/aave-ui-kit';
+import { textCenterEllipsis, useThemeContext } from '@pret/pret-ui-kit';
 
 import Link from '../../../../../components/basic/Link';
 

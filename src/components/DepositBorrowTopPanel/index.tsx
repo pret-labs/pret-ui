@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { valueToBigNumber, BigNumber } from '@aave/protocol-js';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import { useDynamicPoolDataContext } from '../../libs/pool-data-provider';
 import toggleLocalStorageClick from '../../helpers/toggle-local-storage-click';
 import GradientLine from '../basic/GradientLine';

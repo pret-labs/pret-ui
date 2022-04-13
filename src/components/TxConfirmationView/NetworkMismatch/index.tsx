@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import DefaultButton from '../../basic/DefaultButton';
 import AccessMaticMarketHelpModal from '../../HelpModal/AccessMaticMarketHelpModal';
@@ -13,7 +13,7 @@ import { getNetworkConfig } from '../../../helpers/config/markets-and-network-co
 
 import messages from './messages';
 import staticStyles from './style';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '@pret/contract-helpers';
 
 interface NetworkMismatchProps {
   neededChainId: ChainId;
@@ -61,6 +61,24 @@ const ADD_CONFIG: {
     nativeCurrency: {
       name: 'Avalanche',
       symbol: 'AVAX',
+      decimals: 18,
+    },
+  },
+  [ChainId.aurora_mainnet]: {
+    name: 'Aurora',
+    explorerUrls: ['https://explorer.mainnet.aurora.dev'],
+    nativeCurrency: {
+      name: 'Ethereum',
+      symbol: 'ETH',
+      decimals: 18,
+    },
+  },
+  [ChainId.aurora_testnet]: {
+    name: 'Aurora Testnet',
+    explorerUrls: ['https://explorer.testnet.aurora.dev'],
+    nativeCurrency: {
+      name: 'Ethereum',
+      symbol: 'ETH',
       decimals: 18,
     },
   },

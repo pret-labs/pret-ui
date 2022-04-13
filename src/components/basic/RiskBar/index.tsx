@@ -3,7 +3,7 @@ import { Range } from 'react-range';
 import { useIntl } from 'react-intl';
 import { calculateHealthFactorFromBalancesBigUnits, valueToBigNumber } from '@aave/protocol-js';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import {
   useStaticPoolDataContext,
   useDynamicPoolDataContext,

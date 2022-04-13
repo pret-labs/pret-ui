@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useIntl } from 'react-intl';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import MobileCardWrapper from '../../../../components/wrappers/MobileCardWrapper';
 import LiquidityMiningCard from '../../../../components/liquidityMining/LiquidityMiningCard';
