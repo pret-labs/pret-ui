@@ -465,7 +465,7 @@
   "modules.deposit.screens.DepositConfirmation.connectWallet": "请连接钱包",
   "modules.deposit.screens.DepositConfirmation.connectWalletDescription": "我们无法检测到钱包。请连一个接钱包用于存款和查看余额增长。",
   "modules.deposit.screens.DepositConfirmation.errorWalletBalanceNotEnough": "你的{poolReserveSymbol}钱包余额不足",
-  "modules.deposit.screens.DepositConfirmation.newHealthFactor": "新的健康因素",
+  "modules.deposit.screens.DepositConfirmation.newHealthFactor": "当前健康因子",
   "modules.deposit.screens.DepositConfirmation.no": "",
   "modules.deposit.screens.DepositConfirmation.valueRowTitle": "数量",
   "modules.deposit.screens.DepositConfirmation.yes": "",
