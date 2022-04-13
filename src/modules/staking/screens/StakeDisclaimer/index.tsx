@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import queryString from 'query-string';
 import BigNumber from 'bignumber.js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import { useStakeDataContext } from '../../../../libs/pool-data-provider/hooks/use-stake-data-context';
 import Link from '../../../../components/basic/Link';

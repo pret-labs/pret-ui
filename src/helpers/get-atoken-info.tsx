@@ -1,5 +1,5 @@
 import { TokenMetadataType } from '@aave/protocol-js';
-import { getAssetInfo } from '@aave/aave-ui-kit';
+import { getAssetInfo } from '@pret/pret-ui-kit';
 import { tEthereumAddress } from '@aave/protocol-js/dist/tx-builder/types';
 
 interface ATokenInfoParams {

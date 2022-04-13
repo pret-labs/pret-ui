@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import { TwitterShareButton } from 'react-share';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import { useVotingPowerLoader } from '../../../../../libs/governance-provider/hooks/use-voting-power-rpc';
 import { useStaticPoolDataContext } from '../../../../../libs/pool-data-provider';

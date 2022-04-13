@@ -421,7 +421,7 @@
   "modules.deposit.components.DepositAssetsTable.asset": "",
   "modules.deposit.components.DepositAssetsTable.connectWallet": "",
   "modules.deposit.components.DepositAssetsTable.dividerTitle": "",
-  "modules.deposit.components.DepositAssetsTable.yourBalanceinAave": "",
+  "modules.deposit.components.DepositAssetsTable.yourBalanceinPret": "",
   "modules.deposit.components.DepositAssetsTable.yourWalletBalance": "",
   "modules.deposit.components.DepositCurrencyWrapper.firstInfoValueTitle": "",
   "modules.deposit.components.DepositCurrencyWrapper.graphDotName": "",

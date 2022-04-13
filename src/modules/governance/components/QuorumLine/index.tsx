@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { ProposalState } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import PercentLine from '../PercentLine';
 

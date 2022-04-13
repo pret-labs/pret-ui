@@ -1,7 +1,7 @@
 import React, { createContext, ReactNode, useContext, useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import Footer from '../../Footer';
 import Menu from '../../menu/Menu';

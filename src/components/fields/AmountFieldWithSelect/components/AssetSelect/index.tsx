@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { rgba, useThemeContext, AnimationArrow, DropdownWrapper } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext, AnimationArrow, DropdownWrapper } from '@pret/pret-ui-kit';
 
 import CustomScroll from '../../../../basic/CustomScroll';
 import BasicField from '../../../BasicField';

@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { FormattedMessage, MessageDescriptor } from 'react-intl';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 interface LinkProps {
   title?: string;

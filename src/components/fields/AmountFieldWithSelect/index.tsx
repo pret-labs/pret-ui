@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import { valueToBigNumber } from '@aave/protocol-js';
 import classNames from 'classnames';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import AmountField from '../AmountField';
 import AssetSelect from './components/AssetSelect';
 

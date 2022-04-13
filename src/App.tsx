@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { useSwipeable } from 'react-swipeable';
 import css from 'styled-jsx/css';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import { useStaticPoolDataContext } from './libs/pool-data-provider';
 import { useMenuContext } from './libs/menu';

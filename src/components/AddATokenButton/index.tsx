@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { ATokenInfo } from '../../helpers/get-atoken-info';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import { useProtocolDataContext } from '../../libs/protocol-data-provider';
 import { addERC20Token } from '../../helpers/add-erc20';

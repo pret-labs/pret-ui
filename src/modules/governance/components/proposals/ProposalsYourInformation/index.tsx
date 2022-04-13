@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { useWeb3React } from '@web3-react/core';
-import { useThemeContext, textCenterEllipsis } from '@aave/aave-ui-kit';
+import { useThemeContext, textCenterEllipsis } from '@pret/pret-ui-kit';
 
 import { useStaticPoolDataContext } from '../../../../../libs/pool-data-provider';
 import { useProtocolDataContext } from '../../../../../libs/protocol-data-provider';

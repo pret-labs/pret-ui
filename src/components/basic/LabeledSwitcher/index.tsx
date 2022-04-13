@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { gradient, useThemeContext, LabeledSwitch } from '@aave/aave-ui-kit';
+import { gradient, useThemeContext, LabeledSwitch } from '@pret/pret-ui-kit';
 
 type LabeledSwitcherProps = {
   value: boolean;

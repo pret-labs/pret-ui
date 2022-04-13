@@ -2,7 +2,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import queryString from 'query-string';
 import { valueToBigNumber } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import { useTxBuilderContext } from '../../../../libs/tx-provider';
 import { usePayments } from '../../../../helpers/payments';

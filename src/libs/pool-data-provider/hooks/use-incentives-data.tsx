@@ -7,7 +7,7 @@ import {
   UserReserveIncentiveDataHumanizedResponse,
   Denominations,
   ChainId,
-} from '@aave/contract-helpers';
+} from '@pret/contract-helpers';
 import { useProtocolDataContext } from '../../protocol-data-provider';
 
 // interval in which the rpc data is refreshed

@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import Link from '../../../../../components/basic/Link';
 import DefaultButton from '../../../../../components/basic/DefaultButton';
 import TableCol from '../TableCol';

@@ -2,7 +2,7 @@ import React from 'react';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import classNames from 'classnames';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import { BorrowRateMode } from '../../../../../libs/pool-data-provider/graphql';
 import Row from '../../../../../components/basic/Row';
 import ValuePercent from '../../../../../components/basic/ValuePercent';

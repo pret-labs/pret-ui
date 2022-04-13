@@ -2,7 +2,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import BlockWrapper, { BlockWrapperProps } from '../BlockWrapper';
 
 import messages from './messages';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import Link from '../../../../basic/Link';
 import Value from '../../../../basic/Value';

@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import GradientLine from '../../basic/GradientLine';
 
 import staticStyles from './style';

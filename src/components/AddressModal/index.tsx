@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
-import { rgba, useThemeContext, BasicModal } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext, BasicModal } from '@pret/pret-ui-kit';
 
 import { ConnectorOptionalConfig, LedgerDerivationPath } from '../../libs/web3-data-provider';
 import AddressList from '../AddressList';

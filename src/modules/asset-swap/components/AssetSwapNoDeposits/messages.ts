@@ -2,7 +2,7 @@ import { defineMessages } from 'react-intl';
 
 export default defineMessages({
   description:
-    'You must have at least {assetsDeposited} in the Aave Protocol to make use of the swap functionality. This swap functionality only {deposited} in the Aave Protocol.',
+    'You must have at least {assetsDeposited} in the Pret Protocol to make use of the swap functionality. This swap functionality only {deposited} in the Pret Protocol.',
   assetsDeposited: 'asset deposited',
   deposited: 'contains the assets you deposited',
 

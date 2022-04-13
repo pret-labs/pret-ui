@@ -2,7 +2,8 @@ import { API_ETH_MOCK_ADDRESS } from '@aave/protocol-js';
 import { BaseNetworkConfig } from '../helpers/config/types';
 import polygonBridgeLogo from './branding/images/polygonLogo.svg';
 import avalancheBridgeLogo from './branding/images/avalancheLogo.svg';
-import { ChainId } from '@aave/contract-helpers';
+import auroraBridgeLogo from './branding/images/auroraLogo.svg';
+import { ChainId } from '@pret/contract-helpers';
 
 export const networkConfigs: Record<string, BaseNetworkConfig> = {
   [ChainId.kovan]: {
@@ -157,6 +158,97 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       name: 'Avalanche Bridge',
       url: 'https://bridge.avax.network/',
       logo: avalancheBridgeLogo,
+    },
+  },
+  [ChainId.aurora_testnet]: {
+    name: 'Aurora Testnet',
+    publicJsonRPCUrl: ['https://testnet.aurora.dev'],
+    publicJsonRPCWSUrl: 'wss://testnet.aurora.dev',
+    addresses: {
+      walletBalanceProvider: '0x3f5A507B33260a3869878B31FB90F04F451d28e3',
+      uiPoolDataProvider: '0xDb49B99073C2AE890708227Dc83B1781bF01512D',
+      uiIncentiveDataProvider: '0x2c911e6FaD423C00205eda22BBAc3e7F82c38007',
+    },
+    protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora-testnet',
+    baseUniswapAdapter: '0x0',
+    baseAsset: 'ETH',
+    baseAssetWrappedAddress: '0xc06fafa6d5fEAbD686b4aB0f3De759ac3b277cEb',
+    // incentives hardcoded information
+    rewardTokenSymbol: 'AURORA',
+    rewardTokenAddress: API_ETH_MOCK_ADDRESS,
+    rewardTokenDecimals: 18,
+    incentivePrecision: 18,
+    explorerLink: 'https://explorer.testnet.aurora.dev',
+    rpcOnly: true,
+    usdMarket: true,
+    isTestnet: true,
+    bridge: {
+      brandColor: '137, 208, 95',
+      name: 'Rainbow Bridge',
+      url: 'https://rainbowbridge.app/',
+      logo: auroraBridgeLogo,
+    },
+  },
+  [ChainId.aurora_mainnet]: {
+    name: 'Aurora Mainnet',
+    publicJsonRPCUrl: ['https://mainnet.aurora.dev'],
+    publicJsonRPCWSUrl: 'wss://mainnet.aurora.dev',
+    addresses: {
+      walletBalanceProvider: '0x7f5a70B224459fE9375A90E052e2582427F58199',
+      uiPoolDataProvider: '0x673Ffd0e1b9DDd3f54238B3C982982031500E60D',
+      uiIncentiveDataProvider: '0x2FC2f0A421a0c1fD34a71FEfFA500d9524E8E92c',
+      chainlinkFeedRegistry: '0x227bd6A09f99998106F6d583a3AFA969c8A85f0D',
+    },
+    protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
+    cachingServerUrl: 'https://cache-api-aurora.pret.app/graphql',
+    cachingWSServerUrl: 'wss://cache-api-aurora.pret.app/graphql',
+    baseUniswapAdapter: '0x0',
+    baseAsset: 'ETH',
+    baseAssetWrappedAddress: '0x38A2b3157d529c521814E88621fE938Be421A203',
+    // incentives hardcoded information
+    rewardTokenSymbol: 'PRETDAO',
+    rewardTokenAddress: '0x6ADA8C2eDA6564b093fF1B4dbB6c5BeE96A0C077',
+    rewardTokenDecimals: 18,
+    incentivePrecision: 18,
+    explorerLink: 'https://explorer.mainnet.aurora.dev',
+    rpcOnly: true,
+    usdMarket: true,
+    bridge: {
+      brandColor: '137, 208, 95',
+      name: 'Rainbow Bridge',
+      url: 'https://rainbowbridge.app/',
+      logo: auroraBridgeLogo,
+    },
+  },
+  [ChainId.hardhat]: {
+    name: 'Hardhat Localnet',
+    publicJsonRPCUrl: ['https://rpc-local.pret.app'],
+    publicJsonRPCWSUrl: 'wss://rpc-local.pret.app',
+    addresses: {
+      walletBalanceProvider: '0x512b3295C2b463917Bf4D19c4E726f123bE87FFf',
+      uiPoolDataProvider: '0xF0CCe7D53A86749beaF02B5a051b1d94e4D5397f',
+      uiIncentiveDataProvider: '0x5A88EE9EE5A67c8BDe872f887031c7A66c34646A',
+      chainlinkFeedRegistry: '0xc46e6E4fDe64444050b2832db4D648D80DE679ef',
+    },
+    protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
+    cachingServerUrl: 'https://cache-api-aurora.pret.app/graphql',
+    cachingWSServerUrl: 'wss://cache-api-aurora.pret.app/graphql',
+    baseUniswapAdapter: '0x0',
+    baseAsset: 'ETH',
+    baseAssetWrappedAddress: '0x934654853Bd7DaE1D3491E38F9Bf909a17F03eD4',
+    // incentives hardcoded information
+    rewardTokenSymbol: 'PRETDAO',
+    rewardTokenAddress: '0x7DCabc4d0f82299637F38Ed2703bA6144e9355cC',
+    rewardTokenDecimals: 18,
+    incentivePrecision: 18,
+    explorerLink: 'https://explorer.mainnet.aurora.dev',
+    rpcOnly: true,
+    usdMarket: true,
+    bridge: {
+      brandColor: '137, 208, 95',
+      name: 'Rainbow Bridge',
+      url: 'https://rainbowbridge.app/',
+      logo: auroraBridgeLogo,
     },
   },
 } as const;

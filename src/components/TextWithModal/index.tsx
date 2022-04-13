@@ -1,7 +1,7 @@
 import React, { ReactNode, useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { useThemeContext, BasicModal } from '@aave/aave-ui-kit';
+import { useThemeContext, BasicModal } from '@pret/pret-ui-kit';
 
 import DefaultButton from '../basic/DefaultButton';
 

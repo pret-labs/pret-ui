@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 
-import { rgba, useThemeContext } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext } from '@pret/pret-ui-kit';
 import BasicField from '../BasicField';
 
 import staticStyles from './style';

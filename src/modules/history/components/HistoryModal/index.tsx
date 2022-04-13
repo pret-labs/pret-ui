@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import dayjs from 'dayjs';
-import { rgba, useThemeContext, BasicModal } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext, BasicModal } from '@pret/pret-ui-kit';
 
 import Caption from '../../../../components/basic/Caption';
 import Row from '../../../../components/basic/Row';

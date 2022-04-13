@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import goToTop from '../../../helpers/goToTop';
 import TailArrow from '../TailArrow';

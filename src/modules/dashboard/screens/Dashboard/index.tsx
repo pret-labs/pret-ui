@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { valueToBigNumber, InterestRate } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import classNames from 'classnames';
 
 import { useIncentivesDataContext } from '../../../../libs/pool-data-provider/hooks/use-incentives-data-context';
@@ -39,7 +39,7 @@ import { getAssetColor } from '../../../../helpers/config/assets-config';
 
 import messages from './messages';
 import staticStyles from './style';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '@pret/contract-helpers';
 
 export default function Dashboard() {
   const intl = useIntl();

@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import ParentSize from '@visx/responsive/lib/components/ParentSize';
 import classNames from 'classnames';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import GradientLine from '../../../../components/basic/GradientLine';
 import GradientPlusButton from '../../../../components/basic/GradientPlusButton';
 import GraphLegend, { GraphLegendDot } from '../../../../components/graphs/GraphLegend';

@@ -4,7 +4,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { valueToBigNumber } from '@aave/protocol-js';
 import queryString from 'query-string';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import { useDynamicPoolDataContext } from '../../../../libs/pool-data-provider';
 import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
 import NoDataPanel from '../../../../components/NoDataPanel';

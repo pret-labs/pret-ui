@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { rgba, useThemeContext } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext } from '@pret/pret-ui-kit';
 import StateChanges from '../../StateChanges';
 import { HistoryItemTypes } from '../../../types';
 

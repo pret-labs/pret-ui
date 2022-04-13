@@ -8,7 +8,7 @@ import routeParamValidationHOC, {
 import { getLPTokenPoolLink } from '../../../../helpers/lp-tokens';
 import { RATES_HISTORY_ENDPOINT } from '../../../../helpers/config/misc-config';
 import { useStaticPoolDataContext } from '../../../../libs/pool-data-provider';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import ScreenWrapper from '../../../../components/wrappers/ScreenWrapper';
 import ContentWrapper from '../../../../components/wrappers/ContentWrapper';
 import NoDataPanel from '../../../../components/NoDataPanel';

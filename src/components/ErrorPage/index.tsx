@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useIntl } from 'react-intl';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import DefaultButton from '../basic/DefaultButton';
 

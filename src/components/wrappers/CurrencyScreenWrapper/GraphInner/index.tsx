@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import ParentSize from '@visx/responsive/lib/components/ParentSize';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import GraphLegend, { GraphLegendDot } from '../../../graphs/GraphLegend';
 import VisxHistoricalRatesGraph from '../../../graphs/VisxHistoricalRatesGraph';

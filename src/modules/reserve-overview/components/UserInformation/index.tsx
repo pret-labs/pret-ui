@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { valueToBigNumber, BigNumber } from '@aave/protocol-js';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 import { toggleUseAsCollateral } from '../../../../helpers/toggle-use-as-collateral';
 import Row from '../../../../components/basic/Row';
 import Link from '../../../../components/basic/Link';

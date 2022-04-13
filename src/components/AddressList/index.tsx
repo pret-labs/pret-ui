@@ -2,7 +2,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { API_ETH_MOCK_ADDRESS } from '@aave/protocol-js';
-import { rgba, useThemeContext, textCenterEllipsis } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext, textCenterEllipsis } from '@pret/pret-ui-kit';
 
 import { useGetWalletsBalance } from '../../libs/pool-data-provider/hooks/use-get-wallets-balance';
 import Preloader from '../basic/Preloader';

@@ -1,4 +1,4 @@
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '@pret/contract-helpers';
 import { ApolloClient, ApolloProvider, NormalizedCacheObject } from '@apollo/client';
 import React, { PropsWithChildren, useContext, useEffect, useState } from 'react';
 import { useProtocolDataContext } from '../protocol-data-provider';

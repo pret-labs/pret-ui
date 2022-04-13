@@ -2,7 +2,7 @@ import React from 'react';
 import BigNumber from 'bignumber.js';
 import { useIntl } from 'react-intl';
 import { valueToBigNumber } from '@aave/protocol-js';
-import { useThemeContext, BasicModal } from '@aave/aave-ui-kit';
+import { useThemeContext, BasicModal } from '@pret/pret-ui-kit';
 
 import { useDynamicPoolDataContext, useStaticPoolDataContext } from '../../libs/pool-data-provider';
 import Row from '../basic/Row';

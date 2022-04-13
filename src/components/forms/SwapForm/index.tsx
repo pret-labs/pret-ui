@@ -2,7 +2,7 @@ import React, { FormEvent, ReactNode, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { valueToBigNumber } from '@aave/protocol-js';
 import classNames from 'classnames';
-import { rgba, useThemeContext } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext } from '@pret/pret-ui-kit';
 
 import Caption from '../../basic/Caption';
 import BasicField from '../../fields/BasicField';

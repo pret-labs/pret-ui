@@ -1,6 +1,6 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { gradient, useThemeContext } from '@aave/aave-ui-kit';
+import { gradient, useThemeContext } from '@pret/pret-ui-kit';
 
 import Link from '../../../../components/basic/Link';
 import AboutStakingModal from '../../components/AboutStakingModal';

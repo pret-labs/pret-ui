@@ -1,6 +1,6 @@
 import React from 'react';
 import Markdown from 'react-markdown';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 import staticStyles from './style';
 import { IpfsPropsal } from '../../../../../libs/governance-provider/types';
