@@ -5,7 +5,7 @@ import { useThemeContext } from '@pret/pret-ui-kit';
 import staticStyles from './style';
 
 import animationCircle from '../../images/animationCircle.svg';
-import pretLogo from '../../images/pret.png';
+import pretLogo from '../../images/pret.svg';
 
 interface InfoPanelProps {
   children: ReactNode;
