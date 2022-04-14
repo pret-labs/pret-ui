@@ -3,7 +3,6 @@ import { IntlShape, useIntl } from 'react-intl';
 import { useWeb3React } from '@web3-react/core';
 import { ethers } from 'ethers';
 import { SafeAppConnector } from '@gnosis.pm/safe-apps-web3-react';
-import invert from 'lodash.invert';
 import AddressModal from '../../components/AddressModal';
 import {
   AvailableWeb3Connectors,
@@ -20,7 +19,7 @@ import {
 } from '../referral-handler';
 
 import messages from './messages';
-import { ChainId } from '@pret/contract-helpers';
+import { ChainId, ChainIdToNetwork } from '@pret/contract-helpers';
 import { getNetworkConfig } from '../../helpers/config/markets-and-network-config';
 import { ADD_CONFIG } from '../../components/TxConfirmationView/NetworkMismatch';
 
@@ -44,10 +43,9 @@ const formattingError = (
   }
   // Unsupported chain
   if (error.message.includes('Unsupported chain id:')) {
-    const invertedChainId = invert(ChainId);
     return intl.formatMessage(messages.unsupportedNetwork, {
       supportedNetworks: ` ${supportedChainIds
-        .map((chainId) => invertedChainId[chainId])
+        .map((chainId) => ChainIdToNetwork[chainId])
         .join(', ')} `,
     });
   }
