@@ -284,7 +284,7 @@ export default function CurrencyOverview({
           </>
         ) : (
           <>
-            <Row
+            {/* <Row
               className="CurrencyOverview__row"
               title={intl.formatMessage(messages.stableAPY)}
               color="white"
@@ -296,7 +296,7 @@ export default function CurrencyOverview({
               ) : (
                 <span className="CurrencyOverview__no-data">—</span>
               )}
-            </Row>
+            </Row> */}
             <Row
               className="CurrencyOverview__row"
               title={intl.formatMessage(messages.variableAPY)}
