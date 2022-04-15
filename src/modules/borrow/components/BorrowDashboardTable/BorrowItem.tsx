@@ -58,7 +58,7 @@ export default function BorrowItem({
         type={borrowRateMode === BorrowRateMode.Variable ? 'borrow-variable' : 'borrow-stable'}
       />
 
-      <TableCol maxWidth={125}>
+      {/* <TableCol maxWidth={125}>
         <CustomSwitch
           value={borrowRateMode === BorrowRateMode.Variable}
           offLabel={intl.formatMessage(messages.offLabel)}
@@ -70,7 +70,7 @@ export default function BorrowItem({
           swiperHeight={swiperHeight}
           swiperWidth={swiperWidth}
         />
-      </TableCol>
+      </TableCol> */}
 
       <TableButtonsWrapper>
         <TableButtonCol

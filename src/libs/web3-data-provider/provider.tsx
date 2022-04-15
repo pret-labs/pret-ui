@@ -3,7 +3,6 @@ import { IntlShape, useIntl } from 'react-intl';
 import { useWeb3React } from '@web3-react/core';
 import { ethers } from 'ethers';
 import { SafeAppConnector } from '@gnosis.pm/safe-apps-web3-react';
-
 import AddressModal from '../../components/AddressModal';
 import {
   AvailableWeb3Connectors,
@@ -20,7 +19,9 @@ import {
 } from '../referral-handler';
 
 import messages from './messages';
-import { ChainId } from '@pret/contract-helpers';
+import { ChainId, ChainIdToNetwork } from '@pret/contract-helpers';
+import { getNetworkConfig } from '../../helpers/config/markets-and-network-config';
+import { ADD_CONFIG } from '../../components/TxConfirmationView/NetworkMismatch';
 
 interface UserWalletData {
   availableAccounts: string[];
@@ -43,7 +44,9 @@ const formattingError = (
   // Unsupported chain
   if (error.message.includes('Unsupported chain id:')) {
     return intl.formatMessage(messages.unsupportedNetwork, {
-      supportedChainIds: supportedChainIds.join(', '),
+      supportedNetworks: ` ${supportedChainIds
+        .map((chainId) => ChainIdToNetwork[chainId])
+        .join(', ')} `,
     });
   }
   // Disconnected or locked ledger
@@ -129,8 +132,9 @@ export function Web3Provider({
   const [activating, setActivation] = useState(true);
   const [isSelectWalletModalVisible, setSelectWalletModalVisible] = useState(false);
   const [isErrorDetected, setErrorDetected] = useState(false);
-
-  const formattedError = formattingError(error, supportedChainIds, intl);
+  const [formattedActivationError, setFormattedActivationError] = useState('');
+  const formattedError =
+    formattingError(error, supportedChainIds, intl) || formattedActivationError;
 
   const [availableAccounts, setAvailableAccounts] = useState<string[]>([]);
   const [displaySwitchAccountModal, setDisplaySwitchAccountModal] = useState(false);
@@ -153,18 +157,44 @@ export function Web3Provider({
   ): Promise<boolean> => {
     let isSuccessful = false;
     setActivation(true);
-    console.log(network);
     //TODO: maybe next line is useless
     localStorage.setItem('preferredChainId', network as unknown as string);
     try {
-      await activate(
-        getWeb3Connector(connectorName, network, availableNetworks, connectorConfig),
-        () => {},
-        true
+      const web3Connector = getWeb3Connector(
+        connectorName,
+        network,
+        availableNetworks,
+        connectorConfig
       );
+      (await web3Connector.getProvider()).on('chainChanged', () => {
+        disconnectWallet();
+        setFormattedActivationError('');
+      });
+      await activate(web3Connector, () => {}, true);
       setCurrentProviderName(connectorName);
       isSuccessful = true;
     } catch (e) {
+      const formattedError = formattingError(e, supportedChainIds, intl) ?? '';
+      setFormattedActivationError(formattedError);
+
+      if (connectorName === 'browser' && e.message.includes('Unsupported chain id:')) {
+        // switch browser to aurora mainnet
+        const neededChainId = ChainId.aurora_mainnet;
+        const config = ADD_CONFIG[neededChainId];
+        const { publicJsonRPCWSUrl, publicJsonRPCUrl } = getNetworkConfig(neededChainId);
+        (window as any).ethereum?.request({
+          method: 'wallet_addEthereumChain',
+          params: [
+            {
+              chainId: `0x${neededChainId.toString(16)}`,
+              chainName: config.name,
+              nativeCurrency: config.nativeCurrency,
+              rpcUrls: [...publicJsonRPCUrl, publicJsonRPCWSUrl],
+              blockExplorerUrls: config.explorerUrls,
+            },
+          ],
+        });
+      }
       console.log('error on activation', e);
       disconnectWallet(e);
     }
@@ -203,10 +233,10 @@ export function Web3Provider({
     provider?: ethers.providers.Web3Provider,
     retries = 0
   ) => {
-    // Implement a retry system to prevent users to infinitely load Aave page during a connection issue.
+    // Implement a retry system to prevent users to infinitely load Pret page during a connection issue.
     if (retries <= 0) {
       const error = new Error(
-        '[Aave][Web3Provider] Max account reload reached. Clearing app state. Ask Aave support channels if you encounter this error.'
+        '[Pret][Web3Provider] Max account reload reached. Clearing app state. Ask Pret support channels if you encounter this error.'
       );
       // Clear state and disconnect wallet
       setIsAvailableAccountsLoading(false);
@@ -228,7 +258,7 @@ export function Web3Provider({
         // Hold the retry until 3 segs if there is an error loading accounts,
         // to prevent spamming the Ledger Web USB channel and block the connection.
         setTimeout(async () => {
-          console.log('[Aave][Web3Provider] Retrying Web3 connection.');
+          console.log('[Pret][Web3Provider] Retrying Web3 connection.');
           await handleAccountsListLoading(provider, retries - 1);
         }, 3000);
         return;

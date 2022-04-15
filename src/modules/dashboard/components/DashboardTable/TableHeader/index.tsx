@@ -45,8 +45,7 @@ export default function TableHeader({ head, colWidth, isDeposit, className }: Ta
         ))}
         {!sm && (
           <>
-            <div className="TableHeader__item" />
-            <div className="TableHeader__item" />
+            <div style={{ width: '180px' }} />
           </>
         )}
       </div>

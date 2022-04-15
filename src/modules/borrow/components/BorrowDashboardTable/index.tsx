@@ -26,7 +26,7 @@ export default function BorrowDashboardTable({ listData }: BorrowDashboardTableP
     intl.formatMessage(messages.yourBorrows),
     intl.formatMessage(messages.secondTableColumnTitle),
     intl.formatMessage(messages.apyRowTitle),
-    intl.formatMessage(messages.fourthTableColumnTitle),
+    // intl.formatMessage(messages.fourthTableColumnTitle),
   ];
   const colWidth = [lg ? 250 : 160, '100%', '100%', 180];
 

@@ -72,8 +72,9 @@ export default function BorrowInterestRateForm({
   return (
     <form onSubmit={handleSubmit} className="BorrowInterestRateForm">
       <Caption
-        title={intl.formatMessage(messages.title)}
-        description={intl.formatMessage(messages.description)}
+        title=""
+        // title={intl.formatMessage(messages.title)}
+        // description={intl.formatMessage(messages.description)}
       />
 
       <div className="BorrowInterestRateForm__buttons">
