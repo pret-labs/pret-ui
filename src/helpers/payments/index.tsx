@@ -6,8 +6,6 @@ import NashRamp from '@nash-io/ramp-widget-sdk';
 import { useThemeContext } from '@pret/pret-ui-kit';
 import { useProtocolDataContext } from '../../libs/protocol-data-provider';
 
-import * as logos from './images';
-import { ENABLE_NASH, ONRAMP_API_KEY, TRANSAK_API_KEY } from '../config/onramp-config';
 import { ChainId } from '@pret/contract-helpers';
 
 enum PaymentName {

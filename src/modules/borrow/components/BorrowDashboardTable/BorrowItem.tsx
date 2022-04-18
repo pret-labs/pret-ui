@@ -2,9 +2,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 
 import { useThemeContext } from '@pret/pret-ui-kit';
-import CustomSwitch from '../../../../components/basic/CustomSwitch';
 import TableItem from '../../../dashboard/components/DashboardTable/TableItem';
-import TableCol from '../../../dashboard/components/DashboardTable/TableCol';
 import TableValueCol from '../../../dashboard/components/DashboardTable/TableValueCol';
 import TableButtonsWrapper from '../../../dashboard/components/DashboardTable/TableButtonsWrapper';
 import TableButtonCol from '../../../dashboard/components/DashboardTable/TableButtonCol';
@@ -12,7 +10,6 @@ import TableAprCol from '../../../dashboard/components/DashboardTable/TableAprCo
 import { BorrowRateMode } from '../../../../libs/pool-data-provider/graphql';
 
 import defaultMessages from '../../../../defaultMessages';
-import messages from './messages';
 
 import { BorrowTableItem } from './types';
 
@@ -24,11 +21,9 @@ export default function BorrowItem({
   borrowRate,
   avg30DaysVariableRate,
   borrowRateMode,
-  onSwitchToggle,
   isActive,
   isFrozen,
   borrowingEnabled,
-  stableBorrowRateEnabled,
   repayLink,
   borrowLink,
   index,
@@ -36,10 +31,6 @@ export default function BorrowItem({
   sincentivesAPR,
 }: BorrowTableItem) {
   const intl = useIntl();
-  const { currentTheme, xl, lg, md, isCurrentThemeDark } = useThemeContext();
-
-  const swiperWidth = xl && !lg ? 30 : md ? 30 : 40;
-  const swiperHeight = xl && !lg ? 16 : md ? 16 : 20;
 
   return (
     <TableItem tokenSymbol={symbol} color={uiColor}>
