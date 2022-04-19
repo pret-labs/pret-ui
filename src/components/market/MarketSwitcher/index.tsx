@@ -64,11 +64,7 @@ export default function MarketSwitcher({ toTop, className, textButton }: MarketS
       setVisible={setVisible}
       buttonComponent={
         textButton ? (
-          <button
-            className="MarketSwitcher__text-button"
-            // onClick={toggleVisible}
-            type="button"
-          >
+          <button className="MarketSwitcher__text-button" onClick={toggleVisible} type="button">
             {intl.formatMessage(messages.changeMarket)}
           </button>
         ) : (
@@ -77,7 +73,7 @@ export default function MarketSwitcher({ toTop, className, textButton }: MarketS
               MarketSwitcher__buttonActive: visible,
               MarketSwitcher__firstClickButton: isFirstMarketButtonClick,
             })}
-            // onClick={toggleVisible}
+            onClick={toggleVisible}
             type="button"
           >
             <div className="MarketSwitcher__button-content">
@@ -173,9 +169,9 @@ export default function MarketSwitcher({ toTop, className, textButton }: MarketS
           &__button-content {
             color: ${currentTheme.white.hex};
             background: ${currentTheme.darkBlue.hex};
-            // &:hover {
-            //   border-color: ${currentTheme.white.hex};
-            // }
+            &:hover {
+              border-color: ${currentTheme.white.hex};
+            }
           }
           &__buttonActive {
             .MarketSwitcher__button-content {
