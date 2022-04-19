@@ -65,9 +65,9 @@ export default function MoreButton() {
             </li>
           ))}
 
-          <li className="MoreButton__switcher-inner">
+          {/* <li className="MoreButton__switcher-inner">
             <ConnectionModeSwitcher />
-          </li>
+          </li> */}
 
           <li className="MoreButton__link-inner">
             <SocialIcons
