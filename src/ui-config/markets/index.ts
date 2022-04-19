@@ -14,26 +14,26 @@ export enum CustomMarket {
   // amm_kovan = 'amm_kovan',
   // amm_mainnet = 'amm_mainnet',
   // proto_fuji = 'proto_fuji',
-  proto_hardhat = 'proto_hardhat',
+  // proto_hardhat = 'proto_hardhat',
 }
 
 export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType } = {
-  [CustomMarket.proto_hardhat]: {
-    chainId: ChainId.hardhat,
-    logo: logos.aaveLogo,
-    activeLogo: logos.aaveActiveLogo,
-    aTokenPrefix: 'AV',
-    enabledFeatures: {
-      liquiditySwap: false,
-      incentives: true,
-    },
-    addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0xAc4fCC7264E642da45c1414Cb5Afdc6668C89dAE'.toLowerCase(),
-      LENDING_POOL: '0x35d9EdfD4307000A6e9A3dbA2EB415627470e9A5',
-      WETH_GATEWAY: '0xA5f2f6701de7cc0252622c1C2d9844061FD70D93',
-      // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
-    },
-  },
+  // [CustomMarket.proto_hardhat]: {
+  //   chainId: ChainId.hardhat,
+  //   logo: logos.aaveLogo,
+  //   activeLogo: logos.aaveActiveLogo,
+  //   aTokenPrefix: 'AV',
+  //   enabledFeatures: {
+  //     liquiditySwap: false,
+  //     incentives: true,
+  //   },
+  //   addresses: {
+  //     LENDING_POOL_ADDRESS_PROVIDER: '0xAc4fCC7264E642da45c1414Cb5Afdc6668C89dAE'.toLowerCase(),
+  //     LENDING_POOL: '0x35d9EdfD4307000A6e9A3dbA2EB415627470e9A5',
+  //     WETH_GATEWAY: '0xA5f2f6701de7cc0252622c1C2d9844061FD70D93',
+  //     // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
+  //   },
+  // },
   [CustomMarket.proto_aurora_mainnet]: {
     chainId: ChainId.aurora_mainnet,
     logo: logos.aaveLogo,
