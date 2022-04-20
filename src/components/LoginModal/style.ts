@@ -16,7 +16,6 @@ const staticStyles = css.global`
   .LoginModal {
     width: 100%;
     height: 100%;
-    background: #1e2329;
     border-radius: 16px;
     &__title {
       color: #9936ce;

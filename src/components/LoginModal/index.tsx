@@ -3,7 +3,7 @@ import ConnectButton from '../ConnectButton';
 import staticStyles from './style';
 
 function LoginModal() {
-  const { sm } = useThemeContext();
+  const { sm, isCurrentThemeDark, currentTheme } = useThemeContext();
   return (
     <section className="LoginModal">
       <div className="LoginModal__container">
@@ -15,6 +15,12 @@ function LoginModal() {
         <style jsx={true} global={true}>
           {staticStyles}
         </style>
+        <style jsx={true} global={true}>{`
+          .LoginModal {
+            background: ${isCurrentThemeDark ? '#1e2329' : currentTheme.white.hex};
+            box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+          }
+        `}</style>
       </div>
     </section>
   );

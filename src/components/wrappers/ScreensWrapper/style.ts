@@ -10,7 +10,6 @@ const staticStyles = css.global`
     position: relative;
     &__content {
       height: 100%;
-      background: #191a20;
       padding: 100px 100px 150px 100px;
       @include respond-to(md) {
         padding: 50px 50px 100px 50px;

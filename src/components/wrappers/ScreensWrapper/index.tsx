@@ -89,6 +89,9 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
       </style>
       <style jsx={true} global={true}>{`
         @import 'src/_mixins/screen-size';
+        .NoLoginScreensWrapper__content {
+          background: ${isCurrentThemeDark ? '#181a20' : '#f4f6f8'};
+        }
         .ScreensWrapper {
           background: ${currentTheme.mainBg.hex};
 
