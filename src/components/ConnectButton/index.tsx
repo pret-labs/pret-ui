@@ -42,19 +42,17 @@ export default function ConnectButton({ className, size = 'normal' }: ConnectBut
             }
           }
 
-          &:before,
-          &:after {
-            background: linear-gradient(
-              to right,
-              ${currentTheme.secondary.hex},
-              ${currentTheme.primary.hex},
-              ${currentTheme.secondary.hex},
-              ${currentTheme.primary.hex}
-            );
-          }
-
           &__inner {
-            background: ${currentTheme.darkBlue.hex};
+            background: linear-gradient(
+              105.53deg,
+              #da8b5c -11.31%,
+              #d06697 39.1%,
+              #bd4cbb 69.87%,
+              #752cd3 114.39%
+            );
+            border-radius: 9999px;
+            box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.38);
+            border-color: ${currentTheme.darkBlue.hex};
             color: ${currentTheme.white.hex};
           }
         }

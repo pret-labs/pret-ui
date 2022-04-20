@@ -24,7 +24,6 @@ const staticStyles = css`
     &:before {
       content: '';
       position: absolute;
-      border-radius: $borderRadius;
       transition: all 0.3s ease;
       background-size: 300% !important;
       animation: animate 4.5s infinite;
