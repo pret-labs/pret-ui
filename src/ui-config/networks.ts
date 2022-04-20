@@ -208,7 +208,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     // incentives hardcoded information
     rewardTokenSymbol: 'WNEAR',
     rewardTokenAddress: '0x9af8043BF8611a749030312b080cA019E7BA9BbD',
-    rewardTokenDecimals: 24,
+    rewardTokenDecimals: 18,
     incentivePrecision: 18,
     explorerLink: 'https://explorer.mainnet.aurora.dev',
     rpcOnly: true,
@@ -239,7 +239,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     // incentives hardcoded information
     rewardTokenSymbol: 'WNEAR',
     rewardTokenAddress: '0x6FaF3062A457fFE8D9E2F1017974905802E21C01',
-    rewardTokenDecimals: 24,
+    rewardTokenDecimals: 18,
     incentivePrecision: 18,
     explorerLink: 'https://explorer.mainnet.aurora.dev',
     rpcOnly: true,
