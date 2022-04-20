@@ -47,8 +47,6 @@ const staticStyles = css`
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid transparent;
-      border-radius: $borderRadius;
       position: relative;
       z-index: 2;
       @include respond-to(sm) {
@@ -136,6 +134,10 @@ const staticStyles = css`
         #752cd3 114.39%
       );
       box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.38);
+      transition: $transition;
+      &:hover {
+        filter: drop-shadow(0px 0px 4px #8533cf);
+      }
     }
   }
 

@@ -36,29 +36,7 @@ export default function ConnectButton({ className, size = 'normal' }: ConnectBut
       <style jsx={true}>{staticStyles}</style>
       <style jsx={true}>{`
         .ConnectButton {
-          &:hover {
-            .ConnectButton__inner {
-              border-color: ${currentTheme.white.hex};
-            }
-          }
-        }
-
-        .ConnectButton__normal,
-        .ConnectButton__medium {
-          &:hover {
-            .ConnectButton__inner {
-              border-color: ${currentTheme.white.hex};
-            }
-          }
-
-          .ConnectButton__inner {
-            color: ${currentTheme.white.hex};
-          }
-        }
-
-        .ConnectButton {
           &__inner {
-            border-color: ${currentTheme.darkBlue.hex};
             color: ${currentTheme.white.hex};
           }
         }
