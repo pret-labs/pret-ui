@@ -8,11 +8,16 @@ import staticStyles from './style';
 
 interface FooterProps {
   inside?: boolean;
+  absoluteBottom?: boolean;
 }
 
-export default function Footer({ inside }: FooterProps) {
+export default function Footer({ inside, absoluteBottom }: FooterProps) {
   return (
-    <footer className={classNames('Footer', { Footer__inside: inside })}>
+    <footer
+      className={classNames('Footer', absoluteBottom && 'Footer__bottom', {
+        Footer__inside: inside,
+      })}
+    >
       <DarkModeSwitcher />
       <LangSwitcher />
 

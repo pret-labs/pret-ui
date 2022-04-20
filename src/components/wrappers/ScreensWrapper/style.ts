@@ -5,6 +5,21 @@ const staticStyles = css.global`
   @import 'src/_mixins/vars';
   @import 'src/_mixins/screen-size';
 
+  .NoLoginScreensWrapper {
+    height: 100vh;
+    position: relative;
+    &__content {
+      height: 100%;
+      background: #191a20;
+      padding: 100px 100px 150px 100px;
+      @include respond-to(md) {
+        padding: 50px 50px 100px 50px;
+      }
+      @include respond-to(sm) {
+        padding: 50px 20px 100px 20px;
+      }
+    }
+  }
   .ScreensWrapper {
     display: flex;
     flex-direction: column;

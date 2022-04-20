@@ -12,6 +12,8 @@ import staticStyles from './style';
 
 import background from '../../../images/background.svg';
 import backgroundDark from '../../../images/backgroundDark.svg';
+import { useWeb3React } from '@web3-react/core';
+import LoginModal from '../../LoginModal';
 
 export interface ScreensWrapperProps {
   children: ReactNode;
@@ -46,9 +48,12 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
     localStorage.getItem('isTopPanelSmall') === 'true' || false
   );
 
+  const { account: _isLoggedIn } = useWeb3React();
+  const isLoggedIn = !!_isLoggedIn;
+
   return (
     <div
-      className={classNames('ScreensWrapper', {
+      className={classNames(isLoggedIn ? 'ScreensWrapper' : 'NoLoginScreensWrapper', {
         ScreensWrapper__topPanelSmall: isTopPanelSmall,
       })}
     >
@@ -57,8 +62,12 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
       <TopDisclaimer />
       <Menu title={title} />
 
-      <main className="ScreensWrapper__content" id="ScreensWrapper__content-wrapper">
-        <div className="ScreensWrapper__top-contentWrapper" />
+      <main
+        className={isLoggedIn ? 'ScreensWrapper__content' : 'NoLoginScreensWrapper__content'}
+        id="ScreensWrapper__content-wrapper"
+      >
+        {isLoggedIn && <div className="ScreensWrapper__top-contentWrapper" />}
+        {!isLoggedIn && <LoginModal />}
 
         <TitleContext.Provider value={{ title, setTitle }}>
           <TopPanelSmallContext.Provider value={{ isTopPanelSmall, setTopPanelSmall }}>
@@ -67,7 +76,7 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
         </TitleContext.Provider>
       </main>
 
-      <Footer inside={true} />
+      <Footer inside={true} absoluteBottom={!isLoggedIn} />
 
       <img
         className="ScreensWrapper__background"
@@ -80,7 +89,6 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
       </style>
       <style jsx={true} global={true}>{`
         @import 'src/_mixins/screen-size';
-
         .ScreensWrapper {
           background: ${currentTheme.mainBg.hex};
 

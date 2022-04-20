@@ -29,6 +29,7 @@ import { RewardConfirm } from './modules/reward/screens/RewardConfirm';
 import { governanceConfig, stakeConfig } from './ui-config';
 import { useProtocolDataContext } from './libs/protocol-data-provider';
 import { isFeatureEnabled } from './helpers/config/markets-and-network-config';
+import { useWeb3React } from '@web3-react/core';
 
 const staticStyles = css.global`
   .App {
@@ -50,57 +51,60 @@ const staticStyles = css.global`
 function ModulesWithMenu() {
   const { isUserHasDeposits, userId } = useStaticPoolDataContext();
   const { currentMarketData } = useProtocolDataContext();
+  const { account } = useWeb3React();
 
   return (
     <ScreensWrapper>
-      <Switch>
-        <Route path="/markets" component={Markets} />
-        <Route path="/dashboard" component={Dashboard} />
+      {account && (
+        <Switch>
+          <Route path="/markets" component={Markets} />
+          <Route path="/dashboard" component={Dashboard} />
 
-        <Route path="/deposit" component={Deposit} />
-        <Route path={`/withdraw/${CURRENCY_ROUTE_PARAMS}`} component={Withdraw} />
+          <Route path="/deposit" component={Deposit} />
+          <Route path={`/withdraw/${CURRENCY_ROUTE_PARAMS}`} component={Withdraw} />
 
-        <Route path="/borrow" component={Borrow} />
-        <Route path={`/repay/${CURRENCY_ROUTE_PARAMS}`} component={Repay} />
+          <Route path="/borrow" component={Borrow} />
+          <Route path={`/repay/${CURRENCY_ROUTE_PARAMS}`} component={Repay} />
 
-        <Route
-          exact={true}
-          path={`/interest-swap/${CURRENCY_ROUTE_PARAMS}/confirmation`}
-          component={SwapBorrowRateModeConfirmation}
-        />
+          <Route
+            exact={true}
+            path={`/interest-swap/${CURRENCY_ROUTE_PARAMS}/confirmation`}
+            component={SwapBorrowRateModeConfirmation}
+          />
 
-        <Route
-          exact={true}
-          path={`/usage-as-collateral/${CURRENCY_ROUTE_PARAMS}/confirmation`}
-          component={SwapUsageAsCollateralModeConfirmation}
-        />
+          <Route
+            exact={true}
+            path={`/usage-as-collateral/${CURRENCY_ROUTE_PARAMS}/confirmation`}
+            component={SwapUsageAsCollateralModeConfirmation}
+          />
 
-        <Route
-          exact={true}
-          path={`/reserve-overview/${CURRENCY_ROUTE_PARAMS}`}
-          component={ReserveOverview}
-        />
+          <Route
+            exact={true}
+            path={`/reserve-overview/${CURRENCY_ROUTE_PARAMS}`}
+            component={ReserveOverview}
+          />
 
-        {!!governanceConfig && [
-          <Route path="/governance" component={Governance} key="Governance" />,
-        ]}
-        {!!stakeConfig && [<Route path="/staking" component={Staking} key="Staking" />]}
+          {!!governanceConfig && [
+            <Route path="/governance" component={Governance} key="Governance" />,
+          ]}
+          {!!stakeConfig && [<Route path="/staking" component={Staking} key="Staking" />]}
 
-        <Route path="/asset-swap" component={AssetSwap} key="AssetSwap" />
-        <Route
-          path="/rewards/confirm/:incentivesControllerAddress"
-          component={RewardConfirm}
-          key="Reward confirm"
-        />
+          <Route path="/asset-swap" component={AssetSwap} key="AssetSwap" />
+          <Route
+            path="/rewards/confirm/:incentivesControllerAddress"
+            component={RewardConfirm}
+            key="Reward confirm"
+          />
 
-        {userId && [<Route exact={true} path="/history" component={History} key="History" />]}
+          {userId && [<Route exact={true} path="/history" component={History} key="History" />]}
 
-        {isFeatureEnabled.faucet(currentMarketData) && [
-          <Route path="/faucet" component={Faucet} key="Faucet" />,
-        ]}
+          {isFeatureEnabled.faucet(currentMarketData) && [
+            <Route path="/faucet" component={Faucet} key="Faucet" />,
+          ]}
 
-        <Redirect to={isUserHasDeposits ? '/dashboard' : '/markets'} />
-      </Switch>
+          <Redirect to={isUserHasDeposits ? '/dashboard' : '/markets'} />
+        </Switch>
+      )}
     </ScreensWrapper>
   );
 }
