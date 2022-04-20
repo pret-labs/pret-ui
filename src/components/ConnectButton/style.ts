@@ -114,6 +114,31 @@ const staticStyles = css`
     }
   }
 
+  .ConnectButton__large {
+    .ConnectButton__inner {
+      width: 220px;
+      font-weight: 700;
+      line-height: 60px;
+      span {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .ConnectButton {
+    &__inner {
+      border-radius: 9999px;
+      background: linear-gradient(
+        105.53deg,
+        #da8b5c -11.31%,
+        #d06697 39.1%,
+        #bd4cbb 69.87%,
+        #752cd3 114.39%
+      );
+      box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.38);
+    }
+  }
+
   @keyframes animate {
     0% {
       background-position: 0 50%;

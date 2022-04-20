@@ -11,12 +11,12 @@ import staticStyles from './style';
 
 interface ConnectButtonProps {
   className?: string;
-  size?: 'small' | 'normal' | 'medium';
+  size?: 'small' | 'normal' | 'medium' | 'large';
 }
 
 export default function ConnectButton({ className, size = 'normal' }: ConnectButtonProps) {
   const intl = useIntl();
-  const { currentTheme, sm, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme, sm } = useThemeContext();
   const { showSelectWalletModal } = useUserWalletDataContext();
   const { closeMobileMenu } = useMenuContext();
 
@@ -41,20 +41,6 @@ export default function ConnectButton({ className, size = 'normal' }: ConnectBut
               border-color: ${currentTheme.white.hex};
             }
           }
-
-          &__inner {
-            background: linear-gradient(
-              105.53deg,
-              #da8b5c -11.31%,
-              #d06697 39.1%,
-              #bd4cbb 69.87%,
-              #752cd3 114.39%
-            );
-            border-radius: 9999px;
-            box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.38);
-            border-color: ${currentTheme.darkBlue.hex};
-            color: ${currentTheme.white.hex};
-          }
         }
 
         .ConnectButton__normal,
@@ -66,9 +52,13 @@ export default function ConnectButton({ className, size = 'normal' }: ConnectBut
           }
 
           .ConnectButton__inner {
-            background: ${isCurrentThemeDark
-              ? currentTheme.whiteItem.hex
-              : currentTheme.textDarkBlue.hex};
+            color: ${currentTheme.white.hex};
+          }
+        }
+
+        .ConnectButton {
+          &__inner {
+            border-color: ${currentTheme.darkBlue.hex};
             color: ${currentTheme.white.hex};
           }
         }
