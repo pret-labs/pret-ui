@@ -18,22 +18,6 @@ export enum CustomMarket {
 }
 
 export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType } = {
-  [CustomMarket.proto_hardhat]: {
-    chainId: ChainId.hardhat,
-    logo: logos.aaveLogo,
-    activeLogo: logos.aaveActiveLogo,
-    aTokenPrefix: 'AV',
-    enabledFeatures: {
-      liquiditySwap: false,
-      incentives: true,
-    },
-    addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0xAc4fCC7264E642da45c1414Cb5Afdc6668C89dAE'.toLowerCase(),
-      LENDING_POOL: '0x35d9EdfD4307000A6e9A3dbA2EB415627470e9A5',
-      WETH_GATEWAY: '0xA5f2f6701de7cc0252622c1C2d9844061FD70D93',
-      // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
-    },
-  },
   [CustomMarket.proto_aurora_mainnet]: {
     chainId: ChainId.aurora_mainnet,
     logo: logos.aaveLogo,
@@ -48,6 +32,22 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       LENDING_POOL_ADDRESS_PROVIDER: '0x71c936f99a414069E14Dc8B75Ae9bdf44581c1A6'.toLowerCase(),
       LENDING_POOL: '0x1D0A72F7F41DFbd0E46Bc56E08Af7F39615e582F',
       WETH_GATEWAY: '0xD57CCe1b477CA88e5Ca7F703b9CE2F668c9bC88C',
+      // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
+    },
+  },
+  [CustomMarket.proto_hardhat]: {
+    chainId: ChainId.hardhat,
+    logo: logos.aaveLogo,
+    activeLogo: logos.aaveActiveLogo,
+    aTokenPrefix: 'AV',
+    enabledFeatures: {
+      liquiditySwap: false,
+      incentives: true,
+    },
+    addresses: {
+      LENDING_POOL_ADDRESS_PROVIDER: '0xAc4fCC7264E642da45c1414Cb5Afdc6668C89dAE'.toLowerCase(),
+      LENDING_POOL: '0x35d9EdfD4307000A6e9A3dbA2EB415627470e9A5',
+      WETH_GATEWAY: '0xA5f2f6701de7cc0252622c1C2d9844061FD70D93',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
     },
   },
