@@ -210,7 +210,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     rewardTokenAddress: '0x729dfF256Ba68502a17C1443B6F49c6B5300E95d',
     rewardTokenDecimals: 24,
     incentivePrecision: 18,
-    explorerLink: 'https://aurorascan.dev/',
+    explorerLink: 'https://aurorascan.dev',
     rpcOnly: true,
     usdMarket: true,
     bridge: {
