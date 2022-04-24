@@ -54,12 +54,6 @@ const staticStyles = css`
         min-height: 54px;
         padding: 0 10px;
       }
-      span {
-        font-size: $extraSmall;
-        @include respond-to(sm) {
-          font-size: $regular;
-        }
-      }
     }
   }
 
@@ -89,26 +83,10 @@ const staticStyles = css`
 
   .ConnectButton__medium {
     .ConnectButton__inner {
-      width: 160px;
+      font-size: 16px;
+      font-weight: bold;
+      width: 150px;
       min-height: 40px;
-      @include respond-to(xl) {
-        width: 90px;
-        min-height: 30px;
-      }
-      @include respond-to(sm) {
-        width: 120px;
-        min-height: 36px;
-      }
-
-      span {
-        font-size: $medium;
-        @include respond-to(xl) {
-          font-size: $extraSmall;
-        }
-        @include respond-to(sm) {
-          font-size: $small;
-        }
-      }
     }
   }
 
