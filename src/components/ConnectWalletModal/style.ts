@@ -82,6 +82,7 @@ const staticStyles = css.global`
     }
 
     &__wallet-name {
+      color: white !important;
       margin-left: 15px;
       font-weight: 400;
       font-size: 22px;
