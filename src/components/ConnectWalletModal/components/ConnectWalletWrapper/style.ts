@@ -55,6 +55,7 @@ const staticStyles = css.global`
 
     &__caption-inner {
       h2 {
+        color: white;
         font-size: 26px;
         line-height: 30px;
         @include respond-to(sm) {
