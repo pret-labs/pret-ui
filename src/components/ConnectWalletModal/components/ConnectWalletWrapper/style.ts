@@ -6,6 +6,11 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .ConnectWalletWrapper {
+    color: white;
+    background: #181a20 !important;
+    h2 {
+      color: white;
+    }
     &.ReactModal__Content {
       height: fit-content;
       display: flex !important;

@@ -49,15 +49,6 @@ export default function ConnectWalletWrapper({
       <style jsx={true} global={true}>
         {staticStyles}
       </style>
-      <style jsx={true} global={true}>{`
-        .ConnectWalletWrapper {
-          color: ${currentTheme.textDarkBlue.hex};
-          background: #181a20 !important;
-          h2 {
-            color: ${isCurrentThemeDark ? currentTheme.textDarkBlue.hex : currentTheme.primary.hex};
-          }
-        }
-      `}</style>
     </BasicModal>
   );
 }
