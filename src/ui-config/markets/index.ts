@@ -23,7 +23,7 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
     logo: logos.aaveLogo,
     activeLogo: logos.aaveActiveLogo,
     subLogo: logos.aurora,
-    aTokenPrefix: 'AV',
+    aTokenPrefix: 'AP',
     enabledFeatures: {
       liquiditySwap: false,
       incentives: true,
@@ -39,7 +39,7 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
     chainId: ChainId.hardhat,
     logo: logos.aaveLogo,
     activeLogo: logos.aaveActiveLogo,
-    aTokenPrefix: 'AV',
+    aTokenPrefix: 'AP',
     enabledFeatures: {
       liquiditySwap: false,
       incentives: true,
