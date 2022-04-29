@@ -223,6 +223,8 @@ export function Web3Provider({
     ) => {
       if (await handleActivation(connectorName, chainId, availableChainIds, connectorConfig)) {
         setSelectWalletModalVisible(false);
+      } else {
+        setSelectWalletModalVisible(true);
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -353,7 +355,6 @@ export function Web3Provider({
   // try to check on the startapp, if we're in the gnosis iFrame - activate this provider
   useEffect(() => {
     const safeAppConnector = new SafeAppConnector();
-
     safeAppConnector.isSafeApp().then((isSafeApp) => {
       let storedProviderName = localStorage.getItem('currentProvider') as
         | AvailableWeb3Connectors
@@ -362,9 +363,17 @@ export function Web3Provider({
         storedProviderName = 'gnosis-safe';
       } else if (storedProviderName === 'gnosis-safe') {
         storedProviderName = undefined;
+      } else if (window?.parent === window) {
+        // safeAppConnector checks gnosis-safe
+        // see the source of the `isSafeApp()` function
+        // if (window?.parent === window) {
+        //   return false;
+        // }
+        // in pret app, we only need browser support by self now
+        // no need to connect a gnosis-safe signer wallet
+        storedProviderName = 'browser';
       }
       if (storedProviderName) {
-        console.log('storedProviderName', storedProviderName);
         setCurrentProviderName(storedProviderName);
         handleUnlockWallet(
           storedProviderName,
