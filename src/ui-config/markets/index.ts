@@ -23,15 +23,15 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
     logo: logos.aaveLogo,
     activeLogo: logos.aaveActiveLogo,
     subLogo: logos.aurora,
-    aTokenPrefix: 'AV',
+    aTokenPrefix: 'AP',
     enabledFeatures: {
       liquiditySwap: false,
       incentives: true,
     },
     addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0x7c48b085265a0CB64229Ff4C7CbdD477a5e3d90c'.toLowerCase(),
-      LENDING_POOL: '0xA0194144EBb3dAAE9CF4fD794CC95263D2b20EE2',
-      WETH_GATEWAY: '0xF2b7972b41E5F780A3476F179cFa7EA8422Bdcbf',
+      LENDING_POOL_ADDRESS_PROVIDER: '0x56b2D779eD5BEb5AE05907653c4C3a4FdD0eE928'.toLowerCase(),
+      LENDING_POOL: '0x03b6314535Ce2d9c2dc743A8D900bbbE6D48215C',
+      WETH_GATEWAY: '0xe7E3F739AE4cB348Eb178576BFFBD19584878877',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
     },
   },
@@ -39,7 +39,7 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
     chainId: ChainId.hardhat,
     logo: logos.aaveLogo,
     activeLogo: logos.aaveActiveLogo,
-    aTokenPrefix: 'AV',
+    aTokenPrefix: 'AP',
     enabledFeatures: {
       liquiditySwap: false,
       incentives: true,
