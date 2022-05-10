@@ -166,7 +166,7 @@ export function Web3Provider({
         availableNetworks,
         connectorConfig
       );
-      (await web3Connector.getProvider()).on('chainChanged', () => {
+      (await web3Connector.getProvider())?.on('chainChanged', () => {
         disconnectWallet();
         setFormattedActivationError('');
       });

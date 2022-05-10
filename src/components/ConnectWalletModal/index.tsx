@@ -103,11 +103,11 @@ export default function ConnectWalletModal({
     //   icon: icons.authereumIcon,
     //   notSupported: !AUTHEREUM_API_KEY || preferredChainId !== ChainId.mainnet,
     // },
-    // {
-    //   title: 'Wallet Connect',
-    //   providerName: 'wallet-connect',
-    //   icon: icons.walletConnectIcon,
-    // },
+    {
+      title: 'Wallet Connect',
+      providerName: 'wallet-connect',
+      icon: icons.walletConnectIcon,
+    },
     // {
     //   title: 'Torus',
     //   providerName: 'torus',

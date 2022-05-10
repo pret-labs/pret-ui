@@ -66,6 +66,7 @@ const staticStyles = css.global`
       min-width: 400px;
       padding: 16px;
       border-radius: 6px;
+      margin-top: 20px;
 
       @include respond-to(sm) {
         padding: 12px;
