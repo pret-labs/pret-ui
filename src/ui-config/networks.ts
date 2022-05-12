@@ -194,10 +194,10 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     publicJsonRPCUrl: ['https://mainnet.aurora.dev'],
     publicJsonRPCWSUrl: 'wss://mainnet.aurora.dev',
     addresses: {
-      walletBalanceProvider: '0xDaCbEE6eF2621aeAe30f45A4c2b25F3F15621564',
-      uiPoolDataProvider: '0x83f4137fD99f7Bc47dBb772FC66958A44f9ea34c',
-      uiIncentiveDataProvider: '0x3B45a725d7Db411f0C6bdab5a8ff0B43C73ddCCc',
-      chainlinkFeedRegistry: '0xa305B599892636F59395595e5877079eDa803e72',
+      walletBalanceProvider: '0x6D89A2E370a5D27c13ac82a8E46287f11bE0CAFf',
+      uiPoolDataProvider: '0xcF392C273E3B87d5F788bE5c3884a25daB9BEC3a',
+      uiIncentiveDataProvider: '0x4D2CBbbC3f8d1f04723e88a1801d33d3f12E51Fa',
+      chainlinkFeedRegistry: '0x0638Ee1543CC69a756383b8c3472CA9F120Ee996',
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
     cachingServerUrl: 'https://cache-api-aurora.pret.app/graphql',
@@ -207,7 +207,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAssetWrappedAddress: '0xB8AD40DCfc163694F981D2e12704C0a7af9387DF',
     // incentives hardcoded information
     rewardTokenSymbol: 'WNEAR',
-    rewardTokenAddress: '0x729dfF256Ba68502a17C1443B6F49c6B5300E95d',
+    rewardTokenAddress: '0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d',
     rewardTokenDecimals: 24,
     incentivePrecision: 18,
     explorerLink: 'https://aurorascan.dev',
