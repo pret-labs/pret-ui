@@ -30,6 +30,13 @@ const staticStyles = css.global`
       margin-right: 10px;
     }
   }
+
+  .Footer__bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+  }
 `;
 
 export default staticStyles;

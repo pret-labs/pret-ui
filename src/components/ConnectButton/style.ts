@@ -24,7 +24,6 @@ const staticStyles = css`
     &:before {
       content: '';
       position: absolute;
-      border-radius: $borderRadius;
       transition: all 0.3s ease;
       background-size: 300% !important;
       animation: animate 4.5s infinite;
@@ -43,25 +42,22 @@ const staticStyles = css`
     }
 
     &__inner {
-      width: 100px;
-      min-height: 32px;
+      img {
+        margin-right: 5px;
+      }
+      padding: 12px 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid transparent;
-      border-radius: $borderRadius;
       position: relative;
       z-index: 2;
+
+      font-size: 12px;
+      font-weight: 500;
       @include respond-to(sm) {
         width: 110px;
         min-height: 54px;
         padding: 0 10px;
-      }
-      span {
-        font-size: $extraSmall;
-        @include respond-to(sm) {
-          font-size: $regular;
-        }
       }
     }
   }
@@ -92,25 +88,32 @@ const staticStyles = css`
 
   .ConnectButton__medium {
     .ConnectButton__inner {
-      width: 160px;
+      font-size: 14px;
+      font-weight: 500;
+      width: 150px;
       min-height: 40px;
-      @include respond-to(xl) {
-        width: 90px;
-        min-height: 30px;
-      }
-      @include respond-to(sm) {
-        width: 120px;
-        min-height: 36px;
-      }
+    }
+  }
 
+  .ConnectButton__large {
+    .ConnectButton__inner {
+      width: 220px;
+      font-weight: 700;
+      line-height: 60px;
       span {
-        font-size: $medium;
-        @include respond-to(xl) {
-          font-size: $extraSmall;
-        }
-        @include respond-to(sm) {
-          font-size: $small;
-        }
+        font-size: 20px;
+      }
+    }
+  }
+
+  .ConnectButton {
+    &__inner {
+      border-radius: 5px;
+      background: linear-gradient(95.47deg, #a46952 -0.58%, #8033cf 102.56%);
+      box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.38);
+      transition: $transition;
+      &:hover {
+        filter: drop-shadow(0px 0px 4px #8533cf);
       }
     }
   }

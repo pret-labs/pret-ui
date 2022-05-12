@@ -119,7 +119,6 @@ export default function MobileContent({ isActive, currentAccount }: MobileConten
 
           <div className="MobileContent__bottom">
             <DarkModeSwitcher />
-            {/* <ConnectionModeSwitcher /> */}
             <div className="MobileContent__lang-switcher">
               <LangSwitcher inside={true} />
             </div>

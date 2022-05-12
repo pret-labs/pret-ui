@@ -2,6 +2,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { useThemeContext } from '@pret/pret-ui-kit';
+import WalletIcon from '../../images/walletIcon.svg';
 
 import { useUserWalletDataContext } from '../../libs/web3-data-provider';
 import { useMenuContext } from '../../libs/menu';
@@ -11,12 +12,12 @@ import staticStyles from './style';
 
 interface ConnectButtonProps {
   className?: string;
-  size?: 'small' | 'normal' | 'medium';
+  size?: 'small' | 'normal' | 'medium' | 'large';
 }
 
 export default function ConnectButton({ className, size = 'normal' }: ConnectButtonProps) {
   const intl = useIntl();
-  const { currentTheme, sm, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme, sm } = useThemeContext();
   const { showSelectWalletModal } = useUserWalletDataContext();
   const { closeMobileMenu } = useMenuContext();
 
@@ -30,47 +31,14 @@ export default function ConnectButton({ className, size = 'normal' }: ConnectBut
       }}
     >
       <div className="ConnectButton__inner">
-        <span>{intl.formatMessage(sm ? messages.connectWallet : messages.connect)}</span>
+        <img src={WalletIcon} alt="wallet connect" />
+        <span>{intl.formatMessage(messages.connectWallet)}</span>
       </div>
 
       <style jsx={true}>{staticStyles}</style>
       <style jsx={true}>{`
         .ConnectButton {
-          &:hover {
-            .ConnectButton__inner {
-              border-color: ${currentTheme.white.hex};
-            }
-          }
-
-          &:before,
-          &:after {
-            background: linear-gradient(
-              to right,
-              ${currentTheme.secondary.hex},
-              ${currentTheme.primary.hex},
-              ${currentTheme.secondary.hex},
-              ${currentTheme.primary.hex}
-            );
-          }
-
           &__inner {
-            background: ${currentTheme.darkBlue.hex};
-            color: ${currentTheme.white.hex};
-          }
-        }
-
-        .ConnectButton__normal,
-        .ConnectButton__medium {
-          &:hover {
-            .ConnectButton__inner {
-              border-color: ${currentTheme.white.hex};
-            }
-          }
-
-          .ConnectButton__inner {
-            background: ${isCurrentThemeDark
-              ? currentTheme.whiteItem.hex
-              : currentTheme.textDarkBlue.hex};
             color: ${currentTheme.white.hex};
           }
         }
