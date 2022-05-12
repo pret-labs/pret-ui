@@ -42,13 +42,18 @@ const staticStyles = css`
     }
 
     &__inner {
-      width: 100px;
-      min-height: 32px;
+      img {
+        margin-right: 5px;
+      }
+      padding: 12px 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       z-index: 2;
+
+      font-size: 12px;
+      font-weight: 500;
       @include respond-to(sm) {
         width: 110px;
         min-height: 54px;
@@ -83,8 +88,8 @@ const staticStyles = css`
 
   .ConnectButton__medium {
     .ConnectButton__inner {
-      font-size: 16px;
-      font-weight: bold;
+      font-size: 14px;
+      font-weight: 500;
       width: 150px;
       min-height: 40px;
     }
@@ -103,14 +108,8 @@ const staticStyles = css`
 
   .ConnectButton {
     &__inner {
-      border-radius: 9999px;
-      background: linear-gradient(
-        105.53deg,
-        #da8b5c -11.31%,
-        #d06697 39.1%,
-        #bd4cbb 69.87%,
-        #752cd3 114.39%
-      );
+      border-radius: 5px;
+      background: linear-gradient(95.47deg, #a46952 -0.58%, #8033cf 102.56%);
       box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.38);
       transition: $transition;
       &:hover {
