@@ -21,6 +21,16 @@ export default function BorrowInterestHelpModal({
   const { currentTheme } = useThemeContext();
 
   return (
+    <div className="BorrowInterestHelpModal">
+      {text}
+      <style jsx>{`
+        .BorrowInterestHelpModal {
+          font-size: 12px;
+        }
+      `}</style>
+    </div>
+  );
+  return (
     <TextWithModal
       text={text}
       iconSize={iconSize}
