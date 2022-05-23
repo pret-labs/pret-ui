@@ -128,7 +128,7 @@ export default function MarketTableItem({
             )}
           </TableColumn>
 
-          <TableColumn className="MarketTableItem__column">
+          {/* <TableColumn className="MarketTableItem__column">
             {stableBorrowRateEnabled && borrowingEnabled && stableBorrowRate >= 0 ? (
               <LiquidityMiningCard
                 value={stableBorrowRate}
@@ -139,7 +139,7 @@ export default function MarketTableItem({
             ) : (
               <NoData color="dark" />
             )}
-          </TableColumn>
+          </TableColumn> */}
         </>
       )}
 
