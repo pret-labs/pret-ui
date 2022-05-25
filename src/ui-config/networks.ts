@@ -191,8 +191,8 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
   },
   [ChainId.aurora_mainnet]: {
     name: 'Aurora Mainnet',
-    publicJsonRPCUrl: ['https://mainnet.aurora.dev'],
-    publicJsonRPCWSUrl: 'wss://mainnet.aurora.dev',
+    publicJsonRPCUrl: ['https://aurorascan.dev'],
+    publicJsonRPCWSUrl: 'wss://aurorascan.dev',
     addresses: {
       walletBalanceProvider: '0xDaCbEE6eF2621aeAe30f45A4c2b25F3F15621564',
       uiPoolDataProvider: '0x83f4137fD99f7Bc47dBb772FC66958A44f9ea34c',
