@@ -178,7 +178,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     rewardTokenAddress: API_ETH_MOCK_ADDRESS,
     rewardTokenDecimals: 18,
     incentivePrecision: 18,
-    explorerLink: 'https://explorer.testnet.aurora.dev',
+    explorerLink: 'https://testnet.aurorascan.dev',
     rpcOnly: true,
     usdMarket: true,
     isTestnet: true,
@@ -241,7 +241,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     rewardTokenAddress: '0x6FaF3062A457fFE8D9E2F1017974905802E21C01',
     rewardTokenDecimals: 18,
     incentivePrecision: 18,
-    explorerLink: 'https://explorer.mainnet.aurora.dev',
+    explorerLink: 'https://aurorascan.dev',
     rpcOnly: true,
     usdMarket: true,
     bridge: {
