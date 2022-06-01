@@ -259,10 +259,10 @@ export default function ReserveInformation({
               condition={reserveOverviewData.usageAsCollateralEnabled}
               title={intl.formatMessage(messages.usedAsCollateral)}
             />
-            <TextBlock
+            {/* <TextBlock
               condition={reserveOverviewData.stableBorrowRateEnabled}
               title={intl.formatMessage(messages.stableBorrowing)}
-            />
+            /> */}
           </div>
         </ContentWrapper>
       </div>
