@@ -191,6 +191,7 @@ export default function DepositBorrowTopPanel() {
                         symbol="USD"
                         tokenIcon={true}
                         withSmallDecimals={true}
+                        minimumValueDecimals={2}
                         color="white"
                       />
                     ) : (
