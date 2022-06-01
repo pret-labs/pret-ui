@@ -46,6 +46,7 @@ function DepositAmount({
   const { lendingPool } = useTxBuilderContext();
   const { payments, isPaymentNashNotOnMainMarket } = usePayments();
   const { sm } = useThemeContext();
+  const ROUND_DOWN = 1;
 
   const asset = getAssetInfo(currencySymbol);
 
@@ -101,7 +102,7 @@ function DepositAmount({
               : intl.formatMessage(messages.description)
           }
           amountFieldTitle={intl.formatMessage(messages.amountTitle)}
-          maxAmount={maxAmountToDeposit.toString(10)}
+          maxAmount={maxAmountToDeposit.toFixed(2, ROUND_DOWN)}
           currencySymbol={currencySymbol}
           onSubmit={handleSubmit}
           maxDecimals={poolReserve.decimals}

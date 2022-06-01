@@ -30,9 +30,9 @@ export default function TopInfoPanel({
   type,
 }: TopInfoPanelProps) {
   const intl = useIntl();
-  const { currentTheme, xl, lg, sm, xs } = useThemeContext();
+  const { currentTheme, xl, lg, sm } = useThemeContext();
 
-  const decimals = isAssetStable(currencySymbol) ? 4 : xs ? 5 : 8;
+  const decimals = 2;
 
   const isDeposit = type === 'deposit';
 
