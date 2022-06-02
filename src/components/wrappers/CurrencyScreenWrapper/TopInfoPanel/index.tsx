@@ -57,7 +57,7 @@ export default function TopInfoPanel({
                 color="white"
               />
             ) : (
-              <span className="TopInfoPanel__no-data">—</span>
+              <span className="TopInfoPanel__no-data">0</span>
             )}
           </Row>
 
@@ -97,7 +97,7 @@ export default function TopInfoPanel({
                 color="white"
               />
             ) : (
-              <span className="TopInfoPanel__no-data">—</span>
+              <span className="TopInfoPanel__no-data">0</span>
             )}
           </Row>
 

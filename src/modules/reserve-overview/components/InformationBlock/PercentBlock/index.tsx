@@ -13,7 +13,7 @@ export default function PercentBlock({ title, titleComponent, value }: PercentBl
   return (
     <BlockWrapper title={title} titleComponent={titleComponent}>
       {value <= 0 ? (
-        <span className="PercentBlock__no-value">—</span>
+        <span className="PercentBlock__no-value">0</span>
       ) : (
         <ValuePercent
           value={value}
