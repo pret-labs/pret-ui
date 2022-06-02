@@ -20,8 +20,8 @@ export default function TableValueCol({ value, subValue, tooltipId }: TableValue
         subSymbol="USD"
         maximumValueDecimals={3}
         minimumValueDecimals={3}
-        minimumSubValueDecimals={5}
-        maximumSubValueDecimals={5}
+        minimumSubValueDecimals={2}
+        maximumSubValueDecimals={2}
         tooltipId={tooltipId}
         className="TableValueCol__value"
       />
