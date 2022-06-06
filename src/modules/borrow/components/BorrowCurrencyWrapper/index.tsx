@@ -91,7 +91,12 @@ export default function BorrowCurrencyWrapper({
                 color: currentTheme.secondary.hex,
               },
             ]
-          : []
+          : [
+              {
+                name: intl.formatMessage(messages.graphDotName),
+                color: currentTheme.secondary.hex,
+              },
+            ]
       }
       series={series}
       goBack={goBack}
