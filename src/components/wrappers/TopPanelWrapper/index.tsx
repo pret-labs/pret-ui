@@ -49,11 +49,11 @@ export default function TopPanelWrapper({
           &__button {
             color: ${currentTheme.white.hex};
             &:hover {
-              color: #aaabae;
+              color: ${currentTheme.lightGray.hex};
               span {
                 &:before,
                 &:after {
-                  background: #aaabae;
+                  background: ${currentTheme.lightGray.hex};
                 }
               }
             }
