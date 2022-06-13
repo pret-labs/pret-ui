@@ -77,6 +77,7 @@ export function IncentivesDataProvider({ children }: { children: ReactNode }) {
     chainId,
     networkConfig.addresses.uiIncentiveDataProvider,
     !isRPCActive || !networkConfig.addresses.uiIncentiveDataProvider,
+    '0xfe0DF913abF7f1CFD8da2caDB03e38473a72dcB3', // incentivesController
     currentAccount
   );
 
