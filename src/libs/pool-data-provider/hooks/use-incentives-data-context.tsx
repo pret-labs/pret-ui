@@ -36,6 +36,7 @@ import {
 export interface IncentivesContext {
   reserveIncentives: ReserveIncentiveDict;
   userIncentives: UserIncentiveDict;
+  usersIncentives: UserIncentiveDict[];
   incentivesTxBuilder: IncentivesControllerInterface;
   refresh: () => void;
 }
@@ -67,20 +68,36 @@ export function IncentivesDataProvider({ children }: { children: ReactNode }) {
       !networkConfig.addresses.uiIncentiveDataProvider
   );
 
-  const {
-    data: rpcData,
-    loading: rpcDataLoading,
-    error: rpcDataError,
-    refresh,
-  }: IncentiveDataResponse = useIncentivesData(
-    currentMarketData.addresses.LENDING_POOL_ADDRESS_PROVIDER,
-    chainId,
-    networkConfig.addresses.uiIncentiveDataProvider,
-    !isRPCActive || !networkConfig.addresses.uiIncentiveDataProvider,
-    '0xfe0DF913abF7f1CFD8da2caDB03e38473a72dcB3', // incentivesController
-    currentAccount
-  );
+  const uiIncentiveDataControllers = networkConfig.addresses.uiIncentiveDataControllers;
 
+  let rpcDatas = [],
+    rpcDataLoading = false,
+    rpcDataError = false,
+    refresh = async () => {};
+
+  if (uiIncentiveDataControllers && uiIncentiveDataControllers.length) {
+    for (const uiIncentiveDataController of uiIncentiveDataControllers) {
+      const {
+        data,
+        loading,
+        error,
+        refresh: _refresh,
+      }: IncentiveDataResponse = useIncentivesData(
+        currentMarketData.addresses.LENDING_POOL_ADDRESS_PROVIDER,
+        chainId,
+        networkConfig.addresses.uiIncentiveDataProvider,
+        !isRPCActive || !networkConfig.addresses.uiIncentiveDataProvider,
+        uiIncentiveDataController,
+        currentAccount
+      );
+      rpcDatas.push(data);
+      if (loading) rpcDataLoading = true;
+      if (error) rpcDataError = true;
+      refresh = _refresh;
+    }
+  }
+
+  const rpcData = rpcDatas[0];
   const activeData = isRPCActive && rpcData ? rpcData : cachedData;
 
   const userIncentiveData: UserReserveIncentiveData[] =
@@ -178,12 +195,22 @@ export function IncentivesDataProvider({ children }: { children: ReactNode }) {
     currentTimestamp,
   });
 
+  const usersIncentives = rpcDatas.map((rpcData) =>
+    calculateAllUserIncentives({
+      reserveIncentives: reserveIncentiveData,
+      userReserveIncentives: rpcData && rpcData.userIncentiveData ? rpcData.userIncentiveData : [],
+      userReserves: computedUserReserves,
+      currentTimestamp,
+    })
+  );
+
   return (
     <IncentivesDataContext.Provider
       value={{
         incentivesTxBuilder,
         reserveIncentives,
         userIncentives,
+        usersIncentives,
         refresh: isRPCActive ? refresh : async () => {},
       }}
     >

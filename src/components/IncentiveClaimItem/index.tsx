@@ -14,12 +14,14 @@ interface IncentiveClaimItemProps {
   symbol: string;
   claimableRewards: string;
   incentiveControllerAddress: string;
+  hasClaimButton?: boolean;
 }
 
 export default function IncentiveClaimItem({
   symbol,
   claimableRewards,
   incentiveControllerAddress,
+  hasClaimButton,
 }: IncentiveClaimItemProps) {
   const intl = useIntl();
   const { currentTheme, xl, sm, isCurrentThemeDark } = useThemeContext();
@@ -45,12 +47,14 @@ export default function IncentiveClaimItem({
         <Value value={claimableRewards} compact={true} color={sm ? 'dark' : 'white'} />
       </div>
 
-      <Link
-        to={rewardClaimLink}
-        className="ButtonLink"
-        disabled={claimableRewards === '0'}
-        title={intl.formatMessage(defaultMessages.claim)}
-      />
+      {hasClaimButton && (
+        <Link
+          to={rewardClaimLink}
+          className="ButtonLink"
+          disabled={claimableRewards === '0'}
+          title={intl.formatMessage(defaultMessages.claim)}
+        />
+      )}
 
       {!sm && (
         <CustomTooltip

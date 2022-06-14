@@ -15,6 +15,7 @@ export function getRewardTokenSymbol(
   reserves: ComputedReserveData[],
   rewardTokenAddress: string
 ): string {
+  console.log({ rewardTokenAddress });
   if (rewardTokenAddress.toLowerCase() === '0x4da27a545c0c5b758a6ba100e3a049001de870f5') {
     return 'stkAAVE';
   } else if (rewardTokenAddress.toLowerCase() === '0xc7283b66eb1eb5fb86327f08e1b5816b0720212b') {
@@ -24,7 +25,7 @@ export function getRewardTokenSymbol(
   } else if (rewardTokenAddress.toLowerCase() === '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270') {
     return 'WMATIC';
   } else if (
-    rewardTokenAddress.toLowerCase() === '0x729dff256ba68502a17c1443b6f49c6b5300e95d' || // aurora
+    rewardTokenAddress.toLowerCase() === '0xc42c30ac6cc15fac9bd938618bcaa1a1fae8501d' || // aurora
     rewardTokenAddress.toLowerCase() === '0x6faf3062a457ffe8d9e2f1017974905802e21c01' // hardhat
   ) {
     return 'WNEAR';
@@ -45,34 +46,44 @@ export default function IncentiveWrapper() {
   const { currentTheme, sm } = useThemeContext();
 
   const { user, reserves } = useDynamicPoolDataContext();
-  const { userIncentives } = useIncentivesDataContext();
+  const { usersIncentives } = useIncentivesDataContext();
 
   // Only display assets for which user has claimable rewards
-  const userIncentivesFiltered = Object.fromEntries(
-    Object.entries(userIncentives).filter((entry) => Number(entry[1].claimableRewards) > 0)
-  );
+  const usersIncentivesFiltered = usersIncentives
+    .map((userIncentives) =>
+      Object.fromEntries(
+        Object.entries(userIncentives).filter((entry) => Number(entry[1].claimableRewards) > 0)
+      )
+    )
+    .filter((userIncentivesFiltered) => Object.keys(userIncentivesFiltered).length > 0);
 
-  if (!user || Object.keys(userIncentivesFiltered).length === 0) return null;
+  if (!user || usersIncentivesFiltered.length === 0) return null;
 
   return (
     <div className="IncentiveWrapper">
       <p className="IncentiveWrapper__title">{intl.formatMessage(messages.availableReward)}</p>
 
       <div className="IncentiveWrapper__incentives">
-        {Object.entries(userIncentivesFiltered).map((incentive) => {
-          const rewardTokenSymbol = getRewardTokenSymbol(reserves, incentive[1].rewardTokenAddress);
-          const claimableRewards = normalize(
-            incentive[1].claimableRewards,
-            incentive[1].rewardTokenDecimals
-          );
-          return (
-            <IncentiveClaimItem
-              key={incentive[0]}
-              symbol={rewardTokenSymbol}
-              claimableRewards={claimableRewards}
-              incentiveControllerAddress={incentive[0]}
-            />
-          );
+        {usersIncentivesFiltered.map((usersIncentivesFiltered, idx) => {
+          return Object.entries(usersIncentivesFiltered).map((incentive) => {
+            const rewardTokenSymbol = getRewardTokenSymbol(
+              reserves,
+              incentive[1].rewardTokenAddress
+            );
+            const claimableRewards = normalize(
+              incentive[1].claimableRewards,
+              incentive[1].rewardTokenDecimals
+            );
+            return (
+              <IncentiveClaimItem
+                key={incentive[0]}
+                hasClaimButton={idx === 0} // hardcoded to let second item not have claim button
+                symbol={rewardTokenSymbol}
+                claimableRewards={claimableRewards}
+                incentiveControllerAddress={incentive[0]}
+              />
+            );
+          });
         })}
       </div>
 

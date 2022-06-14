@@ -119,7 +119,7 @@ export function useIncentivesData(
       const rawReserveIncentiveData =
         await incentiveDataProviderContract.getIncentivesDataWithPrice({
           lendingPoolAddressProvider,
-          incentivesController: incentivesController,
+          incentivesController,
           quote: networkConfig.usdMarket ? Denominations.usd : Denominations.eth,
           chainlinkFeedsRegistry: networkConfig.addresses.chainlinkFeedRegistry,
         });
