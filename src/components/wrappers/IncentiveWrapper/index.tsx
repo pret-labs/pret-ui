@@ -29,7 +29,7 @@ export function getRewardTokenSymbol(
   ) {
     return 'WNEAR';
   } else if (rewardTokenAddress === '0xa4904872b5B17D3101857C649A8e7e7a3Ed5b1ac') {
-    return 'LINEAR';
+    return 'AURORA';
   } else {
     let rewardReserve = reserves.find(
       (reserve) => reserve.underlyingAsset.toLowerCase() === rewardTokenAddress.toLowerCase()
