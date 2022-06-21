@@ -29,9 +29,9 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       incentives: true,
     },
     addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0x56b2D779eD5BEb5AE05907653c4C3a4FdD0eE928'.toLowerCase(),
-      LENDING_POOL: '0x03b6314535Ce2d9c2dc743A8D900bbbE6D48215C',
-      WETH_GATEWAY: '0xe7E3F739AE4cB348Eb178576BFFBD19584878877',
+      LENDING_POOL_ADDRESS_PROVIDER: '0x8fcc9f65BF153371f4B06542446eE51aCcDb635C'.toLowerCase(),
+      LENDING_POOL: '0x8ca1db9e43305636e9b4bf8ca1ff8f97579009ad',
+      WETH_GATEWAY: '0x33318ba00a220cab6da06f625c0d80ad5a2f37a9',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
     },
   },

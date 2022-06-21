@@ -211,7 +211,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAssetWrappedAddress: '0xB8AD40DCfc163694F981D2e12704C0a7af9387DF',
     // incentives hardcoded information
     rewardTokenSymbol: 'WNEAR',
-    rewardTokenAddress: '0x729dfF256Ba68502a17C1443B6F49c6B5300E95d',
+    rewardTokenAddress: '0x1a55e008e86ac4c170499e8e8af5d60565e4e453',
     rewardTokenDecimals: 24,
     incentivePrecision: 18,
     explorerLink: 'https://aurorascan.dev',
