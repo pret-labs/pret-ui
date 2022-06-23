@@ -195,14 +195,15 @@ export function IncentivesDataProvider({ children }: { children: ReactNode }) {
     currentTimestamp,
   });
 
-  const usersIncentives = rpcDatas.map((rpcData) =>
-    calculateAllUserIncentives({
-      reserveIncentives: reserveIncentiveData,
+  const usersIncentives = rpcDatas.map((rpcData) => {
+    return calculateAllUserIncentives({
+      reserveIncentives:
+        rpcData && rpcData.reserveIncentiveData ? rpcData.reserveIncentiveData : [],
       userReserveIncentives: rpcData && rpcData.userIncentiveData ? rpcData.userIncentiveData : [],
       userReserves: computedUserReserves,
       currentTimestamp,
-    })
-  );
+    });
+  });
 
   return (
     <IncentivesDataContext.Provider

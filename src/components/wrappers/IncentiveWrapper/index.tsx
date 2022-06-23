@@ -1,4 +1,3 @@
-import React from 'react';
 import { useIntl } from 'react-intl';
 import { normalize } from '@aave/math-utils';
 import { useThemeContext } from '@pret/pret-ui-kit';
@@ -71,10 +70,13 @@ export default function IncentiveWrapper() {
               reserves,
               incentive[1].rewardTokenAddress
             );
-            const claimableRewards = normalize(
-              incentive[1].claimableRewards,
-              incentive[1].rewardTokenDecimals
-            );
+
+            // it should be fixed 26 decimals when idx === 1, just for testing
+            // need to be changed later.
+            // TODO
+            const rewardTokenDecimals = idx === 1 ? 26 : incentive[1].rewardTokenDecimals;
+            const claimableRewards = normalize(incentive[1].claimableRewards, rewardTokenDecimals);
+
             return (
               <IncentiveClaimItem
                 key={incentive[0]}
