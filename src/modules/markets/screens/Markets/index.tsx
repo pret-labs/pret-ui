@@ -30,6 +30,8 @@ export default function Markets() {
   const { reserves } = useDynamicPoolDataContext();
   const { currentMarketData } = useProtocolDataContext();
   const { reserveIncentives } = useIncentivesDataContext();
+  // TODO: reserveIncentives shows 2 col
+  const reserveIncentive = reserveIncentives[0];
   const [isPriceInUSD, setIsPriceInUSD] = useState(
     localStorage.getItem('marketsIsPriceInUSD') === 'true'
   );
@@ -56,7 +58,7 @@ export default function Markets() {
         .multipliedBy(reserve.priceInMarketReferenceCurrency)
         .multipliedBy(marketRefPriceInUsd)
         .toNumber();
-      const reserveIncentiveData = reserveIncentives[reserve.underlyingAsset.toLowerCase()];
+      const reserveIncentiveData = reserveIncentive[reserve.underlyingAsset.toLowerCase()];
       return {
         totalLiquidity,
         totalLiquidityInUSD,

@@ -32,6 +32,8 @@ export default function DepositsMain() {
   const { marketRefPriceInUsd } = useStaticPoolDataContext();
   const { reserves, user } = useDynamicPoolDataContext();
   const { reserveIncentives } = useIncentivesDataContext();
+  // TODO: reserveIncentives shows 2 col
+  const reserveIncentive = reserveIncentives[0];
   const { sm } = useThemeContext();
 
   const [searchValue, setSearchValue] = useState('');
@@ -77,7 +79,7 @@ export default function DepositsMain() {
           .multipliedBy(reserve.priceInMarketReferenceCurrency)
           .multipliedBy(marketRefPriceInUsd)
           .toString();
-        const reserveIncentiveData = reserveIncentives[reserve.underlyingAsset.toLowerCase()];
+        const reserveIncentiveData = reserveIncentive[reserve.underlyingAsset.toLowerCase()];
         return {
           ...reserve,
           walletBalance,

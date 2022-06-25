@@ -46,13 +46,13 @@ export default function IncentiveWrapper() {
   const { currentTheme, sm } = useThemeContext();
 
   const { user, reserves } = useDynamicPoolDataContext();
-  const { usersIncentives } = useIncentivesDataContext();
+  const { userIncentives } = useIncentivesDataContext();
 
   // Only display assets for which user has claimable rewards
-  const usersIncentivesFiltered = usersIncentives
-    .map((userIncentives) =>
+  const usersIncentivesFiltered = userIncentives
+    .map((userIncentive) =>
       Object.fromEntries(
-        Object.entries(userIncentives).filter((entry) => Number(entry[1].claimableRewards) > 0)
+        Object.entries(userIncentive).filter((entry) => Number(entry[1].claimableRewards) > 0)
       )
     )
     .filter((userIncentivesFiltered) => Object.keys(userIncentivesFiltered).length > 0);

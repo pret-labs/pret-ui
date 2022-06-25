@@ -47,6 +47,8 @@ export default function Dashboard() {
   const { chainId } = useProtocolDataContext();
   const { user, reserves } = useDynamicPoolDataContext();
   const { reserveIncentives } = useIncentivesDataContext();
+  // TODO: reserveIncentives shows 2 col
+  const reserveIncentive = reserveIncentives[0];
   const { currentTheme, sm } = useThemeContext();
 
   const [isLTVModalVisible, setLTVModalVisible] = useState(false);
@@ -76,7 +78,7 @@ export default function Dashboard() {
     }
 
     const reserveIncentiveData =
-      reserveIncentives[userReserve.reserve.underlyingAsset.toLowerCase()];
+      reserveIncentive[userReserve.reserve.underlyingAsset.toLowerCase()];
     if (userReserve.underlyingBalance !== '0' || userReserve.totalBorrows !== '0') {
       const baseListData = {
         uiColor: getAssetColor(userReserve.reserve.symbol),
