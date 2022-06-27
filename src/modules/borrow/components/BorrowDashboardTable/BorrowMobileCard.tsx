@@ -21,6 +21,7 @@ import { BorrowTableItem } from './types';
 
 export default function BorrowMobileCard({
   reserve: { symbol },
+  rewardTokenSymbol,
   currentBorrows,
   currentBorrowsUSD,
   borrowRate,
@@ -57,6 +58,7 @@ export default function BorrowMobileCard({
           {borrowingEnabled ? (
             <LiquidityMiningCard
               symbol={symbol}
+              rewardTokenSymbol={rewardTokenSymbol}
               value={Number(borrowRate)}
               thirtyDaysValue={
                 borrowRateMode === BorrowRateMode.Variable ? avg30DaysVariableRate : ''

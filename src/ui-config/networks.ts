@@ -20,9 +20,13 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAsset: 'ETH',
     baseAssetWrappedAddress: '0xd0a1e359811322d97991e03f863a0c30c2cf029c',
     // incentives hardcoded information
-    rewardTokenSymbol: 'stkAAVE',
-    rewardTokenAddress: '0xb597cd8d3217ea6477232f9217fa70837ff667af',
-    rewardTokenDecimals: 18,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'stkAAVE',
+        rewardTokenAddress: '0xb597cd8d3217ea6477232f9217fa70837ff667af',
+        rewardTokenDecimals: 18,
+      },
+    ],
     incentivePrecision: 18,
     explorerLink: 'https://kovan.etherscan.com',
     rpcOnly: true,
@@ -45,9 +49,13 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAsset: 'ETH',
     baseAssetWrappedAddress: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
     // incentives hardcoded information
-    rewardTokenSymbol: 'stkAAVE',
-    rewardTokenAddress: '0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9',
-    rewardTokenDecimals: 18,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'stkAAVE',
+        rewardTokenAddress: '0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9',
+        rewardTokenDecimals: 18,
+      },
+    ],
     incentivePrecision: 18,
     explorerLink: 'https://etherscan.com',
     rpcOnly: false,
@@ -67,9 +75,13 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAsset: 'MATIC',
     baseAssetWrappedAddress: '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270',
     // incentives hardcoded information
-    rewardTokenSymbol: 'WMATIC',
-    rewardTokenAddress: API_ETH_MOCK_ADDRESS,
-    rewardTokenDecimals: 18,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'WMATIC',
+        rewardTokenAddress: API_ETH_MOCK_ADDRESS,
+        rewardTokenDecimals: 18,
+      },
+    ],
     incentivePrecision: 18,
     explorerLink: 'https://polygonscan.com',
     rpcOnly: false,
@@ -93,9 +105,13 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAsset: 'MATIC',
     baseAssetWrappedAddress: '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889',
     // incentives hardcoded information
-    rewardTokenSymbol: 'WMATIC',
-    rewardTokenAddress: '0x9c3c9283d3e44854697cd22d3faa240cfb032889',
-    rewardTokenDecimals: 18,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'WMATIC',
+        rewardTokenAddress: '0x9c3c9283d3e44854697cd22d3faa240cfb032889',
+        rewardTokenDecimals: 18,
+      },
+    ],
     incentivePrecision: 18,
     explorerLink: 'https://explorer-mumbai.maticvigil.com',
     rpcOnly: true,
@@ -115,9 +131,13 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAsset: 'AVAX',
     baseAssetWrappedAddress: '0xd00ae08403B9bbb9124bB305C09058E32C39A48c',
     // incentives hardcoded information
-    rewardTokenSymbol: 'WAVAX',
-    rewardTokenAddress: API_ETH_MOCK_ADDRESS,
-    rewardTokenDecimals: 18,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'WAVAX',
+        rewardTokenAddress: API_ETH_MOCK_ADDRESS,
+        rewardTokenDecimals: 18,
+      },
+    ],
     incentivePrecision: 18,
     explorerLink: 'https://cchain.explorer.avax-test.network',
     rpcOnly: true,
@@ -146,9 +166,13 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAsset: 'AVAX',
     baseAssetWrappedAddress: '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7',
     // incentives hardcoded information
-    rewardTokenSymbol: 'WAVAX',
-    rewardTokenAddress: API_ETH_MOCK_ADDRESS,
-    rewardTokenDecimals: 18,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'WAVAX',
+        rewardTokenAddress: API_ETH_MOCK_ADDRESS,
+        rewardTokenDecimals: 18,
+      },
+    ],
     incentivePrecision: 18,
     explorerLink: 'https://cchain.explorer.avax.network',
     rpcOnly: false,
@@ -174,9 +198,13 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAsset: 'ETH',
     baseAssetWrappedAddress: '0xc06fafa6d5fEAbD686b4aB0f3De759ac3b277cEb',
     // incentives hardcoded information
-    rewardTokenSymbol: 'AURORA',
-    rewardTokenAddress: API_ETH_MOCK_ADDRESS,
-    rewardTokenDecimals: 18,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'AURORA',
+        rewardTokenAddress: API_ETH_MOCK_ADDRESS,
+        rewardTokenDecimals: 18,
+      },
+    ],
     incentivePrecision: 18,
     explorerLink: 'https://testnet.aurorascan.dev',
     rpcOnly: true,
@@ -210,9 +238,18 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAsset: 'ETH',
     baseAssetWrappedAddress: '0x88aabf01c7faab947d1570cd993bed8acebf54b2',
     // incentives hardcoded information
-    rewardTokenSymbol: 'WNEAR',
-    rewardTokenAddress: '0x1a55e008e86ac4c170499e8e8af5d60565e4e453',
-    rewardTokenDecimals: 24,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'WNEAR',
+        rewardTokenAddress: '0x1a55e008e86ac4c170499e8e8af5d60565e4e453',
+        rewardTokenDecimals: 24,
+      },
+      {
+        rewardTokenSymbol: 'AURORA',
+        rewardTokenAddress: '0xa4904872b5b17d3101857c649a8e7e7a3ed5b1ac',
+        rewardTokenDecimals: 26,
+      },
+    ],
     incentivePrecision: 18,
     explorerLink: 'https://aurorascan.dev',
     rpcOnly: true,
@@ -241,9 +278,13 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAsset: 'ETH',
     baseAssetWrappedAddress: '0x8F74537e8164E81ff83B965e914Fd9721978FC1b',
     // incentives hardcoded information
-    rewardTokenSymbol: 'WNEAR',
-    rewardTokenAddress: '0x6FaF3062A457fFE8D9E2F1017974905802E21C01',
-    rewardTokenDecimals: 18,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'WNEAR',
+        rewardTokenAddress: '0x6FaF3062A457fFE8D9E2F1017974905802E21C01',
+        rewardTokenDecimals: 18,
+      },
+    ],
     incentivePrecision: 18,
     explorerLink: 'https://aurorascan.dev',
     rpcOnly: true,

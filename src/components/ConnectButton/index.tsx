@@ -17,7 +17,7 @@ interface ConnectButtonProps {
 
 export default function ConnectButton({ className, size = 'normal' }: ConnectButtonProps) {
   const intl = useIntl();
-  const { currentTheme, sm } = useThemeContext();
+  const { currentTheme } = useThemeContext();
   const { showSelectWalletModal } = useUserWalletDataContext();
   const { closeMobileMenu } = useMenuContext();
 

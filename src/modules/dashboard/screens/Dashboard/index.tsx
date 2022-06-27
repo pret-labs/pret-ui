@@ -29,7 +29,9 @@ import MainDashboardTable from '../../components/MainDashboardTable';
 import MobileTopPanelWrapper from '../../components/MobileTopPanelWrapper';
 import DepositBorrowTopPanel from '../../../../components/DepositBorrowTopPanel';
 import ApproximateBalanceHelpModal from '../../../../components/HelpModal/ApproximateBalanceHelpModal';
-import IncentiveWrapper from '../../../../components/wrappers/IncentiveWrapper';
+import IncentiveWrapper, {
+  getRewardTokenSymbol,
+} from '../../../../components/wrappers/IncentiveWrapper';
 import DashboardNoData from '../../components/DashboardNoData';
 
 import { DepositTableItem } from '../../../deposit/components/DepositDashboardTable/types';
@@ -47,7 +49,7 @@ export default function Dashboard() {
   const { chainId } = useProtocolDataContext();
   const { user, reserves } = useDynamicPoolDataContext();
   const { reserveIncentives } = useIncentivesDataContext();
-  // TODO: reserveIncentives shows 2 col
+  // TODO: reserveIncentive need to map
   const reserveIncentive = reserveIncentives[0];
   const { currentTheme, sm } = useThemeContext();
 
@@ -93,6 +95,10 @@ export default function Dashboard() {
       if (userReserve.underlyingBalance !== '0') {
         depositedPositions.push({
           ...baseListData,
+          rewardTokenSymbol: getRewardTokenSymbol(
+            reserves,
+            reserveIncentiveData.aIncentives.rewardTokenAddress
+          ),
           borrowingEnabled: poolReserve.borrowingEnabled,
           avg30DaysLiquidityRate: poolReserve.avg30DaysLiquidityRate,
           usageAsCollateralEnabledOnThePool: poolReserve.usageAsCollateralEnabled,
@@ -115,6 +121,10 @@ export default function Dashboard() {
       if (userReserve.variableBorrows !== '0') {
         borrowedPositions.push({
           ...baseListData,
+          rewardTokenSymbol: getRewardTokenSymbol(
+            reserves,
+            reserveIncentiveData.aIncentives.rewardTokenAddress
+          ),
           borrowingEnabled: poolReserve.borrowingEnabled,
           currentBorrows: userReserve.variableBorrows,
           currentBorrowsUSD: userReserve.variableBorrowsUSD,
@@ -151,6 +161,10 @@ export default function Dashboard() {
       if (userReserve.stableBorrows !== '0') {
         borrowedPositions.push({
           ...baseListData,
+          rewardTokenSymbol: getRewardTokenSymbol(
+            reserves,
+            reserveIncentiveData.aIncentives.rewardTokenAddress
+          ),
           borrowingEnabled: poolReserve.borrowingEnabled && poolReserve.stableBorrowRateEnabled,
           currentBorrows: userReserve.stableBorrows,
           currentBorrowsUSD: userReserve.stableBorrowsUSD,

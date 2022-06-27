@@ -2,24 +2,18 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import { useThemeContext } from '@pret/pret-ui-kit';
 
-import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
 import ContentWrapper from '../../../../components/wrappers/ContentWrapper';
 import Caption from '../../../../components/basic/Caption';
-import MarketSelectButton from '../../../../components/market/MarketSelectButton';
 import Link from '../../../../components/basic/Link';
 import DefaultButton from '../../../../components/basic/DefaultButton';
 
 import messages from './messages';
 import staticStyles from './style';
-import {
-  availableMarkets,
-  marketsData,
-} from '../../../../helpers/config/markets-and-network-config';
 
 export default function DashboardNoData() {
   const intl = useIntl();
   const { currentTheme, isCurrentThemeDark, sm } = useThemeContext();
-  const { currentMarket, setCurrentMarket } = useProtocolDataContext();
+  // const { currentMarket, setCurrentMarket } = useProtocolDataContext();
 
   return (
     <ContentWrapper className="DashboardNoData" withFullHeight={true} withBackButton={true}>

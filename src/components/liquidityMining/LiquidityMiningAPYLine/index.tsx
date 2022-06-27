@@ -15,6 +15,7 @@ import tribeIcon from '../../../images/tirbe.svg';
 
 interface LiquidityMiningAPYLineProps {
   symbol?: string;
+  rewardTokenSymbol: string;
   value: string | number;
   tooltipId?: string;
 }
@@ -23,6 +24,7 @@ export default function LiquidityMiningAPYLine({
   symbol,
   value,
   tooltipId,
+  rewardTokenSymbol,
 }: LiquidityMiningAPYLineProps) {
   const intl = useIntl();
   const { currentTheme, xl, isCurrentThemeDark } = useThemeContext();
@@ -49,11 +51,7 @@ export default function LiquidityMiningAPYLine({
         </div>
       ) : (
         <>
-          <TokenIcon
-            tokenSymbol={networkConfig.rewardTokenSymbol}
-            width={xl ? 10 : 12}
-            height={xl ? 10 : 12}
-          />
+          <TokenIcon tokenSymbol={rewardTokenSymbol} width={xl ? 10 : 12} height={xl ? 10 : 12} />
           <ValuePercent value={value} maximumDecimals={2} minimumDecimals={2} />
         </>
       )}
@@ -69,7 +67,7 @@ export default function LiquidityMiningAPYLine({
           <div className="LiquidityMiningAPYLine__tooltip--content">
             <p>
               {intl.formatMessage(messages.tooltipText, {
-                token: networkConfig.rewardTokenSymbol,
+                token: networkConfig.rewardTokens[0].rewardTokenSymbol,
               })}
             </p>
           </div>

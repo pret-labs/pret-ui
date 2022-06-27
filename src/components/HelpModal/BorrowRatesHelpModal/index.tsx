@@ -1,6 +1,4 @@
-import React from 'react';
 import { useIntl } from 'react-intl';
-import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 
 import HelpModalWrapper from '../HelpModalWrapper';
 import { HelpModalProps } from '../types';
@@ -14,9 +12,9 @@ export default function BorrowRatesHelpModal({
   color,
   lightWeight,
   onWhiteBackground,
+  rewardTokenSymbol,
 }: HelpModalProps) {
   const intl = useIntl();
-  const { networkConfig } = useProtocolDataContext();
   return (
     <HelpModalWrapper
       text={text}
@@ -26,7 +24,7 @@ export default function BorrowRatesHelpModal({
       lightWeight={lightWeight}
       caption={intl.formatMessage(messages.caption)}
       description={intl.formatMessage(messages.description, {
-        token: networkConfig.rewardTokenSymbol,
+        token: rewardTokenSymbol,
       })}
       onWhiteBackground={onWhiteBackground}
       withGrayIcon={true}

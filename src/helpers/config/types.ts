@@ -36,9 +36,11 @@ export type NetworkConfig = {
   baseUniswapAdapter?: string;
   baseAsset: string;
   baseAssetWrappedAddress?: string;
-  rewardTokenSymbol: string;
-  rewardTokenAddress: string;
-  rewardTokenDecimals: number;
+  rewardTokens: readonly {
+    rewardTokenSymbol: string;
+    rewardTokenAddress: string;
+    rewardTokenDecimals: number;
+  }[];
   incentivePrecision: number;
   usdMarket?: boolean;
   // function returning a link to etherscan et al

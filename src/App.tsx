@@ -29,7 +29,6 @@ import { RewardConfirm } from './modules/reward/screens/RewardConfirm';
 import { governanceConfig, stakeConfig } from './ui-config';
 import { useProtocolDataContext } from './libs/protocol-data-provider';
 import { isFeatureEnabled } from './helpers/config/markets-and-network-config';
-import { useWeb3React } from '@web3-react/core';
 
 const staticStyles = css.global`
   .App {

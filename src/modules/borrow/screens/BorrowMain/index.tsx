@@ -30,6 +30,7 @@ export default function BorrowMain() {
   const { marketRefPriceInUsd } = useStaticPoolDataContext();
   const { reserves, user } = useDynamicPoolDataContext();
   const { reserveIncentives } = useIncentivesDataContext();
+  // TODO: reserveIncentive need to map
   const reserveIncentive = reserveIncentives[0];
   const { sm } = useThemeContext();
 
@@ -96,6 +97,7 @@ export default function BorrowMain() {
           sincentivesAPR: reserveIncentiveData
             ? reserveIncentiveData.sIncentives.incentiveAPR
             : '0',
+          rewardTokenSymbol: reserveIncentiveData.aIncentives.rewardTokenAddress,
         };
       });
 

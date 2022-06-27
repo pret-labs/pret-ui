@@ -12,6 +12,7 @@ import { BorrowTableItem } from './types';
 export default function BorrowItem({
   id,
   symbol,
+  rewardTokenSymbol,
   underlyingAsset,
   availableBorrows,
   availableBorrowsInUSD,
@@ -56,6 +57,7 @@ export default function BorrowItem({
             thirtyDaysValue={avg30DaysVariableRate}
             liquidityMiningValue={vincentivesAPR}
             symbol={symbol}
+            rewardTokenSymbol={rewardTokenSymbol}
             type="borrow-variable"
           />
         </TableColumn>

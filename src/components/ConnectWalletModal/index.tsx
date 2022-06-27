@@ -7,24 +7,12 @@ import {
   getWeb3ProviderFromBrowser,
 } from '../../libs/web3-data-provider';
 
-import WarningArea from '../WarningArea';
-import Link from '../basic/Link';
 import UnlockWalletWrapper from './components/ConnectWalletWrapper';
-import WalletCard from './components/WalletCard';
-import LedgerChecklist from './components/LedgerChecklist';
-import SelectPreferredNetwork from './components/SelectPreferredNetwork';
-import {
-  AUTHEREUM_API_KEY,
-  getFortmaticKeyByChainId,
-  PORTIS_DAPP_ID,
-} from '../../helpers/config/wallet-config';
-import { UnlockWalletExtraText } from '../../ui-config';
 
 import messages from './messages';
 import staticStyles from './style';
 
 import * as icons from './images';
-import { ChainId } from '@pret/contract-helpers';
 import { useThemeContext } from '@pret/pret-ui-kit';
 import { useEffect, useState } from 'react';
 
@@ -62,7 +50,7 @@ export default function ConnectWalletModal({
     );
 
   // @ts-ignore
-  const isImToken = !!window.imToken;
+  // const isImToken = !!window.imToken;
 
   const wallets: Wallet[] = [
     {

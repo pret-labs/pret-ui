@@ -22,9 +22,9 @@ export default function MarketMobileCard({
   totalLiquidityInUSD,
   totalBorrowsInUSD,
   depositAPY,
-  aincentivesAPR,
-  vincentivesAPR,
-  sincentivesAPR,
+  aincentivesAPRs,
+  vincentivesAPRs,
+  sincentivesAPRs,
   avg30DaysLiquidityRate,
   stableBorrowRate,
   variableBorrowRate,
@@ -32,6 +32,7 @@ export default function MarketMobileCard({
   borrowingEnabled,
   stableBorrowRateEnabled,
   isFreezed,
+  rewardTokenSymbols,
 }: MarketTableItemProps) {
   const intl = useIntl();
   const history = useHistory();
@@ -42,7 +43,7 @@ export default function MarketMobileCard({
       title: messages.deposit,
       value: depositAPY,
       thirtyDaysValue: avg30DaysLiquidityRate,
-      liquidityMiningValue: aincentivesAPR,
+      liquidityMiningValue: aincentivesAPRs,
       enabled: true,
       type: 'deposit',
     },
@@ -51,7 +52,7 @@ export default function MarketMobileCard({
       subTitle: messages.variable,
       value: variableBorrowRate,
       thirtyDaysValue: avg30DaysVariableRate,
-      liquidityMiningValue: vincentivesAPR,
+      liquidityMiningValue: vincentivesAPRs,
       enabled: borrowingEnabled,
       type: 'borrow-variable',
     },
@@ -59,7 +60,7 @@ export default function MarketMobileCard({
       title: messages.borrow,
       subTitle: messages.stable,
       value: stableBorrowRate,
-      liquidityMiningValue: sincentivesAPR,
+      liquidityMiningValue: sincentivesAPRs,
       enabled: stableBorrowRateEnabled && borrowingEnabled,
       type: 'borrow-stable',
     },
@@ -116,14 +117,18 @@ export default function MarketMobileCard({
               </p>
 
               {card.enabled ? (
-                <LiquidityMiningCard
-                  symbol={currencySymbol}
-                  value={card.value}
-                  thirtyDaysValue={card.thirtyDaysValue}
-                  liquidityMiningValue={card.liquidityMiningValue}
-                  mobilePosition="left"
-                  type={card.type}
-                />
+                Array.from(Array(rewardTokenSymbols.length)).map((index) => (
+                  <LiquidityMiningCard
+                    key={index}
+                    symbol={currencySymbol}
+                    rewardTokenSymbol={rewardTokenSymbols[index]}
+                    value={card.value}
+                    thirtyDaysValue={card.thirtyDaysValue}
+                    liquidityMiningValue={card.liquidityMiningValue[index]}
+                    mobilePosition="left"
+                    type={card.type}
+                  />
+                ))
               ) : (
                 <NoData color="dark" />
               )}

@@ -26,13 +26,14 @@ import { useWalletBalanceProviderContext } from '../../../../libs/wallet-balance
 import { isAssetStable } from '../../../../helpers/config/assets-config';
 import { useIncentivesDataContext } from '../../../../libs/pool-data-provider/hooks/use-incentives-data-context';
 import PermissionWarning from '../../../../ui-config/branding/PermissionWarning';
+import { getRewardTokenSymbol } from '../../../../components/wrappers/IncentiveWrapper';
 
 export default function DepositsMain() {
   const intl = useIntl();
   const { marketRefPriceInUsd } = useStaticPoolDataContext();
   const { reserves, user } = useDynamicPoolDataContext();
   const { reserveIncentives } = useIncentivesDataContext();
-  // TODO: reserveIncentives shows 2 col
+  // TODO: reserveIncentive need to map
   const reserveIncentive = reserveIncentives[0];
   const { sm } = useThemeContext();
 
@@ -82,6 +83,10 @@ export default function DepositsMain() {
         const reserveIncentiveData = reserveIncentive[reserve.underlyingAsset.toLowerCase()];
         return {
           ...reserve,
+          rewardTokenSymbol: getRewardTokenSymbol(
+            reserves,
+            reserveIncentiveData.aIncentives.rewardTokenAddress
+          ),
           walletBalance,
           walletBalanceInUSD,
           underlyingBalance: userReserve ? userReserve.underlyingBalance : '0',

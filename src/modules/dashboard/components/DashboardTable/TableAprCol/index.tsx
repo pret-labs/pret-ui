@@ -7,6 +7,7 @@ import staticStyles from './style';
 
 interface TableAprColProps {
   value: number;
+  rewardTokenSymbol: string;
   thirtyDaysAverage?: string;
   liquidityMiningValue: string | number;
   condition?: boolean;
@@ -21,6 +22,7 @@ export default function TableAprCol({
   condition,
   type,
   symbol,
+  rewardTokenSymbol,
 }: TableAprColProps) {
   return (
     <TableCol>
@@ -29,6 +31,7 @@ export default function TableAprCol({
         thirtyDaysValue={thirtyDaysAverage}
         liquidityMiningValue={liquidityMiningValue}
         symbol={symbol}
+        rewardTokenSymbol={rewardTokenSymbol}
         type={type}
       />
 

@@ -16,6 +16,7 @@ import { BorrowTableItem } from './types';
 export default function BorrowMobileCard({
   id,
   symbol,
+  rewardTokenSymbol,
   underlyingAsset,
   availableBorrows,
   availableBorrowsInUSD,
@@ -59,6 +60,7 @@ export default function BorrowMobileCard({
         <Row title={intl.formatMessage(messages.variableAPY)} withMargin={true}>
           <LiquidityMiningCard
             symbol={symbol}
+            rewardTokenSymbol={rewardTokenSymbol}
             value={variableBorrowRate}
             thirtyDaysValue={avg30DaysVariableRate}
             liquidityMiningValue={vincentivesAPR}
@@ -72,6 +74,7 @@ export default function BorrowMobileCard({
           {stableBorrowRateEnabled ? (
             <LiquidityMiningCard
               symbol={symbol}
+              rewardTokenSymbol={rewardTokenSymbol}
               value={stableBorrowRate}
               liquidityMiningValue={sincentivesAPR}
               type="borrow-stable"

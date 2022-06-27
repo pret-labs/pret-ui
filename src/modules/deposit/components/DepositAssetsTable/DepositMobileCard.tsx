@@ -16,6 +16,7 @@ import { DepositTableItem } from './types';
 export default function DepositMobileCard({
   id,
   symbol,
+  rewardTokenSymbol,
   underlyingAsset,
   walletBalance,
   walletBalanceInUSD,
@@ -58,6 +59,7 @@ export default function DepositMobileCard({
           {borrowingEnabled ? (
             <LiquidityMiningCard
               symbol={symbol}
+              rewardTokenSymbol={rewardTokenSymbol}
               value={liquidityRate}
               thirtyDaysValue={avg30DaysLiquidityRate}
               liquidityMiningValue={aincentivesAPR}
