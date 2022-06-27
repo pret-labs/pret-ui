@@ -74,13 +74,14 @@ export default function IncentiveWrapper() {
             // it should be fixed 26 decimals when idx === 1, just for testing
             // need to be changed later.
             // TODO
-            const rewardTokenDecimals = idx === 1 ? 26 : incentive[1].rewardTokenDecimals;
+            const rewardTokenDecimals =
+              'WNEAR' !== rewardTokenSymbol ? 26 : incentive[1].rewardTokenDecimals;
             const claimableRewards = normalize(incentive[1].claimableRewards, rewardTokenDecimals);
 
             return (
               <IncentiveClaimItem
                 key={incentive[0]}
-                hasClaimButton={idx === 0} // hardcoded to let second item not have claim button
+                hasClaimButton={'WNEAR' === rewardTokenSymbol} // hardcoded to let second item not have claim button
                 symbol={rewardTokenSymbol}
                 claimableRewards={claimableRewards}
                 incentiveControllerAddress={incentive[0]}
