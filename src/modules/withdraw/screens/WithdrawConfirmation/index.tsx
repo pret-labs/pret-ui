@@ -89,6 +89,10 @@ function WithdrawConfirmation({
       }
     }
     displayAmountToWithdraw = maxAmountToWithdraw;
+
+    if (maxAmountToWithdraw.minus(userReserve.underlyingBalance).lt(0)) {
+      amountToWithdraw = maxAmountToWithdraw;
+    }
   }
 
   let blockingError = '';
