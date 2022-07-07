@@ -22,7 +22,6 @@ import MarketMobileCard from '../../components/MarketMobileCard';
 import messages from './messages';
 import staticStyles from './style';
 import { useIncentivesDataContext } from '../../../../libs/pool-data-provider/hooks/use-incentives-data-context';
-import { getRewardTokenSymbol } from '../../../../components/wrappers/IncentiveWrapper';
 
 export default function Markets() {
   const intl = useIntl();
@@ -57,9 +56,9 @@ export default function Markets() {
         .multipliedBy(reserve.priceInMarketReferenceCurrency)
         .multipliedBy(marketRefPriceInUsd)
         .toNumber();
-      const reserveIncentiveDatas = reserveIncentives.map(
+      const reserveIncentiveData = reserveIncentives.map(
         (reserveIncentive) => reserveIncentive[reserve.underlyingAsset.toLowerCase()]
-      );
+      )[0];
       return {
         totalLiquidity,
         totalLiquidityInUSD,
@@ -79,27 +78,9 @@ export default function Markets() {
         borrowingEnabled: reserve.borrowingEnabled,
         stableBorrowRateEnabled: reserve.stableBorrowRateEnabled,
         isFreezed: reserve.isFrozen,
-        aincentivesAPRs:
-          reserveIncentiveDatas.length > 0
-            ? reserveIncentiveDatas.map(
-                (reserveIncentiveData) => reserveIncentiveData.aIncentives.incentiveAPR
-              )
-            : [],
-        vincentivesAPRs:
-          reserveIncentiveDatas.length > 0
-            ? reserveIncentiveDatas.map(
-                (reserveIncentiveData) => reserveIncentiveData.vIncentives.incentiveAPR
-              )
-            : [],
-        sincentivesAPRs:
-          reserveIncentiveDatas.length > 0
-            ? reserveIncentiveDatas.map(
-                (reserveIncentiseData) => reserveIncentiseData.sIncentives.incentiveAPR
-              )
-            : [],
-        rewardTokenSymbols: reserveIncentiveDatas.map((reserveIncentiveData) =>
-          getRewardTokenSymbol(reserves, reserveIncentiveData.aIncentives.rewardTokenAddress)
-        ),
+        aincentivesAPR: reserveIncentiveData ? reserveIncentiveData.aIncentives.incentiveAPR : '0',
+        vincentivesAPR: reserveIncentiveData ? reserveIncentiveData.vIncentives.incentiveAPR : '0',
+        sincentivesAPR: reserveIncentiveData ? reserveIncentiveData.sIncentives.incentiveAPR : '0',
       };
     });
 

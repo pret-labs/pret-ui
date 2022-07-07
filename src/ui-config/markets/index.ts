@@ -1,3 +1,4 @@
+import { CORNRewardsAssets } from './../../helpers/config/types';
 import { ChainId } from '@pret/contract-helpers';
 import { MarketDataType } from '../../helpers/config/types';
 
@@ -34,6 +35,36 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       WETH_GATEWAY: '0x33318ba00a220cab6da06f625c0d80ad5a2f37a9',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
     },
+    cornRewards: {
+      [CORNRewardsAssets.WNEAR]: {
+        depositRewardsPerDay: 30,
+        borrowRewardsPerDay: 20,
+      },
+      [CORNRewardsAssets.LINEAR]: {
+        depositRewardsPerDay: 40,
+        borrowRewardsPerDay: 0,
+      },
+      [CORNRewardsAssets.ETH]: {
+        depositRewardsPerDay: 10,
+        borrowRewardsPerDay: 10,
+      },
+      [CORNRewardsAssets.USDC]: {
+        depositRewardsPerDay: 15,
+        borrowRewardsPerDay: 15,
+      },
+      [CORNRewardsAssets.USDT]: {
+        depositRewardsPerDay: 15,
+        borrowRewardsPerDay: 15,
+      },
+      [CORNRewardsAssets.DAI]: {
+        depositRewardsPerDay: 10,
+        borrowRewardsPerDay: 10,
+      },
+      [CORNRewardsAssets.WBTC]: {
+        depositRewardsPerDay: 5,
+        borrowRewardsPerDay: 5,
+      },
+    },
   },
   [CustomMarket.proto_hardhat]: {
     chainId: ChainId.hardhat,
@@ -49,6 +80,36 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       LENDING_POOL: '0x6076c09450c1C793532463642aEbfAbcACb27417',
       WETH_GATEWAY: '0x099bC74E26d3eaE24Ca3135d86678DD1b13AeAAe',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
+    },
+    cornRewards: {
+      [CORNRewardsAssets.WNEAR]: {
+        depositRewardsPerDay: 30,
+        borrowRewardsPerDay: 20,
+      },
+      [CORNRewardsAssets.LINEAR]: {
+        depositRewardsPerDay: 40,
+        borrowRewardsPerDay: 0,
+      },
+      [CORNRewardsAssets.ETH]: {
+        depositRewardsPerDay: 10,
+        borrowRewardsPerDay: 10,
+      },
+      [CORNRewardsAssets.USDC]: {
+        depositRewardsPerDay: 15,
+        borrowRewardsPerDay: 15,
+      },
+      [CORNRewardsAssets.USDT]: {
+        depositRewardsPerDay: 15,
+        borrowRewardsPerDay: 15,
+      },
+      [CORNRewardsAssets.DAI]: {
+        depositRewardsPerDay: 10,
+        borrowRewardsPerDay: 10,
+      },
+      [CORNRewardsAssets.WBTC]: {
+        depositRewardsPerDay: 5,
+        borrowRewardsPerDay: 5,
+      },
     },
   },
   // [CustomMarket.proto_kovan]: {

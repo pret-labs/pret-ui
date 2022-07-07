@@ -57,7 +57,6 @@ export default function DepositMobileCard({
         <Row title={intl.formatMessage(messages.apyRowTitle)} withMargin={true}>
           {borrowingEnabled || aincentivesAPR !== '0' ? (
             <LiquidityMiningCard
-              rewardTokenSymbol={rewardTokenSymbol}
               symbol={symbol}
               value={borrowingEnabled ? Number(liquidityRate) : 0}
               thirtyDaysValue={avg30DaysLiquidityRate}

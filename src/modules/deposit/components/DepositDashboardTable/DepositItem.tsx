@@ -50,7 +50,6 @@ export default function DepositItem({
       />
       <TableAprCol
         value={Number(liquidityRate)}
-        rewardTokenSymbol={rewardTokenSymbol}
         thirtyDaysAverage={avg30DaysLiquidityRate}
         liquidityMiningValue={aincentivesAPR}
         symbol={symbol}

@@ -18,5 +18,4 @@ export type BorrowTableItem = {
   borrowLink: string;
   reserve: Pick<RawReserveData, 'symbol'>;
   index?: number;
-  rewardTokenSymbol: string;
 };

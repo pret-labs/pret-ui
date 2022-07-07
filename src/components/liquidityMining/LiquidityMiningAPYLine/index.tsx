@@ -12,10 +12,10 @@ import messages from './messages';
 import staticStyles from './style';
 
 import tribeIcon from '../../../images/tirbe.svg';
+import { CORNRewardsAssets } from '../../../helpers/config/types';
 
 interface LiquidityMiningAPYLineProps {
   symbol?: string;
-  rewardTokenSymbol: string;
   value: string | number;
   tooltipId?: string;
 }
@@ -24,56 +24,120 @@ export default function LiquidityMiningAPYLine({
   symbol,
   value,
   tooltipId,
-  rewardTokenSymbol,
 }: LiquidityMiningAPYLineProps) {
   const intl = useIntl();
   const { currentTheme, xl, isCurrentThemeDark } = useThemeContext();
-  const { networkConfig } = useProtocolDataContext();
+  const { networkConfig, currentMarketData } = useProtocolDataContext();
 
   const borderColor = rgba(`${currentTheme.lightBlue.rgb}, 0.2`);
 
   const isFeiReward = symbol === 'FEI';
 
   return (
-    <div
-      className={classNames('LiquidityMiningAPYLine', {
-        LiquidityMiningAPYLine__withTooltip: tooltipId,
-      })}
-      data-tip={true}
-      data-for={tooltipId}
-    >
-      {isFeiReward ? (
-        <div className="LiquidityMiningAPYLine__tribe">
-          <img src={tribeIcon} alt="" />
-          <strong className="LiquidityMiningAPYLine__titleTribe LiquidityMiningAPYLine__title">
-            TRIBE
-          </strong>
-        </div>
-      ) : (
-        <>
-          <TokenIcon tokenSymbol={rewardTokenSymbol} width={xl ? 10 : 12} height={xl ? 10 : 12} />
-          <ValuePercent value={value} maximumDecimals={2} minimumDecimals={2} />
-        </>
-      )}
-
-      {isFeiReward ? (
-        <TribeRewardHelpModal text="" />
-      ) : (
-        <p className="LiquidityMiningAPYLine__title">{intl.formatMessage(messages.apr)}</p>
-      )}
-
-      {!!tooltipId && !isFeiReward && (
-        <ReactTooltip className="LiquidityMiningAPYLine__tooltip" id={tooltipId} effect="solid">
-          <div className="LiquidityMiningAPYLine__tooltip--content">
-            <p>
-              {intl.formatMessage(messages.tooltipText, {
-                token: networkConfig.rewardTokens[0].rewardTokenSymbol,
-              })}
-            </p>
+    <>
+      <div
+        className={classNames('LiquidityMiningAPYLine', {
+          LiquidityMiningAPYLine__withTooltip: tooltipId,
+        })}
+        data-tip={true}
+        data-for={tooltipId}
+      >
+        {isFeiReward ? (
+          <div className="LiquidityMiningAPYLine__tribe">
+            <img src={tribeIcon} alt="" />
+            <strong className="LiquidityMiningAPYLine__titleTribe LiquidityMiningAPYLine__title">
+              TRIBE
+            </strong>
           </div>
-        </ReactTooltip>
-      )}
+        ) : (
+          <>
+            <TokenIcon
+              tokenSymbol={
+                networkConfig.rewardTokens.length > 0
+                  ? networkConfig.rewardTokens[0].rewardTokenSymbol
+                  : ''
+              }
+              width={xl ? 10 : 12}
+              height={xl ? 10 : 12}
+            />
+            <ValuePercent value={value} maximumDecimals={2} minimumDecimals={2} />
+          </>
+        )}
 
+        {isFeiReward ? (
+          <TribeRewardHelpModal text="" />
+        ) : (
+          <p className="LiquidityMiningAPYLine__title">{intl.formatMessage(messages.apr)}</p>
+        )}
+
+        {!!tooltipId && !isFeiReward && (
+          <ReactTooltip className="LiquidityMiningAPYLine__tooltip" id={tooltipId} effect="solid">
+            <div className="LiquidityMiningAPYLine__tooltip--content">
+              <p>
+                {intl.formatMessage(messages.tooltipText, {
+                  token: networkConfig.rewardTokens[0].rewardTokenSymbol,
+                })}
+              </p>
+            </div>
+          </ReactTooltip>
+        )}
+      </div>
+
+      {/* just use styles */}
+      <div
+        className={classNames('LiquidityMiningAPYLine', {
+          LiquidityMiningAPYLine__withTooltip: tooltipId,
+        })}
+        data-tip={true}
+        data-for={tooltipId}
+      >
+        {isFeiReward ? (
+          <div className="LiquidityMiningAPYLine__tribe">
+            <img src={tribeIcon} alt="" />
+            <strong className="LiquidityMiningAPYLine__titleTribe LiquidityMiningAPYLine__title">
+              TRIBE
+            </strong>
+          </div>
+        ) : (
+          <>
+            <TokenIcon
+              tokenSymbol={
+                networkConfig.rewardTokens.length > 1
+                  ? networkConfig.rewardTokens[1].rewardTokenSymbol
+                  : ''
+              }
+              width={xl ? 10 : 12}
+              height={xl ? 10 : 12}
+            />
+            <ValuePercent
+              value={
+                currentMarketData.cornRewards[symbol as CORNRewardsAssets]
+                  ? tooltipId?.includes('deposit')
+                    ? currentMarketData.cornRewards[symbol as CORNRewardsAssets]
+                        .depositRewardsPerDay
+                    : currentMarketData.cornRewards[symbol as CORNRewardsAssets].borrowRewardsPerDay
+                  : ''
+              }
+              maximumDecimals={2}
+              minimumDecimals={2}
+              percentSymbol={false}
+            />
+          </>
+        )}
+
+        <p className="LiquidityMiningAPYLine__title">{intl.formatMessage(messages.kDay)}</p>
+        {!!tooltipId && !isFeiReward && (
+          <ReactTooltip className="LiquidityMiningAPYLine__tooltip" id={tooltipId} effect="solid">
+            <div className="LiquidityMiningAPYLine__tooltip--content">
+              <p>
+                {intl.formatMessage(messages.tooltipText, {
+                  token: networkConfig.rewardTokens[0].rewardTokenSymbol,
+                })}
+              </p>
+            </div>
+          </ReactTooltip>
+        )}
+      </div>
       <style jsx={true} global={true}>
         {staticStyles}
       </style>
@@ -100,6 +164,6 @@ export default function LiquidityMiningAPYLine({
           }
         }
       `}</style>
-    </div>
+    </>
   );
 }

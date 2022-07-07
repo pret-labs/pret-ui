@@ -11,6 +11,16 @@ export type ExplorerLinkBuilderConfig = {
   txPrefix?: string;
 };
 
+export enum CORNRewardsAssets {
+  WNEAR = 'WNEAR',
+  LINEAR = 'LINEAR',
+  ETH = 'ETH',
+  USDC = 'USDC',
+  USDT = 'USDT',
+  DAI = 'DAI',
+  WBTC = 'WBTC',
+}
+
 export type NetworkConfig = {
   name: string;
   privateJsonRPCUrl?: string; // private rpc will be used for rpc queries inside the client. normally has private api key and better rate
@@ -91,5 +101,11 @@ export type MarketDataType = {
     REPAY_WITH_COLLATERAL_ADAPTER?: string;
     FAUCET?: string;
     PERMISSION_MANAGER?: string;
+  };
+  cornRewards: {
+    [key in keyof typeof CORNRewardsAssets]: {
+      depositRewardsPerDay: number;
+      borrowRewardsPerDay: number;
+    };
   };
 };

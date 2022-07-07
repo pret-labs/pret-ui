@@ -121,10 +121,6 @@ export default function Dashboard() {
       if (userReserve.variableBorrows !== '0') {
         borrowedPositions.push({
           ...baseListData,
-          rewardTokenSymbol: getRewardTokenSymbol(
-            reserves,
-            reserveIncentiveData.aIncentives.rewardTokenAddress
-          ),
           borrowingEnabled: poolReserve.borrowingEnabled,
           currentBorrows: userReserve.variableBorrows,
           currentBorrowsUSD: userReserve.variableBorrowsUSD,
@@ -161,10 +157,6 @@ export default function Dashboard() {
       if (userReserve.stableBorrows !== '0') {
         borrowedPositions.push({
           ...baseListData,
-          rewardTokenSymbol: getRewardTokenSymbol(
-            reserves,
-            reserveIncentiveData.aIncentives.rewardTokenAddress
-          ),
           borrowingEnabled: poolReserve.borrowingEnabled && poolReserve.stableBorrowRateEnabled,
           currentBorrows: userReserve.stableBorrows,
           currentBorrowsUSD: userReserve.stableBorrowsUSD,

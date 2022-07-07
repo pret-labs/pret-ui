@@ -13,7 +13,6 @@ import { BorrowTableItem } from './types';
 
 export default function BorrowItem({
   reserve: { symbol },
-  rewardTokenSymbol,
   uiColor,
   currentBorrows,
   currentBorrowsUSD,
@@ -45,7 +44,6 @@ export default function BorrowItem({
           borrowRateMode === BorrowRateMode.Variable ? vincentivesAPR : sincentivesAPR
         }
         symbol={symbol}
-        rewardTokenSymbol={rewardTokenSymbol}
         type={borrowRateMode === BorrowRateMode.Variable ? 'borrow-variable' : 'borrow-stable'}
       />
 

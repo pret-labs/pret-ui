@@ -12,7 +12,6 @@ import staticStyles from './style';
 
 interface LiquidityMiningCardProps {
   symbol?: string;
-  rewardTokenSymbol: string;
   type?: string;
   value: string | number;
   thirtyDaysValue?: string | number;
@@ -23,7 +22,6 @@ interface LiquidityMiningCardProps {
 
 export default function LiquidityMiningCard({
   symbol,
-  rewardTokenSymbol,
   type,
   value,
   thirtyDaysValue,
@@ -87,7 +85,6 @@ export default function LiquidityMiningCard({
           symbol={symbol}
           value={liquidityMiningValue || 0}
           tooltipId={helpLiquidityAPYTooltipId}
-          rewardTokenSymbol={rewardTokenSymbol}
         />
       )}
 

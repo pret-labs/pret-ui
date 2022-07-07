@@ -57,7 +57,6 @@ export default function BorrowItem({
             thirtyDaysValue={avg30DaysVariableRate}
             liquidityMiningValue={vincentivesAPR}
             symbol={symbol}
-            rewardTokenSymbol={rewardTokenSymbol}
             type="borrow-variable"
           />
         </TableColumn>

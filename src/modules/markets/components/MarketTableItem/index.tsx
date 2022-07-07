@@ -20,9 +20,9 @@ export interface MarketTableItemProps {
   totalBorrows: number;
   totalBorrowsInUSD: number;
   depositAPY: number;
-  aincentivesAPRs: string[];
-  vincentivesAPRs: string[];
-  sincentivesAPRs: string[];
+  aincentivesAPR: string;
+  vincentivesAPR: string;
+  sincentivesAPR: string;
   avg30DaysLiquidityRate: number;
   stableBorrowRate: number;
   variableBorrowRate: number;
@@ -31,12 +31,10 @@ export interface MarketTableItemProps {
   stableBorrowRateEnabled?: boolean;
   isFreezed?: boolean;
   isPriceInUSD?: boolean;
-  rewardTokenSymbols: string[];
 }
 
 export default function MarketTableItem({
   id,
-  rewardTokenSymbols,
   underlyingAsset,
   currencySymbol,
   totalLiquidity,
@@ -44,9 +42,9 @@ export default function MarketTableItem({
   totalBorrows,
   totalBorrowsInUSD,
   depositAPY,
-  aincentivesAPRs,
-  vincentivesAPRs,
-  sincentivesAPRs,
+  aincentivesAPR,
+  vincentivesAPR,
+  sincentivesAPR,
   avg30DaysLiquidityRate,
   stableBorrowRate,
   variableBorrowRate,
@@ -107,36 +105,24 @@ export default function MarketTableItem({
       {!isFreezed && (
         <>
           <TableColumn className="MarketTableItem__column">
-            {Array.from(Array(rewardTokenSymbols.length).keys()).map((index) => {
-              return (
-                <LiquidityMiningCard
-                  key={index}
-                  rewardTokenSymbol={rewardTokenSymbols[index]}
-                  value={depositAPY}
-                  thirtyDaysValue={avg30DaysLiquidityRate}
-                  liquidityMiningValue={aincentivesAPRs[index]}
-                  symbol={currencySymbol}
-                  type="deposit"
-                />
-              );
-            })}
+            <LiquidityMiningCard
+              value={depositAPY}
+              thirtyDaysValue={avg30DaysLiquidityRate}
+              liquidityMiningValue={aincentivesAPR}
+              symbol={currencySymbol}
+              type="deposit"
+            />
           </TableColumn>
 
           <TableColumn className="MarketTableItem__column">
             {borrowingEnabled && +variableBorrowRate >= 0 ? (
-              Array.from(Array(rewardTokenSymbols.length).keys()).map((index) => {
-                return (
-                  <LiquidityMiningCard
-                    key={index}
-                    rewardTokenSymbol={rewardTokenSymbols[index]}
-                    value={variableBorrowRate}
-                    thirtyDaysValue={avg30DaysVariableRate}
-                    liquidityMiningValue={vincentivesAPRs[index]}
-                    symbol={currencySymbol}
-                    type="borrow-variable"
-                  />
-                );
-              })
+              <LiquidityMiningCard
+                value={variableBorrowRate}
+                thirtyDaysValue={avg30DaysVariableRate}
+                liquidityMiningValue={vincentivesAPR}
+                symbol={currencySymbol}
+                type="borrow-variable"
+              />
             ) : (
               <NoData color="dark" />
             )}
