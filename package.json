@@ -18,7 +18,7 @@
     "@myetherwallet/mewconnect-web-client": "^2.1.22",
     "@nash-io/ramp-widget-sdk": "^0.2.2",
     "@pret/contract-helpers": "^0.27.2",
-    "@pret/pret-ui-kit": "^0.1.21",
+    "@pret/pret-ui-kit": "^0.1.22",
     "@ramp-network/ramp-instant-sdk": "^2.4.8",
     "@sentry/browser": "^6.13.3",
     "@transak/transak-sdk": "^1.0.29",

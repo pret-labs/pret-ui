@@ -245,7 +245,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
         rewardTokenDecimals: 24,
       },
       {
-        rewardTokenSymbol: 'AURORA',
+        rewardTokenSymbol: 'CORN',
         rewardTokenAddress: '0xa4904872b5b17d3101857c649a8e7e7a3ed5b1ac',
         rewardTokenDecimals: 26,
       },
