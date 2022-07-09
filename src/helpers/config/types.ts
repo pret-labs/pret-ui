@@ -14,11 +14,8 @@ export type ExplorerLinkBuilderConfig = {
 export enum CORNRewardsAssets {
   WNEAR = 'WNEAR',
   LINEAR = 'LINEAR',
-  ETH = 'ETH',
   USDC = 'USDC',
   USDT = 'USDT',
-  DAI = 'DAI',
-  WBTC = 'WBTC',
 }
 
 export type NetworkConfig = {

@@ -37,32 +37,20 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
     },
     cornRewards: {
       [CORNRewardsAssets.WNEAR]: {
-        depositRewardsPerDay: 30,
+        depositRewardsPerDay: 40,
         borrowRewardsPerDay: 20,
       },
       [CORNRewardsAssets.LINEAR]: {
-        depositRewardsPerDay: 40,
+        depositRewardsPerDay: 60,
         borrowRewardsPerDay: 0,
       },
-      [CORNRewardsAssets.ETH]: {
-        depositRewardsPerDay: 10,
-        borrowRewardsPerDay: 10,
-      },
       [CORNRewardsAssets.USDC]: {
-        depositRewardsPerDay: 15,
-        borrowRewardsPerDay: 15,
+        depositRewardsPerDay: 20,
+        borrowRewardsPerDay: 20,
       },
       [CORNRewardsAssets.USDT]: {
-        depositRewardsPerDay: 15,
-        borrowRewardsPerDay: 15,
-      },
-      [CORNRewardsAssets.DAI]: {
-        depositRewardsPerDay: 10,
-        borrowRewardsPerDay: 10,
-      },
-      [CORNRewardsAssets.WBTC]: {
-        depositRewardsPerDay: 5,
-        borrowRewardsPerDay: 5,
+        depositRewardsPerDay: 20,
+        borrowRewardsPerDay: 20,
       },
     },
   },
@@ -90,10 +78,6 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
         depositRewardsPerDay: 40,
         borrowRewardsPerDay: 0,
       },
-      [CORNRewardsAssets.ETH]: {
-        depositRewardsPerDay: 10,
-        borrowRewardsPerDay: 10,
-      },
       [CORNRewardsAssets.USDC]: {
         depositRewardsPerDay: 15,
         borrowRewardsPerDay: 15,
@@ -101,14 +85,6 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       [CORNRewardsAssets.USDT]: {
         depositRewardsPerDay: 15,
         borrowRewardsPerDay: 15,
-      },
-      [CORNRewardsAssets.DAI]: {
-        depositRewardsPerDay: 10,
-        borrowRewardsPerDay: 10,
-      },
-      [CORNRewardsAssets.WBTC]: {
-        depositRewardsPerDay: 5,
-        borrowRewardsPerDay: 5,
       },
     },
   },
