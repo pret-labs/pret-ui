@@ -86,10 +86,10 @@ export default function LiquidityMiningAPYLine({
       {/* just use styles */}
       <div
         className={classNames('LiquidityMiningAPYLine', {
-          LiquidityMiningAPYLine__withTooltip: tooltipId,
+          LiquidityMiningAPYLine__withTooltip: `${tooltipId}-2`,
         })}
         data-tip={true}
-        data-for={tooltipId}
+        data-for={`${tooltipId}-2`}
       >
         {isFeiReward ? (
           <div className="LiquidityMiningAPYLine__tribe">
@@ -127,10 +127,14 @@ export default function LiquidityMiningAPYLine({
 
         <p className="LiquidityMiningAPYLine__title">{intl.formatMessage(messages.kDay)}</p>
         {!!tooltipId && !isFeiReward && (
-          <ReactTooltip className="LiquidityMiningAPYLine__tooltip" id={tooltipId} effect="solid">
+          <ReactTooltip
+            className="LiquidityMiningAPYLine__tooltip"
+            id={`${tooltipId}-2`}
+            effect="solid"
+          >
             <div className="LiquidityMiningAPYLine__tooltip--content">
               <p>
-                {intl.formatMessage(messages.tooltipText, {
+                {intl.formatMessage(messages.tooltipText2, {
                   token: networkConfig.rewardTokens[0].rewardTokenSymbol,
                 })}
               </p>
