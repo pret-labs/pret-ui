@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
 import { useIntl } from 'react-intl';
 
-import BasicTable from '../../../../components/BasicTable';
 import TableColumn from '../../../../components/BasicTable/TableColumn';
 import TableHeaderButton from '../../../../components/BasicTable/TableHeaderButton';
+import LandingBasicTable from '../../../../components/LandingBasicTable';
 
 import messages from './messages';
 import staticStyles from './style';
@@ -56,7 +56,7 @@ export default function MarketTable({
   ];
 
   return (
-    <BasicTable
+    <LandingBasicTable
       className="MarketTable"
       headerColumns={
         <React.Fragment>
@@ -97,6 +97,6 @@ export default function MarketTable({
       <style jsx={true} global={true}>
         {staticStyles}
       </style>
-    </BasicTable>
+    </LandingBasicTable>
   );
 }

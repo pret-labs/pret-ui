@@ -10,6 +10,7 @@ const staticStyles = css.global`
     flex-direction: column;
     flex: 1;
     position: relative;
+    overflow-y: auto;
 
     &__content {
       display: flex;
