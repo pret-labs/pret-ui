@@ -75,10 +75,10 @@ export default function LandingScreensWrapper({ children }: ScreensWrapperProps)
         alt=""
       />
 
-      <style jsx={true} global={true}>
+      <style jsx={true} global={false}>
         {staticStyles}
       </style>
-      <style jsx={true} global={true}>{`
+      <style jsx={true} global={false}>{`
         @import 'src/_mixins/screen-size';
 
         .ScreensWrapper {

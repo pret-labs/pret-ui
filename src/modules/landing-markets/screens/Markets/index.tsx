@@ -9,7 +9,6 @@ import {
 } from '../../../../libs/pool-data-provider';
 import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
 import toggleLocalStorageClick from '../../../../helpers/toggle-local-storage-click';
-import ScreenWrapper from '../../../../components/wrappers/ScreenWrapper';
 // import SelectMarketPanel from '../../components/SelectMarketPanel';
 import MarketTable from '../../components/MarketTable';
 import MarketTableItem from '../../components/MarketTableItem';
