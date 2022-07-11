@@ -3,13 +3,13 @@ import { rgba, useThemeContext } from '@pret/pret-ui-kit';
 
 import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import goToTop from '../../../helpers/goToTop';
-import MobileContent from '../MobileContent';
 import { LOGO } from '../../../ui-config';
 
 import staticStyles from './style';
 
 import backIcon from '../../../images/mobileBackArrow.svg';
 import Link from '../../basic/Link';
+import LandingMobileContent from '../LandingMobileConetnt';
 
 interface MenuProps {
   title: string;
@@ -47,7 +47,7 @@ export default function LandingMenu({ title }: MenuProps) {
 
       <div className="Menu__right-inner">
         <div className="Menu__burger-inner">
-          <MobileContent isActive={isActive} currentAccount={currentAccount} />
+          <LandingMobileContent isActive={isActive} currentAccount={currentAccount} />
         </div>
       </div>
 

@@ -8,6 +8,7 @@ import MetaWeb from '../../images/metaweb.svg';
 import NEAR from '../../images/near.svg';
 import LiNear from '../../images/linear.svg';
 import Cornerstone from '../../images/cornerstone.svg';
+import { useThemeContext } from '@pret/pret-ui-kit';
 
 interface IPartner {
   src: string;
@@ -63,6 +64,7 @@ const partners: IPartner[] = [
   },
 ];
 function PartnersPanel() {
+  const { isCurrentThemeDark, currentTheme } = useThemeContext();
   return (
     <section className="PartnersPanel">
       <h2>PARTNERS</h2>
@@ -80,6 +82,14 @@ function PartnersPanel() {
         ))}
       </div>
       <style jsx>{staticStyles}</style>
+
+      <style jsx>{`
+        .PartnersPanel {
+          h2 {
+            color: ${isCurrentThemeDark ? currentTheme.white.hex : currentTheme.textDarkBlue.hex};
+          }
+        }
+      `}</style>
     </section>
   );
 }

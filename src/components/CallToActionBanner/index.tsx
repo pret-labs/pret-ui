@@ -71,7 +71,6 @@ function CallToActionBanner() {
       <style jsx={true} global={true}>
         {staticStyles}
       </style>
-      h
     </section>
   );
 }

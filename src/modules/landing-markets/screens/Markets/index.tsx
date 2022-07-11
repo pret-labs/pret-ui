@@ -25,7 +25,7 @@ import LandingScreenWrapper from '../../../../components/wrappers/LandingScreenW
 
 export default function LandingMarkets() {
   const intl = useIntl();
-  const { currentTheme } = useThemeContext();
+  const { currentTheme, isCurrentThemeDark } = useThemeContext();
   const { marketRefPriceInUsd } = useStaticPoolDataContext();
   const { reserves } = useDynamicPoolDataContext();
   const { currentMarketData } = useProtocolDataContext();
@@ -111,13 +111,8 @@ export default function LandingMarkets() {
       <LandingTopPanelWrapper isCollapse={true} withoutCollapseButton={true}>
         <div className="Markets__top-content">
           <LandingTotalMarketsSize value={totalLockedInUsd.toNumber()} />
-          {/* <SelectMarketPanel /> */}
         </div>
       </LandingTopPanelWrapper>
-
-      <div className="Markets__size">
-        <LandingTotalMarketsSize value={totalLockedInUsd.toNumber()} />
-      </div>
 
       <div className="Markets__price-switcher">
         <LandingLabeledSwitcher
@@ -163,6 +158,7 @@ export default function LandingMarkets() {
       <style jsx={true} global={true}>{`
         .Markets {
           &__top-content {
+            background: ${isCurrentThemeDark ? currentTheme.darkBlue.hex : currentTheme.white.hex};
             color: ${currentTheme.white.hex};
           }
           &__marketSwitcher--title {

@@ -13,7 +13,7 @@ interface TotalMarketsSizeProps {
 
 export default function LandingTotalMarketsSize({ value }: TotalMarketsSizeProps) {
   const intl = useIntl();
-  const { currentTheme } = useThemeContext();
+  const { currentTheme, isCurrentThemeDark } = useThemeContext();
 
   return (
     <div className="TotalMarketsSize">
@@ -33,7 +33,7 @@ export default function LandingTotalMarketsSize({ value }: TotalMarketsSizeProps
       <style jsx={true}>{staticStyles}</style>
       <style jsx={true}>{`
         .TotalMarketsSize {
-          color: ${currentTheme.darkBlue.hex};
+          color: ${isCurrentThemeDark ? currentTheme.white.hex : currentTheme.darkBlue.hex};
         }
       `}</style>
     </div>

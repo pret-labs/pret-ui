@@ -23,7 +23,6 @@ const staticStyles = css.global`
       font-weight: 700;
       font-size: 44px;
       line-height: 52px;
-      color: black;
     }
 
     &__description {
