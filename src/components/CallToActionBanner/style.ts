@@ -6,6 +6,9 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .CallToActionBanner {
+    * {
+      font-family: 'Montserrat';
+    }
     padding: 0 20px;
     background: #181a20;
     &__content {
@@ -50,7 +53,7 @@ const staticStyles = css.global`
       line-height: 37px;
     }
     &__amount {
-      font-size: 60px;
+      font-size: 40px;
       font-weight: 900;
       line-height: 70px;
       @include respond-to(md) {
@@ -122,7 +125,7 @@ const staticStyles = css.global`
       }
     }
     &__footnotes {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       font-style: normal;
       font-weight: 700;
       font-size: 28px;
