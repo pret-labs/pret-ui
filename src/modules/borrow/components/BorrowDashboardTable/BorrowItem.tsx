@@ -1,7 +1,5 @@
-import React from 'react';
 import { useIntl } from 'react-intl';
 
-import { useThemeContext } from '@pret/pret-ui-kit';
 import TableItem from '../../../dashboard/components/DashboardTable/TableItem';
 import TableValueCol from '../../../dashboard/components/DashboardTable/TableValueCol';
 import TableButtonsWrapper from '../../../dashboard/components/DashboardTable/TableButtonsWrapper';

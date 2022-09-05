@@ -4,6 +4,7 @@ export type DepositTableItem = {
   id: string;
   underlyingAsset: string;
   symbol: string;
+  rewardTokenSymbol: string;
   walletBalance: BigNumber;
   walletBalanceInUSD: number | string;
   underlyingBalance: number | string;

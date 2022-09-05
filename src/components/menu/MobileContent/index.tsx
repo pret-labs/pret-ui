@@ -8,7 +8,6 @@ import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 import { useMenuContext } from '../../../libs/menu';
 import goToTop from '../../../helpers/goToTop';
 import Link from '../../basic/Link';
-import ConnectionModeSwitcher from '../ConnectionModeSwitcher';
 import LangSwitcher from '../../basic/LangSwitcher';
 import AddressInfo from '../AddressInfo';
 import DarkModeSwitcher from '../DarkModeSwitcher';

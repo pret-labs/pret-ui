@@ -17,8 +17,8 @@
     "@myetherwallet/mewconnect-connector": "^0.1.8",
     "@myetherwallet/mewconnect-web-client": "^2.1.22",
     "@nash-io/ramp-widget-sdk": "^0.2.2",
-    "@pret/contract-helpers": "0.27.1",
-    "@pret/pret-ui-kit": "^0.1.21",
+    "@pret/contract-helpers": "^0.27.2",
+    "@pret/pret-ui-kit": "^0.1.22",
     "@ramp-network/ramp-instant-sdk": "^2.4.8",
     "@sentry/browser": "^6.13.3",
     "@transak/transak-sdk": "^1.0.29",
@@ -119,11 +119,6 @@
     "gql-gen": "graphql-codegen --config codegen.yml",
     "i18n": "NODE_ENV=development node ./scripts/extract-intl-messages.js",
     "pinata:ipfs-publish": "node scripts/publish.js"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && npm run i18n && git add ./src/translations"
-    }
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [

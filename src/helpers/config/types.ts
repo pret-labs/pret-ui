@@ -11,6 +11,13 @@ export type ExplorerLinkBuilderConfig = {
   txPrefix?: string;
 };
 
+export enum CORNRewardsAssets {
+  WNEAR = 'WNEAR',
+  LINEAR = 'LINEAR',
+  USDC = 'USDC',
+  USDT = 'USDT',
+}
+
 export type NetworkConfig = {
   name: string;
   privateJsonRPCUrl?: string; // private rpc will be used for rpc queries inside the client. normally has private api key and better rate
@@ -27,6 +34,7 @@ export type NetworkConfig = {
      */
     uiPoolDataProvider: string;
     uiIncentiveDataProvider?: string;
+    uiIncentiveDataControllers?: readonly string[];
     chainlinkFeedRegistry?: string;
   };
   protocolDataUrl: string;
@@ -35,9 +43,11 @@ export type NetworkConfig = {
   baseUniswapAdapter?: string;
   baseAsset: string;
   baseAssetWrappedAddress?: string;
-  rewardTokenSymbol: string;
-  rewardTokenAddress: string;
-  rewardTokenDecimals: number;
+  rewardTokens: readonly {
+    rewardTokenSymbol: string;
+    rewardTokenAddress: string;
+    rewardTokenDecimals: number;
+  }[];
   incentivePrecision: number;
   usdMarket?: boolean;
   // function returning a link to etherscan et al
@@ -88,5 +98,11 @@ export type MarketDataType = {
     REPAY_WITH_COLLATERAL_ADAPTER?: string;
     FAUCET?: string;
     PERMISSION_MANAGER?: string;
+  };
+  cornRewards: {
+    [key in keyof typeof CORNRewardsAssets]: {
+      depositRewardsPerDay: number;
+      borrowRewardsPerDay: number;
+    };
   };
 };

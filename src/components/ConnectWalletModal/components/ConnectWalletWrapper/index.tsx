@@ -25,7 +25,7 @@ export default function ConnectWalletWrapper({
   onBackdropPress,
 }: ConnectWalletWrapperProps) {
   const intl = useIntl();
-  const { currentTheme, isCurrentThemeDark } = useThemeContext();
+  const { isCurrentThemeDark } = useThemeContext();
 
   return (
     <BasicModal

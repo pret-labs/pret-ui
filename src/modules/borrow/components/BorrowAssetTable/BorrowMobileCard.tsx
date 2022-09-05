@@ -16,6 +16,7 @@ import { BorrowTableItem } from './types';
 export default function BorrowMobileCard({
   id,
   symbol,
+  rewardTokenSymbol,
   underlyingAsset,
   availableBorrows,
   availableBorrowsInUSD,

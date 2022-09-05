@@ -22,6 +22,7 @@ import { DepositTableItem } from './types';
 
 export default function DepositMobileCard({
   reserve: { symbol, liquidityRate, id, underlyingAsset },
+  rewardTokenSymbol,
   usageAsCollateralEnabledOnUser,
   usageAsCollateralEnabledOnThePool,
   underlyingBalance,

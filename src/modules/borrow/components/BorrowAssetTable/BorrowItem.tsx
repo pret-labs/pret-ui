@@ -12,6 +12,7 @@ import { BorrowTableItem } from './types';
 export default function BorrowItem({
   id,
   symbol,
+  rewardTokenSymbol,
   underlyingAsset,
   availableBorrows,
   availableBorrowsInUSD,

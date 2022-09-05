@@ -117,12 +117,11 @@ export default function MarketMobileCard({
 
               {card.enabled ? (
                 <LiquidityMiningCard
+                  value={depositAPY}
+                  thirtyDaysValue={avg30DaysLiquidityRate}
+                  liquidityMiningValue={aincentivesAPR}
                   symbol={currencySymbol}
-                  value={card.value}
-                  thirtyDaysValue={card.thirtyDaysValue}
-                  liquidityMiningValue={card.liquidityMiningValue}
-                  mobilePosition="left"
-                  type={card.type}
+                  type="deposit"
                 />
               ) : (
                 <NoData color="dark" />

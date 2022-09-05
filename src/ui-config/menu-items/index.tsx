@@ -9,7 +9,7 @@ export const moreMenuItems: Navigation[] = [
     isVisible: isFeatureEnabled.faucet,
   },
   {
-    link: 'https://pret.gitbook.io/',
+    link: 'https://docs.pret.app',
     title: messages.faq,
     absolute: true,
   },

@@ -35,8 +35,8 @@ export function usePayments(): Payments {
   const isPolygonNetwork =
     currentMarketData.chainId === ChainId.polygon || currentMarketData.chainId === ChainId.mumbai;
 
-  const transakAvailableAssets = ['ETH', 'USDT', 'DAI', 'USDC', 'UNI', 'LINK', 'AAVE', 'MANA'];
-  const polygonTransakAvailableAssets = ['MATIC', 'USDT', 'DAI', 'USDC', 'AAVE', 'WBTC', 'WETH'];
+  // const transakAvailableAssets = ['ETH', 'USDT', 'DAI', 'USDC', 'UNI', 'LINK', 'AAVE', 'MANA'];
+  // const polygonTransakAvailableAssets = ['MATIC', 'USDT', 'DAI', 'USDC', 'AAVE', 'WBTC', 'WETH'];
 
   const payments: Payment[] = [
     // {

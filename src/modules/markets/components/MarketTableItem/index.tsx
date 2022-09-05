@@ -20,9 +20,9 @@ export interface MarketTableItemProps {
   totalBorrows: number;
   totalBorrowsInUSD: number;
   depositAPY: number;
-  aincentivesAPR?: string;
-  vincentivesAPR?: string;
-  sincentivesAPR?: string;
+  aincentivesAPR: string;
+  vincentivesAPR: string;
+  sincentivesAPR: string;
   avg30DaysLiquidityRate: number;
   stableBorrowRate: number;
   variableBorrowRate: number;

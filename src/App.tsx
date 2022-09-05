@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { useSwipeable } from 'react-swipeable';
 import css from 'styled-jsx/css';
 import { useThemeContext } from '@pret/pret-ui-kit';
@@ -29,7 +29,8 @@ import { RewardConfirm } from './modules/reward/screens/RewardConfirm';
 import { governanceConfig, stakeConfig } from './ui-config';
 import { useProtocolDataContext } from './libs/protocol-data-provider';
 import { isFeatureEnabled } from './helpers/config/markets-and-network-config';
-import { useWeb3React } from '@web3-react/core';
+import Landing from './components/Landing';
+import LandingScreensWrapper from './components/wrappers/LandingScreensWrapper';
 
 const staticStyles = css.global`
   .App {
@@ -51,7 +52,15 @@ const staticStyles = css.global`
 function ModulesWithMenu() {
   const { isUserHasDeposits, userId } = useStaticPoolDataContext();
   const { currentMarketData } = useProtocolDataContext();
+  const { pathname } = useLocation();
 
+  if (pathname === '/') {
+    return (
+      <LandingScreensWrapper>
+        <Landing />
+      </LandingScreensWrapper>
+    );
+  }
   return (
     <ScreensWrapper>
       <Switch>
