@@ -5,7 +5,6 @@ import { rgba, useThemeContext, DropdownWrapper, SocialIcons } from '@pret/pret-
 
 import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import Link from '../../basic/Link';
-import ConnectionModeSwitcher from '../ConnectionModeSwitcher';
 
 import messages from './messages';
 import staticStyles from './style';
@@ -65,9 +64,9 @@ export default function MoreButton() {
             </li>
           ))}
 
-          <li className="MoreButton__switcher-inner">
+          {/* <li className="MoreButton__switcher-inner">
             <ConnectionModeSwitcher />
-          </li>
+          </li> */}
 
           <li className="MoreButton__link-inner">
             <SocialIcons

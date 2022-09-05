@@ -66,7 +66,7 @@ export const ADD_CONFIG: {
   },
   [ChainId.aurora_mainnet]: {
     name: 'Aurora',
-    explorerUrls: ['https://explorer.mainnet.aurora.dev'],
+    explorerUrls: ['https://aurorascan.dev'],
     nativeCurrency: {
       name: 'Ethereum',
       symbol: 'ETH',
@@ -75,7 +75,7 @@ export const ADD_CONFIG: {
   },
   [ChainId.aurora_testnet]: {
     name: 'Aurora Testnet',
-    explorerUrls: ['https://explorer.testnet.aurora.dev'],
+    explorerUrls: ['https://testnet.aurorascan.dev'],
     nativeCurrency: {
       name: 'Ethereum',
       symbol: 'ETH',

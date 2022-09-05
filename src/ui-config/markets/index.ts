@@ -1,3 +1,4 @@
+import { CORNRewardsAssets } from './../../helpers/config/types';
 import { ChainId } from '@pret/contract-helpers';
 import { MarketDataType } from '../../helpers/config/types';
 
@@ -18,39 +19,75 @@ export enum CustomMarket {
 }
 
 export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType } = {
-  // [CustomMarket.proto_hardhat]: {
-  //   chainId: ChainId.hardhat,
-  //   logo: logos.aaveLogo,
-  //   activeLogo: logos.aaveActiveLogo,
-  //   aTokenPrefix: 'AV',
-  //   enabledFeatures: {
-  //     liquiditySwap: false,
-  //     incentives: true,
-  //   },
-  //   addresses: {
-  //     LENDING_POOL_ADDRESS_PROVIDER: '0xAc4fCC7264E642da45c1414Cb5Afdc6668C89dAE'.toLowerCase(),
-  //     LENDING_POOL: '0x35d9EdfD4307000A6e9A3dbA2EB415627470e9A5',
-  //     WETH_GATEWAY: '0xA5f2f6701de7cc0252622c1C2d9844061FD70D93',
-  //     // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
-  //   },
-  // },
   [CustomMarket.proto_aurora_mainnet]: {
     chainId: ChainId.aurora_mainnet,
     logo: logos.aaveLogo,
     activeLogo: logos.aaveActiveLogo,
     subLogo: logos.aurora,
-    aTokenPrefix: 'AV',
+    aTokenPrefix: 'AP',
     enabledFeatures: {
       liquiditySwap: false,
       incentives: true,
     },
     addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0x0Fa59600eE36A834234707Da316a40aFD80016a4'.toLowerCase(),
-      LENDING_POOL: '0x786f5ECA1e81EeEE2ce02164c1a1E4beB80697a5',
-      WETH_GATEWAY: '0xC71239ce542233B070784603Eb48741Ae4EA14CC',
+      LENDING_POOL_ADDRESS_PROVIDER: '0x8fcc9f65BF153371f4B06542446eE51aCcDb635C'.toLowerCase(),
+      LENDING_POOL: '0x8ca1db9e43305636e9b4bf8ca1ff8f97579009ad',
+      WETH_GATEWAY: '0x33318ba00a220cab6da06f625c0d80ad5a2f37a9',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
     },
+    cornRewards: {
+      [CORNRewardsAssets.WNEAR]: {
+        depositRewardsPerDay: 40,
+        borrowRewardsPerDay: 20,
+      },
+      [CORNRewardsAssets.LINEAR]: {
+        depositRewardsPerDay: 60,
+        borrowRewardsPerDay: 0,
+      },
+      [CORNRewardsAssets.USDC]: {
+        depositRewardsPerDay: 20,
+        borrowRewardsPerDay: 20,
+      },
+      [CORNRewardsAssets.USDT]: {
+        depositRewardsPerDay: 20,
+        borrowRewardsPerDay: 20,
+      },
+    },
   },
+  // [CustomMarket.proto_hardhat]: {
+  //   chainId: ChainId.hardhat,
+  //   logo: logos.aaveLogo,
+  //   activeLogo: logos.aaveActiveLogo,
+  //   aTokenPrefix: 'AP',
+  //   enabledFeatures: {
+  //     liquiditySwap: false,
+  //     incentives: true,
+  //   },
+  //   addresses: {
+  //     LENDING_POOL_ADDRESS_PROVIDER: '0x4aC3d3e1E45f08957480F38AA903c563eA05B743'.toLowerCase(),
+  //     LENDING_POOL: '0x6076c09450c1C793532463642aEbfAbcACb27417',
+  //     WETH_GATEWAY: '0x099bC74E26d3eaE24Ca3135d86678DD1b13AeAAe',
+  //     // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
+  //   },
+  //   cornRewards: {
+  //     [CORNRewardsAssets.WNEAR]: {
+  //       depositRewardsPerDay: 30,
+  //       borrowRewardsPerDay: 20,
+  //     },
+  //     [CORNRewardsAssets.LINEAR]: {
+  //       depositRewardsPerDay: 40,
+  //       borrowRewardsPerDay: 0,
+  //     },
+  //     [CORNRewardsAssets.USDC]: {
+  //       depositRewardsPerDay: 15,
+  //       borrowRewardsPerDay: 15,
+  //     },
+  //     [CORNRewardsAssets.USDT]: {
+  //       depositRewardsPerDay: 15,
+  //       borrowRewardsPerDay: 15,
+  //     },
+  //   },
+  // },
   // [CustomMarket.proto_kovan]: {
   //   chainId: ChainId.kovan,
   //   logo: logos.aavev2Logo,

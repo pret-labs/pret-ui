@@ -337,7 +337,7 @@
   "modules.borrow.components.BorrowCurrencyWrapper.pageTitle": "借款{currencySymbol}",
   "modules.borrow.components.BorrowCurrencyWrapper.secondColumnTitle": "抵押品总额",
   "modules.borrow.components.BorrowCurrencyWrapper.thirdColumnTitle": "贷款价值",
-  "modules.borrow.components.BorrowDashboardTable.apyRowTitle": "年收益率",
+  "modules.borrow.components.BorrowDashboardTable.apyRowTitle": "年利率",
   "modules.borrow.components.BorrowDashboardTable.borrowMore": "",
   "modules.borrow.components.BorrowDashboardTable.changeAPYRowTitle": "更改APY类型",
   "modules.borrow.components.BorrowDashboardTable.fourthTableColumnTitle": "年收益率类型",

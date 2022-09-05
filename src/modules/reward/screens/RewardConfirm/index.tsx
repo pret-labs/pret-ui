@@ -22,7 +22,11 @@ export function RewardConfirm() {
   const { user, reserves } = useDynamicPoolDataContext();
   const { userIncentives, incentivesTxBuilder } = useIncentivesDataContext();
   const incentivesControllerAddress = location.pathname.split('/')[3];
-  const incentiveData = userIncentives[incentivesControllerAddress];
+
+  const incentiveData = userIncentives
+    .map((incentive) => incentive[incentivesControllerAddress])
+    .find(Boolean)!;
+
   const rewardTokenSymbol = getRewardTokenSymbol(reserves, incentiveData.rewardTokenAddress);
 
   const aTokenData = getAtokenInfo({

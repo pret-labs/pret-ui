@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { useSwipeable } from 'react-swipeable';
@@ -8,9 +8,7 @@ import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 import { useMenuContext } from '../../../libs/menu';
 import goToTop from '../../../helpers/goToTop';
 import Link from '../../basic/Link';
-import ConnectionModeSwitcher from '../ConnectionModeSwitcher';
 import LangSwitcher from '../../basic/LangSwitcher';
-import MarketSwitcher from '../../market/MarketSwitcher';
 import AddressInfo from '../AddressInfo';
 import DarkModeSwitcher from '../DarkModeSwitcher';
 
@@ -120,7 +118,6 @@ export default function MobileContent({ isActive, currentAccount }: MobileConten
 
           <div className="MobileContent__bottom">
             <DarkModeSwitcher />
-            <ConnectionModeSwitcher />
             <div className="MobileContent__lang-switcher">
               <LangSwitcher inside={true} />
             </div>

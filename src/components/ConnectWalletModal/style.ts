@@ -6,6 +6,13 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .ConnectWalletModal {
+    &__error {
+      margin-top: 20px;
+      font-size: 14px;
+      text-align: left;
+      width: 100%;
+    }
+
     &__content {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -24,100 +31,65 @@ const staticStyles = css.global`
       }
     }
 
-    &__privacy-inner {
-      font-size: $regular;
-      margin: 40px auto 0;
-      text-align: center;
-      max-width: 800px;
-      position: relative;
-      z-index: 3;
-      @include respond-to(xl) {
-        font-size: $small;
-        max-width: 660px;
-      }
-      @include respond-to(md) {
-        max-width: 530px;
-      }
-      @include respond-to(sm) {
-        margin: 30px auto 0;
-        font-size: $medium;
-      }
-      p {
-        margin-bottom: 2px;
-        &:first-of-type {
-          margin-bottom: 40px;
-          @include respond-to(xl) {
-            margin-bottom: 30px;
-          }
-          @include respond-to(sm) {
-            font-size: $regular;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            a {
-              margin-top: 5px;
-            }
-          }
-        }
-      }
-      a {
-        font-weight: 600;
-      }
-      a,
-      p {
-        letter-spacing: 0.2px;
-      }
-      p {
-        margin-bottom: 20px;
-        @include respond-to(xl) {
-          margin-bottom: 15px;
-        }
-        &:last-child {
-          margin-bottom: 0;
-        }
-        span {
-          font-weight: 600;
-        }
-      }
-    }
-
-    .ConnectWalletModal__warningArea {
-      max-width: 800px;
+    &__wallets {
       margin-top: 20px;
-      position: relative;
-      z-index: 3;
-      @include respond-to(xl) {
-        max-width: 660px;
-      }
-      @include respond-to(md) {
-        max-width: 530px;
-      }
       @include respond-to(sm) {
-        display: none;
-      }
-      .WarningAreaTopLine {
-        justify-content: center;
+        width: 100%;
       }
     }
 
-    .ConnectWalletModal__warningArea-mobile {
-      display: none;
+    &__wallet-left,
+    &__wallet-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__wallet-left img {
+      width: 40px;
+      height: 40px;
       @include respond-to(sm) {
-        display: block;
-        max-width: 345px;
-        margin: 0 0 35px;
+        width: 30px;
+        height: 30px;
       }
-      .WarningArea__content {
-        text-align: center;
+    }
+    &__wallet-right img {
+      width: 10px;
+      height: 20px;
+      @include respond-to(sm) {
+        width: 5px;
+        height: 10px;
       }
     }
 
-    .ConnectWalletModal__LedgerChecklist-mobile {
-      display: none;
+    &__wallet-wrapper {
+      min-width: 400px;
+      padding: 16px;
+      border-radius: 6px;
+      margin-top: 20px;
+
       @include respond-to(sm) {
-        display: block;
-        max-width: 330px;
+        padding: 12px;
+        min-width: auto;
+        width: 100%;
+      }
+
+      background: #1e2329;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      cursor: pointer;
+    }
+
+    &__wallet-name {
+      color: white !important;
+      margin-left: 15px;
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 30px;
+      @include respond-to(sm) {
+        font-size: 18px;
       }
     }
   }

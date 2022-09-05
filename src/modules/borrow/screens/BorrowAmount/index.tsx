@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import queryString from 'query-string';
 import { valueToBigNumber, BigNumber, InterestRate } from '@aave/protocol-js';
 
 import NoDataPanel from '../../../../components/NoDataPanel';
 import BasicForm from '../../../../components/forms/BasicForm';
-import BorrowInterestRateForm from '../../components/BorrowInterestRateForm';
 import BorrowCurrencyWrapper from '../../components/BorrowCurrencyWrapper';
 import InfoWrapper from '../../../../components/wrappers/InfoWrapper';
 import AMPLWarning from '../../../../components/AMPLWarning';

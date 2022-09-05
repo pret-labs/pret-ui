@@ -1,6 +1,7 @@
 import React, { ReactNode, ReactNodeArray } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
+import WalletIcon from '../../../../images/wallet.svg';
 
 import { BasicModal, useThemeContext } from '@pret/pret-ui-kit';
 
@@ -24,7 +25,7 @@ export default function ConnectWalletWrapper({
   onBackdropPress,
 }: ConnectWalletWrapperProps) {
   const intl = useIntl();
-  const { currentTheme, isCurrentThemeDark } = useThemeContext();
+  const { isCurrentThemeDark } = useThemeContext();
 
   return (
     <BasicModal
@@ -35,6 +36,9 @@ export default function ConnectWalletWrapper({
       closeIcon={isCurrentThemeDark ? whiteCloseIcon : closeIcon}
     >
       <div className="ConnectWalletWrapper__inner">
+        <div className="ConnectWalletWrapper__icon">
+          <img src={WalletIcon} alt="wallet icon" />
+        </div>
         <div className="ConnectWalletWrapper__caption-inner">
           <h2>{intl.formatMessage(messages.caption)}</h2>
         </div>
@@ -45,15 +49,6 @@ export default function ConnectWalletWrapper({
       <style jsx={true} global={true}>
         {staticStyles}
       </style>
-      <style jsx={true} global={true}>{`
-        .ConnectWalletWrapper {
-          color: ${currentTheme.textDarkBlue.hex};
-          background: ${currentTheme.whiteElement.hex} !important;
-          h2 {
-            color: ${isCurrentThemeDark ? currentTheme.textDarkBlue.hex : currentTheme.primary.hex};
-          }
-        }
-      `}</style>
     </BasicModal>
   );
 }

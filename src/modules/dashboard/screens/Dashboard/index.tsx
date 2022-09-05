@@ -29,7 +29,9 @@ import MainDashboardTable from '../../components/MainDashboardTable';
 import MobileTopPanelWrapper from '../../components/MobileTopPanelWrapper';
 import DepositBorrowTopPanel from '../../../../components/DepositBorrowTopPanel';
 import ApproximateBalanceHelpModal from '../../../../components/HelpModal/ApproximateBalanceHelpModal';
-import IncentiveWrapper from '../../../../components/wrappers/IncentiveWrapper';
+import IncentiveWrapper, {
+  getRewardTokenSymbol,
+} from '../../../../components/wrappers/IncentiveWrapper';
 import DashboardNoData from '../../components/DashboardNoData';
 
 import { DepositTableItem } from '../../../deposit/components/DepositDashboardTable/types';
@@ -47,6 +49,7 @@ export default function Dashboard() {
   const { chainId } = useProtocolDataContext();
   const { user, reserves } = useDynamicPoolDataContext();
   const { reserveIncentives } = useIncentivesDataContext();
+  const reserveIncentive = reserveIncentives[0];
   const { currentTheme, sm } = useThemeContext();
 
   const [isLTVModalVisible, setLTVModalVisible] = useState(false);
@@ -76,7 +79,7 @@ export default function Dashboard() {
     }
 
     const reserveIncentiveData =
-      reserveIncentives[userReserve.reserve.underlyingAsset.toLowerCase()];
+      reserveIncentive[userReserve.reserve.underlyingAsset.toLowerCase()];
     if (userReserve.underlyingBalance !== '0' || userReserve.totalBorrows !== '0') {
       const baseListData = {
         uiColor: getAssetColor(userReserve.reserve.symbol),
@@ -91,6 +94,10 @@ export default function Dashboard() {
       if (userReserve.underlyingBalance !== '0') {
         depositedPositions.push({
           ...baseListData,
+          rewardTokenSymbol: getRewardTokenSymbol(
+            reserves,
+            reserveIncentiveData.aIncentives.rewardTokenAddress
+          ),
           borrowingEnabled: poolReserve.borrowingEnabled,
           avg30DaysLiquidityRate: poolReserve.avg30DaysLiquidityRate,
           usageAsCollateralEnabledOnThePool: poolReserve.usageAsCollateralEnabled,

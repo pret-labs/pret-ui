@@ -20,9 +20,13 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAsset: 'ETH',
     baseAssetWrappedAddress: '0xd0a1e359811322d97991e03f863a0c30c2cf029c',
     // incentives hardcoded information
-    rewardTokenSymbol: 'stkAAVE',
-    rewardTokenAddress: '0xb597cd8d3217ea6477232f9217fa70837ff667af',
-    rewardTokenDecimals: 18,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'stkAAVE',
+        rewardTokenAddress: '0xb597cd8d3217ea6477232f9217fa70837ff667af',
+        rewardTokenDecimals: 18,
+      },
+    ],
     incentivePrecision: 18,
     explorerLink: 'https://kovan.etherscan.com',
     rpcOnly: true,
@@ -45,9 +49,13 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAsset: 'ETH',
     baseAssetWrappedAddress: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
     // incentives hardcoded information
-    rewardTokenSymbol: 'stkAAVE',
-    rewardTokenAddress: '0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9',
-    rewardTokenDecimals: 18,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'stkAAVE',
+        rewardTokenAddress: '0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9',
+        rewardTokenDecimals: 18,
+      },
+    ],
     incentivePrecision: 18,
     explorerLink: 'https://etherscan.com',
     rpcOnly: false,
@@ -67,9 +75,13 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAsset: 'MATIC',
     baseAssetWrappedAddress: '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270',
     // incentives hardcoded information
-    rewardTokenSymbol: 'WMATIC',
-    rewardTokenAddress: API_ETH_MOCK_ADDRESS,
-    rewardTokenDecimals: 18,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'WMATIC',
+        rewardTokenAddress: API_ETH_MOCK_ADDRESS,
+        rewardTokenDecimals: 18,
+      },
+    ],
     incentivePrecision: 18,
     explorerLink: 'https://polygonscan.com',
     rpcOnly: false,
@@ -93,9 +105,13 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAsset: 'MATIC',
     baseAssetWrappedAddress: '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889',
     // incentives hardcoded information
-    rewardTokenSymbol: 'WMATIC',
-    rewardTokenAddress: '0x9c3c9283d3e44854697cd22d3faa240cfb032889',
-    rewardTokenDecimals: 18,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'WMATIC',
+        rewardTokenAddress: '0x9c3c9283d3e44854697cd22d3faa240cfb032889',
+        rewardTokenDecimals: 18,
+      },
+    ],
     incentivePrecision: 18,
     explorerLink: 'https://explorer-mumbai.maticvigil.com',
     rpcOnly: true,
@@ -115,9 +131,13 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAsset: 'AVAX',
     baseAssetWrappedAddress: '0xd00ae08403B9bbb9124bB305C09058E32C39A48c',
     // incentives hardcoded information
-    rewardTokenSymbol: 'WAVAX',
-    rewardTokenAddress: API_ETH_MOCK_ADDRESS,
-    rewardTokenDecimals: 18,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'WAVAX',
+        rewardTokenAddress: API_ETH_MOCK_ADDRESS,
+        rewardTokenDecimals: 18,
+      },
+    ],
     incentivePrecision: 18,
     explorerLink: 'https://cchain.explorer.avax-test.network',
     rpcOnly: true,
@@ -146,9 +166,13 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAsset: 'AVAX',
     baseAssetWrappedAddress: '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7',
     // incentives hardcoded information
-    rewardTokenSymbol: 'WAVAX',
-    rewardTokenAddress: API_ETH_MOCK_ADDRESS,
-    rewardTokenDecimals: 18,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'WAVAX',
+        rewardTokenAddress: API_ETH_MOCK_ADDRESS,
+        rewardTokenDecimals: 18,
+      },
+    ],
     incentivePrecision: 18,
     explorerLink: 'https://cchain.explorer.avax.network',
     rpcOnly: false,
@@ -174,11 +198,15 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAsset: 'ETH',
     baseAssetWrappedAddress: '0xc06fafa6d5fEAbD686b4aB0f3De759ac3b277cEb',
     // incentives hardcoded information
-    rewardTokenSymbol: 'AURORA',
-    rewardTokenAddress: API_ETH_MOCK_ADDRESS,
-    rewardTokenDecimals: 18,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'AURORA',
+        rewardTokenAddress: API_ETH_MOCK_ADDRESS,
+        rewardTokenDecimals: 18,
+      },
+    ],
     incentivePrecision: 18,
-    explorerLink: 'https://explorer.testnet.aurora.dev',
+    explorerLink: 'https://testnet.aurorascan.dev',
     rpcOnly: true,
     usdMarket: true,
     isTestnet: true,
@@ -194,23 +222,36 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     publicJsonRPCUrl: ['https://mainnet.aurora.dev'],
     publicJsonRPCWSUrl: 'wss://mainnet.aurora.dev',
     addresses: {
-      walletBalanceProvider: '0x57fe6e31323B3e365634bE6EBd84e88dbbA24841',
-      uiPoolDataProvider: '0x3B72DeC10EA6915575881168e0AEDe7a67eE7e73',
-      uiIncentiveDataProvider: '0x334538602959A75bb61e5816474A758D95Fb2F5e',
-      chainlinkFeedRegistry: '0x81c8DEF55378ac3369747d34dBe1daa2aAAe6C5F',
+      walletBalanceProvider: '0xa53578865b449db121381bb94d139491f821367c',
+      uiPoolDataProvider: '0x526339dc716acdb92daeac259bd6b0eba4d645d8',
+      uiIncentiveDataProvider: '0xdef68c10f45be945075ef638dd532b846acdfb0d',
+      chainlinkFeedRegistry: '0x0ff4cb8d4ba88bee6d99a3a8493fa77f515c872e',
+      uiIncentiveDataControllers: [
+        '0x181a0c488e3609c7ca95dd4e46dee232db53eb9e'.toLowerCase(),
+        '0xe9eb9bf860d874f7e34ef30d42e6e9c510c19ff7'.toLowerCase(),
+      ],
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
     cachingServerUrl: 'https://cache-api-aurora.pret.app/graphql',
     cachingWSServerUrl: 'wss://cache-api-aurora.pret.app/graphql',
     baseUniswapAdapter: '0x0',
     baseAsset: 'ETH',
-    baseAssetWrappedAddress: '0x38A2b3157d529c521814E88621fE938Be421A203',
+    baseAssetWrappedAddress: '0x88aabf01c7faab947d1570cd993bed8acebf54b2',
     // incentives hardcoded information
-    rewardTokenSymbol: 'PRETDAO',
-    rewardTokenAddress: '0x6ADA8C2eDA6564b093fF1B4dbB6c5BeE96A0C077',
-    rewardTokenDecimals: 18,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'WNEAR',
+        rewardTokenAddress: '0x1a55e008e86ac4c170499e8e8af5d60565e4e453',
+        rewardTokenDecimals: 24,
+      },
+      {
+        rewardTokenSymbol: 'CORN',
+        rewardTokenAddress: '0xa4904872b5b17d3101857c649a8e7e7a3ed5b1ac',
+        rewardTokenDecimals: 26,
+      },
+    ],
     incentivePrecision: 18,
-    explorerLink: 'https://explorer.mainnet.aurora.dev',
+    explorerLink: 'https://aurorascan.dev',
     rpcOnly: true,
     usdMarket: true,
     bridge: {
@@ -225,23 +266,27 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     publicJsonRPCUrl: ['https://rpc-local.pret.app'],
     publicJsonRPCWSUrl: 'wss://rpc-local.pret.app',
     addresses: {
-      walletBalanceProvider: '0x512b3295C2b463917Bf4D19c4E726f123bE87FFf',
-      uiPoolDataProvider: '0xF0CCe7D53A86749beaF02B5a051b1d94e4D5397f',
-      uiIncentiveDataProvider: '0x5A88EE9EE5A67c8BDe872f887031c7A66c34646A',
-      chainlinkFeedRegistry: '0xc46e6E4fDe64444050b2832db4D648D80DE679ef',
+      walletBalanceProvider: '0xe18045A72166631e7EB307EeABaFBFAcDA114055',
+      uiPoolDataProvider: '0x4803ebca4B051d5154Aa2BfD4c3D63777b29B38b',
+      uiIncentiveDataProvider: '0x60ecEC12E6fCB675Bc61ABadfaBfF5D5c5094cdF',
+      chainlinkFeedRegistry: '0x857C59Abe5b6bE76D4987Ccf3cF6d7CA3be32168',
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
     cachingServerUrl: 'https://cache-api-aurora.pret.app/graphql',
     cachingWSServerUrl: 'wss://cache-api-aurora.pret.app/graphql',
     baseUniswapAdapter: '0x0',
     baseAsset: 'ETH',
-    baseAssetWrappedAddress: '0x934654853Bd7DaE1D3491E38F9Bf909a17F03eD4',
+    baseAssetWrappedAddress: '0x8F74537e8164E81ff83B965e914Fd9721978FC1b',
     // incentives hardcoded information
-    rewardTokenSymbol: 'PRETDAO',
-    rewardTokenAddress: '0x7DCabc4d0f82299637F38Ed2703bA6144e9355cC',
-    rewardTokenDecimals: 18,
+    rewardTokens: [
+      {
+        rewardTokenSymbol: 'WNEAR',
+        rewardTokenAddress: '0x6FaF3062A457fFE8D9E2F1017974905802E21C01',
+        rewardTokenDecimals: 18,
+      },
+    ],
     incentivePrecision: 18,
-    explorerLink: 'https://explorer.mainnet.aurora.dev',
+    explorerLink: 'https://aurorascan.dev',
     rpcOnly: true,
     usdMarket: true,
     bridge: {

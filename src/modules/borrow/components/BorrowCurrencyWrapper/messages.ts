@@ -8,4 +8,5 @@ export default defineMessages({
   thirdColumnTitle: 'Loan to value',
   graphDotStable: 'Stable',
   graphDotVariable: 'Variable',
+  graphDotName: 'APY',
 });

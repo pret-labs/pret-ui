@@ -1,4 +1,3 @@
-import React from 'react';
 import { useIntl } from 'react-intl';
 import { normalize } from '@aave/math-utils';
 import { useThemeContext } from '@pret/pret-ui-kit';
@@ -24,10 +23,12 @@ export function getRewardTokenSymbol(
   } else if (rewardTokenAddress.toLowerCase() === '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270') {
     return 'WMATIC';
   } else if (
-    rewardTokenAddress.toLowerCase() === '0x6ADA8C2eDA6564b093fF1B4dbB6c5BeE96A0C077' || // aurora mainnet
-    rewardTokenAddress.toLowerCase() === '0x7DCabc4d0f82299637F38Ed2703bA6144e9355cC' // hardhat
+    rewardTokenAddress === '0x1A55e008e86Ac4c170499e8E8af5D60565e4e453' || // aurora
+    rewardTokenAddress.toLowerCase() === '0x6faf3062a457ffe8d9e2f1017974905802e21c01' // hardhat
   ) {
-    return 'PRETDAO';
+    return 'WNEAR';
+  } else if (rewardTokenAddress === '0xa4904872b5B17D3101857C649A8e7e7a3Ed5b1ac') {
+    return 'AURORA';
   } else {
     let rewardReserve = reserves.find(
       (reserve) => reserve.underlyingAsset.toLowerCase() === rewardTokenAddress.toLowerCase()
@@ -48,31 +49,45 @@ export default function IncentiveWrapper() {
   const { userIncentives } = useIncentivesDataContext();
 
   // Only display assets for which user has claimable rewards
-  const userIncentivesFiltered = Object.fromEntries(
-    Object.entries(userIncentives).filter((entry) => Number(entry[1].claimableRewards) > 0)
-  );
+  const usersIncentivesFiltered = userIncentives
+    .map((userIncentive) =>
+      Object.fromEntries(
+        Object.entries(userIncentive).filter((entry) => Number(entry[1].claimableRewards) > 0)
+      )
+    )
+    .filter((userIncentivesFiltered) => Object.keys(userIncentivesFiltered).length > 0);
 
-  if (!user || Object.keys(userIncentivesFiltered).length === 0) return null;
+  if (!user || usersIncentivesFiltered.length === 0) return null;
 
   return (
     <div className="IncentiveWrapper">
       <p className="IncentiveWrapper__title">{intl.formatMessage(messages.availableReward)}</p>
 
       <div className="IncentiveWrapper__incentives">
-        {Object.entries(userIncentivesFiltered).map((incentive) => {
-          const rewardTokenSymbol = getRewardTokenSymbol(reserves, incentive[1].rewardTokenAddress);
-          const claimableRewards = normalize(
-            incentive[1].claimableRewards,
-            incentive[1].rewardTokenDecimals
-          );
-          return (
-            <IncentiveClaimItem
-              key={incentive[0]}
-              symbol={rewardTokenSymbol}
-              claimableRewards={claimableRewards}
-              incentiveControllerAddress={incentive[0]}
-            />
-          );
+        {usersIncentivesFiltered.map((usersIncentivesFiltered, idx) => {
+          return Object.entries(usersIncentivesFiltered).map((incentive) => {
+            const rewardTokenSymbol = getRewardTokenSymbol(
+              reserves,
+              incentive[1].rewardTokenAddress
+            );
+
+            // it should be fixed 26 decimals when idx === 1, just for testing
+            // need to be changed later.
+            // TODO
+            const rewardTokenDecimals =
+              'WNEAR' !== rewardTokenSymbol ? 26 : incentive[1].rewardTokenDecimals;
+            const claimableRewards = normalize(incentive[1].claimableRewards, rewardTokenDecimals);
+
+            return (
+              <IncentiveClaimItem
+                key={incentive[0]}
+                hasClaimButton={'WNEAR' === rewardTokenSymbol} // hardcoded to let second item not have claim button
+                symbol={rewardTokenSymbol}
+                claimableRewards={claimableRewards}
+                incentiveControllerAddress={incentive[0]}
+              />
+            );
+          });
         })}
       </div>
 

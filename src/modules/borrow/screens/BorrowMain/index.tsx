@@ -30,6 +30,7 @@ export default function BorrowMain() {
   const { marketRefPriceInUsd } = useStaticPoolDataContext();
   const { reserves, user } = useDynamicPoolDataContext();
   const { reserveIncentives } = useIncentivesDataContext();
+  const reserveIncentive = reserveIncentives[0];
   const { sm } = useThemeContext();
 
   const [searchValue, setSearchValue] = useState('');
@@ -68,7 +69,7 @@ export default function BorrowMain() {
           .multipliedBy(reserve.priceInMarketReferenceCurrency)
           .multipliedBy(marketRefPriceInUsd)
           .toString();
-        const reserveIncentiveData = reserveIncentives[reserve.underlyingAsset.toLowerCase()];
+        const reserveIncentiveData = reserveIncentive[reserve.underlyingAsset.toLowerCase()];
         return {
           ...reserve,
           currentBorrows:
@@ -95,6 +96,7 @@ export default function BorrowMain() {
           sincentivesAPR: reserveIncentiveData
             ? reserveIncentiveData.sIncentives.incentiveAPR
             : '0',
+          rewardTokenSymbol: reserveIncentiveData.aIncentives.rewardTokenAddress,
         };
       });
 

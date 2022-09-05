@@ -1,4 +1,5 @@
 import Markets from './markets/screens/Markets';
+import LandingMarkets from './landing-markets/screens/Markets';
 import ReserveOverview from './reserve-overview/screens/ReserveOverview';
 import History from './history/screens/History';
 import Deposit from './deposit';
@@ -12,6 +13,7 @@ import Staking from './staking';
 import AssetSwap from './asset-swap';
 
 export {
+  LandingMarkets,
   Markets,
   ReserveOverview,
   History,

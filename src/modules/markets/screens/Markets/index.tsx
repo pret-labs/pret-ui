@@ -56,7 +56,9 @@ export default function Markets() {
         .multipliedBy(reserve.priceInMarketReferenceCurrency)
         .multipliedBy(marketRefPriceInUsd)
         .toNumber();
-      const reserveIncentiveData = reserveIncentives[reserve.underlyingAsset.toLowerCase()];
+      const reserveIncentiveData = reserveIncentives.map(
+        (reserveIncentive) => reserveIncentive[reserve.underlyingAsset.toLowerCase()]
+      )[0];
       return {
         totalLiquidity,
         totalLiquidityInUSD,

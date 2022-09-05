@@ -70,6 +70,7 @@ export function useIncentivesData(
   chainId: ChainId,
   incentiveDataProviderAddress: string | undefined,
   skip: boolean,
+  incentivesController: string,
   userAddress?: string
 ): IncentiveDataResponse {
   const { networkConfig } = useProtocolDataContext();
@@ -118,6 +119,7 @@ export function useIncentivesData(
       const rawReserveIncentiveData =
         await incentiveDataProviderContract.getIncentivesDataWithPrice({
           lendingPoolAddressProvider,
+          incentivesController,
           quote: networkConfig.usdMarket ? Denominations.usd : Denominations.eth,
           chainlinkFeedsRegistry: networkConfig.addresses.chainlinkFeedRegistry,
         });
@@ -146,7 +148,8 @@ export function useIncentivesData(
       const rawUserIncentiveData: UserReserveIncentiveDataHumanizedResponse[] =
         await incentiveDataProviderContract.getUserReservesIncentivesDataHumanized(
           currentAccount,
-          lendingPoolAddressProvider
+          lendingPoolAddressProvider,
+          incentivesController
         );
 
       setUserIncentiveData(rawUserIncentiveData);

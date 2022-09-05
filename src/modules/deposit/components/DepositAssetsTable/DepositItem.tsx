@@ -12,6 +12,7 @@ import { DepositTableItem } from './types';
 export default function DepositItem({
   id,
   symbol,
+  rewardTokenSymbol,
   underlyingAsset,
   walletBalance,
   walletBalanceInUSD,

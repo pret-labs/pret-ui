@@ -4,7 +4,6 @@ import { useThemeContext } from '@pret/pret-ui-kit';
 
 import ContentWrapperWithTopLine from '../ContentWrapperWithTopLine';
 import AssetsFilterPanel from '../../AssetsFilterPanel';
-import MarketSwitcher from '../../market/MarketSwitcher';
 import Row from '../../basic/Row';
 import Value from '../../basic/Value';
 

@@ -19,6 +19,7 @@ import { DepositTableItem } from './types';
 
 export default function DepositItem({
   reserve: { symbol, liquidityRate, id, underlyingAsset },
+  rewardTokenSymbol,
   uiColor,
   usageAsCollateralEnabledOnUser,
   usageAsCollateralEnabledOnThePool,

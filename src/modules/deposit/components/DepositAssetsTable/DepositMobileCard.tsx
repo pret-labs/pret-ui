@@ -16,6 +16,7 @@ import { DepositTableItem } from './types';
 export default function DepositMobileCard({
   id,
   symbol,
+  rewardTokenSymbol,
   underlyingAsset,
   walletBalance,
   walletBalanceInUSD,

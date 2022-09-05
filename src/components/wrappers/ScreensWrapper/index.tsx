@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useContext, useState } from 'react';
+import { createContext, ReactNode, useContext, useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { useThemeContext } from '@pret/pret-ui-kit';
@@ -57,7 +57,7 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
       <TopDisclaimer />
       <Menu title={title} />
 
-      <main className="ScreensWrapper__content" id="ScreensWrapper__content-wrapper">
+      <main className={'ScreensWrapper__content'} id="ScreensWrapper__content-wrapper">
         <div className="ScreensWrapper__top-contentWrapper" />
 
         <TitleContext.Provider value={{ title, setTitle }}>
@@ -80,7 +80,6 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
       </style>
       <style jsx={true} global={true}>{`
         @import 'src/_mixins/screen-size';
-
         .ScreensWrapper {
           background: ${currentTheme.mainBg.hex};
 

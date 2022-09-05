@@ -6,8 +6,6 @@ import NashRamp from '@nash-io/ramp-widget-sdk';
 import { useThemeContext } from '@pret/pret-ui-kit';
 import { useProtocolDataContext } from '../../libs/protocol-data-provider';
 
-import * as logos from './images';
-import { ENABLE_NASH, ONRAMP_API_KEY, TRANSAK_API_KEY } from '../config/onramp-config';
 import { ChainId } from '@pret/contract-helpers';
 
 enum PaymentName {
@@ -37,8 +35,8 @@ export function usePayments(): Payments {
   const isPolygonNetwork =
     currentMarketData.chainId === ChainId.polygon || currentMarketData.chainId === ChainId.mumbai;
 
-  const transakAvailableAssets = ['ETH', 'USDT', 'DAI', 'USDC', 'UNI', 'LINK', 'AAVE', 'MANA'];
-  const polygonTransakAvailableAssets = ['MATIC', 'USDT', 'DAI', 'USDC', 'AAVE', 'WBTC', 'WETH'];
+  // const transakAvailableAssets = ['ETH', 'USDT', 'DAI', 'USDC', 'UNI', 'LINK', 'AAVE', 'MANA'];
+  // const polygonTransakAvailableAssets = ['MATIC', 'USDT', 'DAI', 'USDC', 'AAVE', 'WBTC', 'WETH'];
 
   const payments: Payment[] = [
     // {

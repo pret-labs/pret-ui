@@ -26,16 +26,11 @@ import { ConnectionMode, useConnectionStatusContext } from '../../connection-sta
 import { useProtocolDataContext } from '../../protocol-data-provider';
 import { useStaticPoolDataContext } from '../providers/static-pool-data-provider';
 import { useCurrentTimestamp } from './use-current-timestamp';
-import {
-  IncentiveDataResponse,
-  ReserveIncentiveData,
-  useIncentivesData,
-  UserReserveIncentiveData,
-} from './use-incentives-data';
+import { IncentiveDataResponse, useIncentivesData } from './use-incentives-data';
 
 export interface IncentivesContext {
-  reserveIncentives: ReserveIncentiveDict;
-  userIncentives: UserIncentiveDict;
+  reserveIncentives: ReserveIncentiveDict[];
+  userIncentives: UserIncentiveDict[];
   incentivesTxBuilder: IncentivesControllerInterface;
   refresh: () => void;
 }
@@ -53,39 +48,45 @@ export function IncentivesDataProvider({ children }: { children: ReactNode }) {
     getProvider(chainId)
   );
 
-  const {
-    loading: cachedDataLoading,
-    data: cachedData,
-    error: cachedDataError,
-  }: PoolIncentivesWithCache = useCachedIncentivesData(
-    currentMarketData.addresses.LENDING_POOL_ADDRESS_PROVIDER,
-    currentAccount,
-    networkConfig.addresses.chainlinkFeedRegistry,
-    networkConfig.usdMarket ? Denominations.usd : Denominations.eth,
-    preferredConnectionMode === ConnectionMode.rpc ||
-      chainId !== apolloClientChainId ||
-      !networkConfig.addresses.uiIncentiveDataProvider
-  );
+  const { loading: cachedDataLoading, error: cachedDataError }: PoolIncentivesWithCache =
+    useCachedIncentivesData(
+      currentMarketData.addresses.LENDING_POOL_ADDRESS_PROVIDER,
+      currentAccount,
+      networkConfig.addresses.chainlinkFeedRegistry,
+      networkConfig.usdMarket ? Denominations.usd : Denominations.eth,
+      preferredConnectionMode === ConnectionMode.rpc ||
+        chainId !== apolloClientChainId ||
+        !networkConfig.addresses.uiIncentiveDataProvider
+    );
 
-  const {
-    data: rpcData,
-    loading: rpcDataLoading,
-    error: rpcDataError,
-    refresh,
-  }: IncentiveDataResponse = useIncentivesData(
-    currentMarketData.addresses.LENDING_POOL_ADDRESS_PROVIDER,
-    chainId,
-    networkConfig.addresses.uiIncentiveDataProvider,
-    !isRPCActive || !networkConfig.addresses.uiIncentiveDataProvider,
-    currentAccount
-  );
+  const uiIncentiveDataControllers = networkConfig.addresses.uiIncentiveDataControllers;
 
-  const activeData = isRPCActive && rpcData ? rpcData : cachedData;
+  let rpcDatas = [],
+    rpcDataLoading = false,
+    rpcDataError = false,
+    refresh = async () => {};
 
-  const userIncentiveData: UserReserveIncentiveData[] =
-    activeData && activeData.userIncentiveData ? activeData.userIncentiveData : [];
-  const reserveIncentiveData: ReserveIncentiveData[] =
-    activeData && activeData.reserveIncentiveData ? activeData.reserveIncentiveData : [];
+  if (uiIncentiveDataControllers && uiIncentiveDataControllers.length) {
+    for (const uiIncentiveDataController of uiIncentiveDataControllers) {
+      const {
+        data,
+        loading,
+        error,
+        refresh: _refresh,
+      }: IncentiveDataResponse = useIncentivesData(
+        currentMarketData.addresses.LENDING_POOL_ADDRESS_PROVIDER,
+        chainId,
+        networkConfig.addresses.uiIncentiveDataProvider,
+        !isRPCActive || !networkConfig.addresses.uiIncentiveDataProvider,
+        uiIncentiveDataController,
+        currentAccount
+      );
+      rpcDatas.push(data);
+      if (loading) rpcDataLoading = true;
+      if (error) rpcDataError = true;
+      refresh = _refresh;
+    }
+  }
 
   // Create array of formatted user and reserve data used for user incentive calculations
   let computedUserReserves: UserReserveCalculationData[] = [];
@@ -151,30 +152,38 @@ export function IncentivesDataProvider({ children }: { children: ReactNode }) {
     return <Preloader withBackground={true} />;
   }
 
-  if (!activeData || (isRPCActive && rpcDataError) || (!isRPCActive && cachedDataError)) {
+  if (rpcDatas.length === 0 || (isRPCActive && rpcDataError) || (!isRPCActive && cachedDataError)) {
     return <ErrorPage />;
   }
 
   // Compute the incentive APYs for all reserve assets, returned as dictionary indexed by underlyingAsset
-  let reserveIncentives = calculateAllReserveIncentives({
-    reserveIncentives: reserveIncentiveData,
-    reserves: computedReserves,
+  let reserveIncentives = rpcDatas.map((rpcData) => {
+    return calculateAllReserveIncentives({
+      reserveIncentives:
+        rpcData && rpcData.reserveIncentiveData ? rpcData.reserveIncentiveData : [],
+      reserves: computedReserves,
+    });
   });
 
-  // Add entry with mock address (0xeeeee..) for base asset incentives
-  if (
-    networkConfig.baseAssetWrappedAddress &&
-    reserveIncentives[networkConfig.baseAssetWrappedAddress.toLowerCase()]
-  ) {
-    reserveIncentives[API_ETH_MOCK_ADDRESS.toLowerCase()] =
-      reserveIncentives[networkConfig.baseAssetWrappedAddress.toLowerCase()];
+  for (let i = 0; i < reserveIncentives.length; i++) {
+    // Add entry with mock address (0xeeeee..) for base asset incentives
+    if (
+      networkConfig.baseAssetWrappedAddress &&
+      reserveIncentives[i][networkConfig.baseAssetWrappedAddress.toLowerCase()]
+    ) {
+      reserveIncentives[i][API_ETH_MOCK_ADDRESS.toLowerCase()] =
+        reserveIncentives[i][networkConfig.baseAssetWrappedAddress.toLowerCase()];
+    }
   }
-  // Compute the total claimable rewards for a user, returned as dictionary indexed by incentivesController
-  let userIncentives = calculateAllUserIncentives({
-    reserveIncentives: reserveIncentiveData,
-    userReserveIncentives: userIncentiveData,
-    userReserves: computedUserReserves,
-    currentTimestamp,
+
+  const userIncentives = rpcDatas.map((rpcData) => {
+    return calculateAllUserIncentives({
+      reserveIncentives:
+        rpcData && rpcData.reserveIncentiveData ? rpcData.reserveIncentiveData : [],
+      userReserveIncentives: rpcData && rpcData.userIncentiveData ? rpcData.userIncentiveData : [],
+      userReserves: computedUserReserves,
+      currentTimestamp,
+    });
   });
 
   return (
