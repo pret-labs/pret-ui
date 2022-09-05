@@ -30,7 +30,6 @@ export default function BorrowMain() {
   const { marketRefPriceInUsd } = useStaticPoolDataContext();
   const { reserves, user } = useDynamicPoolDataContext();
   const { reserveIncentives } = useIncentivesDataContext();
-  // TODO: reserveIncentive need to map
   const reserveIncentive = reserveIncentives[0];
   const { sm } = useThemeContext();
 
