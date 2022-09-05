@@ -49,7 +49,6 @@ export default function Dashboard() {
   const { chainId } = useProtocolDataContext();
   const { user, reserves } = useDynamicPoolDataContext();
   const { reserveIncentives } = useIncentivesDataContext();
-  // TODO: reserveIncentive need to map
   const reserveIncentive = reserveIncentives[0];
   const { currentTheme, sm } = useThemeContext();
 
