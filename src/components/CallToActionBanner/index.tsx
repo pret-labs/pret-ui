@@ -10,6 +10,8 @@ import NEAR from '../../images/tokens/near.svg';
 import LiNear from '../../images/tokens/linear.svg';
 import AuroraTexture from '../../images/auroraTexture.svg';
 import Link from '../basic/Link';
+import { useWeb3React } from '@web3-react/core';
+import { useStaticPoolDataContext } from '../../libs/pool-data-provider';
 
 const images = [
   {
@@ -43,6 +45,11 @@ const images = [
 ];
 
 function CallToActionBanner() {
+  const { account } = useWeb3React();
+  const { isUserHasDeposits } = useStaticPoolDataContext();
+  const isSignedIn = !!account;
+  const pathname = isSignedIn && isUserHasDeposits ? '/dashboard' : '/markets';
+
   return (
     <section className="CallToActionBanner">
       <div className="CallToActionBanner__content">
@@ -64,7 +71,7 @@ function CallToActionBanner() {
         <p className="CallToActionBanner__double-rewards">DOUBLE REWARDS</p>
         <p className="CallToActionBanner__amount">20k $CORN for Pre-mining</p>
         <p className="CallToActionBanner__footnotes">100k $AURORA super boost</p>
-        <Link to="/market">
+        <Link to={pathname}>
           <Button className="CallToActionBanner__primary-btn" title="ENTER APP" />
         </Link>
       </div>
