@@ -366,7 +366,6 @@ export function Web3Provider({
         storedProviderName = undefined;
       }
       if (storedProviderName) {
-        console.log('storedProviderName', storedProviderName);
         setCurrentProviderName(storedProviderName);
         handleUnlockWallet(
           storedProviderName,
