@@ -50,6 +50,7 @@ const staticStyles = css`
       align-items: center;
       justify-content: center;
       position: relative;
+      white-space: nowrap;
       z-index: 2;
 
       font-size: 12px;
