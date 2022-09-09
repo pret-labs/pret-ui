@@ -226,7 +226,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       uiPoolDataProvider: '0x483ae0d0780e3Bccb1CF60154ca5956dA162EC4c',
       uiIncentiveDataProvider: '0x23cDD3FD689DFA8d2499cFCF25D311d161016FD0',
       chainlinkFeedRegistry: '0x4c55916E8293F753E7F931771BfD2Bd3241C20c5',
-      uiIncentiveDataControllers: [
+      incentiveControllers: [
         '0x181a0c488e3609c7ca95dd4e46dee232db53eb9e'.toLowerCase(),
         '0xe9eb9bf860d874f7e34ef30d42e6e9c510c19ff7'.toLowerCase(),
       ],
