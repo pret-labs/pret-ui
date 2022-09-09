@@ -222,10 +222,10 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     publicJsonRPCUrl: ['https://mainnet.aurora.dev'],
     publicJsonRPCWSUrl: 'wss://mainnet.aurora.dev',
     addresses: {
-      walletBalanceProvider: '0xa53578865b449db121381bb94d139491f821367c',
-      uiPoolDataProvider: '0x526339dc716acdb92daeac259bd6b0eba4d645d8',
-      uiIncentiveDataProvider: '0xdef68c10f45be945075ef638dd532b846acdfb0d',
-      chainlinkFeedRegistry: '0x0ff4cb8d4ba88bee6d99a3a8493fa77f515c872e',
+      walletBalanceProvider: '0x17f787a2eFFEa6DAc25B17D78Dc57E4CCC3dd147',
+      uiPoolDataProvider: '0x483ae0d0780e3Bccb1CF60154ca5956dA162EC4c',
+      uiIncentiveDataProvider: '0x23cDD3FD689DFA8d2499cFCF25D311d161016FD0',
+      chainlinkFeedRegistry: '0x4c55916E8293F753E7F931771BfD2Bd3241C20c5',
       uiIncentiveDataControllers: [
         '0x181a0c488e3609c7ca95dd4e46dee232db53eb9e'.toLowerCase(),
         '0xe9eb9bf860d874f7e34ef30d42e6e9c510c19ff7'.toLowerCase(),
@@ -236,18 +236,18 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     cachingWSServerUrl: 'wss://cache-api-aurora.pret.app/graphql',
     baseUniswapAdapter: '0x0',
     baseAsset: 'ETH',
-    baseAssetWrappedAddress: '0x88aabf01c7faab947d1570cd993bed8acebf54b2',
+    baseAssetWrappedAddress: '0xD6B7C7811CA83E1034D59964430DacdAd3B4D529',
     // incentives hardcoded information
     rewardTokens: [
       {
         rewardTokenSymbol: 'WNEAR',
-        rewardTokenAddress: '0x1a55e008e86ac4c170499e8e8af5d60565e4e453',
+        rewardTokenAddress: '0x00072384939Ef04922F5f2f813Fcf333C712Ee58',
         rewardTokenDecimals: 24,
       },
       {
         rewardTokenSymbol: 'CORN',
         rewardTokenAddress: '0xa4904872b5b17d3101857c649a8e7e7a3ed5b1ac',
-        rewardTokenDecimals: 26,
+        rewardTokenDecimals: 18,
       },
     ],
     incentivePrecision: 18,
