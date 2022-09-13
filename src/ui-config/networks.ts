@@ -227,8 +227,8 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       uiIncentiveDataProvider: '0x23cDD3FD689DFA8d2499cFCF25D311d161016FD0',
       chainlinkFeedRegistry: '0x4c55916E8293F753E7F931771BfD2Bd3241C20c5',
       incentiveControllers: [
-        '0x181a0c488e3609c7ca95dd4e46dee232db53eb9e'.toLowerCase(),
-        '0xe9eb9bf860d874f7e34ef30d42e6e9c510c19ff7'.toLowerCase(),
+        '0x406865CE0cc1c9124DD7FBCA05328cf9E2b48Ce0'.toLowerCase(),
+        '0x46F93d73451FAc7c50D3eD150CD685D86dF061aC'.toLowerCase(),
       ],
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
@@ -240,13 +240,13 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     // incentives hardcoded information
     rewardTokens: [
       {
-        rewardTokenSymbol: 'WNEAR',
-        rewardTokenAddress: '0x00072384939Ef04922F5f2f813Fcf333C712Ee58',
-        rewardTokenDecimals: 24,
+        rewardTokenSymbol: 'AURORA',
+        rewardTokenAddress: '0x81118Cb1b3257aa92C568648b2d668d9f80727d2',
+        rewardTokenDecimals: 18,
       },
       {
-        rewardTokenSymbol: 'CORN',
-        rewardTokenAddress: '0xa4904872b5b17d3101857c649a8e7e7a3ed5b1ac',
+        rewardTokenSymbol: 'DAI',
+        rewardTokenAddress: '0x6123611E23a5e465fD50C31AB6aE0bB6B2ECd220',
         rewardTokenDecimals: 18,
       },
     ],
