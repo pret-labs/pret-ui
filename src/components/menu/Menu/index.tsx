@@ -20,6 +20,7 @@ import staticStyles from './style';
 import navigation from '../navigation';
 
 import backIcon from '../../../images/mobileBackArrow.svg';
+import AirdropButton from '../Aidrdrop';
 
 interface MenuProps {
   title: string;
@@ -79,6 +80,10 @@ export default function Menu({ title }: MenuProps) {
             ))}
             <li className="Menu__link-inner">
               <MoreButton />
+            </li>
+
+            <li className="Menu__link-inner">
+              <AirdropButton />
             </li>
           </ul>
         </nav>
