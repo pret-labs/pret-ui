@@ -24,10 +24,8 @@ export function getRewardTokenSymbol(
     return 'WMATIC';
   } else if (
     rewardTokenAddress === '0x81118Cb1b3257aa92C568648b2d668d9f80727d2' || // aurora
-    rewardTokenAddress.toLowerCase() === '0x6faf3062a457ffe8d9e2f1017974905802e21c01' // hardhat
+    rewardTokenAddress.toLowerCase() === '0x53810e4c71BC89d39Df76754c069680B26b20c3d' // hardhat
   ) {
-    return 'WNEAR';
-  } else if (rewardTokenAddress === '0xa4904872b5B17D3101857C649A8e7e7a3Ed5b1ac') {
     return 'AURORA';
   } else {
     let rewardReserve = reserves.find(

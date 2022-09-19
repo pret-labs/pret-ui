@@ -64,27 +64,27 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       incentives: true,
     },
     addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0x4aC3d3e1E45f08957480F38AA903c563eA05B743'.toLowerCase(),
-      LENDING_POOL: '0x6076c09450c1C793532463642aEbfAbcACb27417',
-      WETH_GATEWAY: '0x099bC74E26d3eaE24Ca3135d86678DD1b13AeAAe',
+      LENDING_POOL_ADDRESS_PROVIDER: '0x27a5882A9AB09f3fa9917C820C0E5D0527719c25'.toLowerCase(),
+      LENDING_POOL: '0x7357d0d45E77b2eB0E7d866CC107C095CF56e321',
+      WETH_GATEWAY: '0xf2e1BAac73529f953787e8431Cea7b3e60368dCB',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
     },
     cornRewards: {
       [CORNRewardsAssets.WNEAR]: {
-        depositRewardsPerDay: 30,
+        depositRewardsPerDay: 40,
         borrowRewardsPerDay: 20,
       },
       [CORNRewardsAssets.LINEAR]: {
-        depositRewardsPerDay: 40,
+        depositRewardsPerDay: 60,
         borrowRewardsPerDay: 0,
       },
       [CORNRewardsAssets.USDC]: {
-        depositRewardsPerDay: 15,
-        borrowRewardsPerDay: 15,
+        depositRewardsPerDay: 20,
+        borrowRewardsPerDay: 20,
       },
       [CORNRewardsAssets.USDT]: {
-        depositRewardsPerDay: 15,
-        borrowRewardsPerDay: 15,
+        depositRewardsPerDay: 20,
+        borrowRewardsPerDay: 20,
       },
     },
   },

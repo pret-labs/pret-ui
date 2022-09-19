@@ -263,25 +263,34 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
   },
   [ChainId.hardhat]: {
     name: 'Hardhat Localnet',
-    publicJsonRPCUrl: ['https://rpc-local.pret.app'],
-    publicJsonRPCWSUrl: 'wss://rpc-local.pret.app',
+    publicJsonRPCUrl: ['https://rpc-hardhat.pret.app'],
+    publicJsonRPCWSUrl: 'wss://rpc-hardhat.pret.app',
     addresses: {
-      walletBalanceProvider: '0xe18045A72166631e7EB307EeABaFBFAcDA114055',
-      uiPoolDataProvider: '0x4803ebca4B051d5154Aa2BfD4c3D63777b29B38b',
-      uiIncentiveDataProvider: '0x60ecEC12E6fCB675Bc61ABadfaBfF5D5c5094cdF',
-      chainlinkFeedRegistry: '0x857C59Abe5b6bE76D4987Ccf3cF6d7CA3be32168',
+      walletBalanceProvider: '0xC3dA846333232cf24073a15BC666C066d655780D',
+      uiPoolDataProvider: '0x95227F2A27B53F9b2DAb98fB0D303360D83092FB',
+      uiIncentiveDataProvider: '0xA5f2f6701de7cc0252622c1C2d9844061FD70D93',
+      chainlinkFeedRegistry: '0xbD5eeD0479107b155472A5e70abb22c02fdC7c8F',
+      incentiveControllers: [
+        '0xafB56880d2D7270Dc3b32e60B85cf57c7bfFac46'.toLowerCase(),
+        '0x089E04b947B657C0334e5d03b4E85aB764FEFD24'.toLowerCase(),
+      ],
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
     cachingServerUrl: 'https://cache-api-aurora.pret.app/graphql',
     cachingWSServerUrl: 'wss://cache-api-aurora.pret.app/graphql',
     baseUniswapAdapter: '0x0',
     baseAsset: 'ETH',
-    baseAssetWrappedAddress: '0x8F74537e8164E81ff83B965e914Fd9721978FC1b',
+    baseAssetWrappedAddress: '0x7DCabc4d0f82299637F38Ed2703bA6144e9355cC',
     // incentives hardcoded information
     rewardTokens: [
       {
-        rewardTokenSymbol: 'WNEAR',
-        rewardTokenAddress: '0x6FaF3062A457fFE8D9E2F1017974905802E21C01',
+        rewardTokenSymbol: 'AURORA',
+        rewardTokenAddress: '0x53810e4c71BC89d39Df76754c069680B26b20c3d',
+        rewardTokenDecimals: 18,
+      },
+      {
+        rewardTokenSymbol: 'DAI',
+        rewardTokenAddress: '0x9D3f23d5552b8E5365eB9e7412809A108d7b7760',
         rewardTokenDecimals: 18,
       },
     ],
