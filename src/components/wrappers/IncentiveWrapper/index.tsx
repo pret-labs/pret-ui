@@ -79,7 +79,7 @@ export default function IncentiveWrapper() {
             return (
               <IncentiveClaimItem
                 key={incentive[0]}
-                hasClaimButton={'WNEAR' === rewardTokenSymbol} // hardcoded to let second item not have claim button
+                hasClaimButton
                 symbol={rewardTokenSymbol}
                 claimableRewards={claimableRewards}
                 incentiveControllerAddress={incentive[0]}
