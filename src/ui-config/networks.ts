@@ -268,8 +268,8 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     addresses: {
       walletBalanceProvider: '0x99090Ec7413523B1a3bDD8787E808B7e5e6b3307',
       uiPoolDataProvider: '0xb85eF37F8C6F2B785237533522924079a187CA47',
-      uiIncentiveDataProvider: '0x6F4a1c5fbc152DA7f1544EDE7f64459ad75a0c77',
-      chainlinkFeedRegistry: '0x8100eA96d99d06566A1c92AcF07108B8F428b77a',
+      uiIncentiveDataProvider: '0x8100eA96d99d06566A1c92AcF07108B8F428b77a',
+      chainlinkFeedRegistry: '0x6F4a1c5fbc152DA7f1544EDE7f64459ad75a0c77',
       incentiveControllers: [
         '0x146EF65DA9C5Eb7C3781a75FC558a5Ffb38DB47D'.toLowerCase(),
         '0xBb68F86B480F50dDb6359d353336CD4C7ADB758E'.toLowerCase(),
