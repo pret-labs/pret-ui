@@ -15,7 +15,7 @@ export enum CustomMarket {
   // amm_kovan = 'amm_kovan',
   // amm_mainnet = 'amm_mainnet',
   // proto_fuji = 'proto_fuji',
-  proto_hardhat = 'proto_hardhat',
+  // proto_hardhat = 'proto_hardhat',
 }
 
 export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType } = {
@@ -54,40 +54,40 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       },
     },
   },
-  [CustomMarket.proto_hardhat]: {
-    chainId: ChainId.hardhat,
-    logo: logos.aaveLogo,
-    activeLogo: logos.aaveActiveLogo,
-    aTokenPrefix: 'AP',
-    enabledFeatures: {
-      liquiditySwap: false,
-      incentives: true,
-    },
-    addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0x4aC3d3e1E45f08957480F38AA903c563eA05B743'.toLowerCase(),
-      LENDING_POOL: '0x6076c09450c1C793532463642aEbfAbcACb27417',
-      WETH_GATEWAY: '0x099bC74E26d3eaE24Ca3135d86678DD1b13AeAAe',
-      // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
-    },
-    cornRewards: {
-      [CORNRewardsAssets.WNEAR]: {
-        depositRewardsPerDay: 30,
-        borrowRewardsPerDay: 20,
-      },
-      [CORNRewardsAssets.LINEAR]: {
-        depositRewardsPerDay: 40,
-        borrowRewardsPerDay: 0,
-      },
-      [CORNRewardsAssets.USDC]: {
-        depositRewardsPerDay: 15,
-        borrowRewardsPerDay: 15,
-      },
-      [CORNRewardsAssets.USDT]: {
-        depositRewardsPerDay: 15,
-        borrowRewardsPerDay: 15,
-      },
-    },
-  },
+  // [CustomMarket.proto_hardhat]: {
+  //   chainId: ChainId.hardhat,
+  //   logo: logos.aaveLogo,
+  //   activeLogo: logos.aaveActiveLogo,
+  //   aTokenPrefix: 'AP',
+  //   enabledFeatures: {
+  //     liquiditySwap: false,
+  //     incentives: true,
+  //   },
+  //   addresses: {
+  //     LENDING_POOL_ADDRESS_PROVIDER: '0x4aC3d3e1E45f08957480F38AA903c563eA05B743'.toLowerCase(),
+  //     LENDING_POOL: '0x6076c09450c1C793532463642aEbfAbcACb27417',
+  //     WETH_GATEWAY: '0x099bC74E26d3eaE24Ca3135d86678DD1b13AeAAe',
+  //     // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
+  //   },
+  //   cornRewards: {
+  //     [CORNRewardsAssets.WNEAR]: {
+  //       depositRewardsPerDay: 30,
+  //       borrowRewardsPerDay: 20,
+  //     },
+  //     [CORNRewardsAssets.LINEAR]: {
+  //       depositRewardsPerDay: 40,
+  //       borrowRewardsPerDay: 0,
+  //     },
+  //     [CORNRewardsAssets.USDC]: {
+  //       depositRewardsPerDay: 15,
+  //       borrowRewardsPerDay: 15,
+  //     },
+  //     [CORNRewardsAssets.USDT]: {
+  //       depositRewardsPerDay: 15,
+  //       borrowRewardsPerDay: 15,
+  //     },
+  //   },
+  // },
   // [CustomMarket.proto_kovan]: {
   //   chainId: ChainId.kovan,
   //   logo: logos.aavev2Logo,
