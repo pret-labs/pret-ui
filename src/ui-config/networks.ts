@@ -266,13 +266,13 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     publicJsonRPCUrl: ['https://rpc-hardhat.pret.app'],
     publicJsonRPCWSUrl: 'wss://rpc-hardhat.pret.app',
     addresses: {
-      walletBalanceProvider: '0x99090Ec7413523B1a3bDD8787E808B7e5e6b3307',
-      uiPoolDataProvider: '0xb85eF37F8C6F2B785237533522924079a187CA47',
-      uiIncentiveDataProvider: '0x8100eA96d99d06566A1c92AcF07108B8F428b77a',
-      chainlinkFeedRegistry: '0x6F4a1c5fbc152DA7f1544EDE7f64459ad75a0c77',
+      walletBalanceProvider: '0x7eb79448785EA8A7e0A83F2cEC3001f2D159e024',
+      uiPoolDataProvider: '0x8b4615B72f0FDFDF97496Bc2716D018dFa6D2367',
+      uiIncentiveDataProvider: '0x19214EA58569a7bF16Ef48f5bDE48057633d1826',
+      chainlinkFeedRegistry: '0x8D89eb6990778004313353742084D16206875909',
       incentiveControllers: [
-        '0x146EF65DA9C5Eb7C3781a75FC558a5Ffb38DB47D'.toLowerCase(),
-        '0xBb68F86B480F50dDb6359d353336CD4C7ADB758E'.toLowerCase(),
+        '0xFeBDe5866f97Bf4f7e8940a72cCaA05Ed5DaA867'.toLowerCase(),
+        '0x2765849c86659Ad03c7f80c37395043c327aE383'.toLowerCase(),
       ],
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
@@ -280,17 +280,17 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     cachingWSServerUrl: 'wss://cache-api-aurora.pret.app/graphql',
     baseUniswapAdapter: '0x0',
     baseAsset: 'ETH',
-    baseAssetWrappedAddress: '0x7DCabc4d0f82299637F38Ed2703bA6144e9355cC',
+    baseAssetWrappedAddress: '0x8a7631B10c968a8891cC4196EE9Ecc5ed0b52e8B',
     // incentives hardcoded information
     rewardTokens: [
       {
         rewardTokenSymbol: 'AURORA',
-        rewardTokenAddress: '0x53810e4c71BC89d39Df76754c069680B26b20c3d',
+        rewardTokenAddress: '0x671C5118D31a2EfB9ccF0D20e6939D92829aE74D',
         rewardTokenDecimals: 18,
       },
       {
-        rewardTokenSymbol: 'DAI',
-        rewardTokenAddress: '0x9D3f23d5552b8E5365eB9e7412809A108d7b7760',
+        rewardTokenSymbol: 'CORN',
+        rewardTokenAddress: '0xbf26Ee1DBc902D72867cFc212B8110E89D45908a',
         rewardTokenDecimals: 18,
       },
     ],
