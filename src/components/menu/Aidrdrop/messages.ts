@@ -7,4 +7,8 @@ export default defineMessages({
   addCORNToMetamask: 'Add CORN to Metamask',
   claim: 'Claim',
   airdrop: 'Airdrop',
+  totalRewards: 'Total Rewards',
+  pendingRewards: 'Pending Rewards',
+  claimable: 'Claimable',
+  pretPremining: 'Pret Premining',
 });

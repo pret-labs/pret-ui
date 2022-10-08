@@ -5,7 +5,6 @@ import FireIcon from '../../../images/fire.svg';
 import { useIntl } from 'react-intl';
 import messages from './messages';
 import { CSSProperties } from 'react';
-import css from 'styled-jsx/css';
 
 function _OverlayElement(
   _props: React.ComponentPropsWithRef<'div'>,
@@ -63,11 +62,17 @@ function SpaceLine({ style }: { style?: CSSProperties }) {
     </>
   );
 }
-function AirdropModal() {
+function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
   const intl = useIntl();
   return (
     <ReactModal isOpen={true} overlayElement={_OverlayElement} contentElement={_ContentElement}>
-      <img className="AirdropModal__close-icon" src={CloseIcon} alt="close" />
+      <img
+        className="AirdropModal__close-icon"
+        src={CloseIcon}
+        alt="close"
+        onClick={onRequestClose}
+        role="button"
+      />
       <div className="AirdropModal__title-section">
         <img src={FireIcon} alt="fire" />
         <h3>{intl.formatMessage(messages.airdropModalName)}</h3>
@@ -86,19 +91,19 @@ function AirdropModal() {
       </div>
       <SpaceLine style={{ margin: '15px 0 8px' }} />
       <div className="AirdropModal__data-section">
-        <p className="AirdropModal__subtitle">Pret Premining</p>
+        <p className="AirdropModal__subtitle">{intl.formatMessage(messages.pretPremining)}</p>
         <div className="AirdropModal__data-row">
           <div>
             <p className="data">111.1111 CORN</p>
-            <p className="title">Total Rewards</p>
+            <p className="title">{intl.formatMessage(messages.totalRewards)}</p>
           </div>
           <div>
             <p className="data">111.1111 CORN</p>
-            <p className="title">Total Rewards</p>
+            <p className="title">{intl.formatMessage(messages.pendingRewards)}</p>
           </div>
           <div>
             <p className="data">111.1111 CORN</p>
-            <p className="title">Total Rewards</p>
+            <p className="title">{intl.formatMessage(messages.claimable)}</p>
           </div>
           <button className="AirdropModal__purple-button">
             {intl.formatMessage(messages.claim)}
@@ -111,15 +116,15 @@ function AirdropModal() {
         <div className="AirdropModal__data-row">
           <div>
             <p className="data">111.1111 CORN</p>
-            <p className="title">Total Rewards</p>
+            <p className="title">{intl.formatMessage(messages.totalRewards)}</p>
           </div>
           <div>
             <p className="data">111.1111 CORN</p>
-            <p className="title">Total Rewards</p>
+            <p className="title">{intl.formatMessage(messages.pendingRewards)}</p>
           </div>
           <div>
             <p className="data">111.1111 CORN</p>
-            <p className="title">Total Rewards</p>
+            <p className="title">{intl.formatMessage(messages.claimable)}</p>
           </div>
           <button className="AirdropModal__purple-button">
             {intl.formatMessage(messages.claim)}
@@ -205,6 +210,9 @@ function AirdropModal() {
             position: absolute;
             right: 24px;
             top: 15px;
+            &:hover {
+              cursor: pointer;
+            }
           }
         }
       `}</style>
