@@ -9,8 +9,10 @@ import AirdropAbi from './airdrop-abi.json';
 import { ethers } from 'ethers';
 import { valueToBigNumber } from '@aave/protocol-js';
 import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
-import { CORN_AIRDROP_ADDRESS, CORN_DECIMALS } from '../../../ui-config/corn';
+import { CORN_AIRDROP_ADDRESS, CORN_TOKEN_PARAMS } from '../../../ui-config/corn';
 import { isValid } from './help';
+
+const CORN_DECIMALS = CORN_TOKEN_PARAMS.options.decimals;
 
 function _OverlayElement(
   _props: React.ComponentPropsWithRef<'div'>,
@@ -129,7 +131,17 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
             {intl.formatMessage(messages.yourCORNBalanceOn)} <span>AURORA</span>
           </p>
         </div>
-        <button className="AirdropModal__purple-button">
+        <button
+          className="AirdropModal__purple-button"
+          onClick={async () => {
+            if (window.ethereum && window.ethereum.request) {
+              await window.ethereum.request({
+                method: 'wallet_watchAsset',
+                params: CORN_TOKEN_PARAMS as any,
+              });
+            }
+          }}
+        >
           {intl.formatMessage(messages.addCORNToMetamask)}
         </button>
       </div>
