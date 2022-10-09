@@ -4,7 +4,13 @@ import CloseIcon from '../../../images/close.svg';
 import FireIcon from '../../../images/fire.svg';
 import { useIntl } from 'react-intl';
 import messages from './messages';
-import { CSSProperties } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
+import AirdropAbi from './airdrop-abi.json';
+import { ethers } from 'ethers';
+import { valueToBigNumber } from '@aave/protocol-js';
+import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
+import { CORN_AIRDROP_ADDRESS, CORN_DECIMALS } from '../../../ui-config/corn';
+import { isValid } from './help';
 
 function _OverlayElement(
   _props: React.ComponentPropsWithRef<'div'>,
@@ -62,8 +68,46 @@ function SpaceLine({ style }: { style?: CSSProperties }) {
     </>
   );
 }
+
 function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
   const intl = useIntl();
+
+  const { currentAccount } = useUserWalletDataContext();
+  const [contract, setContract] = useState<ethers.Contract | null>(null);
+  const [data, setData] = useState<{
+    totalAmount: string;
+    pendingAmount: string;
+    claimableAmount: string;
+  }>({
+    totalAmount: '-',
+    pendingAmount: '-',
+    claimableAmount: '-',
+  });
+  useEffect(() => {
+    const provider = new ethers.providers.Web3Provider((window as any).ethereum);
+    const signer = provider.getSigner();
+    const _contract = new ethers.Contract(CORN_AIRDROP_ADDRESS, AirdropAbi, signer);
+    setContract(_contract);
+    Promise.all([
+      _contract.getTotalAmount(currentAccount),
+      _contract.getPendingAmount(currentAccount),
+      _contract.getClaimableAmount(currentAccount),
+    ]).then(([_totalAmount, _pendingAmount, _claimableAmount]) => {
+      const totalAmount = _totalAmount.toString();
+      const pendingAmount = _pendingAmount.toString();
+      const claimableAmount = _claimableAmount.toString();
+      setData({
+        totalAmount,
+        pendingAmount,
+        claimableAmount,
+      });
+      console.log({
+        totalAmount,
+        pendingAmount,
+        claimableAmount,
+      });
+    });
+  }, []);
   return (
     <ReactModal isOpen={true} overlayElement={_OverlayElement} contentElement={_ContentElement}>
       <img
@@ -105,7 +149,7 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
             <p className="data">111.1111 CORN</p>
             <p className="title">{intl.formatMessage(messages.claimable)}</p>
           </div>
-          <button className="AirdropModal__purple-button">
+          <button disabled={true} className="AirdropModal__purple-button">
             {intl.formatMessage(messages.claim)}
           </button>
         </div>
@@ -115,18 +159,37 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
         <p className="AirdropModal__subtitle">{intl.formatMessage(messages.airdrop)}</p>
         <div className="AirdropModal__data-row">
           <div>
-            <p className="data">111.1111 CORN</p>
+            <p className="data">
+              {valueToBigNumber(data.totalAmount).div(CORN_DECIMALS).toFixed(4)} CORN
+            </p>
             <p className="title">{intl.formatMessage(messages.totalRewards)}</p>
           </div>
           <div>
-            <p className="data">111.1111 CORN</p>
+            <p className="data">
+              {valueToBigNumber(data.totalAmount).div(CORN_DECIMALS).toFixed(4)} CORN
+            </p>
             <p className="title">{intl.formatMessage(messages.pendingRewards)}</p>
           </div>
           <div>
-            <p className="data">111.1111 CORN</p>
+            <p className="data">
+              {valueToBigNumber(data.totalAmount).div(CORN_DECIMALS).toFixed(4)} CORN
+            </p>
             <p className="title">{intl.formatMessage(messages.claimable)}</p>
           </div>
-          <button className="AirdropModal__purple-button">
+          <button
+            className="AirdropModal__purple-button"
+            disabled={isValid(data.claimableAmount) && valueToBigNumber(data.claimableAmount).eq(0)}
+            onClick={async () => {
+              if (!contract) {
+                throw new Error('Airdrop Contract Initialize failed');
+              }
+              try {
+                await contract.claimAll();
+              } catch (e) {
+                throw e;
+              }
+            }}
+          >
             {intl.formatMessage(messages.claim)}
           </button>
         </div>
@@ -202,6 +265,9 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
             &:hover {
               background: #4c38dccc;
               color: #ffffffcc;
+            }
+            &:disabled {
+              background: gray;
             }
           }
           &__close-icon {

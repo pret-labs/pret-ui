@@ -3,13 +3,30 @@ import messages from './messages';
 import Fire from '../../../images/fire.svg';
 import AirdropModal from './AirdropModal';
 import { useState } from 'react';
+import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
+import { useMenuContext } from '../../../libs/menu';
 
 function AirdropButton() {
   const intl = useIntl();
   const [showAirdropModal, setShowAirdropModal] = useState(false);
+
+  const { currentAccount } = useUserWalletDataContext();
+
+  const { showSelectWalletModal } = useUserWalletDataContext();
+  const { closeMobileMenu } = useMenuContext();
   return (
     <div>
-      <div className="AirdropButton" onClick={() => setShowAirdropModal(true)}>
+      <div
+        className="AirdropButton"
+        onClick={() => {
+          if (!currentAccount) {
+            showSelectWalletModal();
+            closeMobileMenu();
+          } else {
+            setShowAirdropModal(true);
+          }
+        }}
+      >
         <img className="AirdropButton__logo" src={Fire} width={12} height={16} alt="fire" />
         <p className="AirdropButton__content">{intl.formatMessage(messages.airdropButtonName)}</p>
       </div>
