@@ -76,6 +76,7 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
 
   const { currentAccount } = useUserWalletDataContext();
   const [contract, setContract] = useState<ethers.Contract | null>(null);
+  const [claimableAmountRaw, setClaimableAmountRaw] = useState('0');
   const [data, setData] = useState<{
     totalAmount: string;
     pendingAmount: string;
@@ -95,6 +96,7 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
       _contract.getPendingAmount(currentAccount),
       _contract.getClaimableAmount(currentAccount),
     ]).then(([_totalAmount, _pendingAmount, _claimableAmount]) => {
+      setClaimableAmountRaw(_claimableAmount.toString());
       const totalAmount = valueToBigNumber(
         normalize(valueToBigNumber(_totalAmount.toString()).toString(), CORN_DECIMALS)
       ).toFixed(4);
@@ -108,6 +110,11 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
         totalAmount,
         pendingAmount,
         claimableAmount,
+      });
+      console.log({
+        _totalAmount: totalAmount.toString(),
+        _pendingAmount: pendingAmount.toString(),
+        _claimableAmount: claimableAmount.toString(),
       });
     });
   }, []);
@@ -185,7 +192,7 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
           </div>
           <button
             className="AirdropModal__purple-button"
-            disabled={isValid(data.claimableAmount) && valueToBigNumber(data.claimableAmount).eq(0)}
+            disabled={isValid(claimableAmountRaw) && valueToBigNumber(claimableAmountRaw).eq(0)}
             onClick={async () => {
               if (!contract) {
                 throw new Error('Airdrop Contract Initialize failed');
