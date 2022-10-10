@@ -95,15 +95,14 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
       _contract.getPendingAmount(currentAccount),
       _contract.getClaimableAmount(currentAccount),
     ]).then(([_totalAmount, _pendingAmount, _claimableAmount]) => {
-      const totalAmount = _totalAmount.toString();
-      const pendingAmount = _pendingAmount.toString();
-      const claimableAmount = _claimableAmount.toString();
+      const totalAmount = valueToBigNumber(_totalAmount.toString()).div(CORN_DECIMALS).toFixed(4);
+      const pendingAmount = valueToBigNumber(_pendingAmount.toString())
+        .div(CORN_DECIMALS)
+        .toFixed(4);
+      const claimableAmount = valueToBigNumber(_claimableAmount.toString())
+        .div(CORN_DECIMALS)
+        .toFixed(4);
       setData({
-        totalAmount,
-        pendingAmount,
-        claimableAmount,
-      });
-      console.log({
         totalAmount,
         pendingAmount,
         claimableAmount,
@@ -171,21 +170,15 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
         <p className="AirdropModal__subtitle">{intl.formatMessage(messages.airdrop)}</p>
         <div className="AirdropModal__data-row">
           <div>
-            <p className="data">
-              {valueToBigNumber(data.totalAmount).div(CORN_DECIMALS).toFixed(4)} CORN
-            </p>
+            <p className="data">{data.totalAmount} CORN</p>
             <p className="title">{intl.formatMessage(messages.totalRewards)}</p>
           </div>
           <div>
-            <p className="data">
-              {valueToBigNumber(data.totalAmount).div(CORN_DECIMALS).toFixed(4)} CORN
-            </p>
+            <p className="data">{data.pendingAmount} CORN</p>
             <p className="title">{intl.formatMessage(messages.pendingRewards)}</p>
           </div>
           <div>
-            <p className="data">
-              {valueToBigNumber(data.totalAmount).div(CORN_DECIMALS).toFixed(4)} CORN
-            </p>
+            <p className="data">{data.claimableAmount} CORN</p>
             <p className="title">{intl.formatMessage(messages.claimable)}</p>
           </div>
           <button
