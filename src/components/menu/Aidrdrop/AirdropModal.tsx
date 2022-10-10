@@ -7,7 +7,7 @@ import messages from './messages';
 import { CSSProperties, useEffect, useState } from 'react';
 import AirdropAbi from './airdrop-abi.json';
 import { ethers } from 'ethers';
-import { valueToBigNumber } from '@aave/protocol-js';
+import { normalize, valueToBigNumber } from '@aave/protocol-js';
 import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import { CORN_AIRDROP_ADDRESS, CORN_TOKEN_PARAMS } from '../../../ui-config/corn';
 import { isValid } from './help';
@@ -95,13 +95,15 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
       _contract.getPendingAmount(currentAccount),
       _contract.getClaimableAmount(currentAccount),
     ]).then(([_totalAmount, _pendingAmount, _claimableAmount]) => {
-      const totalAmount = valueToBigNumber(_totalAmount.toString()).div(CORN_DECIMALS).toFixed(4);
-      const pendingAmount = valueToBigNumber(_pendingAmount.toString())
-        .div(CORN_DECIMALS)
-        .toFixed(4);
-      const claimableAmount = valueToBigNumber(_claimableAmount.toString())
-        .div(CORN_DECIMALS)
-        .toFixed(4);
+      const totalAmount = valueToBigNumber(
+        normalize(valueToBigNumber(_totalAmount.toString()).toString(), CORN_DECIMALS)
+      ).toFixed(4);
+      const pendingAmount = valueToBigNumber(
+        normalize(valueToBigNumber(_pendingAmount.toString()).toString(), CORN_DECIMALS)
+      ).toFixed(4);
+      const claimableAmount = valueToBigNumber(
+        normalize(valueToBigNumber(_claimableAmount.toString()).toString(), CORN_DECIMALS)
+      ).toFixed(4);
       setData({
         totalAmount,
         pendingAmount,
