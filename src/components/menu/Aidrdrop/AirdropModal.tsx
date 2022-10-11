@@ -7,7 +7,7 @@ import messages from './messages';
 import { CSSProperties, useEffect, useState } from 'react';
 import AirdropAbi from './airdrop-abi.json';
 import { ethers } from 'ethers';
-import { normalize, valueToBigNumber } from '@aave/protocol-js';
+import { BigNumber, normalize, valueToBigNumber } from '@aave/protocol-js';
 import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import { CORN_AIRDROP_ADDRESS, CORN_TOKEN_PARAMS } from '../../../ui-config/corn';
 import { isValid } from './help';
@@ -62,6 +62,7 @@ function SpaceLine({ style }: { style?: CSSProperties }) {
           &__space-line {
             width: 100%;
             height: 1px;
+            border: 0;
             border-radius: 9999px;
             background: rgba(255, 255, 255, 0.2);
           }
@@ -99,13 +100,13 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
       setClaimableAmountRaw(_claimableAmount.toString());
       const totalAmount = valueToBigNumber(
         normalize(valueToBigNumber(_totalAmount.toString()).toString(), CORN_DECIMALS)
-      ).toFixed(4);
+      ).toFixed(4, BigNumber.ROUND_DOWN);
       const pendingAmount = valueToBigNumber(
         normalize(valueToBigNumber(_pendingAmount.toString()).toString(), CORN_DECIMALS)
-      ).toFixed(4);
+      ).toFixed(4, BigNumber.ROUND_DOWN);
       const claimableAmount = valueToBigNumber(
         normalize(valueToBigNumber(_claimableAmount.toString()).toString(), CORN_DECIMALS)
-      ).toFixed(4);
+      ).toFixed(4, BigNumber.ROUND_DOWN);
       setData({
         totalAmount,
         pendingAmount,
@@ -222,11 +223,9 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
             align-items: center;
             .data {
               font-size: 16px;
-              font-weight: bold;
             }
             .title {
               font-size: 12px;
-              font-weight: 500;
               color: #656565;
               margin-top: 2px;
             }
@@ -234,10 +233,11 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
           &__subtitle {
             text-align: left;
             font-size: 12px;
-            font-weight: 500;
             color: #4c38dc;
           }
           &__title-section {
+            font-size: 14px;
+            font-weight: 500;
             display: flex;
             img {
               width: 12px;
@@ -255,12 +255,10 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
 
             .corn-balance {
               font-size: 16px;
-              font-weight: 500;
             }
 
             .corn-balance-title {
               margin-top: 2px;
-              font-weight: 500;
               font-size: 12px;
               span {
                 color: #3ab563;
@@ -274,7 +272,6 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
             padding: 10px 20px;
             border-radius: 5px;
             font-size: 12px;
-            font-weight: bold;
             transition: all 300ms linear;
             &:hover {
               background: #4c38dccc;
