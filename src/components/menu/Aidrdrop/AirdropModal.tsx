@@ -10,7 +10,7 @@ import { ethers } from 'ethers';
 import { BigNumber, normalize, valueToBigNumber } from '@aave/protocol-js';
 import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import { CORN_AIRDROP_ADDRESS, CORN_TOKEN_PARAMS } from '../../../ui-config/corn';
-import { isValid } from './help';
+import { isValid } from '../../../helpers/number';
 
 const CORN_DECIMALS = CORN_TOKEN_PARAMS.options.decimals;
 
