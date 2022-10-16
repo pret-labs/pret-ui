@@ -5,12 +5,84 @@ import FireIcon from '../../../images/fire.svg';
 import { useIntl } from 'react-intl';
 import messages from './messages';
 import { CSSProperties, useEffect, useState } from 'react';
-import AirdropAbi from './airdrop-abi.json';
 import { ethers } from 'ethers';
 import { BigNumber, normalize, valueToBigNumber } from '@aave/protocol-js';
 import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import { CORN_AIRDROP_ADDRESS, CORN_TOKEN_PARAMS } from '../../../ui-config/corn';
 import { isValid } from '../../../helpers/number';
+
+const AirdropAbi = [
+  {
+    inputs: [],
+    name: 'claimAll',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'user',
+        type: 'address',
+      },
+    ],
+    name: 'getTotalAmount',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'user',
+        type: 'address',
+      },
+    ],
+    name: 'getPendingAmount',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'user',
+        type: 'address',
+      },
+    ],
+    name: 'getClaimableAmount',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+];
 
 const CORN_DECIMALS = CORN_TOKEN_PARAMS.options.decimals;
 
