@@ -265,7 +265,7 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
           </div>
           <button
             className="AirdropModal__purple-button"
-            disabled={isValid(claimableAmountRaw) && valueToBigNumber(claimableAmountRaw).eq(0)}
+            disabled={!isValid(claimableAmountRaw) || valueToBigNumber(claimableAmountRaw).eq(0)}
             onClick={async () => {
               if (!contract) {
                 throw new Error('Airdrop Contract Initialize failed');
