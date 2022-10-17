@@ -105,13 +105,4 @@ export type MarketDataType = {
       borrowRewardsPerDay: number;
     };
   };
-  cornTokenParams: {
-    type: string;
-    options: {
-      address: string;
-      symbol: string;
-      decimals: number;
-    };
-  };
-  cornAirdropAddress: string;
 };
