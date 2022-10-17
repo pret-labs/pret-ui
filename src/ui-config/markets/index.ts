@@ -7,7 +7,7 @@ import * as logos from './images';
 export enum CustomMarket {
   // proto_kovan = 'proto_kovan',
   // proto_mainnet = 'proto_mainnet',
-  // proto_aurora_testnet = 'proto_aurora_testnet',
+  proto_aurora_testnet = 'proto_aurora_testnet',
   proto_aurora_mainnet = 'proto_aurora_mainnet',
   // proto_avalanche = 'proto_avalanche',
   // proto_matic = 'proto_matic',
@@ -53,6 +53,15 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
         borrowRewardsPerDay: 20,
       },
     },
+    cornTokenParams: {
+      type: 'ERC20',
+      options: {
+        address: '0xb868f8672de372f81bed6051164b2d784b2124f9',
+        symbol: 'CORN',
+        decimals: 18,
+      },
+    },
+    cornAirdropAddress: '0xe394a386c525eb19c61cb603aa787ce74e56fe6b',
   },
   [CustomMarket.proto_hardhat]: {
     chainId: ChainId.hardhat,
@@ -87,6 +96,15 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
         borrowRewardsPerDay: 15,
       },
     },
+    cornTokenParams: {
+      type: 'ERC20',
+      options: {
+        address: '0xb868f8672de372f81bed6051164b2d784b2124f9',
+        symbol: 'CORN',
+        decimals: 18,
+      },
+    },
+    cornAirdropAddress: '0xe394a386c525eb19c61cb603aa787ce74e56fe6b',
   },
   // [CustomMarket.proto_kovan]: {
   //   chainId: ChainId.kovan,
@@ -217,21 +235,48 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
   //     SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
   //   },
   // },
-  // [CustomMarket.proto_aurora_testnet]: {
-  //   chainId: ChainId.aurora_testnet,
-  //   logo: logos.aaveLogo,
-  //   activeLogo: logos.aaveActiveLogo,
-  //   subLogo: logos.aurora,
-  //   aTokenPrefix: 'AV',
-  //   enabledFeatures: {
-  //     liquiditySwap: false,
-  //     incentives: true,
-  //   },
-  //   addresses: {
-  //     LENDING_POOL_ADDRESS_PROVIDER: '0x75F987Edc7F9B9745e5C6397813476F9B40b45CB'.toLowerCase(),
-  //     LENDING_POOL: '0x10e08bF4b3a3408127b7C04349D80319972d34E2',
-  //     WETH_GATEWAY: '0x3e9dd45050475fB75494De2217056dB5a54d5299',
-  //     // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
-  //   },
-  // },
+  [CustomMarket.proto_aurora_testnet]: {
+    chainId: ChainId.aurora_testnet,
+    logo: logos.aaveLogo,
+    activeLogo: logos.aaveActiveLogo,
+    subLogo: logos.aurora,
+    aTokenPrefix: 'AV',
+    enabledFeatures: {
+      liquiditySwap: false,
+      incentives: true,
+    },
+    addresses: {
+      LENDING_POOL_ADDRESS_PROVIDER: '0x75F987Edc7F9B9745e5C6397813476F9B40b45CB'.toLowerCase(),
+      LENDING_POOL: '0x10e08bF4b3a3408127b7C04349D80319972d34E2',
+      WETH_GATEWAY: '0x3e9dd45050475fB75494De2217056dB5a54d5299',
+      // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
+    },
+    cornRewards: {
+      [CORNRewardsAssets.WNEAR]: {
+        depositRewardsPerDay: 40,
+        borrowRewardsPerDay: 20,
+      },
+      [CORNRewardsAssets.LINEAR]: {
+        depositRewardsPerDay: 60,
+        borrowRewardsPerDay: 0,
+      },
+      [CORNRewardsAssets.USDC]: {
+        depositRewardsPerDay: 20,
+        borrowRewardsPerDay: 20,
+      },
+      [CORNRewardsAssets.USDT]: {
+        depositRewardsPerDay: 20,
+        borrowRewardsPerDay: 20,
+      },
+    },
+    cornTokenParams: {
+      type: 'ERC20',
+      options: {
+        address: '0xb868f8672de372f81bed6051164b2d784b2124f9',
+        symbol: 'CORN',
+        decimals: 18,
+      },
+    },
+    cornAirdropAddress: '0xc13E249B4ce5a80214626B67fd0e000F2a57c0B3',
+  },
 } as const;

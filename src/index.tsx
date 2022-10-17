@@ -54,6 +54,13 @@ function getWeb3Library(provider: any): ethers.providers.Web3Provider {
 const Router = ({ children }: React.PropsWithChildren<{}>) =>
   IPFS_MODE ? <HashRouter>{children}</HashRouter> : <BrowserRouter>{children}</BrowserRouter>;
 
+// window properties
+declare global {
+  interface Window {
+    ethereum?: import('ethers').providers.ExternalProvider;
+  }
+}
+
 ReactDOM.render(
   <div className="Main">
     <Router>
