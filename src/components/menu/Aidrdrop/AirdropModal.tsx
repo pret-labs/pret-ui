@@ -11,16 +11,6 @@ import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import { CORN_AIRDROP_ADDRESS, CORN_TOKEN_PARAMS } from '../../../ui-config/corn';
 import { isValid } from '../../../helpers/number';
 
-const tokenBalanceOfAbi = [
-  {
-    constant: true,
-    inputs: [{ name: '_owner', type: 'address' }],
-    name: 'balanceOf',
-    outputs: [{ name: 'balance', type: 'uint256' }],
-    type: 'function',
-  },
-];
-
 const AirdropAbi = [
   {
     inputs: [],
@@ -164,29 +154,21 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
     totalAmount: string;
     pendingAmount: string;
     claimableAmount: string;
-    cornBalance: string;
   }>({
     totalAmount: '-',
     pendingAmount: '-',
     claimableAmount: '-',
-    cornBalance: '-',
   });
   useEffect(() => {
     const provider = new ethers.providers.Web3Provider((window as any).ethereum);
     const signer = provider.getSigner();
-    const _cornAirdropContract = new ethers.Contract(CORN_AIRDROP_ADDRESS, AirdropAbi, signer);
-    const _cornTokenContract = new ethers.Contract(
-      CORN_TOKEN_PARAMS.options.address,
-      tokenBalanceOfAbi,
-      signer
-    );
-    setContract(_cornAirdropContract);
+    const _contract = new ethers.Contract(CORN_AIRDROP_ADDRESS, AirdropAbi, signer);
+    setContract(_contract);
     Promise.all([
-      _cornAirdropContract.getTotalAmount(currentAccount),
-      _cornAirdropContract.getPendingAmount(currentAccount),
-      _cornAirdropContract.getClaimableAmount(currentAccount),
-      _cornTokenContract.balanceOf(currentAccount),
-    ]).then(([_totalAmount, _pendingAmount, _claimableAmount, _cornBalance]) => {
+      _contract.getTotalAmount(currentAccount),
+      _contract.getPendingAmount(currentAccount),
+      _contract.getClaimableAmount(currentAccount),
+    ]).then(([_totalAmount, _pendingAmount, _claimableAmount]) => {
       setClaimableAmountRaw(_claimableAmount.toString());
       const totalAmount = valueToBigNumber(
         normalize(valueToBigNumber(_totalAmount.toString()).toString(), CORN_DECIMALS)
@@ -197,20 +179,15 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
       const claimableAmount = valueToBigNumber(
         normalize(valueToBigNumber(_claimableAmount.toString()).toString(), CORN_DECIMALS)
       ).toFixed(4, BigNumber.ROUND_DOWN);
-      const cornBalance = valueToBigNumber(
-        normalize(valueToBigNumber(_claimableAmount.toString()).toString(), CORN_DECIMALS)
-      ).toFixed(4, BigNumber.ROUND_DOWN);
       setData({
         totalAmount,
         pendingAmount,
         claimableAmount,
-        cornBalance,
       });
       console.log({
         _totalAmount: _totalAmount.toString(),
         _pendingAmount: _pendingAmount.toString(),
         _claimableAmount: _claimableAmount.toString(),
-        _cornBalance: _cornBalance.toString(),
       });
     });
   }, []);
@@ -230,7 +207,7 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
       <SpaceLine style={{ margin: '16px 0' }} />
       <div className="AirdropModal__CORN-balance">
         <div>
-          <div className="corn-balance">{data.cornBalance} CORN</div>
+          <div className="corn-balance">1111.1111 CORN</div>
           <p className="corn-balance-title">
             {intl.formatMessage(messages.yourCORNBalanceOn)} <span>AURORA</span>
           </p>
