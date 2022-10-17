@@ -53,6 +53,15 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
         borrowRewardsPerDay: 20,
       },
     },
+    cornTokenParams: {
+      type: 'ERC20',
+      options: {
+        address: '0xb868f8672de372f81bed6051164b2d784b2124f9',
+        symbol: 'CORN',
+        decimals: 18,
+      },
+    },
+    cornAirdropAddress: '0xe394a386c525eb19c61cb603aa787ce74e56fe6b',
   },
   [CustomMarket.proto_hardhat]: {
     chainId: ChainId.hardhat,
@@ -87,6 +96,15 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
         borrowRewardsPerDay: 15,
       },
     },
+    cornTokenParams: {
+      type: 'ERC20',
+      options: {
+        address: '0xb868f8672de372f81bed6051164b2d784b2124f9',
+        symbol: 'CORN',
+        decimals: 18,
+      },
+    },
+    cornAirdropAddress: '0xe394a386c525eb19c61cb603aa787ce74e56fe6b',
   },
   // [CustomMarket.proto_kovan]: {
   //   chainId: ChainId.kovan,
@@ -251,5 +269,14 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
         borrowRewardsPerDay: 20,
       },
     },
+    cornTokenParams: {
+      type: 'ERC20',
+      options: {
+        address: '0xb868f8672de372f81bed6051164b2d784b2124f9',
+        symbol: 'CORN',
+        decimals: 18,
+      },
+    },
+    cornAirdropAddress: '0xe394a386c525eb19c61cb603aa787ce74e56fe6b',
   },
 } as const;
