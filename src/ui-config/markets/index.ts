@@ -61,7 +61,7 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
         decimals: 18,
       },
     },
-    cornAirdropAddress: '0xe394a386c525eb19c61cb603aa787ce74e56fe6b',
+    cornAirdropAddress: '0xc13E249B4ce5a80214626B67fd0e000F2a57c0B3',
   },
   [CustomMarket.proto_hardhat]: {
     chainId: ChainId.hardhat,
@@ -104,7 +104,7 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
         decimals: 18,
       },
     },
-    cornAirdropAddress: '0xe394a386c525eb19c61cb603aa787ce74e56fe6b',
+    cornAirdropAddress: '0xc13E249B4ce5a80214626B67fd0e000F2a57c0B3',
   },
   // [CustomMarket.proto_kovan]: {
   //   chainId: ChainId.kovan,
