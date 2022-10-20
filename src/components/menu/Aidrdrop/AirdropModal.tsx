@@ -210,12 +210,6 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
         claimableAmount,
         cornBalance,
       });
-      console.log({
-        _totalAmount: _totalAmount.toString(),
-        _pendingAmount: _pendingAmount.toString(),
-        _claimableAmount: _claimableAmount.toString(),
-        _cornBalance: _cornBalance.toString(),
-      });
     });
   }, []);
   return (
