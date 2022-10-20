@@ -11,7 +11,7 @@ import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import { isValid } from '../../../helpers/number';
 import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 
-const tokenBalanceOfAbi = [
+const TOKEN_BALANCE_OF_ABI = [
   {
     constant: true,
     inputs: [{ name: '_owner', type: 'address' }],
@@ -21,7 +21,7 @@ const tokenBalanceOfAbi = [
   },
 ];
 
-const AirdropAbi = [
+const AIRDROP_ABI = [
   {
     inputs: [],
     name: 'claimAll',
@@ -177,10 +177,10 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
   useEffect(() => {
     const provider = new ethers.providers.Web3Provider((window as any).ethereum);
     const signer = provider.getSigner();
-    const _cornAirdropContract = new ethers.Contract(cornAirdropAddress, AirdropAbi, signer);
+    const _cornAirdropContract = new ethers.Contract(cornAirdropAddress, AIRDROP_ABI, signer);
     const _cornTokenContract = new ethers.Contract(
       cornTokenParams.options.address,
-      tokenBalanceOfAbi,
+      TOKEN_BALANCE_OF_ABI,
       signer
     );
 
