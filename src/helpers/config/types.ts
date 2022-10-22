@@ -66,6 +66,7 @@ export type NetworkConfig = {
     url: string;
     logo: string;
   };
+  cornIncentivesController: string;
 };
 
 export type BaseNetworkConfig = Omit<NetworkConfig, 'explorerLinkBuilder'>;

@@ -11,6 +11,48 @@ import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import { isValid } from '../../../helpers/number';
 import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 
+const UIINCENTIVEDATAPROVIDER_ABI = [
+  {
+    inputs: [
+      {
+        internalType: 'contract ILendingPoolAddressesProvider',
+        name: 'provider',
+        type: 'address',
+      },
+      {
+        internalType: 'address',
+        name: 'user',
+        type: 'address',
+      },
+      {
+        internalType: 'contract IAaveIncentivesController',
+        name: 'incentivesController',
+        type: 'address',
+      },
+    ],
+    name: 'getProgressiveIncentivesData',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+];
+
 const TOKEN_BALANCE_OF_ABI = [
   {
     constant: true,
@@ -112,6 +154,7 @@ function _OverlayElement(
     </div>
   );
 }
+
 function _ContentElement(_props: React.ComponentPropsWithRef<'div'>, children: React.ReactNode) {
   const { className, style, ...props } = _props;
   return (
@@ -155,63 +198,101 @@ function SpaceLine({ style }: { style?: CSSProperties }) {
 function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
   const intl = useIntl();
 
-  const { currentMarketData } = useProtocolDataContext();
+  const { currentMarketData, networkConfig } = useProtocolDataContext();
   const cornTokenParams = currentMarketData.cornTokenParams;
   const cornDecimals = cornTokenParams.options.decimals;
   const cornAirdropAddress = currentMarketData.cornAirdropAddress;
 
   const { currentAccount } = useUserWalletDataContext();
-  const [contract, setContract] = useState<ethers.Contract | null>(null);
+  const [cornAirdropContract, setCornAirdropContract] = useState<ethers.Contract | null>(null);
   const [claimableAmountRaw, setClaimableAmountRaw] = useState('0');
-  const [data, setData] = useState<{
+  const [cornBalance, setCornBalance] = useState('-');
+  const [airdropData, setAirdropData] = useState<{
     totalAmount: string;
     pendingAmount: string;
     claimableAmount: string;
-    cornBalance: string;
   }>({
     totalAmount: '-',
     pendingAmount: '-',
     claimableAmount: '-',
-    cornBalance: '-',
   });
+  const [preminingData, setPreminingData] = useState<{
+    totalAmount: string;
+    pendingAmount: string;
+    claimableAmount: string;
+  }>({
+    totalAmount: '-',
+    pendingAmount: '-',
+    claimableAmount: '-',
+  });
+
+  const [refresh, setRefresh] = useState(false);
+
   useEffect(() => {
     const provider = new ethers.providers.Web3Provider((window as any).ethereum);
     const signer = provider.getSigner();
-    const _cornAirdropContract = new ethers.Contract(cornAirdropAddress, AIRDROP_ABI, signer);
-    const _cornTokenContract = new ethers.Contract(
-      cornTokenParams.options.address,
-      TOKEN_BALANCE_OF_ABI,
-      signer
-    );
+    // const _cornAirdropContract = new ethers.Contract(cornAirdropAddress, AIRDROP_ABI, signer);
+    // const _cornTokenContract = new ethers.Contract(
+    //   cornTokenParams.options.address,
+    //   TOKEN_BALANCE_OF_ABI,
+    //   signer
+    // );
 
-    setContract(_cornAirdropContract);
-    Promise.all([
-      _cornAirdropContract.getTotalAmount(currentAccount),
-      _cornAirdropContract.getPendingAmount(currentAccount),
-      _cornAirdropContract.getClaimableAmount(currentAccount),
-      _cornTokenContract.balanceOf(currentAccount),
-    ]).then(([_totalAmount, _pendingAmount, _claimableAmount, _cornBalance]) => {
-      setClaimableAmountRaw(_claimableAmount.toString());
-      const totalAmount = valueToBigNumber(
-        normalize(valueToBigNumber(_totalAmount.toString()).toString(), cornDecimals)
-      ).toFixed(4, BigNumber.ROUND_DOWN);
-      const pendingAmount = valueToBigNumber(
-        normalize(valueToBigNumber(_pendingAmount.toString()).toString(), cornDecimals)
-      ).toFixed(4, BigNumber.ROUND_DOWN);
-      const claimableAmount = valueToBigNumber(
-        normalize(valueToBigNumber(_claimableAmount.toString()).toString(), cornDecimals)
-      ).toFixed(4, BigNumber.ROUND_DOWN);
-      const cornBalance = valueToBigNumber(
-        normalize(valueToBigNumber(_cornBalance.toString()).toString(), cornDecimals)
-      ).toFixed(4, BigNumber.ROUND_DOWN);
-      setData({
-        totalAmount,
-        pendingAmount,
-        claimableAmount,
-        cornBalance,
-      });
-    });
-  }, []);
+    // setCornAirdropContract(_cornAirdropContract);
+    // Promise.all([
+    //   _cornAirdropContract.getTotalAmount(currentAccount),
+    //   _cornAirdropContract.getPendingAmount(currentAccount),
+    //   _cornAirdropContract.getClaimableAmount(currentAccount),
+    //   _cornTokenContract.balanceOf(currentAccount),
+    // ]).then(([_totalAmount, _pendingAmount, _claimableAmount, _cornBalance]) => {
+    //   setClaimableAmountRaw(_claimableAmount.toString());
+    //   const totalAmount = valueToBigNumber(
+    //     normalize(valueToBigNumber(_totalAmount.toString()).toString(), cornDecimals)
+    //   ).toFixed(4, BigNumber.ROUND_DOWN);
+    //   const pendingAmount = valueToBigNumber(
+    //     normalize(valueToBigNumber(_pendingAmount.toString()).toString(), cornDecimals)
+    //   ).toFixed(4, BigNumber.ROUND_DOWN);
+    //   const claimableAmount = valueToBigNumber(
+    //     normalize(valueToBigNumber(_claimableAmount.toString()).toString(), cornDecimals)
+    //   ).toFixed(4, BigNumber.ROUND_DOWN);
+    //   const cornBalance = valueToBigNumber(
+    //     normalize(valueToBigNumber(_cornBalance.toString()).toString(), cornDecimals)
+    //   ).toFixed(4, BigNumber.ROUND_DOWN);
+    //   setAirdropData({
+    //     totalAmount,
+    //     pendingAmount,
+    //     claimableAmount,
+    //   });
+    //   setCornBalance(cornBalance)
+    // });
+
+    (async function () {
+      if (networkConfig.addresses.uiIncentiveDataProvider) {
+        const _uiIncentiveDataProviderContract = new ethers.Contract(
+          networkConfig.addresses.uiIncentiveDataProvider,
+          UIINCENTIVEDATAPROVIDER_ABI,
+          signer
+        );
+        const accountId = await signer.getAddress();
+        const [totalAmount, pendingAmount, claimableAmount] = (
+          await _uiIncentiveDataProviderContract.getProgressiveIncentivesData(
+            currentMarketData.addresses.LENDING_POOL_ADDRESS_PROVIDER,
+            accountId,
+            networkConfig.cornIncentivesController
+          )
+        ).map((rewardRawData: string) =>
+          valueToBigNumber(
+            normalize(valueToBigNumber(rewardRawData.toString()).toString(), cornDecimals)
+          ).toFixed(4, BigNumber.ROUND_DOWN)
+        );
+        setPreminingData({
+          totalAmount,
+          pendingAmount,
+          claimableAmount,
+        });
+      }
+    })();
+  }, [refresh]);
   return (
     <ReactModal isOpen={true} overlayElement={_OverlayElement} contentElement={_ContentElement}>
       <img
@@ -228,7 +309,7 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
       <SpaceLine style={{ margin: '16px 0' }} />
       <div className="AirdropModal__CORN-balance">
         <div>
-          <div className="corn-balance">{data.cornBalance} CORN</div>
+          <div className="corn-balance">{cornBalance} CORN</div>
           <p className="corn-balance-title">
             {intl.formatMessage(messages.yourCORNBalanceOn)} <span>AURORA</span>
           </p>
@@ -252,15 +333,15 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
         <p className="AirdropModal__subtitle">{intl.formatMessage(messages.pretPremining)}</p>
         <div className="AirdropModal__data-row">
           <div>
-            <p className="data">111.1111 CORN</p>
+            <p className="data">{preminingData.totalAmount} CORN</p>
             <p className="title">{intl.formatMessage(messages.totalRewards)}</p>
           </div>
           <div>
-            <p className="data">111.1111 CORN</p>
+            <p className="data">{preminingData.pendingAmount} CORN</p>
             <p className="title">{intl.formatMessage(messages.pendingRewards)}</p>
           </div>
           <div>
-            <p className="data">111.1111 CORN</p>
+            <p className="data">{preminingData.claimableAmount} CORN</p>
             <p className="title">{intl.formatMessage(messages.claimable)}</p>
           </div>
           <button disabled={true} className="AirdropModal__purple-button">
@@ -273,28 +354,30 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
         <p className="AirdropModal__subtitle">{intl.formatMessage(messages.airdrop)}</p>
         <div className="AirdropModal__data-row">
           <div>
-            <p className="data">{data.totalAmount} CORN</p>
+            <p className="data">{airdropData.totalAmount} CORN</p>
             <p className="title">{intl.formatMessage(messages.totalRewards)}</p>
           </div>
           <div>
-            <p className="data">{data.pendingAmount} CORN</p>
+            <p className="data">{airdropData.pendingAmount} CORN</p>
             <p className="title">{intl.formatMessage(messages.pendingRewards)}</p>
           </div>
           <div>
-            <p className="data">{data.claimableAmount} CORN</p>
+            <p className="data">{airdropData.claimableAmount} CORN</p>
             <p className="title">{intl.formatMessage(messages.claimable)}</p>
           </div>
           <button
             className="AirdropModal__purple-button"
             disabled={!isValid(claimableAmountRaw) || valueToBigNumber(claimableAmountRaw).eq(0)}
             onClick={async () => {
-              if (!contract) {
+              if (!cornAirdropContract) {
                 throw new Error('Airdrop Contract Initialize failed');
               }
               try {
-                await contract.claimAll();
+                await cornAirdropContract.claimAll();
               } catch (e) {
                 throw e;
+              } finally {
+                setRefresh(!refresh);
               }
             }}
           >

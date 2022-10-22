@@ -30,7 +30,7 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       incentives: true,
     },
     addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0x8fcc9f65BF153371f4B06542446eE51aCcDb635C'.toLowerCase(),
+      LENDING_POOL_ADDRESS_PROVIDER: '0x94de7fcd50f33d2598639f9abafed90ba0eb9a11'.toLowerCase(),
       LENDING_POOL: '0x8ca1db9e43305636e9b4bf8ca1ff8f97579009ad',
       WETH_GATEWAY: '0x33318ba00a220cab6da06f625c0d80ad5a2f37a9',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
