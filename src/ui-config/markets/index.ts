@@ -30,9 +30,9 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       incentives: true,
     },
     addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0x94de7fcd50f33d2598639f9abafed90ba0eb9a11'.toLowerCase(),
-      LENDING_POOL: '0x8ca1db9e43305636e9b4bf8ca1ff8f97579009ad',
-      WETH_GATEWAY: '0x33318ba00a220cab6da06f625c0d80ad5a2f37a9',
+      LENDING_POOL_ADDRESS_PROVIDER: '0x94DE7fCd50f33D2598639F9abaFED90Ba0eB9a11'.toLowerCase(),
+      LENDING_POOL: '0xF0a2a17FD7E086ba158102fe3BD1cd9C39C8DcE8',
+      WETH_GATEWAY: '0x3C53EBE3b6560EB54e9C5eeb287b139Be766A0Fc',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
     },
     cornRewards: {
@@ -73,27 +73,27 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       incentives: true,
     },
     addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0x4aC3d3e1E45f08957480F38AA903c563eA05B743'.toLowerCase(),
-      LENDING_POOL: '0x6076c09450c1C793532463642aEbfAbcACb27417',
-      WETH_GATEWAY: '0x099bC74E26d3eaE24Ca3135d86678DD1b13AeAAe',
+      LENDING_POOL_ADDRESS_PROVIDER: '0xdfAA34CC1E8882303a07dFF23DaFcbE16566aD2c'.toLowerCase(),
+      LENDING_POOL: '0x195BC31110bfE5206Ea048a2bF4d6cfD895209cA',
+      WETH_GATEWAY: '0xB89998C526240aaF1588d20343421C6f730634b5',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
     },
     cornRewards: {
       [CORNRewardsAssets.WNEAR]: {
-        depositRewardsPerDay: 30,
+        depositRewardsPerDay: 40,
         borrowRewardsPerDay: 20,
       },
       [CORNRewardsAssets.LINEAR]: {
-        depositRewardsPerDay: 40,
+        depositRewardsPerDay: 60,
         borrowRewardsPerDay: 0,
       },
       [CORNRewardsAssets.USDC]: {
-        depositRewardsPerDay: 15,
-        borrowRewardsPerDay: 15,
+        depositRewardsPerDay: 20,
+        borrowRewardsPerDay: 20,
       },
       [CORNRewardsAssets.USDT]: {
-        depositRewardsPerDay: 15,
-        borrowRewardsPerDay: 15,
+        depositRewardsPerDay: 20,
+        borrowRewardsPerDay: 20,
       },
     },
     cornTokenParams: {

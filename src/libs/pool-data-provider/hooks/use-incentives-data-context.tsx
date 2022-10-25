@@ -59,15 +59,15 @@ export function IncentivesDataProvider({ children }: { children: ReactNode }) {
         !networkConfig.addresses.uiIncentiveDataProvider
     );
 
-  const uiIncentiveDataControllers = networkConfig.addresses.uiIncentiveDataControllers;
+  const incentiveControllers = networkConfig.addresses.incentiveControllers;
 
   let rpcDatas = [],
     rpcDataLoading = false,
     rpcDataError = false,
     refresh = async () => {};
 
-  if (uiIncentiveDataControllers && uiIncentiveDataControllers.length) {
-    for (const uiIncentiveDataController of uiIncentiveDataControllers) {
+  if (incentiveControllers && incentiveControllers.length) {
+    for (const uiIncentiveDataController of incentiveControllers) {
       const {
         data,
         loading,

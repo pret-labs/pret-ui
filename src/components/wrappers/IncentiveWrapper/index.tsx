@@ -23,12 +23,15 @@ export function getRewardTokenSymbol(
   } else if (rewardTokenAddress.toLowerCase() === '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270') {
     return 'WMATIC';
   } else if (
-    rewardTokenAddress === '0x1A55e008e86Ac4c170499e8E8af5D60565e4e453' || // aurora
-    rewardTokenAddress.toLowerCase() === '0x6faf3062a457ffe8d9e2f1017974905802e21c01' // hardhat
+    rewardTokenAddress.toLowerCase() === '0xa1835ac61a47be51a29681ba0626aef92f8d1c73' || // aurora
+    rewardTokenAddress.toLowerCase() === '0x671c5118d31a2efb9ccf0d20e6939d92829ae74d' // hardhat
   ) {
-    return 'WNEAR';
-  } else if (rewardTokenAddress === '0xa4904872b5B17D3101857C649A8e7e7a3Ed5b1ac') {
     return 'AURORA';
+  } else if (
+    rewardTokenAddress.toLowerCase() === '0x2f0becd13b5372188b5e05b7dfd31283b4b11789' || // aurora
+    rewardTokenAddress.toLowerCase() === '0xbf26ee1dbc902d72867cfc212b8110e89d45908a' // hardhat
+  ) {
+    return 'CORN';
   } else {
     let rewardReserve = reserves.find(
       (reserve) => reserve.underlyingAsset.toLowerCase() === rewardTokenAddress.toLowerCase()
