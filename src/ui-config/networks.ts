@@ -222,13 +222,13 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     publicJsonRPCUrl: ['https://mainnet.aurora.dev'],
     publicJsonRPCWSUrl: 'wss://mainnet.aurora.dev',
     addresses: {
-      walletBalanceProvider: '0x17f787a2eFFEa6DAc25B17D78Dc57E4CCC3dd147',
-      uiPoolDataProvider: '0x483ae0d0780e3Bccb1CF60154ca5956dA162EC4c',
-      uiIncentiveDataProvider: '0x23cDD3FD689DFA8d2499cFCF25D311d161016FD0',
-      chainlinkFeedRegistry: '0x4c55916E8293F753E7F931771BfD2Bd3241C20c5',
+      walletBalanceProvider: '0x6264617C934B0f534C8d35c0a20BC124E587b9f3',
+      uiPoolDataProvider: '0xaEc8f7e11f5f1947bf4934126A3540e93Ce69E98',
+      uiIncentiveDataProvider: '0x81a3bC684405d1D0a7DAa2A2e3f66C8F37aD656F',
+      chainlinkFeedRegistry: '0xA4b8b02cef11834Cdcb878B8485D93d551ACe526',
       incentiveControllers: [
-        '0x406865CE0cc1c9124DD7FBCA05328cf9E2b48Ce0'.toLowerCase(),
-        '0x46F93d73451FAc7c50D3eD150CD685D86dF061aC'.toLowerCase(),
+        '0xB861792561f2C6a79ddE12006202615Ce2200266'.toLowerCase(),
+        '0xE303206ac6065aE2a53553116da7ddb54fd24776'.toLowerCase(),
       ],
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
@@ -236,17 +236,17 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     cachingWSServerUrl: 'wss://cache-api-aurora.pret.app/graphql',
     baseUniswapAdapter: '0x0',
     baseAsset: 'ETH',
-    baseAssetWrappedAddress: '0xD6B7C7811CA83E1034D59964430DacdAd3B4D529',
+    baseAssetWrappedAddress: '0xdB64CBA2Af41BE5cEaaB5393Bea28021B55e86a3',
     // incentives hardcoded information
     rewardTokens: [
       {
         rewardTokenSymbol: 'AURORA',
-        rewardTokenAddress: '0x81118Cb1b3257aa92C568648b2d668d9f80727d2',
+        rewardTokenAddress: '0xa1835Ac61A47BE51a29681Ba0626aEf92f8d1C73',
         rewardTokenDecimals: 18,
       },
       {
-        rewardTokenSymbol: 'DAI',
-        rewardTokenAddress: '0x6123611E23a5e465fD50C31AB6aE0bB6B2ECd220',
+        rewardTokenSymbol: 'CORN',
+        rewardTokenAddress: '0x2F0becD13b5372188B5E05b7DfD31283b4b11789',
         rewardTokenDecimals: 18,
       },
     ],

@@ -23,12 +23,12 @@ export function getRewardTokenSymbol(
   } else if (rewardTokenAddress.toLowerCase() === '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270') {
     return 'WMATIC';
   } else if (
-    rewardTokenAddress.toLowerCase() === '0x81118cb1b3257aa92c568648b2d668d9f80727d2' || // aurora
+    rewardTokenAddress.toLowerCase() === '0xa1835ac61a47be51a29681ba0626aef92f8d1c73' || // aurora
     rewardTokenAddress.toLowerCase() === '0x671c5118d31a2efb9ccf0d20e6939d92829ae74d' // hardhat
   ) {
     return 'AURORA';
   } else if (
-    // rewardTokenAddress.toLowerCase() === '0x81118cb1b3257aa92c568648b2d668d9f80727d2' || // aurora
+    rewardTokenAddress.toLowerCase() === '0x2f0becd13b5372188b5e05b7dfd31283b4b11789' || // aurora
     rewardTokenAddress.toLowerCase() === '0xbf26ee1dbc902d72867cfc212b8110e89d45908a' // hardhat
   ) {
     return 'CORN';
