@@ -56,7 +56,7 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
     cornTokenParams: {
       type: 'ERC20',
       options: {
-        address: '0xb868f8672de372f81bed6051164b2d784b2124f9',
+        address: '0x2F0becD13b5372188B5E05b7DfD31283b4b11789',
         symbol: 'CORN',
         decimals: 18,
       },
@@ -99,7 +99,7 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
     cornTokenParams: {
       type: 'ERC20',
       options: {
-        address: '0xb868f8672de372f81bed6051164b2d784b2124f9',
+        address: '0x2F0becD13b5372188B5E05b7DfD31283b4b11789',
         symbol: 'CORN',
         decimals: 18,
       },
@@ -272,7 +272,7 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
     cornTokenParams: {
       type: 'ERC20',
       options: {
-        address: '0xb868f8672de372f81bed6051164b2d784b2124f9',
+        address: '0x2F0becD13b5372188B5E05b7DfD31283b4b11789',
         symbol: 'CORN',
         decimals: 18,
       },
