@@ -31,7 +31,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     explorerLink: 'https://kovan.etherscan.com',
     rpcOnly: true,
     isTestnet: true,
-    cornIncentivesController: '0xe303206ac6065ae2a53553116da7ddb54fd24776',
+    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
   [ChainId.mainnet]: {
     name: 'Ethereum mainnet',
@@ -60,7 +60,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     incentivePrecision: 18,
     explorerLink: 'https://etherscan.com',
     rpcOnly: false,
-    cornIncentivesController: '0xe303206ac6065ae2a53553116da7ddb54fd24776',
+    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
   [ChainId.polygon]: {
     name: 'Polygon POS',
@@ -93,7 +93,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       url: 'https://wallet.matic.network/bridge/',
       logo: polygonBridgeLogo,
     },
-    cornIncentivesController: '0xe303206ac6065ae2a53553116da7ddb54fd24776',
+    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
   [ChainId.mumbai]: {
     name: 'Mumbai',
@@ -119,7 +119,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     explorerLink: 'https://explorer-mumbai.maticvigil.com',
     rpcOnly: true,
     isTestnet: true,
-    cornIncentivesController: '0xe303206ac6065ae2a53553116da7ddb54fd24776',
+    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
   [ChainId.fuji]: {
     name: 'Fuji',
@@ -153,7 +153,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       url: 'https://bridge.avax.network/',
       logo: avalancheBridgeLogo,
     },
-    cornIncentivesController: '0xe303206ac6065ae2a53553116da7ddb54fd24776',
+    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
   [ChainId.avalanche]: {
     name: 'Avalanche',
@@ -188,7 +188,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       url: 'https://bridge.avax.network/',
       logo: avalancheBridgeLogo,
     },
-    cornIncentivesController: '0xe303206ac6065ae2a53553116da7ddb54fd24776',
+    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
   [ChainId.aurora_testnet]: {
     name: 'Aurora Testnet',
@@ -222,7 +222,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       url: 'https://rainbowbridge.app/',
       logo: auroraBridgeLogo,
     },
-    cornIncentivesController: '0xe303206ac6065ae2a53553116da7ddb54fd24776',
+    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
   [ChainId.aurora_mainnet]: {
     name: 'Aurora Mainnet',
@@ -267,7 +267,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       url: 'https://rainbowbridge.app/',
       logo: auroraBridgeLogo,
     },
-    cornIncentivesController: '0xe303206ac6065ae2a53553116da7ddb54fd24776',
+    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
   [ChainId.hardhat]: {
     name: 'Hardhat Localnet',
@@ -312,6 +312,6 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       url: 'https://rainbowbridge.app/',
       logo: auroraBridgeLogo,
     },
-    cornIncentivesController: '0xe303206ac6065ae2a53553116da7ddb54fd24776',
+    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
 } as const;

@@ -10,6 +10,8 @@ import { BigNumber, normalize, valueToBigNumber } from '@aave/protocol-js';
 import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import { isValid } from '../../../helpers/number';
 import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
+import { useIncentivesDataContext } from '../../../libs/pool-data-provider/hooks/use-incentives-data-context';
+import { useDynamicPoolDataContext } from '../../../libs/pool-data-provider';
 
 const UIINCENTIVEDATAPROVIDER_ABI = [
   {
@@ -205,7 +207,8 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
 
   const { currentAccount } = useUserWalletDataContext();
   const [cornAirdropContract, setCornAirdropContract] = useState<ethers.Contract | null>(null);
-  const [claimableAmountRaw, setClaimableAmountRaw] = useState('0');
+  const [airdropClaimableAmountRaw, setAirdropClaimableAmountRaw] = useState('0');
+  const [preminingClaimableAmountRaw, setPreminingClaimableAmountRaw] = useState('0');
   const [cornBalance, setCornBalance] = useState('-');
   const [airdropData, setAirdropData] = useState<{
     totalAmount: string;
@@ -228,6 +231,13 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
 
   const [refresh, setRefresh] = useState(false);
 
+  const { user } = useDynamicPoolDataContext();
+  const { userIncentives, incentivesTxBuilder } = useIncentivesDataContext();
+  const incentiveData = userIncentives
+    .map((incentive) => incentive[networkConfig.cornIncentivesController])
+    .find(Boolean)!;
+
+  const assets = incentiveData.assets;
   useEffect(() => {
     const provider = new ethers.providers.Web3Provider((window as any).ethereum);
     const signer = provider.getSigner();
@@ -274,13 +284,18 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
           signer
         );
         const accountId = await signer.getAddress();
-        const [totalAmount, pendingAmount, claimableAmount] = (
+        const [_totalAmountRaw, _pendingAmountRaw, _claimableAmountRaw] =
           await _uiIncentiveDataProviderContract.getProgressiveIncentivesData(
             currentMarketData.addresses.LENDING_POOL_ADDRESS_PROVIDER,
             accountId,
             networkConfig.cornIncentivesController
-          )
-        ).map((rewardRawData: string) =>
+          );
+        setPreminingClaimableAmountRaw(_claimableAmountRaw.toString());
+        const [totalAmount, pendingAmount, claimableAmount] = [
+          _totalAmountRaw,
+          _pendingAmountRaw,
+          _claimableAmountRaw,
+        ].map((rewardRawData: string) =>
           valueToBigNumber(
             normalize(valueToBigNumber(rewardRawData.toString()).toString(), cornDecimals)
           ).toFixed(4, BigNumber.ROUND_DOWN)
@@ -344,7 +359,28 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
             <p className="data">{preminingData.claimableAmount} CORN</p>
             <p className="title">{intl.formatMessage(messages.claimable)}</p>
           </div>
-          <button disabled={true} className="AirdropModal__purple-button">
+          <button
+            className="AirdropModal__purple-button"
+            disabled={
+              !isValid(preminingClaimableAmountRaw) ||
+              valueToBigNumber(preminingClaimableAmountRaw).eq(0)
+            }
+            onClick={async () => {
+              if (!user) return;
+              try {
+                await incentivesTxBuilder.claimRewards({
+                  user: user.id,
+                  assets,
+                  to: user.id,
+                  incentivesControllerAddress: networkConfig.cornIncentivesController,
+                });
+              } catch (e) {
+                throw e;
+              } finally {
+                setRefresh(!refresh);
+              }
+            }}
+          >
             {intl.formatMessage(messages.claim)}
           </button>
         </div>
@@ -367,7 +403,10 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
           </div>
           <button
             className="AirdropModal__purple-button"
-            disabled={!isValid(claimableAmountRaw) || valueToBigNumber(claimableAmountRaw).eq(0)}
+            disabled={
+              !isValid(airdropClaimableAmountRaw) ||
+              valueToBigNumber(airdropClaimableAmountRaw).eq(0)
+            }
             onClick={async () => {
               if (!cornAirdropContract) {
                 throw new Error('Airdrop Contract Initialize failed');
