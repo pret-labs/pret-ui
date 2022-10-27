@@ -5,13 +5,15 @@ import FireIcon from '../../../images/fire.svg';
 import { useIntl } from 'react-intl';
 import messages from './messages';
 import { CSSProperties, useEffect, useState } from 'react';
-import { ethers } from 'ethers';
+import { ethers, providers } from 'ethers';
 import { BigNumber, normalize, valueToBigNumber } from '@aave/protocol-js';
 import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import { isValid } from '../../../helpers/number';
 import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 import { useIncentivesDataContext } from '../../../libs/pool-data-provider/hooks/use-incentives-data-context';
 import { useDynamicPoolDataContext } from '../../../libs/pool-data-provider';
+import { EthTransactionData, sendEthTransaction } from '../../../helpers/send-ethereum-tx';
+import { useWeb3React } from '@web3-react/core';
 
 const UIINCENTIVEDATAPROVIDER_ABI = [
   {
@@ -205,6 +207,8 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
   const cornDecimals = cornTokenParams.options.decimals;
   const cornAirdropAddress = currentMarketData.cornAirdropAddress;
 
+  const { library: provider } = useWeb3React<providers.Web3Provider>();
+
   const { currentAccount } = useUserWalletDataContext();
   const [cornAirdropContract, setCornAirdropContract] = useState<ethers.Contract | null>(null);
   const [airdropClaimableAmountRaw, setAirdropClaimableAmountRaw] = useState('0');
@@ -308,6 +312,7 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
       }
     })();
   }, [refresh]);
+
   return (
     <ReactModal isOpen={true} overlayElement={_OverlayElement} contentElement={_ContentElement}>
       <img
@@ -368,12 +373,34 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
             onClick={async () => {
               if (!user) return;
               try {
-                await incentivesTxBuilder.claimRewards({
-                  user: user.id,
-                  assets,
-                  to: user.id,
-                  incentivesControllerAddress: networkConfig.cornIncentivesController,
-                });
+                const transactions = await Promise.all(
+                  incentivesTxBuilder.claimRewards({
+                    user: user.id,
+                    assets,
+                    to: user.id,
+                    incentivesControllerAddress: networkConfig.cornIncentivesController,
+                  })
+                );
+                const actionTx = transactions[0];
+                const uncheckedActionTxData = {
+                  txType: actionTx.txType,
+                  unsignedData: actionTx.tx,
+                  gas: actionTx.gas,
+                } as EthTransactionData;
+                const actionTxData = uncheckedActionTxData.unsignedData
+                  ? (uncheckedActionTxData as EthTransactionData & {
+                      unsignedData: EthTransactionData;
+                    })
+                  : undefined;
+                actionTxData &&
+                  (await sendEthTransaction(
+                    actionTxData.unsignedData,
+                    provider,
+                    // no need state setter
+                    () => {},
+                    null
+                  ));
+                setRefresh(!refresh);
               } catch (e) {
                 throw e;
               } finally {
