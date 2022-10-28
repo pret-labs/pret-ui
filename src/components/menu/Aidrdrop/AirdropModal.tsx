@@ -245,40 +245,40 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
   useEffect(() => {
     const provider = new ethers.providers.Web3Provider((window as any).ethereum);
     const signer = provider.getSigner();
-    // const _cornAirdropContract = new ethers.Contract(cornAirdropAddress, AIRDROP_ABI, signer);
-    // const _cornTokenContract = new ethers.Contract(
-    //   cornTokenParams.options.address,
-    //   TOKEN_BALANCE_OF_ABI,
-    //   signer
-    // );
+    const _cornAirdropContract = new ethers.Contract(cornAirdropAddress, AIRDROP_ABI, signer);
+    const _cornTokenContract = new ethers.Contract(
+      cornTokenParams.options.address,
+      TOKEN_BALANCE_OF_ABI,
+      signer
+    );
 
-    // setCornAirdropContract(_cornAirdropContract);
-    // Promise.all([
-    //   _cornAirdropContract.getTotalAmount(currentAccount),
-    //   _cornAirdropContract.getPendingAmount(currentAccount),
-    //   _cornAirdropContract.getClaimableAmount(currentAccount),
-    //   _cornTokenContract.balanceOf(currentAccount),
-    // ]).then(([_totalAmount, _pendingAmount, _claimableAmount, _cornBalance]) => {
-    //   setClaimableAmountRaw(_claimableAmount.toString());
-    //   const totalAmount = valueToBigNumber(
-    //     normalize(valueToBigNumber(_totalAmount.toString()).toString(), cornDecimals)
-    //   ).toFixed(4, BigNumber.ROUND_DOWN);
-    //   const pendingAmount = valueToBigNumber(
-    //     normalize(valueToBigNumber(_pendingAmount.toString()).toString(), cornDecimals)
-    //   ).toFixed(4, BigNumber.ROUND_DOWN);
-    //   const claimableAmount = valueToBigNumber(
-    //     normalize(valueToBigNumber(_claimableAmount.toString()).toString(), cornDecimals)
-    //   ).toFixed(4, BigNumber.ROUND_DOWN);
-    //   const cornBalance = valueToBigNumber(
-    //     normalize(valueToBigNumber(_cornBalance.toString()).toString(), cornDecimals)
-    //   ).toFixed(4, BigNumber.ROUND_DOWN);
-    //   setAirdropData({
-    //     totalAmount,
-    //     pendingAmount,
-    //     claimableAmount,
-    //   });
-    //   setCornBalance(cornBalance)
-    // });
+    setCornAirdropContract(_cornAirdropContract);
+    Promise.all([
+      _cornAirdropContract.getTotalAmount(currentAccount),
+      _cornAirdropContract.getPendingAmount(currentAccount),
+      _cornAirdropContract.getClaimableAmount(currentAccount),
+      _cornTokenContract.balanceOf(currentAccount),
+    ]).then(([_totalAmount, _pendingAmount, _claimableAmount, _cornBalance]) => {
+      setAirdropClaimableAmountRaw(_claimableAmount.toString());
+      const totalAmount = valueToBigNumber(
+        normalize(valueToBigNumber(_totalAmount.toString()).toString(), cornDecimals)
+      ).toFixed(4, BigNumber.ROUND_DOWN);
+      const pendingAmount = valueToBigNumber(
+        normalize(valueToBigNumber(_pendingAmount.toString()).toString(), cornDecimals)
+      ).toFixed(4, BigNumber.ROUND_DOWN);
+      const claimableAmount = valueToBigNumber(
+        normalize(valueToBigNumber(_claimableAmount.toString()).toString(), cornDecimals)
+      ).toFixed(4, BigNumber.ROUND_DOWN);
+      const cornBalance = valueToBigNumber(
+        normalize(valueToBigNumber(_cornBalance.toString()).toString(), cornDecimals)
+      ).toFixed(4, BigNumber.ROUND_DOWN);
+      setAirdropData({
+        totalAmount,
+        pendingAmount,
+        claimableAmount,
+      });
+      setCornBalance(cornBalance);
+    });
 
     (async function () {
       if (networkConfig.addresses.uiIncentiveDataProvider) {
