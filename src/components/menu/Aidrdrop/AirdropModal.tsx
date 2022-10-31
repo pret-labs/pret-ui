@@ -14,48 +14,7 @@ import { useIncentivesDataContext } from '../../../libs/pool-data-provider/hooks
 import { useDynamicPoolDataContext } from '../../../libs/pool-data-provider';
 import { EthTransactionData, sendEthTransaction } from '../../../helpers/send-ethereum-tx';
 import { useWeb3React } from '@web3-react/core';
-
-const UIINCENTIVEDATAPROVIDER_ABI = [
-  {
-    inputs: [
-      {
-        internalType: 'contract ILendingPoolAddressesProvider',
-        name: 'provider',
-        type: 'address',
-      },
-      {
-        internalType: 'address',
-        name: 'user',
-        type: 'address',
-      },
-      {
-        internalType: 'contract IAaveIncentivesController',
-        name: 'incentivesController',
-        type: 'address',
-      },
-    ],
-    name: 'getProgressiveIncentivesData',
-    outputs: [
-      {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
-      },
-      {
-        internalType: 'uint256',
-        name: '',
-        type: 'uint256',
-      },
-    ],
-    stateMutability: 'view',
-    type: 'function',
-  },
-];
+import { UiIncentiveDataProvider } from '@pret/contract-helpers';
 
 const TOKEN_BALANCE_OF_ABI = [
   {
@@ -282,33 +241,39 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
 
     (async function () {
       if (networkConfig.addresses.uiIncentiveDataProvider) {
-        const _uiIncentiveDataProviderContract = new ethers.Contract(
-          networkConfig.addresses.uiIncentiveDataProvider,
-          UIINCENTIVEDATAPROVIDER_ABI,
-          signer
-        );
-        const accountId = await signer.getAddress();
-        const [_totalAmountRaw, _pendingAmountRaw, _claimableAmountRaw] =
-          await _uiIncentiveDataProviderContract.getProgressiveIncentivesData(
+        const incentiveDataProviderContract = new UiIncentiveDataProvider({
+          incentiveDataProviderAddress: networkConfig.addresses.uiIncentiveDataProvider,
+          provider,
+        });
+
+        try {
+          const {
+            0: _totalAmountRaw,
+            1: _pendingAmountRaw,
+            2: _claimableAmountRaw,
+          } = await incentiveDataProviderContract.getProgressiveIncentivesData(
+            currentAccount,
             currentMarketData.addresses.LENDING_POOL_ADDRESS_PROVIDER,
-            accountId,
             networkConfig.cornIncentivesController
           );
-        setPreminingClaimableAmountRaw(_claimableAmountRaw.toString());
-        const [totalAmount, pendingAmount, claimableAmount] = [
-          _totalAmountRaw,
-          _pendingAmountRaw,
-          _claimableAmountRaw,
-        ].map((rewardRawData: string) =>
-          valueToBigNumber(
-            normalize(valueToBigNumber(rewardRawData.toString()).toString(), cornDecimals)
-          ).toFixed(4, BigNumber.ROUND_DOWN)
-        );
-        setPreminingData({
-          totalAmount,
-          pendingAmount,
-          claimableAmount,
-        });
+          setPreminingClaimableAmountRaw(_claimableAmountRaw.toString());
+          const [totalAmount, pendingAmount, claimableAmount] = [
+            _totalAmountRaw,
+            _pendingAmountRaw,
+            _claimableAmountRaw,
+          ].map((rewardRawData) =>
+            valueToBigNumber(
+              normalize(valueToBigNumber(rewardRawData.toString()).toString(), cornDecimals)
+            ).toFixed(4, BigNumber.ROUND_DOWN)
+          );
+          setPreminingData({
+            totalAmount,
+            pendingAmount,
+            claimableAmount,
+          });
+        } catch (e) {
+          throw e;
+        }
       }
     })();
   }, [refresh]);
