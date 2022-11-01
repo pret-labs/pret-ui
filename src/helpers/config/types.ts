@@ -34,7 +34,7 @@ export type NetworkConfig = {
      */
     uiPoolDataProvider: string;
     uiIncentiveDataProvider?: string;
-    incentiveControllers?: readonly string[];
+    incentiveControllers?: Record<string, string>;
     chainlinkFeedRegistry?: string;
   };
   protocolDataUrl: string;
@@ -66,7 +66,6 @@ export type NetworkConfig = {
     url: string;
     logo: string;
   };
-  cornIncentivesController: string;
 };
 
 export type BaseNetworkConfig = Omit<NetworkConfig, 'explorerLinkBuilder'>;

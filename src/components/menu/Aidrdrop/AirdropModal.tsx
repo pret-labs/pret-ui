@@ -196,11 +196,11 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
 
   const { user } = useDynamicPoolDataContext();
   const { userIncentives, incentivesTxBuilder } = useIncentivesDataContext();
-  const incentiveData = userIncentives
-    .map((incentive) => incentive[networkConfig.cornIncentivesController])
-    .find(Boolean)!;
+  const incentivesControllerAddress = networkConfig.addresses.incentiveControllers?.corn;
+  const incentiveData =
+    incentivesControllerAddress &&
+    userIncentives.map((incentive) => incentive[incentivesControllerAddress]).find(Boolean);
 
-  const assets = incentiveData.assets;
   useEffect(() => {
     const provider = new ethers.providers.Web3Provider((window as any).ethereum);
     const signer = provider.getSigner();
@@ -240,6 +240,9 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
     });
 
     (async function () {
+      if (!incentivesControllerAddress) {
+        throw new Error('Need to config corn incentivesControllerAddress');
+      }
       if (networkConfig.addresses.uiIncentiveDataProvider) {
         const incentiveDataProviderContract = new UiIncentiveDataProvider({
           incentiveDataProviderAddress: networkConfig.addresses.uiIncentiveDataProvider,
@@ -254,7 +257,7 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
           } = await incentiveDataProviderContract.getProgressiveIncentivesData(
             currentAccount,
             currentMarketData.addresses.LENDING_POOL_ADDRESS_PROVIDER,
-            networkConfig.cornIncentivesController
+            incentivesControllerAddress
           );
           setPreMiningClaimableAmountRaw(_claimableAmountRaw.toString());
           const [totalAmount, pendingAmount, claimableAmount] = [
@@ -336,14 +339,17 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
               valueToBigNumber(preMiningClaimableAmountRaw).eq(0)
             }
             onClick={async () => {
-              if (!user) return;
+              if (!incentivesControllerAddress) {
+                throw new Error('Need to config corn incentivesControllerAddress');
+              }
+              if (!user || !incentiveData) return;
               try {
                 const transactions = await Promise.all(
                   incentivesTxBuilder.claimRewards({
                     user: user.id,
-                    assets,
+                    assets: incentiveData.assets,
                     to: user.id,
-                    incentivesControllerAddress: networkConfig.cornIncentivesController,
+                    incentivesControllerAddress,
                   })
                 );
                 const actionTx = transactions[0];

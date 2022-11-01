@@ -31,7 +31,6 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     explorerLink: 'https://kovan.etherscan.com',
     rpcOnly: true,
     isTestnet: true,
-    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
   [ChainId.mainnet]: {
     name: 'Ethereum mainnet',
@@ -64,7 +63,6 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     incentivePrecision: 18,
     explorerLink: 'https://etherscan.com',
     rpcOnly: false,
-    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
   [ChainId.polygon]: {
     name: 'Polygon POS',
@@ -97,7 +95,6 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       url: 'https://wallet.matic.network/bridge/',
       logo: polygonBridgeLogo,
     },
-    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
   [ChainId.mumbai]: {
     name: 'Mumbai',
@@ -123,7 +120,6 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     explorerLink: 'https://explorer-mumbai.maticvigil.com',
     rpcOnly: true,
     isTestnet: true,
-    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
   [ChainId.fuji]: {
     name: 'Fuji',
@@ -157,7 +153,6 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       url: 'https://bridge.avax.network/',
       logo: avalancheBridgeLogo,
     },
-    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
   [ChainId.avalanche]: {
     name: 'Avalanche',
@@ -192,7 +187,6 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       url: 'https://bridge.avax.network/',
       logo: avalancheBridgeLogo,
     },
-    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
   [ChainId.aurora_testnet]: {
     name: 'Aurora Testnet',
@@ -226,7 +220,6 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       url: 'https://rainbowbridge.app/',
       logo: auroraBridgeLogo,
     },
-    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
   [ChainId.aurora_mainnet]: {
     name: 'Aurora Mainnet',
@@ -237,10 +230,10 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       uiPoolDataProvider: '0xaEc8f7e11f5f1947bf4934126A3540e93Ce69E98',
       uiIncentiveDataProvider: '0x81a3bC684405d1D0a7DAa2A2e3f66C8F37aD656F',
       chainlinkFeedRegistry: '0xA4b8b02cef11834Cdcb878B8485D93d551ACe526',
-      incentiveControllers: [
-        '0xB861792561f2C6a79ddE12006202615Ce2200266'.toLowerCase(),
-        '0xE303206ac6065aE2a53553116da7ddb54fd24776'.toLowerCase(),
-      ],
+      incentiveControllers: {
+        aurora: '0xB861792561f2C6a79ddE12006202615Ce2200266'.toLowerCase(),
+        corn: '0xE303206ac6065aE2a53553116da7ddb54fd24776'.toLowerCase(),
+      },
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
     cachingServerUrl: 'https://cache-api-aurora.pret.app/graphql',
@@ -271,7 +264,6 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       url: 'https://rainbowbridge.app/',
       logo: auroraBridgeLogo,
     },
-    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
   [ChainId.hardhat]: {
     name: 'Hardhat Localnet',
@@ -282,10 +274,10 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       uiPoolDataProvider: '0x8b4615B72f0FDFDF97496Bc2716D018dFa6D2367',
       uiIncentiveDataProvider: '0x19214EA58569a7bF16Ef48f5bDE48057633d1826',
       chainlinkFeedRegistry: '0x8D89eb6990778004313353742084D16206875909',
-      incentiveControllers: [
-        '0xFeBDe5866f97Bf4f7e8940a72cCaA05Ed5DaA867'.toLowerCase(),
-        '0x2765849c86659Ad03c7f80c37395043c327aE383'.toLowerCase(),
-      ],
+      incentiveControllers: {
+        aurora: '0xB861792561f2C6a79ddE12006202615Ce2200266'.toLowerCase(),
+        corn: '0xE303206ac6065aE2a53553116da7ddb54fd24776'.toLowerCase(),
+      },
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
     cachingServerUrl: 'https://cache-api-aurora.pret.app/graphql',
@@ -316,6 +308,5 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       url: 'https://rainbowbridge.app/',
       logo: auroraBridgeLogo,
     },
-    cornIncentivesController: '0xE303206ac6065aE2a53553116da7ddb54fd24776',
   },
 } as const;
