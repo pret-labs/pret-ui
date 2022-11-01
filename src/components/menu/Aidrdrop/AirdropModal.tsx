@@ -171,7 +171,7 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
   const { currentAccount } = useUserWalletDataContext();
   const [cornAirdropContract, setCornAirdropContract] = useState<ethers.Contract | null>(null);
   const [airdropClaimableAmountRaw, setAirdropClaimableAmountRaw] = useState('0');
-  const [preminingClaimableAmountRaw, setPreminingClaimableAmountRaw] = useState('0');
+  const [preMiningClaimableAmountRaw, setPreMiningClaimableAmountRaw] = useState('0');
   const [cornBalance, setCornBalance] = useState('-');
   const [airdropData, setAirdropData] = useState<{
     totalAmount: string;
@@ -182,7 +182,7 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
     pendingAmount: '-',
     claimableAmount: '-',
   });
-  const [preminingData, setPreminingData] = useState<{
+  const [preMiningData, setPreMiningData] = useState<{
     totalAmount: string;
     pendingAmount: string;
     claimableAmount: string;
@@ -256,7 +256,7 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
             currentMarketData.addresses.LENDING_POOL_ADDRESS_PROVIDER,
             networkConfig.cornIncentivesController
           );
-          setPreminingClaimableAmountRaw(_claimableAmountRaw.toString());
+          setPreMiningClaimableAmountRaw(_claimableAmountRaw.toString());
           const [totalAmount, pendingAmount, claimableAmount] = [
             _totalAmountRaw,
             _pendingAmountRaw,
@@ -266,7 +266,7 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
               normalize(valueToBigNumber(rewardRawData.toString()).toString(), cornDecimals)
             ).toFixed(4, BigNumber.ROUND_DOWN)
           );
-          setPreminingData({
+          setPreMiningData({
             totalAmount,
             pendingAmount,
             claimableAmount,
@@ -318,22 +318,22 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
         <p className="AirdropModal__subtitle">{intl.formatMessage(messages.pretPremining)}</p>
         <div className="AirdropModal__data-row">
           <div>
-            <p className="data">{preminingData.totalAmount} CORN</p>
+            <p className="data">{preMiningData.totalAmount} CORN</p>
             <p className="title">{intl.formatMessage(messages.totalRewards)}</p>
           </div>
           <div>
-            <p className="data">{preminingData.pendingAmount} CORN</p>
+            <p className="data">{preMiningData.pendingAmount} CORN</p>
             <p className="title">{intl.formatMessage(messages.pendingRewards)}</p>
           </div>
           <div>
-            <p className="data">{preminingData.claimableAmount} CORN</p>
+            <p className="data">{preMiningData.claimableAmount} CORN</p>
             <p className="title">{intl.formatMessage(messages.claimable)}</p>
           </div>
           <button
             className="AirdropModal__purple-button"
             disabled={
-              !isValid(preminingClaimableAmountRaw) ||
-              valueToBigNumber(preminingClaimableAmountRaw).eq(0)
+              !isValid(preMiningClaimableAmountRaw) ||
+              valueToBigNumber(preMiningClaimableAmountRaw).eq(0)
             }
             onClick={async () => {
               if (!user) return;
