@@ -199,7 +199,16 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
   const incentivesControllerAddress = networkConfig.addresses.incentiveControllers?.corn;
   const incentiveData =
     incentivesControllerAddress &&
-    userIncentives.map((incentive) => incentive[incentivesControllerAddress]).find(Boolean);
+    userIncentives
+      .map((incentive) => {
+        for (let k in incentive) {
+          if (k.toLowerCase() === incentivesControllerAddress.toLowerCase()) {
+            return incentive[k];
+          }
+        }
+        return undefined;
+      })
+      .find(Boolean);
 
   useEffect(() => {
     const provider = new ethers.providers.Web3Provider((window as any).ethereum);
