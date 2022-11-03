@@ -380,7 +380,6 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
                     () => {},
                     null
                   ));
-                setRefresh(!refresh);
               } catch (e) {
                 throw e;
               } finally {
