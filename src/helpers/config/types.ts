@@ -34,7 +34,7 @@ export type NetworkConfig = {
      */
     uiPoolDataProvider: string;
     uiIncentiveDataProvider?: string;
-    incentiveControllers?: readonly string[];
+    incentiveControllers?: Record<string, string>;
     chainlinkFeedRegistry?: string;
   };
   protocolDataUrl: string;

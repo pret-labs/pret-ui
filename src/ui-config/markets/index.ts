@@ -56,12 +56,12 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
     cornTokenParams: {
       type: 'ERC20',
       options: {
-        address: '0xb868f8672de372f81bed6051164b2d784b2124f9',
+        address: '0x2F0becD13b5372188B5E05b7DfD31283b4b11789',
         symbol: 'CORN',
         decimals: 18,
       },
     },
-    cornAirdropAddress: '0xc13E249B4ce5a80214626B67fd0e000F2a57c0B3',
+    cornAirdropAddress: '0xae763973B873718e084a2ea3F7aE50B0c670bdF0',
   },
   [CustomMarket.proto_hardhat]: {
     chainId: ChainId.hardhat,
@@ -99,12 +99,12 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
     cornTokenParams: {
       type: 'ERC20',
       options: {
-        address: '0xb868f8672de372f81bed6051164b2d784b2124f9',
+        address: '0x2F0becD13b5372188B5E05b7DfD31283b4b11789',
         symbol: 'CORN',
         decimals: 18,
       },
     },
-    cornAirdropAddress: '0xc13E249B4ce5a80214626B67fd0e000F2a57c0B3',
+    cornAirdropAddress: '0xae763973B873718e084a2ea3F7aE50B0c670bdF0',
   },
   // [CustomMarket.proto_kovan]: {
   //   chainId: ChainId.kovan,
@@ -272,11 +272,11 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
     cornTokenParams: {
       type: 'ERC20',
       options: {
-        address: '0xb868f8672de372f81bed6051164b2d784b2124f9',
+        address: '0x2F0becD13b5372188B5E05b7DfD31283b4b11789',
         symbol: 'CORN',
         decimals: 18,
       },
     },
-    cornAirdropAddress: '0xc13E249B4ce5a80214626B67fd0e000F2a57c0B3',
+    cornAirdropAddress: '0xae763973B873718e084a2ea3F7aE50B0c670bdF0',
   },
 } as const;

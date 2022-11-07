@@ -59,7 +59,7 @@ export function IncentivesDataProvider({ children }: { children: ReactNode }) {
         !networkConfig.addresses.uiIncentiveDataProvider
     );
 
-  const incentiveControllers = networkConfig.addresses.incentiveControllers;
+  const incentiveControllers = Object.values(networkConfig.addresses.incentiveControllers ?? {});
 
   let rpcDatas = [],
     rpcDataLoading = false,
