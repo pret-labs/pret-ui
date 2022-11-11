@@ -77,8 +77,7 @@ export default function IncentiveWrapper() {
             // it should be fixed 26 decimals when idx === 1, just for testing
             // need to be changed later.
             // TODO
-            const rewardTokenDecimals =
-              'WNEAR' !== rewardTokenSymbol ? 26 : incentive[1].rewardTokenDecimals;
+            const rewardTokenDecimals = incentive[1].rewardTokenDecimals;
             const claimableRewards = normalize(incentive[1].claimableRewards, rewardTokenDecimals);
 
             return (
