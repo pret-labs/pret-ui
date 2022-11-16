@@ -44,11 +44,11 @@ const AIRDROP_ABI = [
     inputs: [
       {
         internalType: 'address',
-        name: 'user',
+        name: '',
         type: 'address',
       },
     ],
-    name: 'getTotalAmount',
+    name: 'accountTotalAmount',
     outputs: [
       {
         internalType: 'uint256',
@@ -210,7 +210,6 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
       })
       .find(Boolean);
 
-  console.log({ cornAirdropAddress });
   useEffect(() => {
     const provider = new ethers.providers.Web3Provider((window as any).ethereum);
     const signer = provider.getSigner();
@@ -223,7 +222,7 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
 
     setCornAirdropContract(_cornAirdropContract);
     Promise.all([
-      _cornAirdropContract.getTotalAmount(currentAccount),
+      _cornAirdropContract.accountTotalAmount(currentAccount),
       _cornAirdropContract.getPendingAmount(currentAccount),
       _cornAirdropContract.getClaimableAmount(currentAccount),
       _cornTokenContract.balanceOf(currentAccount),
