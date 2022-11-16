@@ -210,6 +210,7 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
       })
       .find(Boolean);
 
+  console.log({ cornAirdropAddress });
   useEffect(() => {
     const provider = new ethers.providers.Web3Provider((window as any).ethereum);
     const signer = provider.getSigner();
