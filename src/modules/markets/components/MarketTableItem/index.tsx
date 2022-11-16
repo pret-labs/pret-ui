@@ -10,6 +10,7 @@ import LiquidityMiningCard from '../../../../components/liquidityMining/Liquidit
 import { getAssetInfo, TokenIcon } from '../../../../helpers/config/assets-config';
 
 import staticStyles from './style';
+import MarketTableItemAPYCell from '../MarketTableItemAPYCell';
 
 export interface MarketTableItemProps {
   id: string;
@@ -112,17 +113,21 @@ export default function MarketTableItem({
               symbol={currencySymbol}
               type="deposit"
             />
+            <MarketTableItemAPYCell auroraValue={'1,011,600,438.79'} cornValue={'0.12'} />
           </TableColumn>
 
           <TableColumn className="MarketTableItem__column">
             {borrowingEnabled && +variableBorrowRate >= 0 ? (
-              <LiquidityMiningCard
-                value={variableBorrowRate}
-                thirtyDaysValue={avg30DaysVariableRate}
-                liquidityMiningValue={vincentivesAPR}
-                symbol={currencySymbol}
-                type="borrow-variable"
-              />
+              <>
+                <LiquidityMiningCard
+                  value={variableBorrowRate}
+                  thirtyDaysValue={avg30DaysVariableRate}
+                  liquidityMiningValue={vincentivesAPR}
+                  symbol={currencySymbol}
+                  type="borrow-variable"
+                />
+                <MarketTableItemAPYCell auroraValue={'1,011,600,438.79'} cornValue={'0.12'} />
+              </>
             ) : (
               <NoData color="dark" />
             )}
