@@ -11,6 +11,7 @@ import { getAssetInfo, TokenIcon } from '../../../../helpers/config/assets-confi
 
 import staticStyles from './style';
 import MarketTableItemAPYCell from '../MarketTableItemAPYCell';
+import { RewardsAssets } from '../../../../helpers/config/types';
 
 export interface MarketTableItemProps {
   id: string;
@@ -113,7 +114,11 @@ export default function MarketTableItem({
               symbol={currencySymbol}
               type="deposit"
             />
-            <MarketTableItemAPYCell auroraValue={'1,011,600,438.79'} cornValue={'0.12'} />
+            <MarketTableItemAPYCell
+              symbol={currencySymbol as RewardsAssets}
+              type="deposit"
+              currentSupplyTVL={totalLiquidity.toFixed()}
+            />
           </TableColumn>
 
           <TableColumn className="MarketTableItem__column">
@@ -126,7 +131,11 @@ export default function MarketTableItem({
                   symbol={currencySymbol}
                   type="borrow-variable"
                 />
-                <MarketTableItemAPYCell auroraValue={'1,011,600,438.79'} cornValue={'0.12'} />
+                <MarketTableItemAPYCell
+                  symbol={currencySymbol as RewardsAssets}
+                  type="deposit"
+                  currentSupplyTVL={totalBorrows.toFixed()}
+                />
               </>
             ) : (
               <NoData color="dark" />

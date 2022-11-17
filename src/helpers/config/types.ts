@@ -11,7 +11,7 @@ export type ExplorerLinkBuilderConfig = {
   txPrefix?: string;
 };
 
-export enum CORNRewardsAssets {
+export enum RewardsAssets {
   WNEAR = 'WNEAR',
   LINEAR = 'LINEAR',
   USDC = 'USDC',
@@ -99,8 +99,14 @@ export type MarketDataType = {
     FAUCET?: string;
     PERMISSION_MANAGER?: string;
   };
+  auroraRewards: {
+    [key in keyof typeof RewardsAssets]: {
+      depositRewardsPerDay: number;
+      borrowRewardsPerDay: number;
+    };
+  };
   cornRewards: {
-    [key in keyof typeof CORNRewardsAssets]: {
+    [key in keyof typeof RewardsAssets]: {
       depositRewardsPerDay: number;
       borrowRewardsPerDay: number;
     };

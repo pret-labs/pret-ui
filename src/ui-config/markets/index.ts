@@ -1,8 +1,10 @@
-import { CORNRewardsAssets } from './../../helpers/config/types';
+import { RewardsAssets } from './../../helpers/config/types';
 import { ChainId } from '@pret/contract-helpers';
 import { MarketDataType } from '../../helpers/config/types';
 
 import * as logos from './images';
+
+export type TokenPrice = Record<'aurora' | 'corn', string>;
 
 export enum CustomMarket {
   // proto_kovan = 'proto_kovan',
@@ -35,22 +37,40 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       WETH_GATEWAY: '0x3C53EBE3b6560EB54e9C5eeb287b139Be766A0Fc',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
     },
-    cornRewards: {
-      [CORNRewardsAssets.WNEAR]: {
-        depositRewardsPerDay: 40,
-        borrowRewardsPerDay: 20,
+    auroraRewards: {
+      [RewardsAssets.WNEAR]: {
+        depositRewardsPerDay: 1000,
+        borrowRewardsPerDay: 500,
       },
-      [CORNRewardsAssets.LINEAR]: {
-        depositRewardsPerDay: 60,
+      [RewardsAssets.LINEAR]: {
+        depositRewardsPerDay: 1500,
         borrowRewardsPerDay: 0,
       },
-      [CORNRewardsAssets.USDC]: {
-        depositRewardsPerDay: 20,
-        borrowRewardsPerDay: 20,
+      [RewardsAssets.USDC]: {
+        depositRewardsPerDay: 500,
+        borrowRewardsPerDay: 500,
       },
-      [CORNRewardsAssets.USDT]: {
-        depositRewardsPerDay: 20,
-        borrowRewardsPerDay: 20,
+      [RewardsAssets.USDT]: {
+        depositRewardsPerDay: 500,
+        borrowRewardsPerDay: 500,
+      },
+    },
+    cornRewards: {
+      [RewardsAssets.WNEAR]: {
+        depositRewardsPerDay: 80,
+        borrowRewardsPerDay: 40,
+      },
+      [RewardsAssets.LINEAR]: {
+        depositRewardsPerDay: 120,
+        borrowRewardsPerDay: 0,
+      },
+      [RewardsAssets.USDC]: {
+        depositRewardsPerDay: 40,
+        borrowRewardsPerDay: 40,
+      },
+      [RewardsAssets.USDT]: {
+        depositRewardsPerDay: 40,
+        borrowRewardsPerDay: 40,
       },
     },
     cornTokenParams: {
@@ -78,22 +98,40 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       WETH_GATEWAY: '0xB89998C526240aaF1588d20343421C6f730634b5',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
     },
-    cornRewards: {
-      [CORNRewardsAssets.WNEAR]: {
-        depositRewardsPerDay: 40,
-        borrowRewardsPerDay: 20,
+    auroraRewards: {
+      [RewardsAssets.WNEAR]: {
+        depositRewardsPerDay: 1000,
+        borrowRewardsPerDay: 500,
       },
-      [CORNRewardsAssets.LINEAR]: {
-        depositRewardsPerDay: 60,
+      [RewardsAssets.LINEAR]: {
+        depositRewardsPerDay: 1500,
         borrowRewardsPerDay: 0,
       },
-      [CORNRewardsAssets.USDC]: {
-        depositRewardsPerDay: 20,
-        borrowRewardsPerDay: 20,
+      [RewardsAssets.USDC]: {
+        depositRewardsPerDay: 500,
+        borrowRewardsPerDay: 500,
       },
-      [CORNRewardsAssets.USDT]: {
-        depositRewardsPerDay: 20,
-        borrowRewardsPerDay: 20,
+      [RewardsAssets.USDT]: {
+        depositRewardsPerDay: 500,
+        borrowRewardsPerDay: 500,
+      },
+    },
+    cornRewards: {
+      [RewardsAssets.WNEAR]: {
+        depositRewardsPerDay: 80,
+        borrowRewardsPerDay: 40,
+      },
+      [RewardsAssets.LINEAR]: {
+        depositRewardsPerDay: 120,
+        borrowRewardsPerDay: 0,
+      },
+      [RewardsAssets.USDC]: {
+        depositRewardsPerDay: 40,
+        borrowRewardsPerDay: 40,
+      },
+      [RewardsAssets.USDT]: {
+        depositRewardsPerDay: 40,
+        borrowRewardsPerDay: 40,
       },
     },
     cornTokenParams: {
@@ -251,22 +289,40 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       WETH_GATEWAY: '0x3e9dd45050475fB75494De2217056dB5a54d5299',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
     },
-    cornRewards: {
-      [CORNRewardsAssets.WNEAR]: {
-        depositRewardsPerDay: 40,
-        borrowRewardsPerDay: 20,
+    auroraRewards: {
+      [RewardsAssets.WNEAR]: {
+        depositRewardsPerDay: 1000,
+        borrowRewardsPerDay: 500,
       },
-      [CORNRewardsAssets.LINEAR]: {
-        depositRewardsPerDay: 60,
+      [RewardsAssets.LINEAR]: {
+        depositRewardsPerDay: 1500,
         borrowRewardsPerDay: 0,
       },
-      [CORNRewardsAssets.USDC]: {
-        depositRewardsPerDay: 20,
-        borrowRewardsPerDay: 20,
+      [RewardsAssets.USDC]: {
+        depositRewardsPerDay: 500,
+        borrowRewardsPerDay: 500,
       },
-      [CORNRewardsAssets.USDT]: {
-        depositRewardsPerDay: 20,
-        borrowRewardsPerDay: 20,
+      [RewardsAssets.USDT]: {
+        depositRewardsPerDay: 500,
+        borrowRewardsPerDay: 500,
+      },
+    },
+    cornRewards: {
+      [RewardsAssets.WNEAR]: {
+        depositRewardsPerDay: 80,
+        borrowRewardsPerDay: 40,
+      },
+      [RewardsAssets.LINEAR]: {
+        depositRewardsPerDay: 120,
+        borrowRewardsPerDay: 0,
+      },
+      [RewardsAssets.USDC]: {
+        depositRewardsPerDay: 40,
+        borrowRewardsPerDay: 40,
+      },
+      [RewardsAssets.USDT]: {
+        depositRewardsPerDay: 40,
+        borrowRewardsPerDay: 40,
       },
     },
     cornTokenParams: {
@@ -280,3 +336,53 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
     cornAirdropAddress: '0xae763973B873718e084a2ea3F7aE50B0c670bdF0',
   },
 } as const;
+
+export const aggregatorV3InterfaceABI = [
+  {
+    inputs: [],
+    name: 'decimals',
+    outputs: [{ internalType: 'uint8', name: '', type: 'uint8' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'description',
+    outputs: [{ internalType: 'string', name: '', type: 'string' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [{ internalType: 'uint80', name: '_roundId', type: 'uint80' }],
+    name: 'getRoundData',
+    outputs: [
+      { internalType: 'uint80', name: 'roundId', type: 'uint80' },
+      { internalType: 'int256', name: 'answer', type: 'int256' },
+      { internalType: 'uint256', name: 'startedAt', type: 'uint256' },
+      { internalType: 'uint256', name: 'updatedAt', type: 'uint256' },
+      { internalType: 'uint80', name: 'answeredInRound', type: 'uint80' },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'latestRoundData',
+    outputs: [
+      { internalType: 'uint80', name: 'roundId', type: 'uint80' },
+      { internalType: 'int256', name: 'answer', type: 'int256' },
+      { internalType: 'uint256', name: 'startedAt', type: 'uint256' },
+      { internalType: 'uint256', name: 'updatedAt', type: 'uint256' },
+      { internalType: 'uint80', name: 'answeredInRound', type: 'uint80' },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'version',
+    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+];
