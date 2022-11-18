@@ -29,7 +29,7 @@ const TOKEN_BALANCE_OF_ABI = [
 const AIRDROP_ABI = [
   {
     inputs: [],
-    name: 'claimAll',
+    name: 'claim',
     outputs: [
       {
         internalType: 'uint256',
@@ -418,7 +418,7 @@ function AirdropModal({ onRequestClose }: { onRequestClose: () => void }) {
                 throw new Error('Airdrop Contract Initialize failed');
               }
               try {
-                await cornAirdropContract.claimAll();
+                await cornAirdropContract.claim();
               } catch (e) {
                 throw e;
               } finally {
