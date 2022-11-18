@@ -61,7 +61,7 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
         decimals: 18,
       },
     },
-    cornAirdropAddress: '0xae763973B873718e084a2ea3F7aE50B0c670bdF0',
+    cornAirdropAddress: '0x072ee85cA6fC06D080517f956d427A565E0a0722',
   },
   [CustomMarket.proto_hardhat]: {
     chainId: ChainId.hardhat,
