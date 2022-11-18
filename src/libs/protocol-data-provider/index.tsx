@@ -1,6 +1,7 @@
 import { ethers, providers } from 'ethers';
 import React, { PropsWithChildren, useContext, useState } from 'react';
 import { MarketDataType, NetworkConfig } from '../../helpers/config/types';
+import { initCornerstoneSDKWithSelector } from '@corndao/corn-sdk';
 import {
   availableMarkets,
   marketsData,
@@ -67,10 +68,18 @@ export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
   }
   useEffect(() => {
     (async function () {
-      setTokenPrice({
-        aurora: await getAuroraPrice(),
-        corn: '1', // todo, need to provide fixed corn price or chainlink feed
-      });
+      if (currentMarketData.cornPrice) {
+        setTokenPrice({
+          aurora: await getAuroraPrice(),
+          corn: currentMarketData.cornPrice,
+        });
+      } else {
+        const cornerstoneSDK = initCornerstoneSDK(currentMarketData);
+        setTokenPrice({
+          aurora: await getAuroraPrice(),
+          corn: '0', // fetch from sdk
+        });
+      }
     })();
   }, []);
   console.log({ tokenPrice });

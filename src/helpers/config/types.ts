@@ -82,6 +82,8 @@ export type MarketDataType = {
   subLogo?: string;
   // aToken prefix string, which will be cut of in the ui
   aTokenPrefix: string;
+  // corn token price - if not exist, fallback to sdk price
+  cornPrice?: string;
   enabledFeatures?: {
     liquiditySwap?: boolean;
     staking?: boolean;
