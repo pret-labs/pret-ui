@@ -47,38 +47,33 @@ export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
   };
 
   const [tokenPrice, setTokenPrice] = useState<TokenPrice | undefined>();
-
-  const { networkConfig } = useProtocolDataContext();
-  async function getAuroraPrice(publicJsonRPCUrl: string) {
-    const provider = new ethers.providers.JsonRpcProvider(publicJsonRPCUrl);
-    // need to confirm this is chainlinkFeedRegistry
-    const addr = '0xAe3F6EB5d0B4C0A4C8571aa1E40bE65FE84f4eE2';
-    const priceFeed = new ethers.Contract(addr, aggregatorV3InterfaceABI, provider);
+  const { publicJsonRPCUrl, addresses } = getNetworkConfig(currentMarketData.chainId);
+  async function getAuroraPrice() {
+    if (publicJsonRPCUrl.length === 0) {
+      throw new Error('need to config publicJsonRPCUrl');
+    }
+    if (!addresses.auroraPriceFeedAddress) {
+      throw new Error('need to config auroraPriceFeedAddress');
+    }
+    const provider = new ethers.providers.JsonRpcProvider(publicJsonRPCUrl[0]);
+    const priceFeed = new ethers.Contract(
+      addresses.auroraPriceFeedAddress,
+      aggregatorV3InterfaceABI,
+      provider
+    );
     const lastRoundData = await priceFeed.latestRoundData();
     const decimals = await priceFeed.decimals();
     return new BigNumber(lastRoundData.answer.toString()).div(10 ** decimals).toFixed();
   }
   useEffect(() => {
     (async function () {
-      let errorArray = [];
-      for (let publicJsonRPCUrl of networkConfig.publicJsonRPCUrl) {
-        try {
-          setTokenPrice({
-            aurora: await getAuroraPrice(publicJsonRPCUrl),
-            corn: '1', // todo, need to provide fixed corn price or chainlink feed
-          });
-          errorArray = []; // clear error array
-          break;
-        } catch (error) {
-          errorArray.push(error);
-          continue;
-        }
-      }
-      errorArray.forEach((error) => {
-        throw error;
+      setTokenPrice({
+        aurora: await getAuroraPrice(),
+        corn: '1', // todo, need to provide fixed corn price or chainlink feed
       });
     })();
   }, []);
+  console.log({ tokenPrice });
 
   return (
     <PoolDataContext.Provider

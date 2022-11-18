@@ -133,7 +133,7 @@ export default function MarketTableItem({
                 />
                 <MarketTableItemAPYCell
                   symbol={currencySymbol as RewardsAssets}
-                  type="deposit"
+                  type="borrow"
                   currentSupplyTVL={totalBorrows.toFixed()}
                 />
               </>

@@ -36,6 +36,7 @@ export type NetworkConfig = {
     uiIncentiveDataProvider?: string;
     incentiveControllers?: Record<string, string>;
     chainlinkFeedRegistry?: string;
+    auroraPriceFeedAddress?: string;
   };
   protocolDataUrl: string;
   cachingServerUrl?: string;

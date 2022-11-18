@@ -53,6 +53,7 @@ function MarketTableItemAPYCell({
     auroraApy: '-',
     cornApy: '-',
   });
+  console.log({ apy });
   useEffect(() => {
     if (tokenPrice) {
       const auroraApy = calculateApy({
@@ -65,9 +66,10 @@ function MarketTableItemAPYCell({
         tokenPrice: tokenPrice.corn,
         currentSupplyTVL,
       });
+      const limitSize = (num: string) => (new BigNumber(num).gt(1000) ? '>1000.00' : num);
       setApy({
-        auroraApy,
-        cornApy,
+        auroraApy: limitSize(auroraApy),
+        cornApy: limitSize(cornApy),
       });
     }
   }, [tokenPrice]);
