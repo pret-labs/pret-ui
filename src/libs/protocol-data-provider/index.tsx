@@ -1,7 +1,6 @@
 import { ethers, providers } from 'ethers';
 import React, { PropsWithChildren, useContext, useState } from 'react';
 import { MarketDataType, NetworkConfig } from '../../helpers/config/types';
-import { initCornerstoneSDKWithSelector } from '@corndao/corn-sdk';
 import {
   availableMarkets,
   marketsData,
@@ -74,7 +73,6 @@ export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
           corn: currentMarketData.cornPrice,
         });
       } else {
-        const cornerstoneSDK = initCornerstoneSDK(currentMarketData);
         setTokenPrice({
           aurora: await getAuroraPrice(),
           corn: '0', // fetch from sdk
