@@ -20,6 +20,7 @@ function calculateApy({
   currentSupplyTVL: string;
 }) {
   const dailyROI = new BigNumber(rewardsPerDay).multipliedBy(tokenPrice).div(currentSupplyTVL);
+  console.log(`dailyROI: ${rewardsPerDay} * ${tokenPrice} / ${currentSupplyTVL}`);
   const apy = dailyROI.plus(1).pow(365).minus(1);
   return apy.toFixed(2);
 }
@@ -56,11 +57,14 @@ function MarketTableItemAPYCell({
   console.log({ apy });
   useEffect(() => {
     if (tokenPrice) {
+      console.log(`dailyROI: ${symbol}`);
+      console.log(`dailyROI: aurora before calculate`);
       const auroraApy = calculateApy({
         rewardsPerDay: auroraRewardsPerDay.toString(),
         tokenPrice: tokenPrice.aurora,
         currentSupplyTVL,
       });
+      console.log(`dailyROI: corn before calculate`);
       const cornApy = calculateApy({
         rewardsPerDay: cornRewardsPerDay.toString(),
         tokenPrice: tokenPrice.corn,
