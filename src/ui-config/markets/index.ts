@@ -1,6 +1,8 @@
+import { CornerstoneSDKConfig } from '@corndao/corn-sdk/dist/types/common';
 import { RewardsAssets } from './../../helpers/config/types';
 import { ChainId } from '@pret/contract-helpers';
 import { MarketDataType } from '../../helpers/config/types';
+import { keyStores } from 'near-api-js';
 
 import * as logos from './images';
 
@@ -82,6 +84,162 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       },
     },
     cornAirdropAddress: '0xae763973B873718e084a2ea3F7aE50B0c670bdF0',
+    nearConfig: {
+      networkId: 'mainnet',
+      keyStore: new keyStores.BrowserLocalStorageKeyStore(),
+      nodeUrl: 'https://rpc.mainnet.near.org',
+      walletUrl: 'https://wallet.mainnet.near.org',
+      helperUrl: 'https://helper.mainnet.near.org',
+      headers: {},
+    },
+    cornerstoneSDKConfig: {
+      cornerstoneConfig: {
+        cornContractId: 'corn.v1.corn-staging.near',
+        xcornContractId: 'xcorn.v1.corn-staging.near',
+        vecornContractId: 'vecorn.v1.corn-staging.near',
+      },
+      dataServiceConfig: {
+        cornTokenDecimals: 18,
+        xcornTokenDecimals: 18,
+        vecornTokenDecimals: 18,
+        refContractId: 'v2.ref-finance.near',
+        refPoolForXcorn: {
+          poolId: 3709,
+          otherTokenId: 'usdc.mocks.near',
+          otherTokenDecimals: 6,
+        },
+        cornOracleContractId: 'lpt.corn-oracle.near',
+        fluxOracleContractId: 'fpo.opfilabs.near',
+        fluxPairInfos: {
+          'wnear.mocks.near': {
+            pair: 'NEAR/USD',
+            provider: 'opfilabs.near',
+          },
+          'linear.mocks.near': {
+            pair: 'LINEAR/USD',
+            provider: 'corn-oracle.near',
+          },
+          'usn..mocks.near': {
+            pair: 'USN/USD',
+            provider: 'corn-oracle.near',
+          },
+          'usdc.mocks.near': {
+            pair: 'USDC/USD',
+            provider: 'corn-oracle.near',
+          },
+          'dai.mocks.near': {
+            pair: 'DAI/USD',
+            provider: 'opfilabs.near',
+          },
+          'usdt.mocks.near': {
+            pair: 'USDT/USD',
+            provider: 'opfilabs.near',
+          },
+          'wbtc.mocks.near': {
+            pair: 'BTC/USD',
+            provider: 'opfilabs.near',
+          },
+          'weth.mocks.near': {
+            pair: 'ETH/USD',
+            provider: 'opfilabs.near',
+          },
+          'eth.mocks.near': {
+            pair: 'ETH/USD',
+            provider: 'opfilabs.near',
+          },
+          'aurora.mocks.near': {
+            pair: 'AURORA/USD',
+            provider: 'opfilabs.near',
+          },
+          'ref.mocks.near': {
+            pair: 'REF/USD',
+            provider: 'corn-oracle.near',
+          },
+          'brrr.mocks.near': {
+            pair: 'BRRR/USD',
+            provider: 'corn-oracle.near',
+          },
+        },
+        coinGeckoIds: {
+          'wnear.mocks.near': 'wrapped-near', // wnear
+          'linear.mocks.near': 'linear-protocol', // linear
+          'usn.mocks.near': 'usn', // usn
+          'usdc.mocks.near': 'usd-coin', // usdc
+          'dai.mocks.near': 'dai', // dai
+          'usdt.mocks.near': 'tether', // usdt
+          'wbtc.mocks.near': 'wrapped-bitcoin', // wbtc
+          'weth.mocks.near': 'weth', // weth
+          'eth.mocks.near': 'ethereum', // eth
+          'aurora.mocks.near': 'aurora-near', // aurora
+          'ref.mocks.near': 'ref-finance', // ref
+          'brrr.mocks.near': 'burrow', // burrow
+        },
+        treasuryWhiteListTokens: {
+          ft: [
+            {
+              tokenId: 'wnear.mocks.near', // wnear
+              decimals: 24,
+            },
+            // {
+            //   tokenId: "linear.mocks.near", // linear
+            //   decimals: 24,
+            // },
+            {
+              tokenId: 'usn.mocks.near', // usn
+              decimals: 18,
+            },
+            {
+              tokenId: 'usdc.mocks.near', // usdc
+              decimals: 6,
+            },
+            // {
+            //   tokenId: "dai.mocks.near", // dai
+            //   decimals: 18,
+            // },
+            {
+              tokenId: 'usdt.mocks.near', // usdt
+              decimals: 6,
+            },
+            // {
+            //   tokenId: "wbtc.mocks.near", // wbtc
+            //   decimals: 8,
+            // },
+            // {
+            //   tokenId: "weth.mocks.near", /// weth
+            //   decimals: 18,
+            // },
+            // {
+            //   tokenId: "eth.mocks.near", // eth
+            //   decimals: 18,
+            // },
+            {
+              tokenId: 'aurora.mocks.near', // aurora
+              decimals: 18,
+            },
+            {
+              tokenId: 'ref.mocks.near', // ref
+              decimals: 18,
+            },
+            {
+              tokenId: 'brrr.mocks.near', // burrow
+              decimals: 18,
+            },
+          ],
+          mft: [
+            {
+              tokenId: ':3709',
+              decimals: 24,
+              tokenAddress: 'v2.ref-finance.near',
+            },
+            {
+              tokenId: ':3717',
+              decimals: 24,
+              tokenAddress: 'v2.ref-finance.near',
+            },
+          ],
+        },
+      },
+    } as CornerstoneSDKConfig,
   },
   [CustomMarket.proto_hardhat]: {
     chainId: ChainId.hardhat,

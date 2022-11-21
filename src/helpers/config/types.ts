@@ -1,4 +1,7 @@
+import { CornerstoneSDKConfig } from '@corndao/corn-sdk/dist/types/common';
 import { ChainId } from '@pret/contract-helpers';
+import { NearConfig } from 'near-api-js/lib/near';
+import { ConnectConfig } from 'near-api-js';
 
 export type ExplorerLinkBuilderProps = {
   tx?: string;
@@ -123,4 +126,6 @@ export type MarketDataType = {
     };
   };
   cornAirdropAddress: string;
+  cornerstoneSDKConfig?: CornerstoneSDKConfig;
+  nearConfig?: NearConfig & ConnectConfig;
 };

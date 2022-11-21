@@ -11,6 +11,8 @@ import {
 import { aggregatorV3InterfaceABI, TokenPrice } from '../../ui-config/markets';
 import { BigNumber } from '@aave/protocol-js';
 import { useEffect } from 'react';
+import { initCornerstoneSDKWithSigner } from '@corndao/corn-sdk';
+import { Near } from 'near-api-js';
 
 const LS_KEY = 'selectedMarket';
 
@@ -73,9 +75,19 @@ export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
           corn: currentMarketData.cornPrice,
         });
       } else {
+        if (!currentMarketData.cornerstoneSDKConfig || !currentMarketData.nearConfig) {
+          throw new Error('Need to config cornerstoneSDK');
+        }
+        const cornerstoneSDK = await initCornerstoneSDKWithSigner(
+          // no need to sign, pass empty
+          '',
+          new Near(currentMarketData.nearConfig),
+          currentMarketData.cornerstoneSDKConfig
+        );
+        const cornMarketPrice = await cornerstoneSDK.dataService.cornMarketPriceInUSD();
         setTokenPrice({
           aurora: await getAuroraPrice(),
-          corn: '0', // fetch from sdk
+          corn: cornMarketPrice.toFixed(),
         });
       }
     })();
