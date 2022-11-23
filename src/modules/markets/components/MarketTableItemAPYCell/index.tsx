@@ -79,7 +79,8 @@ function MarketTableItemAPYCell({
     }
   }, [tokenPrice, auroraRewardsPerDay, cornRewardsPerDay]);
 
-  if (!showMarketTableItemAPYCell) return null;
+  // TODO: need to uncomment this line
+  // if (!showMarketTableItemAPYCell) return null;
   return (
     <div className="MarketTableItemAPYCell">
       <div className="MarketTableItemAPYCell__item">
