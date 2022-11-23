@@ -40,15 +40,17 @@ function MarketTableItemAPYCell({
 }: MarketTableItemAPYCellProps) {
   const { isCurrentThemeDark, currentTheme } = useThemeContext();
   const { currentMarketData, tokenPrice } = useProtocolDataContext();
-  const auroraRewardsPerDay = currentMarketData.auroraRewards[symbol as RewardsAssets]
+  const auroraReward = currentMarketData.auroraRewards[symbol as RewardsAssets];
+  const cornReward = currentMarketData.cornRewards[symbol as RewardsAssets];
+  const auroraRewardsPerDay = auroraReward
     ? type.includes('deposit')
-      ? currentMarketData.cornRewards[symbol as RewardsAssets].depositRewardsPerDay
-      : currentMarketData.cornRewards[symbol as RewardsAssets].borrowRewardsPerDay
+      ? auroraReward.depositRewardsPerDay
+      : auroraReward.borrowRewardsPerDay
     : '';
-  const cornRewardsPerDay = currentMarketData.cornRewards[symbol as RewardsAssets]
+  const cornRewardsPerDay = cornReward
     ? type.includes('deposit')
-      ? currentMarketData.cornRewards[symbol as RewardsAssets].depositRewardsPerDay
-      : currentMarketData.cornRewards[symbol as RewardsAssets].borrowRewardsPerDay
+      ? cornReward.depositRewardsPerDay
+      : cornReward.borrowRewardsPerDay
     : '';
   const [apy, setApy] = useState<{ auroraApy: string; cornApy: string }>({
     auroraApy: '-',
