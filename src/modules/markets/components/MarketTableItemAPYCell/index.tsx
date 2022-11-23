@@ -78,7 +78,7 @@ function MarketTableItemAPYCell({
         cornApy: limitSize(cornApy),
       });
     }
-  }, [tokenPrice]);
+  }, [tokenPrice, auroraRewardsPerDay, cornRewardsPerDay]);
 
   return (
     <div className="MarketTableItemAPYCell">
