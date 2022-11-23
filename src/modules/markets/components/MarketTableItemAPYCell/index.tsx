@@ -39,7 +39,7 @@ function MarketTableItemAPYCell({
   currentSupplyTVL,
 }: MarketTableItemAPYCellProps) {
   const { isCurrentThemeDark, currentTheme } = useThemeContext();
-  const { currentMarketData, tokenPrice } = useProtocolDataContext();
+  const { currentMarketData, tokenPrice, showMarketTableItemAPYCell } = useProtocolDataContext();
   const auroraReward = currentMarketData.auroraRewards[symbol as RewardsAssets];
   const cornReward = currentMarketData.cornRewards[symbol as RewardsAssets];
   const auroraRewardsPerDay = auroraReward
@@ -56,7 +56,6 @@ function MarketTableItemAPYCell({
     auroraApy: '-',
     cornApy: '-',
   });
-  console.log({ apy });
   useEffect(() => {
     if (tokenPrice) {
       console.log(`dailyROI: ${symbol}`);
@@ -80,6 +79,7 @@ function MarketTableItemAPYCell({
     }
   }, [tokenPrice, auroraRewardsPerDay, cornRewardsPerDay]);
 
+  if (!showMarketTableItemAPYCell) return null;
   return (
     <div className="MarketTableItemAPYCell">
       <div className="MarketTableItemAPYCell__item">
