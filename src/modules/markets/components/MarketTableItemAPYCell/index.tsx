@@ -22,7 +22,7 @@ function calculateApy({
   const dailyROI = new BigNumber(rewardsPerDay).multipliedBy(tokenPrice).div(currentSupplyTVL);
   console.log(`dailyROI: ${rewardsPerDay} * ${tokenPrice} / ${currentSupplyTVL}`);
   const apy = dailyROI.plus(1).pow(365).minus(1);
-  return apy.toFixed(2);
+  return apy.multipliedBy(100).toFixed(2);
 }
 
 interface MarketTableItemAPYCellProps {
