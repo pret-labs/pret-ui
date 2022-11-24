@@ -72,33 +72,35 @@ export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
   }
   const incentivesTxBuilder = new IncentivesController(getProvider(currentMarketData.chainId));
   const incentivesControllerAddress = addresses.incentiveControllers?.corn;
-  useEffect(() => {
-    (async function () {
-      setShowMarketTableItemAPYCell(true);
-      if (currentMarketData.cornPrice) {
-        setTokenPrice({
-          aurora: await getAuroraPrice(),
-          corn: currentMarketData.cornPrice,
-        });
-      } else {
-        if (!currentMarketData.cornerstoneSDKConfig || !currentMarketData.nearConfig) {
-          throw new Error('Need to config cornerstoneSDK');
-        }
-        const cornerstoneSDK = await initCornerstoneSDKWithSigner(
-          // no need to sign, pass empty
-          '',
-          new Near(currentMarketData.nearConfig),
-          currentMarketData.cornerstoneSDKConfig
-        );
-        const cornMarketPrice = await cornerstoneSDK.dataService.cornMarketPriceInUSD();
-        setTokenPrice({
-          aurora: await getAuroraPrice(),
-          corn: cornMarketPrice.toFixed(),
-        });
+  async function fetchTokenPrice() {
+    setShowMarketTableItemAPYCell(true);
+    if (currentMarketData.cornPrice) {
+      setTokenPrice({
+        aurora: await getAuroraPrice(),
+        corn: currentMarketData.cornPrice,
+      });
+    } else {
+      if (!currentMarketData.cornerstoneSDKConfig || !currentMarketData.nearConfig) {
+        throw new Error('Need to config cornerstoneSDK');
       }
-    })();
+      const cornerstoneSDK = await initCornerstoneSDKWithSigner(
+        // no need to sign, pass empty
+        '',
+        new Near(currentMarketData.nearConfig),
+        currentMarketData.cornerstoneSDKConfig
+      );
+      const cornMarketPrice = await cornerstoneSDK.dataService.cornMarketPriceInUSD();
+      setTokenPrice({
+        aurora: await getAuroraPrice(),
+        corn: cornMarketPrice.toFixed(),
+      });
+    }
+  }
+  useEffect(() => {
+    setInterval(() => {
+      fetchTokenPrice();
+    }, 1000);
     (async function () {
-      console.log({ incentivesControllerAddress });
       if (!incentivesControllerAddress) return;
       const distributionEnd = await incentivesTxBuilder.DISTRIBUTION_END({
         incentivesControllerAddress,

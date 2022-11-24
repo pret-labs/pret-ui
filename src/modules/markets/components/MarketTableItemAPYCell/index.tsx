@@ -78,7 +78,7 @@ function MarketTableItemAPYCell({
         cornApy: limitSize(cornApy),
       });
     }
-  }, [tokenPrice, auroraRewardsPerDay, cornRewardsPerDay]);
+  }, [tokenPrice, auroraRewardsPerDay, cornRewardsPerDay, currentSupplyTVL]);
 
   // TODO: need to uncomment this line
   // if (!showMarketTableItemAPYCell) return null;
