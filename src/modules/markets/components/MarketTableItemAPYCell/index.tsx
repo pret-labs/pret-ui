@@ -88,14 +88,14 @@ function MarketTableItemAPYCell({
         <div>
           <img src={AuroraIcon} alt="aurora icon" />
         </div>
-        <div>{!isValid(apy.auroraApy) && apy.auroraApy !== '-' ? '0.00' : apy.auroraApy}</div>
+        <div>{apy.auroraApy}</div>
         <div>{withPercentage && '%'}</div>
       </div>
       <div className="MarketTableItemAPYCell__item">
         <div>
           <img src={CornIcon} alt="aurora icon" />
         </div>
-        <div>{!isValid(apy.cornApy) && apy.cornApy !== '-' ? '0.00' : apy.cornApy}</div>
+        <div>{apy.cornApy}</div>
         <div>{withPercentage && '%'}</div>
       </div>
       <style jsx={true} global={true}>{`
