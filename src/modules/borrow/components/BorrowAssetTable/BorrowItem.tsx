@@ -8,6 +8,8 @@ import NoData from '../../../../components/basic/NoData';
 import { isAssetStable } from '../../../../helpers/config/assets-config';
 
 import { BorrowTableItem } from './types';
+import MarketTableItemAPYCell from '../../../markets/components/MarketTableItemAPYCell';
+import { RewardsAssets } from '../../../../helpers/config/types';
 
 export default function BorrowItem({
   id,
@@ -58,6 +60,11 @@ export default function BorrowItem({
             liquidityMiningValue={vincentivesAPR}
             symbol={symbol}
             type="borrow-variable"
+          />
+          <MarketTableItemAPYCell
+            symbol={symbol as RewardsAssets}
+            type={'borrow'}
+            currentSupplyTVL={availableBorrowsInUSD.toString()}
           />
         </TableColumn>
       )}

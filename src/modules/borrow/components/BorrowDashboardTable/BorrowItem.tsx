@@ -38,6 +38,7 @@ export default function BorrowItem({
         tooltipId={`borrow-${symbol}__${index}`}
       />
       <TableAprCol
+        currentSupplyTVL={currentBorrowsUSD}
         value={Number(borrowRate)}
         thirtyDaysAverage={borrowRateMode === BorrowRateMode.Variable ? avg30DaysVariableRate : ''}
         liquidityMiningValue={

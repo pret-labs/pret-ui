@@ -49,6 +49,7 @@ export default function DepositItem({
         tooltipId={`deposit-${symbol}__${index}`}
       />
       <TableAprCol
+        currentSupplyTVL={underlyingBalanceUSD}
         value={Number(liquidityRate)}
         thirtyDaysAverage={avg30DaysLiquidityRate}
         liquidityMiningValue={aincentivesAPR}
