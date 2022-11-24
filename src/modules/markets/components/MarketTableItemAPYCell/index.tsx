@@ -2,6 +2,7 @@ import { BigNumber } from '@aave/protocol-js';
 import { useThemeContext } from '@pret/pret-ui-kit';
 import { useEffect, useState } from 'react';
 import { RewardsAssets } from '../../../../helpers/config/types';
+import { isValid } from '../../../../helpers/number';
 import AuroraIcon from '../../../../images/auroraIcon.svg';
 import CornIcon from '../../../../images/cornIcon.svg';
 import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
@@ -87,14 +88,14 @@ function MarketTableItemAPYCell({
         <div>
           <img src={AuroraIcon} alt="aurora icon" />
         </div>
-        <div>{apy.auroraApy}</div>
+        <div>{!isValid(apy.auroraApy) && apy.auroraApy !== '-' ? '0.00' : apy.auroraApy}</div>
         <div>{withPercentage && '%'}</div>
       </div>
       <div className="MarketTableItemAPYCell__item">
         <div>
           <img src={CornIcon} alt="aurora icon" />
         </div>
-        <div>{apy.cornApy}</div>
+        <div>{!isValid(apy.cornApy) && apy.cornApy !== '-' ? '0.00' : apy.cornApy}</div>
         <div>{withPercentage && '%'}</div>
       </div>
       <style jsx={true} global={true}>{`

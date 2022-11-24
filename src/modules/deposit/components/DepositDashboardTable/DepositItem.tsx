@@ -31,6 +31,7 @@ export default function DepositItem({
   avg30DaysLiquidityRate,
   index,
   aincentivesAPR,
+  totalLiquidityInUSD,
 }: DepositTableItem) {
   const intl = useIntl();
   const { currentTheme, xl, lg, md } = useThemeContext();
@@ -49,7 +50,7 @@ export default function DepositItem({
         tooltipId={`deposit-${symbol}__${index}`}
       />
       <TableAprCol
-        currentSupplyTVL={underlyingBalanceUSD}
+        currentSupplyTVL={totalLiquidityInUSD}
         value={Number(liquidityRate)}
         thirtyDaysAverage={avg30DaysLiquidityRate}
         liquidityMiningValue={aincentivesAPR}

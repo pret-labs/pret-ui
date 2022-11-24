@@ -18,6 +18,8 @@ export default function BorrowItem({
   underlyingAsset,
   availableBorrows,
   availableBorrowsInUSD,
+  totalBorrowsInUSD,
+  currentBorrowsInUSD,
   stableBorrowRate,
   variableBorrowRate,
   avg30DaysVariableRate,
@@ -63,8 +65,8 @@ export default function BorrowItem({
           />
           <MarketTableItemAPYCell
             symbol={symbol as RewardsAssets}
-            type={'borrow'}
-            currentSupplyTVL={availableBorrowsInUSD.toString()}
+            type="borrow"
+            currentSupplyTVL={totalBorrowsInUSD.toString()}
           />
         </TableColumn>
       )}

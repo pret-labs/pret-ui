@@ -24,6 +24,7 @@ export default function DepositItem({
   borrowingEnabled,
   isFreezed,
   aincentivesAPR,
+  totalLiquidityInUSD,
 }: DepositTableItem) {
   const url = `/deposit/${underlyingAsset}-${id}`;
 
@@ -56,7 +57,7 @@ export default function DepositItem({
           <MarketTableItemAPYCell
             symbol={symbol as RewardsAssets}
             type={'deposit'}
-            currentSupplyTVL={walletBalanceInUSD.toString()}
+            currentSupplyTVL={totalLiquidityInUSD.toString()}
           />
         </TableColumn>
       )}
