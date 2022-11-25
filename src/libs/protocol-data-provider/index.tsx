@@ -73,7 +73,6 @@ export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
   const incentivesTxBuilder = new IncentivesController(getProvider(currentMarketData.chainId));
   const incentivesControllerAddress = addresses.incentiveControllers?.corn;
   async function fetchTokenPrice() {
-    setShowMarketTableItemAPYCell(true);
     if (currentMarketData.cornPrice) {
       setTokenPrice({
         aurora: await getAuroraPrice(),
@@ -107,7 +106,7 @@ export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
       });
       const distributionEndTimestamp = Number(distributionEnd.toString());
       const nowTimestamp = Math.floor(Date.now() / 1000);
-      if (distributionEndTimestamp < nowTimestamp) setShowMarketTableItemAPYCell(false);
+      if (distributionEndTimestamp > nowTimestamp) setShowMarketTableItemAPYCell(true);
       console.log({
         distributionEndTimestamp,
         nowTimestamp,
