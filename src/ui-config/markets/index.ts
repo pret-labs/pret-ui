@@ -39,6 +39,7 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       WETH_GATEWAY: '0x3C53EBE3b6560EB54e9C5eeb287b139Be766A0Fc',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
     },
+    cornPrice: '1',
     auroraRewards: {
       [RewardsAssets.WNEAR]: {
         depositRewardsPerDay: 1000,
