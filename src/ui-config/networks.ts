@@ -246,7 +246,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       },
       {
         rewardTokenSymbol: 'CORN',
-        rewardTokenAddress: '0x2F0becD13b5372188B5E05b7DfD31283b4b11789',
+        rewardTokenAddress: '0x096f9fdda1e6f59ad2a8216bbd64daa9140222cc',
         rewardTokenDecimals: 18,
       },
     ],
