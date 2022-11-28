@@ -38,6 +38,7 @@ import { PermissionProvider } from './libs/use-permissions/usePermissions';
 import { DynamicPoolDataProvider } from './libs/pool-data-provider';
 import { ConnectionStatusProvider } from './libs/connection-status-provider';
 import { IncentivesDataProvider } from './libs/pool-data-provider/hooks/use-incentives-data-context';
+import { AirdropModalProvider } from './libs/airdrop-modal-provider';
 
 initSentry();
 Modal.setAppElement('#root');
@@ -85,7 +86,9 @@ ReactDOM.render(
                                 <DynamicPoolDataProvider>
                                   <IncentivesDataProvider>
                                     <TxBuilderProvider>
-                                      <App />
+                                      <AirdropModalProvider>
+                                        <App />
+                                      </AirdropModalProvider>
                                     </TxBuilderProvider>
                                   </IncentivesDataProvider>
                                 </DynamicPoolDataProvider>

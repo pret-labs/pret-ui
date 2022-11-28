@@ -8,6 +8,7 @@ import IncentiveClaimItem from '../../IncentiveClaimItem';
 
 import messages from './messages';
 import staticStyles from './style';
+import { useAirdropModalContext } from '../../../libs/airdrop-modal-provider';
 
 // Fetch reward token symbol from hard coded non-reserve tokens or from reserves array
 export function getRewardTokenSymbol(
@@ -50,6 +51,7 @@ export default function IncentiveWrapper() {
 
   const { user, reserves } = useDynamicPoolDataContext();
   const { userIncentives } = useIncentivesDataContext();
+  const { setShowAirdropModal } = useAirdropModalContext();
 
   // Only display assets for which user has claimable rewards
   const usersIncentivesFiltered = userIncentives
@@ -87,6 +89,13 @@ export default function IncentiveWrapper() {
                 }
                 key={incentive[0]}
                 hasClaimButton
+                onClickCliamButton={
+                  idx === 1
+                    ? () => {
+                        setShowAirdropModal(true);
+                      }
+                    : undefined
+                }
                 symbol={rewardTokenSymbol}
                 claimableRewards={claimableRewards}
                 incentiveControllerAddress={incentive[0]}

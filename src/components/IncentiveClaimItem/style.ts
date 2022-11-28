@@ -60,7 +60,7 @@ const staticStyles = css.global`
       }
     }
 
-    .Link {
+    .ButtonLink {
       padding: 3px 8px;
       background: #b046bf;
       font-size: $regular;
