@@ -57,12 +57,12 @@ export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
     if (publicJsonRPCUrl.length === 0) {
       throw new Error('need to config publicJsonRPCUrl');
     }
-    if (!addresses.auroraPriceFeedAddress) {
-      throw new Error('need to config auroraPriceFeedAddress');
+    if (!addresses.auroraPriceFeed) {
+      throw new Error('need to config auroraPriceFeed');
     }
     const provider = new ethers.providers.JsonRpcProvider(publicJsonRPCUrl[0]);
     const priceFeed = new ethers.Contract(
-      addresses.auroraPriceFeedAddress,
+      addresses.auroraPriceFeed,
       aggregatorV3InterfaceABI,
       provider
     );
