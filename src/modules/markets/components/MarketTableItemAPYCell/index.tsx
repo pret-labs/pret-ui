@@ -2,6 +2,7 @@ import { BigNumber } from '@aave/protocol-js';
 import { useThemeContext, getAssetInfo } from '@pret/pret-ui-kit';
 import { useEffect, useState } from 'react';
 import { RewardsAssets } from '../../../../helpers/config/types';
+import { useMarketTableItemAPYCellContext } from '../../../../libs/market-table-item-apy-cell-provider';
 import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
 
 /*
@@ -37,7 +38,8 @@ function MarketTableItemAPYCell({
   currentSupplyTVL,
 }: MarketTableItemAPYCellProps) {
   const { isCurrentThemeDark, currentTheme } = useThemeContext();
-  const { currentMarketData, tokenPrice, showMarketTableItemAPYCell } = useProtocolDataContext();
+  const { showMarketTableItemAPYCell } = useMarketTableItemAPYCellContext();
+  const { currentMarketData, tokenPrice } = useProtocolDataContext();
   const auroraReward = currentMarketData.auroraRewards[symbol as RewardsAssets];
   const cornReward = currentMarketData.cornRewards[symbol as RewardsAssets];
   const auroraRewardsPerDay = auroraReward

@@ -13,13 +13,11 @@ import { BigNumber } from '@aave/protocol-js';
 import { useEffect } from 'react';
 import { initCornerstoneSDKWithSigner } from '@corndao/corn-sdk';
 import { Near } from 'near-api-js';
-import { IncentivesController } from '@pret/contract-helpers';
 import { aggregatorV3InterfaceABI } from '../../ui-config/abi';
 
 const LS_KEY = 'selectedMarket';
 
 export interface ProtocolContextData {
-  showMarketTableItemAPYCell: boolean;
   tokenPrice?: TokenPrice;
   currentMarket: CustomMarket;
   setCurrentMarket: (market: CustomMarket) => void;
@@ -43,7 +41,6 @@ const getInitialMarket = () => {
 
 export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
   const [currentMarket, setCurrentMarket] = useState<CustomMarket>(getInitialMarket());
-  const [showMarketTableItemAPYCell, setShowMarketTableItemAPYCell] = useState(false);
 
   const currentMarketData = marketsData[currentMarket];
 
@@ -71,8 +68,6 @@ export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
     const decimals = await priceFeed.decimals();
     return new BigNumber(lastRoundData.answer.toString()).div(10 ** decimals).toFixed();
   }
-  const incentivesTxBuilder = new IncentivesController(getProvider(currentMarketData.chainId));
-  const incentivesControllerAddress = addresses.incentiveControllers?.corn;
   async function fetchTokenPrice() {
     if (currentMarketData.cornPrice) {
       setTokenPrice({
@@ -100,25 +95,11 @@ export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
     setInterval(() => {
       fetchTokenPrice();
     }, 1000);
-    (async function () {
-      if (!incentivesControllerAddress) return;
-      const distributionEnd = await incentivesTxBuilder.DISTRIBUTION_END({
-        incentivesControllerAddress,
-      });
-      const distributionEndTimestamp = Number(distributionEnd.toString());
-      const nowTimestamp = Math.floor(Date.now() / 1000);
-      if (distributionEndTimestamp > nowTimestamp) setShowMarketTableItemAPYCell(true);
-      console.log({
-        distributionEndTimestamp,
-        nowTimestamp,
-      });
-    })();
   }, []);
 
   return (
     <PoolDataContext.Provider
       value={{
-        showMarketTableItemAPYCell,
         tokenPrice,
         currentMarket,
         chainId: currentMarketData.chainId,
