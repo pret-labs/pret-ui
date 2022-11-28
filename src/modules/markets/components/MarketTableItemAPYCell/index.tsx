@@ -1,9 +1,7 @@
 import { BigNumber } from '@aave/protocol-js';
-import { useThemeContext } from '@pret/pret-ui-kit';
+import { useThemeContext, getAssetInfo } from '@pret/pret-ui-kit';
 import { useEffect, useState } from 'react';
 import { RewardsAssets } from '../../../../helpers/config/types';
-import AuroraIcon from '../../../../images/auroraIcon.svg';
-import CornIcon from '../../../../images/cornIcon.svg';
 import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
 
 /*
@@ -84,14 +82,14 @@ function MarketTableItemAPYCell({
     <div className="MarketTableItemAPYCell">
       <div className="MarketTableItemAPYCell__item">
         <div>
-          <img src={AuroraIcon} alt="aurora icon" />
+          <img src={getAssetInfo('aurora').icon} alt="aurora icon" />
         </div>
         <div>{apy.auroraApy}</div>
         <div>{withPercentage && '%'}</div>
       </div>
       <div className="MarketTableItemAPYCell__item">
         <div>
-          <img src={CornIcon} alt="aurora icon" />
+          <img src={getAssetInfo('corn').icon} alt="aurora icon" />
         </div>
         <div>{apy.cornApy}</div>
         <div>{withPercentage && '%'}</div>
