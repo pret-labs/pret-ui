@@ -8,12 +8,13 @@ import {
   getProvider,
   CustomMarket,
 } from '../../helpers/config/markets-and-network-config';
-import { aggregatorV3InterfaceABI, TokenPrice } from '../../ui-config/markets';
+import { TokenPrice } from '../../ui-config/markets';
 import { BigNumber } from '@aave/protocol-js';
 import { useEffect } from 'react';
 import { initCornerstoneSDKWithSigner } from '@corndao/corn-sdk';
 import { Near } from 'near-api-js';
 import { IncentivesController } from '@pret/contract-helpers';
+import { aggregatorV3InterfaceABI } from '../../ui-config/abi';
 
 const LS_KEY = 'selectedMarket';
 
