@@ -68,12 +68,9 @@ export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
     const decimals = await priceFeed.decimals();
     return new BigNumber(lastRoundData.answer.toString()).div(10 ** decimals).toFixed();
   }
-  async function fetchTokenPrice() {
+  async function getCornPrice() {
     if (currentMarketData.cornPrice) {
-      setTokenPrice({
-        aurora: await getAuroraPrice(),
-        corn: currentMarketData.cornPrice,
-      });
+      return currentMarketData.cornPrice;
     } else {
       if (!currentMarketData.cornerstoneSDKConfig || !currentMarketData.nearConfig) {
         throw new Error('Need to config cornerstoneSDK');
@@ -85,15 +82,17 @@ export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
         currentMarketData.cornerstoneSDKConfig
       );
       const cornMarketPrice = await cornerstoneSDK.dataService.cornMarketPriceInUSD();
-      setTokenPrice({
-        aurora: await getAuroraPrice(),
-        corn: cornMarketPrice.toFixed(),
-      });
+      return cornMarketPrice.toFixed();
     }
   }
   useEffect(() => {
     setInterval(() => {
-      fetchTokenPrice();
+      Promise.all([getAuroraPrice(), getCornPrice()]).then(([auroraPrice, cornPrice]) => {
+        setTokenPrice({
+          aurora: auroraPrice,
+          corn: cornPrice,
+        });
+      });
     }, 1000);
   }, []);
 
