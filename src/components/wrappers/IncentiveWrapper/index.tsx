@@ -64,8 +64,6 @@ export default function IncentiveWrapper() {
 
   return (
     <div className="IncentiveWrapper">
-      <p className="IncentiveWrapper__title">{intl.formatMessage(messages.availableReward)}</p>
-
       <div className="IncentiveWrapper__incentives">
         {usersIncentivesFiltered.map((usersIncentivesFiltered, idx) => {
           return Object.entries(usersIncentivesFiltered).map((incentive) => {
@@ -82,6 +80,11 @@ export default function IncentiveWrapper() {
 
             return (
               <IncentiveClaimItem
+                title={
+                  idx === 0
+                    ? intl.formatMessage(messages.availableRewards)
+                    : intl.formatMessage(messages.totalPreMiningRewards)
+                }
                 key={incentive[0]}
                 hasClaimButton
                 symbol={rewardTokenSymbol}

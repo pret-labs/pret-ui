@@ -32,7 +32,7 @@ const staticStyles = css.global`
         position: absolute;
         top: 0;
         left: 0;
-        height: 110px;
+        height: 135px;
         width: 100%;
         transition-property: height;
         transition-duration: 0.1s;
