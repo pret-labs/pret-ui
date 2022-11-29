@@ -31,10 +31,6 @@ function Wrapper({ children }: MarketTableItemAPYCellProps) {
       const distributionEndTimestamp = Number(distributionEnd.toString());
       const nowTimestamp = Math.floor(Date.now() / 1000);
       if (distributionEndTimestamp > nowTimestamp) setShowMarketTableItemAPYCell(true);
-      console.log({
-        distributionEndTimestamp,
-        nowTimestamp,
-      });
     })();
   }, []);
   return <>{children}</>;
