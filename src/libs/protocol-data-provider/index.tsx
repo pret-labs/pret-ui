@@ -1,6 +1,6 @@
 import { ethers, providers } from 'ethers';
 import React, { PropsWithChildren, useContext, useState } from 'react';
-import { MarketDataType, NetworkConfig } from '../../helpers/config/types';
+import { MarketDataType, NetworkConfig, TokenPrice } from '../../helpers/config/types';
 import {
   availableMarkets,
   marketsData,
@@ -8,7 +8,6 @@ import {
   getProvider,
   CustomMarket,
 } from '../../helpers/config/markets-and-network-config';
-import { TokenPrice } from '../../ui-config/markets';
 import { BigNumber } from '@aave/protocol-js';
 import { useEffect } from 'react';
 import { initCornerstoneSDKWithSigner } from '@corndao/corn-sdk';

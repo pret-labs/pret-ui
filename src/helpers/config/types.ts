@@ -21,6 +21,8 @@ export enum RewardsAssets {
   USDT = 'USDT',
 }
 
+export type TokenPrice = Record<'aurora' | 'corn', string>;
+
 export type NetworkConfig = {
   name: string;
   privateJsonRPCUrl?: string; // private rpc will be used for rpc queries inside the client. normally has private api key and better rate

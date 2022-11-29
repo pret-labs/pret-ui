@@ -6,8 +6,6 @@ import { keyStores } from 'near-api-js';
 
 import * as logos from './images';
 
-export type TokenPrice = Record<'aurora' | 'corn', string>;
-
 export enum CustomMarket {
   // proto_kovan = 'proto_kovan',
   // proto_mainnet = 'proto_mainnet',
