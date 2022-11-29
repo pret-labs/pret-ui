@@ -227,8 +227,8 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       uiIncentiveDataProvider: '0x81a3bC684405d1D0a7DAa2A2e3f66C8F37aD656F',
       chainlinkFeedRegistry: '0xA4b8b02cef11834Cdcb878B8485D93d551ACe526',
       incentiveControllers: {
-        aurora: '0xB861792561f2C6a79ddE12006202615Ce2200266'.toLowerCase(),
-        corn: '0xE303206ac6065aE2a53553116da7ddb54fd24776'.toLowerCase(),
+        aurora: '0xee35743217618c25379B6Cf19dD14E0d31617Eea'.toLowerCase(),
+        corn: '0xF0F87ad171ddAB7340E8f461D0d747CeBdb4c561'.toLowerCase(),
       },
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/pret-labs/protocol-aurora',
