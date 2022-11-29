@@ -17,7 +17,7 @@ import {
   removeReferralCode,
   storeReferralCode,
 } from '../referral-handler';
-
+import MetaMaskOnboarding from '@metamask/onboarding';
 import messages from './messages';
 import { ChainId, ChainIdToNetwork } from '@pret/contract-helpers';
 import { getNetworkConfig } from '../../helpers/config/markets-and-network-config';
@@ -174,26 +174,31 @@ export function Web3Provider({
       setCurrentProviderName(connectorName);
       isSuccessful = true;
     } catch (e) {
+      console.log('eee', e.message);
       const formattedError = formattingError(e, supportedChainIds, intl) ?? '';
       setFormattedActivationError(formattedError);
 
-      if (connectorName === 'browser' && e.message.includes('Unsupported chain id:')) {
-        // switch browser to aurora mainnet
-        const neededChainId = ChainId.aurora_mainnet;
-        const config = ADD_CONFIG[neededChainId];
-        const { publicJsonRPCWSUrl, publicJsonRPCUrl } = getNetworkConfig(neededChainId);
-        (window as any).ethereum?.request({
-          method: 'wallet_addEthereumChain',
-          params: [
-            {
-              chainId: `0x${neededChainId.toString(16)}`,
-              chainName: config.name,
-              nativeCurrency: config.nativeCurrency,
-              rpcUrls: [...publicJsonRPCUrl, publicJsonRPCWSUrl],
-              blockExplorerUrls: config.explorerUrls,
-            },
-          ],
-        });
+      if (connectorName === 'browser') {
+        if (e.message.includes('Unsupported chain id:')) {
+          // switch browser to aurora mainnet
+          const neededChainId = ChainId.aurora_mainnet;
+          const config = ADD_CONFIG[neededChainId];
+          const { publicJsonRPCWSUrl, publicJsonRPCUrl } = getNetworkConfig(neededChainId);
+          (window as any).ethereum?.request({
+            method: 'wallet_addEthereumChain',
+            params: [
+              {
+                chainId: `0x${neededChainId.toString(16)}`,
+                chainName: config.name,
+                nativeCurrency: config.nativeCurrency,
+                rpcUrls: [...publicJsonRPCUrl, publicJsonRPCWSUrl],
+                blockExplorerUrls: config.explorerUrls,
+              },
+            ],
+          });
+        } else if (e.message.includes('No Ethereum provider was found on window.ethereum.')) {
+          new MetaMaskOnboarding().startOnboarding();
+        }
       }
       console.log('error on activation', e);
       disconnectWallet(e);
