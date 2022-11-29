@@ -87,7 +87,7 @@ function MarketTableItemAPYCell({
       </div>
       <div className="MarketTableItemAPYCell__item">
         <div>
-          <img src={getAssetInfo('corn').icon} alt="aurora icon" />
+          <img src={getAssetInfo('corn').icon} alt="corn icon" />
         </div>
         <div>{apy.cornApy}</div>
         <div>{withPercentage && '%'}</div>
