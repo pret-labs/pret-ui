@@ -8,6 +8,8 @@ import NoData from '../../../../components/basic/NoData';
 import { isAssetStable } from '../../../../helpers/config/assets-config';
 
 import { DepositTableItem } from './types';
+import MarketTableItemAPYCell from '../../../markets/components/MarketTableItemAPYCell';
+import { RewardsAssets } from '../../../../helpers/config/types';
 
 export default function DepositItem({
   id,
@@ -22,6 +24,7 @@ export default function DepositItem({
   borrowingEnabled,
   isFreezed,
   aincentivesAPR,
+  totalLiquidityInUSD,
 }: DepositTableItem) {
   const url = `/deposit/${underlyingAsset}-${id}`;
 
@@ -50,6 +53,11 @@ export default function DepositItem({
             liquidityMiningValue={aincentivesAPR}
             symbol={symbol}
             type="deposit"
+          />
+          <MarketTableItemAPYCell
+            symbol={symbol as RewardsAssets}
+            type={'deposit'}
+            currentSupplyTVL={totalLiquidityInUSD.toString()}
           />
         </TableColumn>
       )}

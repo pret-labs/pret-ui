@@ -27,6 +27,7 @@ export default function BorrowItem({
   index,
   vincentivesAPR,
   sincentivesAPR,
+  totalBorrowsInUSD,
 }: BorrowTableItem) {
   const intl = useIntl();
 
@@ -38,6 +39,7 @@ export default function BorrowItem({
         tooltipId={`borrow-${symbol}__${index}`}
       />
       <TableAprCol
+        currentSupplyTVL={totalBorrowsInUSD.toString()}
         value={Number(borrowRate)}
         thirtyDaysAverage={borrowRateMode === BorrowRateMode.Variable ? avg30DaysVariableRate : ''}
         liquidityMiningValue={

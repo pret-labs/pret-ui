@@ -14,6 +14,7 @@ export type BorrowTableItem = {
   borrowRateMode: string;
   currentBorrows: string;
   currentBorrowsUSD: string;
+  totalBorrowsInUSD: string;
   repayLink: string;
   borrowLink: string;
   reserve: Pick<RawReserveData, 'symbol'>;
