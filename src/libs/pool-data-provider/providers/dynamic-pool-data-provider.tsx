@@ -66,8 +66,15 @@ export function DynamicPoolDataProvider({ children }: PropsWithChildren<{}>) {
       reserve,
       currentTimestamp,
     });
+    // transform `MOCK-{TOKEN}.{SUFFIX}` to `{TOKEN}`
+    const newSymbol = reserve.symbol.startsWith('MOCK-')
+      ? reserve.symbol.replace('MOCK-', '').split('.')[0]
+      : reserve.symbol;
     const fullReserve: ComputedReserveData = {
-      ...reserve,
+      ...{
+        ...reserve,
+        symbol: newSymbol,
+      },
       ...formattedReserve,
       priceInMarketReferenceCurrency: normalize(
         reserve.priceInMarketReferenceCurrency,
