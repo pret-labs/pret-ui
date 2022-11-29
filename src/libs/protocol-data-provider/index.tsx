@@ -92,7 +92,7 @@ export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
           corn: cornPrice,
         });
       });
-    }, 1000);
+    }, 60 * 1000); // 60 second
   }, []);
 
   return (
