@@ -222,10 +222,10 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     publicJsonRPCUrl: ['https://mainnet.aurora.dev'],
     publicJsonRPCWSUrl: 'wss://mainnet.aurora.dev',
     addresses: {
-      walletBalanceProvider: '0x6264617C934B0f534C8d35c0a20BC124E587b9f3',
-      uiPoolDataProvider: '0xaEc8f7e11f5f1947bf4934126A3540e93Ce69E98',
-      uiIncentiveDataProvider: '0x81a3bC684405d1D0a7DAa2A2e3f66C8F37aD656F',
-      chainlinkFeedRegistry: '0xA4b8b02cef11834Cdcb878B8485D93d551ACe526',
+      walletBalanceProvider: '0x04211DEFa3e1b3e9Cb31a4cbfe4F54dDc53903cE',
+      uiPoolDataProvider: '0x2AEFd643fcCb5F43c88F0B7701683d142355b083',
+      uiIncentiveDataProvider: '0xECB703fB4575553470667839bE3b9D2B695387B6',
+      chainlinkFeedRegistry: '0x71B0eD15440dba572E701Db7a4e104561CC0A445',
       auroraPriceFeed: '0xAe3F6EB5d0B4C0A4C8571aa1E40bE65FE84f4eE2',
       incentiveControllers: {
         aurora: '0xee35743217618c25379B6Cf19dD14E0d31617Eea'.toLowerCase(),
