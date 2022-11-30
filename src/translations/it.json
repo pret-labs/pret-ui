@@ -764,7 +764,7 @@
   "modules.reserve-overview.components.ReserveInformation.totalBorrowed": "Totale preso in prestito",
   "modules.reserve-overview.components.ReserveInformation.usedAsCollateral": "Disponibile come garanzia",
   "modules.reserve-overview.components.ReserveInformation.utilisationRate": "Utilisation rate",
-  "modules.reserve-overview.components.ReserveInformation.variableBorrowing": "Prestiti a tasso variabile",
+  "modules.reserve-overview.components.ReserveInformation.borrowing": "Prestiti a tasso variabile",
   "modules.reserve-overview.components.UserInformation.availableToYou": "Disponibile",
   "modules.reserve-overview.components.UserInformation.borrowed": "Preso in prestito",
   "modules.reserve-overview.components.UserInformation.borrows": "Prestiti",

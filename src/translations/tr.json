@@ -764,7 +764,7 @@
   "modules.reserve-overview.components.ReserveInformation.totalBorrowed": "Toplam Ödünç Alınan",
   "modules.reserve-overview.components.ReserveInformation.usedAsCollateral": "Teminat olarak kullanım",
   "modules.reserve-overview.components.ReserveInformation.utilisationRate": "Kullanım oranı",
-  "modules.reserve-overview.components.ReserveInformation.variableBorrowing": "Değişken borçlanma",
+  "modules.reserve-overview.components.ReserveInformation.borrowing": "Değişken borçlanma",
   "modules.reserve-overview.components.UserInformation.availableToYou": "Sizin için uygun",
   "modules.reserve-overview.components.UserInformation.borrowed": "Ödünç alındı",
   "modules.reserve-overview.components.UserInformation.borrows": "Ödünç Alınanlar",

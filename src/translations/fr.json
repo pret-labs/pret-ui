@@ -764,7 +764,7 @@
   "modules.reserve-overview.components.ReserveInformation.totalBorrowed": "Total emprunté",
   "modules.reserve-overview.components.ReserveInformation.usedAsCollateral": "Utilisation en tant que collatéral",
   "modules.reserve-overview.components.ReserveInformation.utilisationRate": "Taux d'utilisation",
-  "modules.reserve-overview.components.ReserveInformation.variableBorrowing": "Emprunt variable",
+  "modules.reserve-overview.components.ReserveInformation.borrowing": "Emprunt variable",
   "modules.reserve-overview.components.UserInformation.availableToYou": "A votre disposition",
   "modules.reserve-overview.components.UserInformation.borrowed": "Emprunté",
   "modules.reserve-overview.components.UserInformation.borrows": "Emprunts",

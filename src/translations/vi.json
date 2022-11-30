@@ -764,7 +764,7 @@
   "modules.reserve-overview.components.ReserveInformation.totalBorrowed": "Tổng số đã vay",
   "modules.reserve-overview.components.ReserveInformation.usedAsCollateral": "Sử dụng làm tài sản thế chấp",
   "modules.reserve-overview.components.ReserveInformation.utilisationRate": "Tỷ lệ sử dụng",
-  "modules.reserve-overview.components.ReserveInformation.variableBorrowing": "Thay đổi tiền vay",
+  "modules.reserve-overview.components.ReserveInformation.borrowing": "Thay đổi tiền vay",
   "modules.reserve-overview.components.UserInformation.availableToYou": "Có sẵn cho bạn",
   "modules.reserve-overview.components.UserInformation.borrowed": "Đã vay",
   "modules.reserve-overview.components.UserInformation.borrows": "Vay",

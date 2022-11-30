@@ -764,7 +764,7 @@
   "modules.reserve-overview.components.ReserveInformation.totalBorrowed": "Total emprestado",
   "modules.reserve-overview.components.ReserveInformation.usedAsCollateral": "Utilizado como garantia",
   "modules.reserve-overview.components.ReserveInformation.utilisationRate": "Taxa de utilização",
-  "modules.reserve-overview.components.ReserveInformation.variableBorrowing": "Empréstimo variável",
+  "modules.reserve-overview.components.ReserveInformation.borrowing": "Empréstimo variável",
   "modules.reserve-overview.components.UserInformation.availableToYou": "Disponível para si",
   "modules.reserve-overview.components.UserInformation.borrowed": "Emprestado",
   "modules.reserve-overview.components.UserInformation.borrows": "Empréstimos",
