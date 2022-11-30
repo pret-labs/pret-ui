@@ -84,14 +84,18 @@ export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
       return cornMarketPrice.toFixed();
     }
   }
-  useEffect(() => {
-    setInterval(() => {
-      Promise.all([getAuroraPrice(), getCornPrice()]).then(([auroraPrice, cornPrice]) => {
-        setTokenPrice({
-          aurora: auroraPrice,
-          corn: cornPrice,
-        });
+  function fetchTokenPrice() {
+    Promise.all([getAuroraPrice(), getCornPrice()]).then(([auroraPrice, cornPrice]) => {
+      setTokenPrice({
+        aurora: auroraPrice,
+        corn: cornPrice,
       });
+    });
+  }
+  useEffect(() => {
+    fetchTokenPrice();
+    setInterval(() => {
+      fetchTokenPrice();
     }, 60 * 1000); // 60 second
   }, []);
 
