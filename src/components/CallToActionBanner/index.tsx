@@ -70,7 +70,7 @@ function CallToActionBanner() {
         </div>
         <p className="CallToActionBanner__double-rewards">DOUBLE REWARDS</p>
         <p className="CallToActionBanner__amount">20k $CORN for Pre-mining</p>
-        <p className="CallToActionBanner__footnotes">100k $AURORA super boost</p>
+        <p className="CallToActionBanner__footnotes">50k $AURORA super boost</p>
         <Link to={pathname}>
           <Button className="CallToActionBanner__primary-btn" title="ENTER APP" />
         </Link>

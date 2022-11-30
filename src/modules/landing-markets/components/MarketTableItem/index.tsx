@@ -10,6 +10,8 @@ import LiquidityMiningCard from '../../../../components/liquidityMining/Liquidit
 import { getAssetInfo, TokenIcon } from '../../../../helpers/config/assets-config';
 
 import staticStyles from './style';
+import MarketTableItemAPYCell from '../../../markets/components/MarketTableItemAPYCell';
+import { RewardsAssets } from '../../../../helpers/config/types';
 
 export interface MarketTableItemProps {
   id: string;
@@ -112,17 +114,29 @@ export default function MarketTableItem({
               symbol={currencySymbol}
               type="deposit"
             />
+            <MarketTableItemAPYCell
+              symbol={currencySymbol as RewardsAssets}
+              type="deposit"
+              currentSupplyTVL={totalLiquidityInUSD.toString()}
+            />
           </TableColumn>
 
           <TableColumn className="MarketTableItem__column">
             {borrowingEnabled && +variableBorrowRate >= 0 ? (
-              <LiquidityMiningCard
-                value={variableBorrowRate}
-                thirtyDaysValue={avg30DaysVariableRate}
-                liquidityMiningValue={vincentivesAPR}
-                symbol={currencySymbol}
-                type="borrow-variable"
-              />
+              <>
+                <LiquidityMiningCard
+                  value={variableBorrowRate}
+                  thirtyDaysValue={avg30DaysVariableRate}
+                  liquidityMiningValue={vincentivesAPR}
+                  symbol={currencySymbol}
+                  type="borrow-variable"
+                />
+                <MarketTableItemAPYCell
+                  symbol={currencySymbol as RewardsAssets}
+                  type="borrow"
+                  currentSupplyTVL={totalBorrowsInUSD.toString()}
+                />
+              </>
             ) : (
               <NoData color="dark" />
             )}

@@ -1,6 +1,8 @@
-import { CORNRewardsAssets } from './../../helpers/config/types';
+import { CornerstoneSDKConfig } from '@corndao/corn-sdk/dist/types/common';
+import { RewardsAssets } from './../../helpers/config/types';
 import { ChainId } from '@pret/contract-helpers';
 import { MarketDataType } from '../../helpers/config/types';
+import { keyStores } from 'near-api-js';
 
 import * as logos from './images';
 
@@ -35,22 +37,41 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       WETH_GATEWAY: '0x80905FE345aF8B3699905d71009A33CF5dC3aAa8',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
     },
-    cornRewards: {
-      [CORNRewardsAssets.WNEAR]: {
-        depositRewardsPerDay: 40,
-        borrowRewardsPerDay: 20,
+    cornPrice: '1',
+    auroraRewards: {
+      [RewardsAssets.WNEAR]: {
+        depositRewardsPerDay: 1000,
+        borrowRewardsPerDay: 500,
       },
-      [CORNRewardsAssets.LINEAR]: {
-        depositRewardsPerDay: 60,
+      [RewardsAssets.LINEAR]: {
+        depositRewardsPerDay: 1500,
         borrowRewardsPerDay: 0,
       },
-      [CORNRewardsAssets.USDC]: {
-        depositRewardsPerDay: 20,
-        borrowRewardsPerDay: 20,
+      [RewardsAssets.USDC]: {
+        depositRewardsPerDay: 500,
+        borrowRewardsPerDay: 500,
       },
-      [CORNRewardsAssets.USDT]: {
-        depositRewardsPerDay: 20,
-        borrowRewardsPerDay: 20,
+      [RewardsAssets.USDT]: {
+        depositRewardsPerDay: 500,
+        borrowRewardsPerDay: 500,
+      },
+    },
+    cornRewards: {
+      [RewardsAssets.WNEAR]: {
+        depositRewardsPerDay: 80,
+        borrowRewardsPerDay: 40,
+      },
+      [RewardsAssets.LINEAR]: {
+        depositRewardsPerDay: 120,
+        borrowRewardsPerDay: 0,
+      },
+      [RewardsAssets.USDC]: {
+        depositRewardsPerDay: 40,
+        borrowRewardsPerDay: 40,
+      },
+      [RewardsAssets.USDT]: {
+        depositRewardsPerDay: 40,
+        borrowRewardsPerDay: 40,
       },
     },
     cornTokenParams: {
@@ -62,6 +83,40 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       },
     },
     cornAirdropAddress: '0xae763973B873718e084a2ea3F7aE50B0c670bdF0',
+    nearConfig: {
+      networkId: 'mainnet',
+      keyStore: new keyStores.BrowserLocalStorageKeyStore(),
+      nodeUrl: 'https://rpc.mainnet.near.org',
+      walletUrl: 'https://wallet.mainnet.near.org',
+      helperUrl: 'https://helper.mainnet.near.org',
+      headers: {},
+    },
+    cornerstoneSDKConfig: {
+      cornerstoneConfig: {
+        cornContractId: 'corn.v1.corn-staging.near',
+        xcornContractId: 'xcorn.v1.corn-staging.near',
+        vecornContractId: 'vecorn.v1.corn-staging.near',
+      },
+      dataServiceConfig: {
+        cornTokenDecimals: 18,
+        xcornTokenDecimals: 18,
+        vecornTokenDecimals: 18,
+        refContractId: 'v2.ref-finance.near',
+        refPoolForXcorn: {
+          poolId: 3709,
+          otherTokenId: 'usdc.mocks.near',
+          otherTokenDecimals: 6,
+        },
+        cornOracleContractId: 'lpt.corn-oracle.near',
+        fluxOracleContractId: 'fpo.opfilabs.near',
+        fluxPairInfos: {},
+        coinGeckoIds: {},
+        treasuryWhiteListTokens: {
+          ft: [],
+          mft: [],
+        },
+      },
+    } as CornerstoneSDKConfig,
   },
   [CustomMarket.proto_hardhat]: {
     chainId: ChainId.hardhat,
@@ -78,22 +133,40 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       WETH_GATEWAY: '0xB89998C526240aaF1588d20343421C6f730634b5',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
     },
-    cornRewards: {
-      [CORNRewardsAssets.WNEAR]: {
-        depositRewardsPerDay: 40,
-        borrowRewardsPerDay: 20,
+    auroraRewards: {
+      [RewardsAssets.WNEAR]: {
+        depositRewardsPerDay: 1000,
+        borrowRewardsPerDay: 500,
       },
-      [CORNRewardsAssets.LINEAR]: {
-        depositRewardsPerDay: 60,
+      [RewardsAssets.LINEAR]: {
+        depositRewardsPerDay: 1500,
         borrowRewardsPerDay: 0,
       },
-      [CORNRewardsAssets.USDC]: {
-        depositRewardsPerDay: 20,
-        borrowRewardsPerDay: 20,
+      [RewardsAssets.USDC]: {
+        depositRewardsPerDay: 500,
+        borrowRewardsPerDay: 500,
       },
-      [CORNRewardsAssets.USDT]: {
-        depositRewardsPerDay: 20,
-        borrowRewardsPerDay: 20,
+      [RewardsAssets.USDT]: {
+        depositRewardsPerDay: 500,
+        borrowRewardsPerDay: 500,
+      },
+    },
+    cornRewards: {
+      [RewardsAssets.WNEAR]: {
+        depositRewardsPerDay: 80,
+        borrowRewardsPerDay: 40,
+      },
+      [RewardsAssets.LINEAR]: {
+        depositRewardsPerDay: 120,
+        borrowRewardsPerDay: 0,
+      },
+      [RewardsAssets.USDC]: {
+        depositRewardsPerDay: 40,
+        borrowRewardsPerDay: 40,
+      },
+      [RewardsAssets.USDT]: {
+        depositRewardsPerDay: 40,
+        borrowRewardsPerDay: 40,
       },
     },
     cornTokenParams: {
@@ -251,22 +324,40 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       WETH_GATEWAY: '0x3e9dd45050475fB75494De2217056dB5a54d5299',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
     },
-    cornRewards: {
-      [CORNRewardsAssets.WNEAR]: {
-        depositRewardsPerDay: 40,
-        borrowRewardsPerDay: 20,
+    auroraRewards: {
+      [RewardsAssets.WNEAR]: {
+        depositRewardsPerDay: 1000,
+        borrowRewardsPerDay: 500,
       },
-      [CORNRewardsAssets.LINEAR]: {
-        depositRewardsPerDay: 60,
+      [RewardsAssets.LINEAR]: {
+        depositRewardsPerDay: 1500,
         borrowRewardsPerDay: 0,
       },
-      [CORNRewardsAssets.USDC]: {
-        depositRewardsPerDay: 20,
-        borrowRewardsPerDay: 20,
+      [RewardsAssets.USDC]: {
+        depositRewardsPerDay: 500,
+        borrowRewardsPerDay: 500,
       },
-      [CORNRewardsAssets.USDT]: {
-        depositRewardsPerDay: 20,
-        borrowRewardsPerDay: 20,
+      [RewardsAssets.USDT]: {
+        depositRewardsPerDay: 500,
+        borrowRewardsPerDay: 500,
+      },
+    },
+    cornRewards: {
+      [RewardsAssets.WNEAR]: {
+        depositRewardsPerDay: 80,
+        borrowRewardsPerDay: 40,
+      },
+      [RewardsAssets.LINEAR]: {
+        depositRewardsPerDay: 120,
+        borrowRewardsPerDay: 0,
+      },
+      [RewardsAssets.USDC]: {
+        depositRewardsPerDay: 40,
+        borrowRewardsPerDay: 40,
+      },
+      [RewardsAssets.USDT]: {
+        depositRewardsPerDay: 40,
+        borrowRewardsPerDay: 40,
       },
     },
     cornTokenParams: {

@@ -69,6 +69,10 @@ export default function BorrowMain() {
           .multipliedBy(reserve.priceInMarketReferenceCurrency)
           .multipliedBy(marketRefPriceInUsd)
           .toString();
+        const totalBorrowsInUSD = valueToBigNumber(reserve.totalDebt)
+          .multipliedBy(reserve.priceInMarketReferenceCurrency)
+          .multipliedBy(marketRefPriceInUsd)
+          .toNumber();
         const reserveIncentiveData = reserveIncentive[reserve.underlyingAsset.toLowerCase()];
         return {
           ...reserve,
@@ -80,6 +84,7 @@ export default function BorrowMain() {
               ?.totalBorrowsUSD || '0',
           availableBorrows,
           availableBorrowsInUSD,
+          totalBorrowsInUSD,
           stableBorrowRate:
             reserve.stableBorrowRateEnabled && reserve.borrowingEnabled
               ? Number(reserve.stableBorrowAPY)

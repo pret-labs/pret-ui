@@ -12,6 +12,7 @@ export type DepositTableItem = {
   aincentivesAPR: string;
   borrowingEnabled: boolean;
   index?: number;
+  totalLiquidityInUSD: string;
 } & Pick<
   ComputedUserReserve,
   'usageAsCollateralEnabledOnUser' | 'underlyingBalance' | 'underlyingBalanceUSD'
