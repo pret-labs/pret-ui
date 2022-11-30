@@ -84,7 +84,6 @@ export default function MarketTable({
                 sortKey={column.sortKey}
                 withSorting={true}
                 title={intl.formatMessage(messages.borrowAPY)}
-                subTitle={intl.formatMessage(column.title)}
                 size="small"
               />
             </TableColumn>
