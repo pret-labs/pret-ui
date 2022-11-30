@@ -1,6 +1,5 @@
 import React from 'react';
 import { IntlShape } from 'react-intl/src/types';
-import { SocialIcon, SocialType } from '@pret/pret-ui-kit';
 
 import FormattedTxErrorTextUI from './FormattedTxErrorText';
 import TopDisclaimerUI from './TopDisclaimer';
@@ -14,17 +13,6 @@ import { UnlockWalletExtraText as UnlockWalletExtraTextUI } from './UnlockWallet
 import logo from './images/pretLogo.svg';
 
 export const LOGO = logo;
-
-export const socialIcons: SocialIcon[] = [
-  {
-    url: 'https://github.com/pret-labs/pret-ui',
-    type: SocialType.Github,
-  },
-  // {
-  //   url: 'https://discord.gg/7kHKnkDEUf',
-  //   type: SocialType.Discord,
-  // },
-];
 
 export const TopDisclaimer: React.FC = TopDisclaimerUI;
 export const BottomDisclaimer: React.FC = LegalBanner;

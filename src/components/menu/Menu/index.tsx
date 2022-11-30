@@ -21,6 +21,7 @@ import navigation from '../navigation';
 
 import backIcon from '../../../images/mobileBackArrow.svg';
 import AirdropButton from '../Aidrdrop';
+import SocialMedia from '../../MenuSocialMedia/SociaMedia';
 
 interface MenuProps {
   title: string;
