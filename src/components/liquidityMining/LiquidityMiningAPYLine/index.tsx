@@ -12,7 +12,7 @@ import messages from './messages';
 import staticStyles from './style';
 
 import tribeIcon from '../../../images/tirbe.svg';
-import { CORNRewardsAssets } from '../../../helpers/config/types';
+import { RewardsAssets } from '../../../helpers/config/types';
 
 interface LiquidityMiningAPYLineProps {
   symbol?: string;
@@ -111,11 +111,10 @@ export default function LiquidityMiningAPYLine({
             />
             <ValuePercent
               value={
-                currentMarketData.cornRewards[symbol as CORNRewardsAssets]
+                currentMarketData.cornRewards[symbol as RewardsAssets]
                   ? tooltipId?.includes('deposit')
-                    ? currentMarketData.cornRewards[symbol as CORNRewardsAssets]
-                        .depositRewardsPerDay
-                    : currentMarketData.cornRewards[symbol as CORNRewardsAssets].borrowRewardsPerDay
+                    ? currentMarketData.cornRewards[symbol as RewardsAssets].depositRewardsPerDay
+                    : currentMarketData.cornRewards[symbol as RewardsAssets].borrowRewardsPerDay
                   : ''
               }
               maximumDecimals={2}

@@ -7,6 +7,7 @@ export type DepositTableItem = {
   rewardTokenSymbol: string;
   walletBalance: BigNumber;
   walletBalanceInUSD: number | string;
+  totalLiquidityInUSD: number | string;
   underlyingBalance: number | string;
   underlyingBalanceInUSD: number | string;
   liquidityRate: number | string;

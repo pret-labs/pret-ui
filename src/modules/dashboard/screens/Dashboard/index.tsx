@@ -7,7 +7,10 @@ import classNames from 'classnames';
 
 import { useIncentivesDataContext } from '../../../../libs/pool-data-provider/hooks/use-incentives-data-context';
 import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
-import { useDynamicPoolDataContext } from '../../../../libs/pool-data-provider';
+import {
+  useDynamicPoolDataContext,
+  useStaticPoolDataContext,
+} from '../../../../libs/pool-data-provider';
 import { loanActionLinkComposer } from '../../../../helpers/loan-action-link-composer';
 import { toggleUseAsCollateral } from '../../../../helpers/toggle-use-as-collateral';
 import { toggleBorrowRateMode } from '../../../../helpers/toggle-borrow-rate-mode';
@@ -47,6 +50,7 @@ export default function Dashboard() {
   const intl = useIntl();
   const history = useHistory();
   const { chainId } = useProtocolDataContext();
+  const { marketRefPriceInUsd } = useStaticPoolDataContext();
   const { user, reserves } = useDynamicPoolDataContext();
   const { reserveIncentives } = useIncentivesDataContext();
   const reserveIncentive = reserveIncentives[0];
@@ -91,9 +95,17 @@ export default function Dashboard() {
           liquidityRate: poolReserve.supplyAPY,
         },
       };
+      const reserve = reserves.find((reserve) => reserve.id === poolReserve.id);
+      const totalLiquidityInUSD = reserve
+        ? valueToBigNumber(reserve.totalLiquidity)
+            .multipliedBy(reserve.priceInMarketReferenceCurrency)
+            .multipliedBy(marketRefPriceInUsd)
+            .toString()
+        : '0';
       if (userReserve.underlyingBalance !== '0') {
         depositedPositions.push({
           ...baseListData,
+          totalLiquidityInUSD,
           rewardTokenSymbol: getRewardTokenSymbol(
             reserves,
             reserveIncentiveData.aIncentives.rewardTokenAddress
@@ -118,8 +130,16 @@ export default function Dashboard() {
       }
 
       if (userReserve.variableBorrows !== '0') {
+        const reserve = reserves.find((reserve) => reserve.id === poolReserve.id);
+        const totalBorrowsInUSD = reserve
+          ? valueToBigNumber(reserve.totalDebt)
+              .multipliedBy(reserve.priceInMarketReferenceCurrency)
+              .multipliedBy(marketRefPriceInUsd)
+              .toString()
+          : '0';
         borrowedPositions.push({
           ...baseListData,
+          totalBorrowsInUSD,
           borrowingEnabled: poolReserve.borrowingEnabled,
           currentBorrows: userReserve.variableBorrows,
           currentBorrowsUSD: userReserve.variableBorrowsUSD,
@@ -154,8 +174,16 @@ export default function Dashboard() {
         });
       }
       if (userReserve.stableBorrows !== '0') {
+        const reserve = reserves.find((reserve) => reserve.id === poolReserve.id);
+        const totalBorrowsInUSD = reserve
+          ? valueToBigNumber(reserve.totalDebt)
+              .multipliedBy(reserve.priceInMarketReferenceCurrency)
+              .multipliedBy(marketRefPriceInUsd)
+              .toString()
+          : '0';
         borrowedPositions.push({
           ...baseListData,
+          totalBorrowsInUSD,
           borrowingEnabled: poolReserve.borrowingEnabled && poolReserve.stableBorrowRateEnabled,
           currentBorrows: userReserve.stableBorrows,
           currentBorrowsUSD: userReserve.stableBorrowsUSD,
