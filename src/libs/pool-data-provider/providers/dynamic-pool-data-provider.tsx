@@ -63,7 +63,7 @@ export function DynamicPoolDataProvider({ children }: PropsWithChildren<{}>) {
       : undefined;
   // transform `MOCK-{TOKEN}.{SUFFIX}` to `{TOKEN}`
   const formatSymbol = (symbol: string) =>
-    symbol.startsWith('MOCK-') ? symbol.replace('MOCK-', '').split('.')[0] : symbol;
+    symbol.startsWith('MOCK-') ? symbol.replace('MOCK-', '').split('.')[0].toUpperCase() : symbol;
   const formattedPoolReserves: ComputedReserveData[] = rawReserves.map((reserve) => {
     const formattedReserve = formatReserve({
       reserve,
