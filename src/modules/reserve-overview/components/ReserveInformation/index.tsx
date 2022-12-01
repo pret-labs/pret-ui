@@ -179,6 +179,11 @@ export default function ReserveInformation({
                 value={reserveOverviewData.supplyAPY}
                 condition={reserveOverviewData.borrowingEnabled}
               />
+              {/* <APYLine
+                title={intl.formatMessage(messages.depositAPR)}
+                value={reserveOverviewData.supplyAPR}
+                condition={reserveOverviewData.borrowingEnabled}
+              /> */}
             </APYCard>
 
             {/* <APYCard title={intl.formatMessage(messages.stableBorrowing)} color="primary">
@@ -214,6 +219,16 @@ export default function ReserveInformation({
                 value={reserveOverviewData.variableAPY}
                 condition={reserveOverviewData.borrowingEnabled}
               />
+              {/* <APYLine
+                title={intl.formatMessage(messages.borrowAPR)}
+                value={reserveOverviewData.variableAPR}
+                condition={reserveOverviewData.borrowingEnabled}
+              />
+              <APYLine
+                title={intl.formatMessage(messages.overTotal)}
+                value={reserveOverviewData.variableOverTotal}
+                condition={reserveOverviewData.borrowingEnabled}
+              /> */}
             </APYCard>
           </div>
 
