@@ -50,6 +50,7 @@ export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
 
   const [tokenPrice, setTokenPrice] = useState<TokenPrice | undefined>();
   const { publicJsonRPCUrl, addresses } = getNetworkConfig(currentMarketData.chainId);
+
   async function getAuroraPrice() {
     if (publicJsonRPCUrl.length === 0) {
       throw new Error('need to config publicJsonRPCUrl');
@@ -67,6 +68,7 @@ export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
     const decimals = await priceFeed.decimals();
     return new BigNumber(lastRoundData.answer.toString()).div(10 ** decimals).toFixed();
   }
+
   async function getCornPrice() {
     if (currentMarketData.cornPrice) {
       return currentMarketData.cornPrice;
@@ -84,14 +86,20 @@ export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {
       return cornMarketPrice.toFixed();
     }
   }
-  useEffect(() => {
-    setInterval(() => {
-      Promise.all([getAuroraPrice(), getCornPrice()]).then(([auroraPrice, cornPrice]) => {
-        setTokenPrice({
-          aurora: auroraPrice,
-          corn: cornPrice,
-        });
+
+  function fetchTokenPrice() {
+    Promise.all([getAuroraPrice(), getCornPrice()]).then(([auroraPrice, cornPrice]) => {
+      setTokenPrice({
+        aurora: auroraPrice,
+        corn: cornPrice,
       });
+    });
+  }
+
+  useEffect(() => {
+    fetchTokenPrice();
+    setInterval(() => {
+      fetchTokenPrice();
     }, 60 * 1000); // 60 second
   }, []);
 
