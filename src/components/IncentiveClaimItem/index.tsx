@@ -15,7 +15,7 @@ interface IncentiveClaimItemProps {
   claimableRewards: string;
   incentiveControllerAddress: string;
   hasClaimButton?: boolean;
-  onClickCliamButton?: () => void;
+  onClickClaimButton?: () => void;
 }
 
 export default function IncentiveClaimItem({
@@ -24,7 +24,7 @@ export default function IncentiveClaimItem({
   incentiveControllerAddress,
   hasClaimButton,
   title,
-  onClickCliamButton,
+  onClickClaimButton,
 }: IncentiveClaimItemProps) {
   const intl = useIntl();
   const { xl, sm } = useThemeContext();
@@ -52,21 +52,21 @@ export default function IncentiveClaimItem({
           <Value value={claimableRewards} compact={true} color={sm ? 'dark' : 'white'} />
         </div>
 
-        {hasClaimButton && !onClickCliamButton && (
+        {hasClaimButton && !onClickClaimButton && (
           <Link
             to={rewardClaimLink}
-            onClick={onClickCliamButton}
+            onClick={onClickClaimButton}
             className="ButtonLink"
             disabled={claimableRewards === '0'}
             title={intl.formatMessage(defaultMessages.claim)}
           />
         )}
-        {hasClaimButton && onClickCliamButton && (
+        {hasClaimButton && onClickClaimButton && (
           <button
             className="ButtonLink"
             disabled={claimableRewards === '0'}
             title={intl.formatMessage(defaultMessages.claim)}
-            onClick={onClickCliamButton}
+            onClick={onClickClaimButton}
           >
             {intl.formatMessage(defaultMessages.claim)}
           </button>

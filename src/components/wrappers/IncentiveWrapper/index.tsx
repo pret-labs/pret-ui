@@ -89,7 +89,7 @@ export default function IncentiveWrapper() {
                 }
                 key={incentive[0]}
                 hasClaimButton
-                onClickCliamButton={
+                onClickClaimButton={
                   idx === 1
                     ? () => {
                         setShowAirdropModal(true);
