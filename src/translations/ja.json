@@ -764,7 +764,7 @@
   "modules.reserve-overview.components.ReserveInformation.totalBorrowed": "借入合計",
   "modules.reserve-overview.components.ReserveInformation.usedAsCollateral": "担保として使用",
   "modules.reserve-overview.components.ReserveInformation.utilisationRate": "稼働率",
-  "modules.reserve-overview.components.ReserveInformation.borrowing": "変動金利で借入",
+  "modules.reserve-overview.components.ReserveInformation.variableBorrowing": "変動金利で借入",
   "modules.reserve-overview.components.UserInformation.availableToYou": "あなたに利用可能",
   "modules.reserve-overview.components.UserInformation.borrowed": "借りた",
   "modules.reserve-overview.components.UserInformation.borrows": "借入",

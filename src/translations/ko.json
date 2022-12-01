@@ -764,7 +764,7 @@
   "modules.reserve-overview.components.ReserveInformation.totalBorrowed": "총 차입금",
   "modules.reserve-overview.components.ReserveInformation.usedAsCollateral": "담보로 사용",
   "modules.reserve-overview.components.ReserveInformation.utilisationRate": "이용률",
-  "modules.reserve-overview.components.ReserveInformation.borrowing": "변동 차용",
+  "modules.reserve-overview.components.ReserveInformation.variableBorrowing": "변동 차용",
   "modules.reserve-overview.components.UserInformation.availableToYou": "사용 가능",
   "modules.reserve-overview.components.UserInformation.borrowed": "차입하신 금액",
   "modules.reserve-overview.components.UserInformation.borrows": "차용",

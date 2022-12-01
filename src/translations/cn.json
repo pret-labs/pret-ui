@@ -764,7 +764,7 @@
   "modules.reserve-overview.components.ReserveInformation.totalBorrowed": "总借款量",
   "modules.reserve-overview.components.ReserveInformation.usedAsCollateral": "用作抵押品",
   "modules.reserve-overview.components.ReserveInformation.utilisationRate": "利用率",
-  "modules.reserve-overview.components.ReserveInformation.borrowing": "借款",
+  "modules.reserve-overview.components.ReserveInformation.variableBorrowing": "借款",
   "modules.reserve-overview.components.UserInformation.availableToYou": "可供使用",
   "modules.reserve-overview.components.UserInformation.borrowed": "已借",
   "modules.reserve-overview.components.UserInformation.borrows": "借款",

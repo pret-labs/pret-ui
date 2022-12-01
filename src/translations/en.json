@@ -764,7 +764,7 @@
   "modules.reserve-overview.components.ReserveInformation.totalBorrowed": "",
   "modules.reserve-overview.components.ReserveInformation.usedAsCollateral": "",
   "modules.reserve-overview.components.ReserveInformation.utilisationRate": "",
-  "modules.reserve-overview.components.ReserveInformation.borrowing": "",
+  "modules.reserve-overview.components.ReserveInformation.variableBorrowing": "",
   "modules.reserve-overview.components.UserInformation.availableToYou": "",
   "modules.reserve-overview.components.UserInformation.borrowed": "",
   "modules.reserve-overview.components.UserInformation.borrows": "",
