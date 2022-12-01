@@ -174,7 +174,6 @@ export function Web3Provider({
       setCurrentProviderName(connectorName);
       isSuccessful = true;
     } catch (e) {
-      console.log('eee', e.message);
       const formattedError = formattingError(e, supportedChainIds, intl) ?? '';
       setFormattedActivationError(formattedError);
 
