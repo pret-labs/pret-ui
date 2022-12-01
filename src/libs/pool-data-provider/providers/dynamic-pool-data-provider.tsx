@@ -61,13 +61,19 @@ export function DynamicPoolDataProvider({ children }: PropsWithChildren<{}>) {
           rawUserReserves: rawUserReserves,
         })
       : undefined;
+  // transform `MOCK-{TOKEN}.{SUFFIX}` to `{TOKEN}`
+  const formatSymbol = (symbol: string) =>
+    symbol.startsWith('MOCK-') ? symbol.replace('MOCK-', '').split('.')[0].toUpperCase() : symbol;
   const formattedPoolReserves: ComputedReserveData[] = rawReserves.map((reserve) => {
     const formattedReserve = formatReserve({
       reserve,
       currentTimestamp,
     });
     const fullReserve: ComputedReserveData = {
-      ...reserve,
+      ...{
+        ...reserve,
+        symbol: formatSymbol(reserve.symbol),
+      },
       ...formattedReserve,
       priceInMarketReferenceCurrency: normalize(
         reserve.priceInMarketReferenceCurrency,
@@ -82,6 +88,10 @@ export function DynamicPoolDataProvider({ children }: PropsWithChildren<{}>) {
     userSummary = {
       id: userId,
       ...computedUserData,
+      userReservesData: computedUserData.userReservesData.map((userReserve) => ({
+        ...userReserve,
+        reserve: { ...userReserve.reserve, symbol: formatSymbol(userReserve.reserve.symbol) },
+      })),
     };
   }
   return (

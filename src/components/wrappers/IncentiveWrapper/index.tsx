@@ -28,7 +28,7 @@ export function getRewardTokenSymbol(
   ) {
     return 'AURORA';
   } else if (
-    rewardTokenAddress.toLowerCase() === '0x2f0becd13b5372188b5e05b7dfd31283b4b11789' || // aurora
+    rewardTokenAddress.toLowerCase() === '0x096f9fdda1e6f59ad2a8216bbd64daa9140222cc' || // aurora
     rewardTokenAddress.toLowerCase() === '0xbf26ee1dbc902d72867cfc212b8110e89d45908a' // hardhat
   ) {
     return 'CORN';
