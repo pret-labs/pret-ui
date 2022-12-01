@@ -284,6 +284,8 @@
   "components.wrappers.DepositBorrowMainWrapper.optionTitleLeft": "",
   "components.wrappers.DepositBorrowMainWrapper.optionTitleRight": "",
   "components.wrappers.DepositBorrowMainWrapper.total": "",
+  "components.wrappers.IncentiveWrapper.availableRewards": "",
+  "components.wrappers.IncentiveWrapper.totalPreMiningRewards": "",
   "components.wrappers.ScreensWrapper.pageTitle": "Mercati",
   "components.wrappers.TopPanelWrapper.expand": "Espandere",
   "components.wrappers.TopPanelWrapper.minimize": "Minimizzare",

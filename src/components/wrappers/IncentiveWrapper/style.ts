@@ -15,6 +15,7 @@ const staticStyles = css`
 
     &__incentives {
       display: flex;
+      flex-direction: column;
       align-items: center;
       @include respond-to(sm) {
         flex-direction: column;

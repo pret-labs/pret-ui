@@ -2,8 +2,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { useThemeContext } from '@pret/pret-ui-kit';
-import WalletIcon from '../../images/walletIcon.svg';
-
+import ConnectWalletRightArrowImage from '../../images/connectWalletRightArrow.svg';
 import { useUserWalletDataContext } from '../../libs/web3-data-provider';
 import { useMenuContext } from '../../libs/menu';
 
@@ -31,8 +30,8 @@ export default function ConnectButton({ className, size = 'normal' }: ConnectBut
       }}
     >
       <div className="ConnectButton__inner">
-        <img src={WalletIcon} alt="wallet connect" />
         <span>{intl.formatMessage(messages.connectWallet)}</span>
+        <img src={ConnectWalletRightArrowImage} alt="connect wallet" />
       </div>
 
       <style jsx={true}>{staticStyles}</style>

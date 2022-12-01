@@ -38,6 +38,7 @@ import { PermissionProvider } from './libs/use-permissions/usePermissions';
 import { DynamicPoolDataProvider } from './libs/pool-data-provider';
 import { ConnectionStatusProvider } from './libs/connection-status-provider';
 import { IncentivesDataProvider } from './libs/pool-data-provider/hooks/use-incentives-data-context';
+import { AirdropModalProvider } from './libs/airdrop-modal-provider';
 import { MarketTableItemAPYCellProvider } from './libs/market-table-item-apy-cell-provider';
 
 initSentry();
@@ -86,9 +87,11 @@ ReactDOM.render(
                                 <DynamicPoolDataProvider>
                                   <IncentivesDataProvider>
                                     <TxBuilderProvider>
-                                      <MarketTableItemAPYCellProvider>
-                                        <App />
-                                      </MarketTableItemAPYCellProvider>
+                                      <AirdropModalProvider>
+                                        <MarketTableItemAPYCellProvider>
+                                          <App />
+                                        </MarketTableItemAPYCellProvider>
+                                      </AirdropModalProvider>
                                     </TxBuilderProvider>
                                   </IncentivesDataProvider>
                                 </DynamicPoolDataProvider>

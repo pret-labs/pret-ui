@@ -109,12 +109,15 @@ const staticStyles = css`
 
   .ConnectButton {
     &__inner {
-      border-radius: 5px;
-      background: linear-gradient(95.47deg, #a46952 -0.58%, #8033cf 102.56%);
+      border-radius: 9999px;
+      background: linear-gradient(115deg, #da8b5c -8%, #d06697 38%, #bd4cbb 66%, #752cd3 107%);
       box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.38);
       transition: $transition;
       &:hover {
         filter: drop-shadow(0px 0px 4px #8533cf);
+      }
+      img {
+        margin-left: 8px;
       }
     }
   }
