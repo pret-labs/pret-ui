@@ -181,6 +181,33 @@ export default function ReserveInformation({
               />
             </APYCard>
 
+            {/* <APYCard title={intl.formatMessage(messages.stableBorrowing)} color="primary">
+              <APYLine
+                title={intl.formatMessage(messages.borrowAPY)}
+                value={reserveOverviewData.stableAPY}
+                condition={
+                  reserveOverviewData.borrowingEnabled &&
+                  reserveOverviewData.stableBorrowRateEnabled
+                }
+              />
+              <APYLine
+                title={intl.formatMessage(messages.borrowAPR)}
+                value={reserveOverviewData.stableAPR}
+                condition={
+                  reserveOverviewData.borrowingEnabled &&
+                  reserveOverviewData.stableBorrowRateEnabled
+                }
+              />
+              <APYLine
+                title={intl.formatMessage(messages.overTotal)}
+                value={reserveOverviewData.stableOverTotal}
+                condition={
+                  reserveOverviewData.borrowingEnabled &&
+                  reserveOverviewData.stableBorrowRateEnabled
+                }
+              />
+            </APYCard> */}
+
             <APYCard title={intl.formatMessage(messages.borrowing)} color="secondary">
               <APYLine
                 title={intl.formatMessage(messages.borrowAPY)}
