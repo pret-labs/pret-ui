@@ -39,6 +39,7 @@ import { DynamicPoolDataProvider } from './libs/pool-data-provider';
 import { ConnectionStatusProvider } from './libs/connection-status-provider';
 import { IncentivesDataProvider } from './libs/pool-data-provider/hooks/use-incentives-data-context';
 import { AirdropModalProvider } from './libs/airdrop-modal-provider';
+import { MarketTableItemAPYCellProvider } from './libs/market-table-item-apy-cell-provider';
 
 initSentry();
 Modal.setAppElement('#root');
@@ -87,7 +88,9 @@ ReactDOM.render(
                                   <IncentivesDataProvider>
                                     <TxBuilderProvider>
                                       <AirdropModalProvider>
-                                        <App />
+                                        <MarketTableItemAPYCellProvider>
+                                          <App />
+                                        </MarketTableItemAPYCellProvider>
                                       </AirdropModalProvider>
                                     </TxBuilderProvider>
                                   </IncentivesDataProvider>

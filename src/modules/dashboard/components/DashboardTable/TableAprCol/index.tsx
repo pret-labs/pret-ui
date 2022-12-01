@@ -4,9 +4,12 @@ import TableCol from '../TableCol';
 import LiquidityMiningCard from '../../../../../components/liquidityMining/LiquidityMiningCard';
 
 import staticStyles from './style';
+import MarketTableItemAPYCell from '../../../../markets/components/MarketTableItemAPYCell';
+import { RewardsAssets } from '../../../../../helpers/config/types';
 
 interface TableAprColProps {
   value: number;
+  currentSupplyTVL: string;
   thirtyDaysAverage?: string;
   liquidityMiningValue: string | number;
   condition?: boolean;
@@ -21,6 +24,7 @@ export default function TableAprCol({
   condition,
   type,
   symbol,
+  currentSupplyTVL,
 }: TableAprColProps) {
   return (
     <TableCol>
@@ -31,7 +35,11 @@ export default function TableAprCol({
         symbol={symbol}
         type={type}
       />
-
+      <MarketTableItemAPYCell
+        symbol={symbol as RewardsAssets}
+        type={type === 'deposit' ? 'deposit' : 'borrow'}
+        currentSupplyTVL={currentSupplyTVL}
+      />
       <style jsx={true} global={true}>
         {staticStyles}
       </style>

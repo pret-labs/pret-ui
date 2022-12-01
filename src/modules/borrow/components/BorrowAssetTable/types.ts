@@ -5,6 +5,7 @@ export type BorrowTableItem = {
   underlyingAsset: string;
   currentBorrows: number | string;
   currentBorrowsInUSD: number | string;
+  totalBorrowsInUSD: number | string;
   stableBorrowRate: number | string;
   variableBorrowRate: number | string;
   availableBorrows: number | string;

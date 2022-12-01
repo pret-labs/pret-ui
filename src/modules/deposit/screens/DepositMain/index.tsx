@@ -67,6 +67,10 @@ export default function DepositsMain() {
   const listData = (withFilter: boolean) => {
     const data = (reserves: ComputedReserveData[]) =>
       reserves.map<DepositTableItem>((reserve) => {
+        const totalLiquidityInUSD = valueToBigNumber(reserve.totalLiquidity)
+          .multipliedBy(reserve.priceInMarketReferenceCurrency)
+          .multipliedBy(marketRefPriceInUsd)
+          .toNumber();
         const userReserve = user?.userReservesData.find(
           (userRes) => userRes.reserve.symbol === reserve.symbol
         );
@@ -89,6 +93,7 @@ export default function DepositsMain() {
           ),
           walletBalance,
           walletBalanceInUSD,
+          totalLiquidityInUSD,
           underlyingBalance: userReserve ? userReserve.underlyingBalance : '0',
           underlyingBalanceInUSD: userReserve ? userReserve.underlyingBalanceUSD : '0',
           liquidityRate: reserve.supplyAPY,
