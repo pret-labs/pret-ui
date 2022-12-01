@@ -208,7 +208,7 @@ export default function ReserveInformation({
               />
             </APYCard> */}
 
-            <APYCard title={intl.formatMessage(messages.borrowing)} color="secondary">
+            <APYCard title={intl.formatMessage(messages.variableBorrowing)} color="secondary">
               <APYLine
                 title={intl.formatMessage(messages.borrowAPY)}
                 value={reserveOverviewData.variableAPY}
