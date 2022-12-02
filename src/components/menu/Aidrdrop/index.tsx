@@ -2,13 +2,13 @@ import { useIntl } from 'react-intl';
 import messages from './messages';
 import Fire from '../../../images/fire.svg';
 import AirdropModal from './AirdropModal';
-import { useState } from 'react';
 import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import { useMenuContext } from '../../../libs/menu';
+import { useAirdropModalContext } from '../../../libs/airdrop-modal-provider';
 
 function AirdropButton() {
   const intl = useIntl();
-  const [showAirdropModal, setShowAirdropModal] = useState(false);
+  const { showAirdropModal, setShowAirdropModal } = useAirdropModalContext();
 
   const { currentAccount } = useUserWalletDataContext();
 

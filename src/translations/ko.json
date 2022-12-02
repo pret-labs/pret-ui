@@ -284,6 +284,8 @@
   "components.wrappers.DepositBorrowMainWrapper.optionTitleLeft": "",
   "components.wrappers.DepositBorrowMainWrapper.optionTitleRight": "",
   "components.wrappers.DepositBorrowMainWrapper.total": "",
+  "components.wrappers.IncentiveWrapper.availableRewards": "",
+  "components.wrappers.IncentiveWrapper.totalPreMiningRewards": "",
   "components.wrappers.ScreensWrapper.pageTitle": "마켓",
   "components.wrappers.TopPanelWrapper.expand": "확장",
   "components.wrappers.TopPanelWrapper.minimize": "최소화",

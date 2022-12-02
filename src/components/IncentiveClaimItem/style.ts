@@ -9,23 +9,29 @@ const staticStyles = css.global`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 8px;
-    padding: 8px;
-    border-radius: $borderRadius;
+    border-radius: 4px;
     transition: $transition;
-    @include respond-to(xl) {
-      padding: 4px 6px;
-    }
-    @include respond-to(md) {
-      padding: 8px 6px;
-    }
-    @include respond-to(sm) {
-      width: 100%;
-      justify-content: space-between;
-      margin: 0 0 4px;
-    }
+    border: 1px solid #d4747f;
+
     &:last-of-type {
-      margin: 0;
+      margin: 8px 0;
+    }
+
+    &__title {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.16);
+      color: white;
+      max-width: 124px;
+      @include respond-to(sm) {
+        color: black;
+      }
+    }
+
+    &__valueOuter {
+      display: flex;
+      padding: 0 12px;
     }
 
     &__valueInner {
@@ -39,6 +45,8 @@ const staticStyles = css.global`
 
     &__icon,
     .TokenIcon__image {
+      width: 20px;
+      height: 20px;
       margin-right: 8px;
     }
 
@@ -52,8 +60,16 @@ const staticStyles = css.global`
       }
     }
 
-    .Link {
+    .ButtonLink {
+      padding: 3px 8px;
+      background: #b046bf;
       font-size: $regular;
+      color: white;
+      border-radius: 3px;
+      margin-left: 10px;
+      &:hover {
+        opacity: 0.8;
+      }
       @include respond-to(xl) {
         font-size: $small;
       }

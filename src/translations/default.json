@@ -284,6 +284,8 @@
   "components.wrappers.DepositBorrowMainWrapper.optionTitleLeft": "All",
   "components.wrappers.DepositBorrowMainWrapper.optionTitleRight": "Stable Coins",
   "components.wrappers.DepositBorrowMainWrapper.total": "Total",
+  "components.wrappers.IncentiveWrapper.availableRewards": "Available Rewards",
+  "components.wrappers.IncentiveWrapper.totalPreMiningRewards": "Total Pre-mining Rewards",
   "components.wrappers.ScreensWrapper.pageTitle": "Markets",
   "components.wrappers.TopPanelWrapper.expand": "Expand",
   "components.wrappers.TopPanelWrapper.minimize": "Minimize",

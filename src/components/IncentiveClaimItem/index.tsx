@@ -1,4 +1,3 @@
-import React from 'react';
 import { useIntl } from 'react-intl';
 import { CustomTooltip, TokenIcon, useThemeContext } from '@pret/pret-ui-kit';
 
@@ -11,10 +10,12 @@ import staticStyles from './style';
 import tribeIcon from '../../images/tirbe.svg';
 
 interface IncentiveClaimItemProps {
+  title: string;
   symbol: string;
   claimableRewards: string;
   incentiveControllerAddress: string;
   hasClaimButton?: boolean;
+  onClickClaimButton?: () => void;
 }
 
 export default function IncentiveClaimItem({
@@ -22,9 +23,11 @@ export default function IncentiveClaimItem({
   claimableRewards,
   incentiveControllerAddress,
   hasClaimButton,
+  title,
+  onClickClaimButton,
 }: IncentiveClaimItemProps) {
   const intl = useIntl();
-  const { currentTheme, xl, sm, isCurrentThemeDark } = useThemeContext();
+  const { xl, sm } = useThemeContext();
 
   const iconSize = xl && !sm ? 16 : 20;
 
@@ -33,57 +36,53 @@ export default function IncentiveClaimItem({
 
   return (
     <div className="IncentiveClaimItem" data-tip={true} data-for={tooltipId}>
-      <div className="IncentiveClaimItem__valueInner">
-        {symbol === 'TRIBE' ? (
-          <img
-            className="IncentiveClaimItem__icon"
-            src={tribeIcon}
-            style={{ width: iconSize, height: iconSize }}
-            alt=""
+      <p className="IncentiveClaimItem__title">{title}</p>
+      <div className="IncentiveClaimItem__valueOuter">
+        <div className="IncentiveClaimItem__valueInner">
+          {symbol === 'TRIBE' ? (
+            <img
+              className="IncentiveClaimItem__icon"
+              src={tribeIcon}
+              style={{ width: iconSize, height: iconSize }}
+              alt=""
+            />
+          ) : (
+            <TokenIcon tokenSymbol={symbol} height={iconSize} width={iconSize} />
+          )}
+          <Value value={claimableRewards} compact={true} color={sm ? 'dark' : 'white'} />
+        </div>
+
+        {hasClaimButton && !onClickClaimButton && (
+          <Link
+            to={rewardClaimLink}
+            onClick={onClickClaimButton}
+            className="ButtonLink"
+            disabled={claimableRewards === '0'}
+            title={intl.formatMessage(defaultMessages.claim)}
           />
-        ) : (
-          <TokenIcon tokenSymbol={symbol} height={iconSize} width={iconSize} />
         )}
-        <Value value={claimableRewards} compact={true} color={sm ? 'dark' : 'white'} />
+        {hasClaimButton && onClickClaimButton && (
+          <button
+            className="ButtonLink"
+            disabled={claimableRewards === '0'}
+            title={intl.formatMessage(defaultMessages.claim)}
+            onClick={onClickClaimButton}
+          >
+            {intl.formatMessage(defaultMessages.claim)}
+          </button>
+        )}
+
+        {!sm && (
+          <CustomTooltip
+            tooltipId={tooltipId}
+            text={`${Number(claimableRewards).toFixed(10)} ${symbol}`}
+          />
+        )}
       </div>
-
-      {hasClaimButton && (
-        <Link
-          to={rewardClaimLink}
-          className="ButtonLink"
-          disabled={claimableRewards === '0'}
-          title={intl.formatMessage(defaultMessages.claim)}
-        />
-      )}
-
-      {!sm && (
-        <CustomTooltip
-          tooltipId={tooltipId}
-          text={`${Number(claimableRewards).toFixed(10)} ${symbol}`}
-        />
-      )}
 
       <style jsx={true} global={true}>
         {staticStyles}
       </style>
-      <style jsx={true} global={true}>{`
-        .IncentiveClaimItem {
-          border: 1px solid ${currentTheme.lightBlue.hex};
-          &:hover {
-            border: 1px solid
-              ${sm && !isCurrentThemeDark ? currentTheme.lightBlue.hex : currentTheme.white.hex};
-          }
-
-          .Link {
-            color: ${sm && !isCurrentThemeDark
-              ? currentTheme.secondary.hex
-              : currentTheme.lightBlue.hex};
-            &:hover {
-              color: ${currentTheme.secondary.hex};
-            }
-          }
-        }
-      `}</style>
     </div>
   );
 }
