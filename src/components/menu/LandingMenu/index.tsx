@@ -10,7 +10,6 @@ import staticStyles from './style';
 import backIcon from '../../../images/mobileBackArrow.svg';
 import Link from '../../basic/Link';
 import LandingMobileContent from '../LandingMobileConetnt';
-import SocialMedia from '../../MenuSocialMedia/SociaMedia';
 
 interface MenuProps {
   title: string;
@@ -47,9 +46,6 @@ export default function LandingMenu({ title }: MenuProps) {
       </div>
 
       <div className="Menu__right-inner">
-        <div className="Menu__burger-media">
-          <SocialMedia className="SocialMedia_PC" />
-        </div>
         <div className="Menu__burger-inner">
           <LandingMobileContent isActive={isActive} currentAccount={currentAccount} />
         </div>
@@ -71,12 +67,6 @@ export default function LandingMenu({ title }: MenuProps) {
             p {
               color: ${currentTheme.white.hex};
             }
-          }
-        }
-
-        .SocialMedia_PC {
-          @include respond-to(sm) {
-            display: none;
           }
         }
       `}</style>
