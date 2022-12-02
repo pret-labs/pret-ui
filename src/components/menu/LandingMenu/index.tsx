@@ -48,7 +48,7 @@ export default function LandingMenu({ title }: MenuProps) {
 
       <div className="Menu__right-inner">
         <div className="Menu__burger-media">
-          <SocialMedia />
+          <SocialMedia className="SocialMedia_PC" />
         </div>
         <div className="Menu__burger-inner">
           <LandingMobileContent isActive={isActive} currentAccount={currentAccount} />
@@ -59,6 +59,8 @@ export default function LandingMenu({ title }: MenuProps) {
         {staticStyles}
       </style>
       <style jsx={true} global={true}>{`
+        @import 'src/_mixins/screen-size';
+
         .Menu {
           background: #181a20;
           &:after {
@@ -69,6 +71,12 @@ export default function LandingMenu({ title }: MenuProps) {
             p {
               color: ${currentTheme.white.hex};
             }
+          }
+        }
+
+        .SocialMedia_PC {
+          @include respond-to(sm) {
+            display: none;
           }
         }
       `}</style>

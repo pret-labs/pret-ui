@@ -14,6 +14,7 @@ import { mobileNavigation } from '../navigation';
 import { moreMenuExtraItems } from '../../../ui-config';
 
 import staticStyles from './style';
+import SocialMedia from '../../MenuSocialMedia/SociaMedia';
 
 interface MobileContentProps {
   isActive: (url: string) => boolean;
@@ -113,7 +114,6 @@ export default function LandingMobileContent({ isActive, currentAccount }: Mobil
               ))}
             </ul>
           </div>
-
           <div className="MobileContent__bottom">
             <ul className="MobileContent__bottom-links">
               {moreMenuExtraItems.map((link, index) => (
@@ -131,6 +131,10 @@ export default function LandingMobileContent({ isActive, currentAccount }: Mobil
               ))}
             </ul>
           </div>
+        </div>
+
+        <div className="MobileContent__SocialMediaWrapper">
+          <SocialMedia iconSize={28} />
         </div>
       </DropdownWrapper>
 

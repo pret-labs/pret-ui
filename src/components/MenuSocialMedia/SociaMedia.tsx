@@ -24,15 +24,23 @@ const icons: SocialIcon[] = [
   },
 ];
 
-function SocialMedia({ style }: { style?: CSSProperties }) {
+function SocialMedia({
+  style,
+  className,
+  iconSize = 24,
+}: {
+  style?: CSSProperties;
+  className?: string;
+  iconSize?: number;
+}) {
   return (
-    <div style={style}>
+    <div className={className} style={style}>
       <SocialIcons
         className="SocialIconsLinks"
         linkClassName="SocialIconsLink"
         icons={icons}
-        iconHeight={24}
-        iconWidth={24}
+        iconHeight={iconSize}
+        iconWidth={iconSize}
       />
       <style jsx={true} global={true}>{`
         .SocialIconsLinks {

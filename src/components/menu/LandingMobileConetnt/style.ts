@@ -128,6 +128,12 @@ const staticStyles = css.global`
     .MobileContent__content-wrapper.DropdownWrapper__contentVisible {
       right: 0;
     }
+    .MobileContent__SocialMediaWrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 40px;
+    }
 
     &__top {
       display: none;
