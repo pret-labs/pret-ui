@@ -8,6 +8,7 @@ import IncentiveClaimItem from '../../IncentiveClaimItem';
 
 import messages from './messages';
 import staticStyles from './style';
+import { useAirdropModalContext } from '../../../libs/airdrop-modal-provider';
 
 // Fetch reward token symbol from hard coded non-reserve tokens or from reserves array
 export function getRewardTokenSymbol(
@@ -28,7 +29,7 @@ export function getRewardTokenSymbol(
   ) {
     return 'AURORA';
   } else if (
-    rewardTokenAddress.toLowerCase() === '0x2f0becd13b5372188b5e05b7dfd31283b4b11789' || // aurora
+    rewardTokenAddress.toLowerCase() === '0x096f9fdda1e6f59ad2a8216bbd64daa9140222cc' || // aurora
     rewardTokenAddress.toLowerCase() === '0xbf26ee1dbc902d72867cfc212b8110e89d45908a' // hardhat
   ) {
     return 'CORN';
@@ -50,6 +51,7 @@ export default function IncentiveWrapper() {
 
   const { user, reserves } = useDynamicPoolDataContext();
   const { userIncentives } = useIncentivesDataContext();
+  const { setShowAirdropModal } = useAirdropModalContext();
 
   // Only display assets for which user has claimable rewards
   const usersIncentivesFiltered = userIncentives
@@ -64,8 +66,6 @@ export default function IncentiveWrapper() {
 
   return (
     <div className="IncentiveWrapper">
-      <p className="IncentiveWrapper__title">{intl.formatMessage(messages.availableReward)}</p>
-
       <div className="IncentiveWrapper__incentives">
         {usersIncentivesFiltered.map((usersIncentivesFiltered, idx) => {
           return Object.entries(usersIncentivesFiltered).map((incentive) => {
@@ -82,8 +82,20 @@ export default function IncentiveWrapper() {
 
             return (
               <IncentiveClaimItem
+                title={
+                  idx === 0
+                    ? intl.formatMessage(messages.availableRewards)
+                    : intl.formatMessage(messages.totalPreMiningRewards)
+                }
                 key={incentive[0]}
                 hasClaimButton
+                onClickClaimButton={
+                  idx === 1
+                    ? () => {
+                        setShowAirdropModal(true);
+                      }
+                    : undefined
+                }
                 symbol={rewardTokenSymbol}
                 claimableRewards={claimableRewards}
                 incentiveControllerAddress={incentive[0]}

@@ -32,12 +32,11 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       incentives: true,
     },
     addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0x94DE7fCd50f33D2598639F9abaFED90Ba0eB9a11'.toLowerCase(),
-      LENDING_POOL: '0xF0a2a17FD7E086ba158102fe3BD1cd9C39C8DcE8',
-      WETH_GATEWAY: '0x3C53EBE3b6560EB54e9C5eeb287b139Be766A0Fc',
+      LENDING_POOL_ADDRESS_PROVIDER: '0x12fCaa62d89D57e96fAbBbBf9c870C3721973480'.toLowerCase(),
+      LENDING_POOL: '0x293a457DEAFc910AAB0a3A900bff989ed0052D8E',
+      WETH_GATEWAY: '0x80905FE345aF8B3699905d71009A33CF5dC3aAa8',
       // SWAP_COLLATERAL_ADAPTER: '0x2EcF2a2e74B19Aab2a62312167aFF4B78E93B6C5',
     },
-    cornPrice: '1',
     auroraRewards: {
       [RewardsAssets.WNEAR]: {
         depositRewardsPerDay: 1000,
@@ -77,7 +76,7 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
     cornTokenParams: {
       type: 'ERC20',
       options: {
-        address: '0x2F0becD13b5372188B5E05b7DfD31283b4b11789',
+        address: '0x096f9fdda1e6f59ad2a8216bbd64daa9140222cc',
         symbol: 'CORN',
         decimals: 18,
       },

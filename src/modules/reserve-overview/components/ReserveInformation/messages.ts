@@ -9,7 +9,7 @@ export default defineMessages({
 
   depositAPY: 'Deposit APY',
   depositAPR: 'Deposit APR',
-  variableBorrowing: 'Variable borrowing',
+  variableBorrowing: 'Borrowing',
   borrowAPY: 'Borrow APY',
   borrowAPR: 'Borrow APR',
   overTotal: '% over total',

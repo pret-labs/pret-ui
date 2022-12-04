@@ -284,6 +284,8 @@
   "components.wrappers.DepositBorrowMainWrapper.optionTitleLeft": "",
   "components.wrappers.DepositBorrowMainWrapper.optionTitleRight": "",
   "components.wrappers.DepositBorrowMainWrapper.total": "",
+  "components.wrappers.IncentiveWrapper.availableRewards": "",
+  "components.wrappers.IncentiveWrapper.totalPreMiningRewards": "",
   "components.wrappers.ScreensWrapper.pageTitle": "Piyasalar",
   "components.wrappers.TopPanelWrapper.expand": "Genişlet",
   "components.wrappers.TopPanelWrapper.minimize": "En aza indirmek",
