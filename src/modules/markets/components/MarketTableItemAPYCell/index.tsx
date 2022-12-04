@@ -2,7 +2,6 @@ import { BigNumber } from '@aave/protocol-js';
 import { useThemeContext, getAssetInfo } from '@pret/pret-ui-kit';
 import { useEffect, useState } from 'react';
 import { RewardsAssets } from '../../../../helpers/config/types';
-import { isValid } from '../../../../helpers/number';
 import { useMarketTableItemAPYCellContext } from '../../../../libs/market-table-item-apy-cell-provider';
 import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
 
@@ -21,8 +20,14 @@ function calculateApy({
 }) {
   const dailyROI = new BigNumber(rewardsPerDay).multipliedBy(tokenPrice).div(currentSupplyTVL);
   const apy = dailyROI.plus(1).pow(365).minus(1);
-  if (!isValid(apy.toString())) return '-';
-  return apy.multipliedBy(100).toFixed(2);
+
+  if (new BigNumber(rewardsPerDay).eq(0) || new BigNumber(tokenPrice).eq(0)) {
+    return '0';
+  } else if (new BigNumber(currentSupplyTVL).eq(0)) {
+    return 'Infinity';
+  } else {
+    return apy.multipliedBy(100).toFixed(2);
+  }
 }
 
 interface MarketTableItemAPYCellProps {
