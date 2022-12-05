@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { useSwipeable } from 'react-swipeable';
-import { useThemeContext, DropdownWrapper, SocialIcons } from '@pret/pret-ui-kit';
+import { useThemeContext, DropdownWrapper } from '@pret/pret-ui-kit';
 
 import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 import { useMenuContext } from '../../../libs/menu';
@@ -11,9 +11,10 @@ import Link from '../../basic/Link';
 import AddressInfo from '../AddressInfo';
 
 import { mobileNavigation } from '../navigation';
-import { moreMenuExtraItems, socialIcons } from '../../../ui-config';
+import { moreMenuExtraItems } from '../../../ui-config';
 
 import staticStyles from './style';
+import SocialMedia from '../../MenuSocialMedia/SociaMedia';
 
 interface MobileContentProps {
   isActive: (url: string) => boolean;
@@ -113,7 +114,6 @@ export default function LandingMobileContent({ isActive, currentAccount }: Mobil
               ))}
             </ul>
           </div>
-
           <div className="MobileContent__bottom">
             <ul className="MobileContent__bottom-links">
               {moreMenuExtraItems.map((link, index) => (
@@ -130,15 +130,11 @@ export default function LandingMobileContent({ isActive, currentAccount }: Mobil
                 </li>
               ))}
             </ul>
-
-            <SocialIcons
-              icons={socialIcons}
-              className="MobileContent__social-icons"
-              iconHeight={40}
-              iconWidth={40}
-              white={true}
-            />
           </div>
+        </div>
+
+        <div className="MobileContent__SocialMediaWrapper">
+          <SocialMedia className="SocialMedia_MB" iconSize={28} />
         </div>
       </DropdownWrapper>
 
@@ -146,6 +142,16 @@ export default function LandingMobileContent({ isActive, currentAccount }: Mobil
         {staticStyles}
       </style>
       <style jsx={true} global={true}>{`
+        @import 'src/_mixins/screen-size';
+        .SocialMedia_MB {
+          display: none;
+          @include respond-to(sm) {
+            display: block;
+          }
+          @include respond-to(xs) {
+            display: block;
+          }
+        }
         .MobileContent {
           &__button-inner,
           &__button-inner:before,

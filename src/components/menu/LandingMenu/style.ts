@@ -107,6 +107,11 @@ const staticStyles = css.global`
       display: none;
     }
 
+    &__burger-media {
+      color: white;
+      position: absolute;
+      right: 50px;
+    }
     &__burger-inner {
       position: absolute;
       right: 0;
