@@ -670,7 +670,7 @@
   "modules.markets.components.MarketTableItem.provideLiquidity": "",
   "modules.markets.components.SelectMarketPanel.pleaseSelectAMarket": "请选择市场",
   "modules.markets.components.TotalMarketsSize.title": "",
-  "modules.markets.screens.Markets.native": "本地",
+  "modules.markets.screens.Markets.native": "本币",
   "modules.markets.screens.Markets.pageTitle": "市场",
   "modules.markets.screens.Markets.rewardsInformation": "",
   "modules.markets.screens.Markets.selectMarket": "",
