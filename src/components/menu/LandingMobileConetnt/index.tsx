@@ -134,7 +134,7 @@ export default function LandingMobileContent({ isActive, currentAccount }: Mobil
         </div>
 
         <div className="MobileContent__SocialMediaWrapper">
-          <SocialMedia iconSize={28} />
+          <SocialMedia className="SocialMedia_MB" iconSize={28} />
         </div>
       </DropdownWrapper>
 
@@ -142,6 +142,16 @@ export default function LandingMobileContent({ isActive, currentAccount }: Mobil
         {staticStyles}
       </style>
       <style jsx={true} global={true}>{`
+        @import 'src/_mixins/screen-size';
+        .SocialMedia_MB {
+          display: none;
+          @include respond-to(sm) {
+            display: block;
+          }
+          @include respond-to(xs) {
+            display: block;
+          }
+        }
         .MobileContent {
           &__button-inner,
           &__button-inner:before,

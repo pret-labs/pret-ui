@@ -75,6 +75,9 @@ export default function LandingMenu({ title }: MenuProps) {
         }
 
         .SocialMedia_PC {
+          @include respond-to(xs) {
+            display: none;
+          }
           @include respond-to(sm) {
             display: none;
           }
