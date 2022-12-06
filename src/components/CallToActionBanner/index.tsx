@@ -1,9 +1,9 @@
 import { Button } from '@pret/pret-ui-kit';
 import staticStyles from './style';
 
-import BTC from '../../images/tokens/btc.svg';
-import ETH from '../../images/tokens/eth.svg';
-import DAI from '../../images/tokens/dai.svg';
+// import BTC from '../../images/tokens/btc.svg';
+// import ETH from '../../images/tokens/eth.svg';
+// import DAI from '../../images/tokens/dai.svg';
 import USDC from '../../images/tokens/usdc.svg';
 import USDT from '../../images/tokens/usdt.svg';
 import NEAR from '../../images/tokens/near.svg';
@@ -14,18 +14,18 @@ import { useWeb3React } from '@web3-react/core';
 import { useStaticPoolDataContext } from '../../libs/pool-data-provider';
 
 const images = [
-  {
-    image: BTC,
-    title: 'BTC',
-  },
-  {
-    image: ETH,
-    title: 'ETH',
-  },
-  {
-    image: DAI,
-    title: 'DAI',
-  },
+  // {
+  //   image: BTC,
+  //   title: 'BTC',
+  // },
+  // {
+  //   image: ETH,
+  //   title: 'ETH',
+  // },
+  // {
+  //   image: DAI,
+  //   title: 'DAI',
+  // },
   {
     image: USDC,
     title: 'USDC',
