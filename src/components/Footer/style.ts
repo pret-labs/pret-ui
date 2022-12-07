@@ -6,13 +6,14 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .Footer {
+    background: #181a20;
     position: relative;
     z-index: 2;
     padding: 10px 15px 10px;
     display: flex;
     align-items: center;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     @include respond-to(xl) {
       padding: 10px 10px 5px;
     }
@@ -24,6 +25,16 @@ const staticStyles = css.global`
       @include respond-to(md) {
         display: none;
       }
+    }
+    &__innerdiv {
+      margin: 40px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__incubatedby {
+      color: #a3a3a6;
+      margin-right: 10px;
     }
 
     .DarkModeSwitcher {

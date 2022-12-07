@@ -1,7 +1,6 @@
-import React from 'react';
 import classNames from 'classnames';
-import { DarkModeSwitcher, useThemeContext } from '@pret/pret-ui-kit';
-
+import { DarkModeSwitcher } from '@pret/pret-ui-kit';
+import CornerstoneFooterImage from '../../images/cornerstone-footer.svg';
 import LangSwitcher from '../basic/LangSwitcher';
 
 import staticStyles from './style';
@@ -12,24 +11,25 @@ interface FooterProps {
 }
 
 export default function Footer({ inside, absoluteBottom }: FooterProps) {
-  const { isCurrentThemeDark } = useThemeContext();
   return (
     <footer
       className={classNames('Footer', absoluteBottom && 'Footer__bottom', {
         Footer__inside: inside,
       })}
     >
-      <DarkModeSwitcher />
-      <LangSwitcher />
+      <div className="Footer__innerdiv" />
+      <div className="Footer__innerdiv">
+        <p className="Footer__incubatedby">Incubated by:</p>
+        <img src={CornerstoneFooterImage} height={22} width="auto" alt="cornerstone" />
+      </div>
+      <div className="Footer__innerdiv">
+        <DarkModeSwitcher />
+        <LangSwitcher />
+      </div>
 
       <style jsx={true} global={true}>
         {staticStyles}
       </style>
-      <style jsx={true} global={true}>{`
-        .Footer__bottom {
-          background: ${isCurrentThemeDark ? '#1e2329' : 'rgba(0, 0, 0, 0.04)'};
-        }
-      `}</style>
     </footer>
   );
 }
