@@ -17,12 +17,12 @@ export default function Footer({ inside, absoluteBottom }: FooterProps) {
         Footer__inside: inside,
       })}
     >
-      <div className="Footer__innerdiv" />
+      <div className="Footer__innerdiv Footer__hideInMobile" />
       <div className="Footer__innerdiv">
         <p className="Footer__incubatedby">Incubated by</p>
         <img src={CornerstoneFooterImage} height={22} width="auto" alt="cornerstone" />
       </div>
-      <div className="Footer__innerdiv">
+      <div className="Footer__innerdiv Footer__hideInMobile">
         <DarkModeSwitcher />
         <LangSwitcher />
       </div>
