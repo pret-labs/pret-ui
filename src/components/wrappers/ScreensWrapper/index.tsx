@@ -67,7 +67,7 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
         </TitleContext.Provider>
       </main>
 
-      <Footer inside={true} />
+      <Footer />
 
       <img
         className="ScreensWrapper__background"
